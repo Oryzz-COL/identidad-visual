@@ -1,0 +1,281 @@
+{
+  "nota": "Zona de texto en px del PNG exportado y en % del lienzo [x, y, ancho, alto]. El nodo lima queda siempre fuera.",
+  "fondos": [
+    {
+      "id": "01",
+      "archivo": "oryzz-fondo-01_orbita_oscuro_16x9",
+      "formato": "16x9",
+      "tema": "oscuro",
+      "receta": "orbita",
+      "px": [
+        1920,
+        1080
+      ],
+      "zona_texto_px": [
+        120,
+        120,
+        880,
+        840
+      ],
+      "zona_texto_pct": [
+        6.2,
+        11.1,
+        45.8,
+        77.8
+      ]
+    },
+    {
+      "id": "02",
+      "archivo": "oryzz-fondo-02_orbita_claro_16x9",
+      "formato": "16x9",
+      "tema": "claro",
+      "receta": "orbita",
+      "px": [
+        1920,
+        1080
+      ],
+      "zona_texto_px": [
+        120,
+        120,
+        960,
+        840
+      ],
+      "zona_texto_pct": [
+        6.2,
+        11.1,
+        50.0,
+        77.8
+      ]
+    },
+    {
+      "id": "03",
+      "archivo": "oryzz-fondo-03_rutas_oscuro_16x9",
+      "formato": "16x9",
+      "tema": "oscuro",
+      "receta": "rutas",
+      "px": [
+        1920,
+        1080
+      ],
+      "zona_texto_px": [
+        120,
+        120,
+        1000,
+        440
+      ],
+      "zona_texto_pct": [
+        6.2,
+        11.1,
+        52.1,
+        40.7
+      ]
+    },
+    {
+      "id": "04",
+      "archivo": "oryzz-fondo-04_reticula_claro_16x9",
+      "formato": "16x9",
+      "tema": "claro",
+      "receta": "reticula",
+      "px": [
+        1920,
+        1080
+      ],
+      "zona_texto_px": [
+        120,
+        360,
+        1000,
+        600
+      ],
+      "zona_texto_pct": [
+        6.2,
+        33.3,
+        52.1,
+        55.6
+      ]
+    },
+    {
+      "id": "05",
+      "archivo": "oryzz-fondo-05_orbita_oscuro_4x5",
+      "formato": "4x5",
+      "tema": "oscuro",
+      "receta": "orbita",
+      "px": [
+        1080,
+        1350
+      ],
+      "zona_texto_px": [
+        96,
+        96,
+        888,
+        620
+      ],
+      "zona_texto_pct": [
+        8.9,
+        7.1,
+        82.2,
+        45.9
+      ]
+    },
+    {
+      "id": "06",
+      "archivo": "oryzz-fondo-06_orbita_claro_4x5",
+      "formato": "4x5",
+      "tema": "claro",
+      "receta": "orbita",
+      "px": [
+        1080,
+        1350
+      ],
+      "zona_texto_px": [
+        96,
+        700,
+        888,
+        554
+      ],
+      "zona_texto_pct": [
+        8.9,
+        51.9,
+        82.2,
+        41.0
+      ]
+    },
+    {
+      "id": "07",
+      "archivo": "oryzz-fondo-07_nodos_oscuro_4x5",
+      "formato": "4x5",
+      "tema": "oscuro",
+      "receta": "nodos",
+      "px": [
+        1080,
+        1350
+      ],
+      "zona_texto_px": [
+        96,
+        96,
+        888,
+        600
+      ],
+      "zona_texto_pct": [
+        8.9,
+        7.1,
+        82.2,
+        44.4
+      ]
+    },
+    {
+      "id": "08",
+      "archivo": "oryzz-fondo-08_orbita_oscuro_9x16",
+      "formato": "9x16",
+      "tema": "oscuro",
+      "receta": "orbita",
+      "px": [
+        1080,
+        1920
+      ],
+      "zona_texto_px": [
+        96,
+        192,
+        888,
+        900
+      ],
+      "zona_texto_pct": [
+        8.9,
+        10.0,
+        82.2,
+        46.9
+      ]
+    },
+    {
+      "id": "09",
+      "archivo": "oryzz-fondo-09_orbita_claro_9x16",
+      "formato": "9x16",
+      "tema": "claro",
+      "receta": "orbita",
+      "px": [
+        1080,
+        1920
+      ],
+      "zona_texto_px": [
+        96,
+        960,
+        888,
+        768
+      ],
+      "zona_texto_pct": [
+        8.9,
+        50.0,
+        82.2,
+        40.0
+      ]
+    },
+    {
+      "id": "10",
+      "archivo": "oryzz-fondo-10_rutas_oscuro_9x16",
+      "formato": "9x16",
+      "tema": "oscuro",
+      "receta": "rutas",
+      "px": [
+        1080,
+        1920
+      ],
+      "zona_texto_px": [
+        96,
+        192,
+        888,
+        720
+      ],
+      "zona_texto_pct": [
+        8.9,
+        10.0,
+        82.2,
+        37.5
+      ]
+    },
+    {
+      "id": "11",
+      "archivo": "oryzz-fondo-11_orbita_oscuro_A4",
+      "formato": "A4",
+      "tema": "oscuro",
+      "receta": "orbita",
+      "px": [
+        2480,
+        3508
+      ],
+      "zona_texto_px": [
+        200,
+        280,
+        1800,
+        1520
+      ],
+      "zona_texto_pct": [
+        8.1,
+        8.0,
+        72.6,
+        43.3
+      ]
+    },
+    {
+      "id": "12",
+      "archivo": "oryzz-fondo-12_orbita_claro_A4",
+      "formato": "A4",
+      "tema": "claro",
+      "receta": "orbita",
+      "px": [
+        2480,
+        3508
+      ],
+      "zona_texto_px": [
+        200,
+        1800,
+        2000,
+        1400
+      ],
+      "zona_texto_pct": [
+        8.1,
+        51.3,
+        80.6,
+        39.9
+      ]
+    }
+  ]
+}
