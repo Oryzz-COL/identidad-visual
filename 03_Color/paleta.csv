@@ -1,0 +1,33 @@
+﻿Grupo;Nombre;Token;HEX;R;G;B;H;S %;L %;C;M;Y;K;Nota CMYK;Pantone sugerido;Nota Pantone;Contraste con blanco;Contraste con Grafito 950;Uso
+Grafito;Grafito 950;grafito.950;#0B0D12;11;13;18;223;24;6;60;45;34;93;aproximado, pedir prueba de color;Black 6 C;referencia a validar con guía Pantone física;19,43;1,0;"Fondo principal oscuro; texto sobre claro"
+Grafito;Grafito 900;grafito.900;#0E1118;14;17;24;222;26;7;60;45;34;91;aproximado, pedir prueba de color;Black 6 C (70 %);referencia a validar con guía Pantone física;18,88;1,03;Fondo alternativo de sección en oscuro
+Grafito;Grafito 850;grafito.850;#12151D;18;21;29;224;23;9;60;45;34;89;aproximado, pedir prueba de color;419 C;referencia a validar con guía Pantone física;18,25;1,06;Superficie / tarjetas en oscuro
+Grafito;Grafito 800;grafito.800;#171B25;23;27;37;223;23;12;60;45;34;85;aproximado, pedir prueba de color;433 C;referencia a validar con guía Pantone física;17,21;1,13;Superficie elevada en oscuro
+Grafito;Grafito 700;grafito.700;#232836;35;40;54;224;21;17;35;26;0;79;aproximado, pedir prueba de color;432 C;referencia a validar con guía Pantone física;14,7;1,32;Bordes y órbitas en oscuro
+Grafito;Grafito 600;grafito.600;#3A4152;58;65;82;223;17;27;29;21;0;68;aproximado, pedir prueba de color;7545 C;referencia a validar con guía Pantone física;10,2;1,9;Texto secundario sobre claro
+Grafito;Grafito 500;grafito.500;#5A6172;90;97;114;223;12;40;21;15;0;55;aproximado, pedir prueba de color;431 C;referencia a validar con guía Pantone física;6,2;3,14;Texto terciario sobre claro
+Grafito;Titanio 400;grafito.400;#8A90A0;138;144;160;224;10;58;14;10;0;37;aproximado, pedir prueba de color;430 C;referencia a validar con guía Pantone física;3,19;6,09;Texto terciario sobre oscuro (no sobre blanco)
+Grafito;Grafito 300;grafito.300;#C7CBD6;199;203;214;224;15;81;7;5;0;16;aproximado, pedir prueba de color;428 C;referencia a validar con guía Pantone física;1,62;11,98;Iconos inactivos sobre claro, rellenos de gráfico
+Grafito;Grafito 200;grafito.200;#D5D9E0;213;217;224;218;15;86;5;3;0;12;aproximado, pedir prueba de color;649 C;referencia a validar con guía Pantone física;1,42;13,73;"Bordes en claro; texto secundario en oscuro"
+Grafito;Grafito 100;grafito.100;#E5E8EE;229;232;238;220;21;92;4;3;0;7;aproximado, pedir prueba de color;656 C;referencia a validar con guía Pantone física;1,23;15,83;Separadores y superficies claras
+Grafito;Grafito 50;grafito.50;#F6F7F9;246;247;249;220;20;97;1;1;0;2;aproximado, pedir prueba de color;—;sin tinta directa;1,07;18,13;Fondo claro alternativo (papel)
+Grafito;Blanco;grafito.0;#FFFFFF;255;255;255;0;0;100;0;0;0;0;aproximado, pedir prueba de color;—;sin tinta directa;1,0;19,43;"Fondo claro principal; texto sobre oscuro"
+Azul;Azul 50;azul.50;#EEF3FF;238;243;255;222;100;97;7;5;0;0;aproximado, pedir prueba de color;656 C;referencia a validar con guía Pantone física;1,11;17,49;Fondo de aviso informativo en claro
+Azul;Azul 300;azul.300;#9FB8FF;159;184;255;224;100;81;38;28;0;0;aproximado, pedir prueba de color;2717 C;referencia a validar con guía Pantone física;1,95;9,97;Enlaces sobre oscuro
+Azul;Azul 400;azul.400;#5C8BFF;92;139;255;223;100;68;64;45;0;0;aproximado, pedir prueba de color;2718 C;referencia a validar con guía Pantone física;3,19;6,1;"Azul de marca sobre oscuro; inicio del gradiente oscuro"
+Azul;Azul IA 500;azul.500;#3B72FF;59;114;255;223;100;62;77;55;0;0;aproximado, pedir prueba de color;2727 C;referencia a validar con guía Pantone física;4,17;4,66;Color de marca: logo, gráficos, acento (texto ≥ 24 px)
+Azul;Azul 600;azul.600;#2C5BD0;44;91;208;223;65;49;79;56;0;18;aproximado, pedir prueba de color;2726 C;referencia a validar con guía Pantone física;5,98;3,25;Botones y enlaces sobre claro
+Azul;Azul 700;azul.700;#1F43A0;31;67;160;223;68;37;81;58;0;37;aproximado, pedir prueba de color;2728 C;referencia a validar con guía Pantone física;8,87;2,19;Estado pulsado sobre claro
+Azul;Azul 900;azul.900;#0F1E4A;15;30;74;225;66;17;80;59;0;71;aproximado, pedir prueba de color;2767 C;referencia a validar con guía Pantone física;16,09;1,21;Fondos de dato azul muy oscuros
+Cyan;Cyan 50;cyan.50;#E8FAFC;232;250;252;186;77;95;8;1;0;1;aproximado, pedir prueba de color;9520 C;referencia a validar con guía Pantone física;1,08;18,06;Fondo suave de dato en claro
+Cyan;Cyan 300;cyan.300;#7DE6F2;125;230;242;186;82;72;48;5;0;5;aproximado, pedir prueba de color;311 C (tinta 60 %);referencia a validar con guía Pantone física;1,45;13,39;Datos secundarios sobre oscuro
+Cyan;Cyan 500;cyan.500;#36CFE0;54;207;224;186;73;55;76;8;0;12;aproximado, pedir prueba de color;311 C;referencia a validar con guía Pantone física;1,88;10,33;"Final del gradiente en oscuro; datos"
+Cyan;Cyan 600;cyan.600;#17A9C2;23;169;194;189;79;43;88;13;0;24;aproximado, pedir prueba de color;3125 C;referencia a validar con guía Pantone física;2,8;6,93;Final del gradiente en claro
+Lima;Lima 50;lima.50;#F4FCE0;244;252;224;77;82;93;3;0;11;1;aproximado, pedir prueba de color;7485 C;referencia a validar con guía Pantone física;1,06;18,37;Fondo de «en marcha» en claro
+Lima;Lima 300;lima.300;#E4F7B4;228;247;180;77;81;84;8;0;27;3;aproximado, pedir prueba de color;373 C;referencia a validar con guía Pantone física;1,15;16,9;Texto lima atenuado sobre oscuro
+Lima;Lima 500;lima.500;#BFF24A;191;242;74;78;87;62;21;0;69;5;aproximado, pedir prueba de color;374 C;referencia a validar con guía Pantone física;1,31;14,82;El nodo: dato destacado, acción, «en marcha» (sobre oscuro)
+Lima;Lima 600;lima.600;#7FB02E;127;176;46;83;59;44;28;0;74;31;aproximado, pedir prueba de color;376 C;referencia a validar con guía Pantone física;2,58;7,54;Nodo sobre fondo claro (no para texto pequeño)
+Lima;Lima 900;lima.900;#3A4A12;58;74;18;77;61;18;22;0;76;71;aproximado, pedir prueba de color;5747 C;referencia a validar con guía Pantone física;9,69;2,01;Texto sobre fondos lima claros
+Estado;Éxito;estado.exito;#1F9D55;31;157;85;146;67;37;80;0;46;38;aproximado, pedir prueba de color;355 C;referencia a validar con guía Pantone física;3,49;5,56;Confirmaciones
+Estado;Aviso;estado.aviso;#F2A33A;242;163;58;34;88;59;0;33;76;5;aproximado, pedir prueba de color;1375 C;referencia a validar con guía Pantone física;2,08;9,32;Avisos (con texto Grafito 950)
+Estado;Error;estado.error;#E5484D;229;72;77;358;75;59;0;69;66;10;aproximado, pedir prueba de color;7417 C;referencia a validar con guía Pantone física;3,91;4,97;Errores y validación

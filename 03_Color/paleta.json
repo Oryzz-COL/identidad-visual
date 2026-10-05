@@ -1,0 +1,827 @@
+{
+  "marca": "Oryzz",
+  "version": "2.0",
+  "fecha": "2026-09-29",
+  "fuente": "00_Fuente_Maestra/tokens.json",
+  "notas": {
+    "cmyk": "CMYK aproximado, pedir prueba de color. Conversión sin perfil ICC; para imprenta pedir prueba de color (FOGRA39 / estucado).",
+    "pantone": "Pantone referencia a validar con guía Pantone física. Es la coincidencia visual más cercana en Pantone Solid Coated.",
+    "proporcion": "60 % Grafito · 25 % Blanco / Grafito 50 · 10 % Azul IA / Cyan · ≤ 5 % Lima"
+  },
+  "gradientes": {
+    "ia-oscuro": "linear-gradient(135deg, #5C8BFF 0%, #36CFE0 100%)",
+    "ia-claro": "linear-gradient(135deg, #3B72FF 0%, #17A9C2 100%)"
+  },
+  "grupos": {
+    "Grafito": [
+      {
+        "nombre": "Grafito 950",
+        "token": "grafito.950",
+        "hex": "#0B0D12",
+        "rgb": {
+          "r": 11,
+          "g": 13,
+          "b": 18
+        },
+        "hsl": {
+          "h": 223,
+          "s": 24,
+          "l": 6
+        },
+        "cmyk_aproximado": {
+          "c": 60,
+          "m": 45,
+          "y": 34,
+          "k": 93
+        },
+        "pantone_sugerido": "Black 6 C",
+        "uso": "Fondo principal oscuro; texto sobre claro",
+        "contraste_con_blanco": 19.43,
+        "contraste_con_grafito_950": 1.0
+      },
+      {
+        "nombre": "Grafito 900",
+        "token": "grafito.900",
+        "hex": "#0E1118",
+        "rgb": {
+          "r": 14,
+          "g": 17,
+          "b": 24
+        },
+        "hsl": {
+          "h": 222,
+          "s": 26,
+          "l": 7
+        },
+        "cmyk_aproximado": {
+          "c": 60,
+          "m": 45,
+          "y": 34,
+          "k": 91
+        },
+        "pantone_sugerido": "Black 6 C (70 %)",
+        "uso": "Fondo alternativo de sección en oscuro",
+        "contraste_con_blanco": 18.88,
+        "contraste_con_grafito_950": 1.03
+      },
+      {
+        "nombre": "Grafito 850",
+        "token": "grafito.850",
+        "hex": "#12151D",
+        "rgb": {
+          "r": 18,
+          "g": 21,
+          "b": 29
+        },
+        "hsl": {
+          "h": 224,
+          "s": 23,
+          "l": 9
+        },
+        "cmyk_aproximado": {
+          "c": 60,
+          "m": 45,
+          "y": 34,
+          "k": 89
+        },
+        "pantone_sugerido": "419 C",
+        "uso": "Superficie / tarjetas en oscuro",
+        "contraste_con_blanco": 18.25,
+        "contraste_con_grafito_950": 1.06
+      },
+      {
+        "nombre": "Grafito 800",
+        "token": "grafito.800",
+        "hex": "#171B25",
+        "rgb": {
+          "r": 23,
+          "g": 27,
+          "b": 37
+        },
+        "hsl": {
+          "h": 223,
+          "s": 23,
+          "l": 12
+        },
+        "cmyk_aproximado": {
+          "c": 60,
+          "m": 45,
+          "y": 34,
+          "k": 85
+        },
+        "pantone_sugerido": "433 C",
+        "uso": "Superficie elevada en oscuro",
+        "contraste_con_blanco": 17.21,
+        "contraste_con_grafito_950": 1.13
+      },
+      {
+        "nombre": "Grafito 700",
+        "token": "grafito.700",
+        "hex": "#232836",
+        "rgb": {
+          "r": 35,
+          "g": 40,
+          "b": 54
+        },
+        "hsl": {
+          "h": 224,
+          "s": 21,
+          "l": 17
+        },
+        "cmyk_aproximado": {
+          "c": 35,
+          "m": 26,
+          "y": 0,
+          "k": 79
+        },
+        "pantone_sugerido": "432 C",
+        "uso": "Bordes y órbitas en oscuro",
+        "contraste_con_blanco": 14.7,
+        "contraste_con_grafito_950": 1.32
+      },
+      {
+        "nombre": "Grafito 600",
+        "token": "grafito.600",
+        "hex": "#3A4152",
+        "rgb": {
+          "r": 58,
+          "g": 65,
+          "b": 82
+        },
+        "hsl": {
+          "h": 223,
+          "s": 17,
+          "l": 27
+        },
+        "cmyk_aproximado": {
+          "c": 29,
+          "m": 21,
+          "y": 0,
+          "k": 68
+        },
+        "pantone_sugerido": "7545 C",
+        "uso": "Texto secundario sobre claro",
+        "contraste_con_blanco": 10.2,
+        "contraste_con_grafito_950": 1.9
+      },
+      {
+        "nombre": "Grafito 500",
+        "token": "grafito.500",
+        "hex": "#5A6172",
+        "rgb": {
+          "r": 90,
+          "g": 97,
+          "b": 114
+        },
+        "hsl": {
+          "h": 223,
+          "s": 12,
+          "l": 40
+        },
+        "cmyk_aproximado": {
+          "c": 21,
+          "m": 15,
+          "y": 0,
+          "k": 55
+        },
+        "pantone_sugerido": "431 C",
+        "uso": "Texto terciario sobre claro",
+        "contraste_con_blanco": 6.2,
+        "contraste_con_grafito_950": 3.14
+      },
+      {
+        "nombre": "Titanio 400",
+        "token": "grafito.400",
+        "hex": "#8A90A0",
+        "rgb": {
+          "r": 138,
+          "g": 144,
+          "b": 160
+        },
+        "hsl": {
+          "h": 224,
+          "s": 10,
+          "l": 58
+        },
+        "cmyk_aproximado": {
+          "c": 14,
+          "m": 10,
+          "y": 0,
+          "k": 37
+        },
+        "pantone_sugerido": "430 C",
+        "uso": "Texto terciario sobre oscuro (no sobre blanco)",
+        "contraste_con_blanco": 3.19,
+        "contraste_con_grafito_950": 6.09
+      },
+      {
+        "nombre": "Grafito 300",
+        "token": "grafito.300",
+        "hex": "#C7CBD6",
+        "rgb": {
+          "r": 199,
+          "g": 203,
+          "b": 214
+        },
+        "hsl": {
+          "h": 224,
+          "s": 15,
+          "l": 81
+        },
+        "cmyk_aproximado": {
+          "c": 7,
+          "m": 5,
+          "y": 0,
+          "k": 16
+        },
+        "pantone_sugerido": "428 C",
+        "uso": "Iconos inactivos sobre claro, rellenos de gráfico",
+        "contraste_con_blanco": 1.62,
+        "contraste_con_grafito_950": 11.98
+      },
+      {
+        "nombre": "Grafito 200",
+        "token": "grafito.200",
+        "hex": "#D5D9E0",
+        "rgb": {
+          "r": 213,
+          "g": 217,
+          "b": 224
+        },
+        "hsl": {
+          "h": 218,
+          "s": 15,
+          "l": 86
+        },
+        "cmyk_aproximado": {
+          "c": 5,
+          "m": 3,
+          "y": 0,
+          "k": 12
+        },
+        "pantone_sugerido": "649 C",
+        "uso": "Bordes en claro; texto secundario en oscuro",
+        "contraste_con_blanco": 1.42,
+        "contraste_con_grafito_950": 13.73
+      },
+      {
+        "nombre": "Grafito 100",
+        "token": "grafito.100",
+        "hex": "#E5E8EE",
+        "rgb": {
+          "r": 229,
+          "g": 232,
+          "b": 238
+        },
+        "hsl": {
+          "h": 220,
+          "s": 21,
+          "l": 92
+        },
+        "cmyk_aproximado": {
+          "c": 4,
+          "m": 3,
+          "y": 0,
+          "k": 7
+        },
+        "pantone_sugerido": "656 C",
+        "uso": "Separadores y superficies claras",
+        "contraste_con_blanco": 1.23,
+        "contraste_con_grafito_950": 15.83
+      },
+      {
+        "nombre": "Grafito 50",
+        "token": "grafito.50",
+        "hex": "#F6F7F9",
+        "rgb": {
+          "r": 246,
+          "g": 247,
+          "b": 249
+        },
+        "hsl": {
+          "h": 220,
+          "s": 20,
+          "l": 97
+        },
+        "cmyk_aproximado": {
+          "c": 1,
+          "m": 1,
+          "y": 0,
+          "k": 2
+        },
+        "pantone_sugerido": "Sin tinta directa (usar papel o tramado del color base)",
+        "uso": "Fondo claro alternativo (papel)",
+        "contraste_con_blanco": 1.07,
+        "contraste_con_grafito_950": 18.13
+      },
+      {
+        "nombre": "Blanco",
+        "token": "grafito.0",
+        "hex": "#FFFFFF",
+        "rgb": {
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "hsl": {
+          "h": 0,
+          "s": 0,
+          "l": 100
+        },
+        "cmyk_aproximado": {
+          "c": 0,
+          "m": 0,
+          "y": 0,
+          "k": 0
+        },
+        "pantone_sugerido": "Sin tinta directa (usar papel o tramado del color base)",
+        "uso": "Fondo claro principal; texto sobre oscuro",
+        "contraste_con_blanco": 1.0,
+        "contraste_con_grafito_950": 19.43
+      }
+    ],
+    "Azul": [
+      {
+        "nombre": "Azul 50",
+        "token": "azul.50",
+        "hex": "#EEF3FF",
+        "rgb": {
+          "r": 238,
+          "g": 243,
+          "b": 255
+        },
+        "hsl": {
+          "h": 222,
+          "s": 100,
+          "l": 97
+        },
+        "cmyk_aproximado": {
+          "c": 7,
+          "m": 5,
+          "y": 0,
+          "k": 0
+        },
+        "pantone_sugerido": "656 C",
+        "uso": "Fondo de aviso informativo en claro",
+        "contraste_con_blanco": 1.11,
+        "contraste_con_grafito_950": 17.49
+      },
+      {
+        "nombre": "Azul 300",
+        "token": "azul.300",
+        "hex": "#9FB8FF",
+        "rgb": {
+          "r": 159,
+          "g": 184,
+          "b": 255
+        },
+        "hsl": {
+          "h": 224,
+          "s": 100,
+          "l": 81
+        },
+        "cmyk_aproximado": {
+          "c": 38,
+          "m": 28,
+          "y": 0,
+          "k": 0
+        },
+        "pantone_sugerido": "2717 C",
+        "uso": "Enlaces sobre oscuro",
+        "contraste_con_blanco": 1.95,
+        "contraste_con_grafito_950": 9.97
+      },
+      {
+        "nombre": "Azul 400",
+        "token": "azul.400",
+        "hex": "#5C8BFF",
+        "rgb": {
+          "r": 92,
+          "g": 139,
+          "b": 255
+        },
+        "hsl": {
+          "h": 223,
+          "s": 100,
+          "l": 68
+        },
+        "cmyk_aproximado": {
+          "c": 64,
+          "m": 45,
+          "y": 0,
+          "k": 0
+        },
+        "pantone_sugerido": "2718 C",
+        "uso": "Azul de marca sobre oscuro; inicio del gradiente oscuro",
+        "contraste_con_blanco": 3.19,
+        "contraste_con_grafito_950": 6.1
+      },
+      {
+        "nombre": "Azul IA 500",
+        "token": "azul.500",
+        "hex": "#3B72FF",
+        "rgb": {
+          "r": 59,
+          "g": 114,
+          "b": 255
+        },
+        "hsl": {
+          "h": 223,
+          "s": 100,
+          "l": 62
+        },
+        "cmyk_aproximado": {
+          "c": 77,
+          "m": 55,
+          "y": 0,
+          "k": 0
+        },
+        "pantone_sugerido": "2727 C",
+        "uso": "Color de marca: logo, gráficos, acento (texto ≥ 24 px)",
+        "contraste_con_blanco": 4.17,
+        "contraste_con_grafito_950": 4.66
+      },
+      {
+        "nombre": "Azul 600",
+        "token": "azul.600",
+        "hex": "#2C5BD0",
+        "rgb": {
+          "r": 44,
+          "g": 91,
+          "b": 208
+        },
+        "hsl": {
+          "h": 223,
+          "s": 65,
+          "l": 49
+        },
+        "cmyk_aproximado": {
+          "c": 79,
+          "m": 56,
+          "y": 0,
+          "k": 18
+        },
+        "pantone_sugerido": "2726 C",
+        "uso": "Botones y enlaces sobre claro",
+        "contraste_con_blanco": 5.98,
+        "contraste_con_grafito_950": 3.25
+      },
+      {
+        "nombre": "Azul 700",
+        "token": "azul.700",
+        "hex": "#1F43A0",
+        "rgb": {
+          "r": 31,
+          "g": 67,
+          "b": 160
+        },
+        "hsl": {
+          "h": 223,
+          "s": 68,
+          "l": 37
+        },
+        "cmyk_aproximado": {
+          "c": 81,
+          "m": 58,
+          "y": 0,
+          "k": 37
+        },
+        "pantone_sugerido": "2728 C",
+        "uso": "Estado pulsado sobre claro",
+        "contraste_con_blanco": 8.87,
+        "contraste_con_grafito_950": 2.19
+      },
+      {
+        "nombre": "Azul 900",
+        "token": "azul.900",
+        "hex": "#0F1E4A",
+        "rgb": {
+          "r": 15,
+          "g": 30,
+          "b": 74
+        },
+        "hsl": {
+          "h": 225,
+          "s": 66,
+          "l": 17
+        },
+        "cmyk_aproximado": {
+          "c": 80,
+          "m": 59,
+          "y": 0,
+          "k": 71
+        },
+        "pantone_sugerido": "2767 C",
+        "uso": "Fondos de dato azul muy oscuros",
+        "contraste_con_blanco": 16.09,
+        "contraste_con_grafito_950": 1.21
+      }
+    ],
+    "Cyan": [
+      {
+        "nombre": "Cyan 50",
+        "token": "cyan.50",
+        "hex": "#E8FAFC",
+        "rgb": {
+          "r": 232,
+          "g": 250,
+          "b": 252
+        },
+        "hsl": {
+          "h": 186,
+          "s": 77,
+          "l": 95
+        },
+        "cmyk_aproximado": {
+          "c": 8,
+          "m": 1,
+          "y": 0,
+          "k": 1
+        },
+        "pantone_sugerido": "9520 C",
+        "uso": "Fondo suave de dato en claro",
+        "contraste_con_blanco": 1.08,
+        "contraste_con_grafito_950": 18.06
+      },
+      {
+        "nombre": "Cyan 300",
+        "token": "cyan.300",
+        "hex": "#7DE6F2",
+        "rgb": {
+          "r": 125,
+          "g": 230,
+          "b": 242
+        },
+        "hsl": {
+          "h": 186,
+          "s": 82,
+          "l": 72
+        },
+        "cmyk_aproximado": {
+          "c": 48,
+          "m": 5,
+          "y": 0,
+          "k": 5
+        },
+        "pantone_sugerido": "311 C (tinta 60 %)",
+        "uso": "Datos secundarios sobre oscuro",
+        "contraste_con_blanco": 1.45,
+        "contraste_con_grafito_950": 13.39
+      },
+      {
+        "nombre": "Cyan 500",
+        "token": "cyan.500",
+        "hex": "#36CFE0",
+        "rgb": {
+          "r": 54,
+          "g": 207,
+          "b": 224
+        },
+        "hsl": {
+          "h": 186,
+          "s": 73,
+          "l": 55
+        },
+        "cmyk_aproximado": {
+          "c": 76,
+          "m": 8,
+          "y": 0,
+          "k": 12
+        },
+        "pantone_sugerido": "311 C",
+        "uso": "Final del gradiente en oscuro; datos",
+        "contraste_con_blanco": 1.88,
+        "contraste_con_grafito_950": 10.33
+      },
+      {
+        "nombre": "Cyan 600",
+        "token": "cyan.600",
+        "hex": "#17A9C2",
+        "rgb": {
+          "r": 23,
+          "g": 169,
+          "b": 194
+        },
+        "hsl": {
+          "h": 189,
+          "s": 79,
+          "l": 43
+        },
+        "cmyk_aproximado": {
+          "c": 88,
+          "m": 13,
+          "y": 0,
+          "k": 24
+        },
+        "pantone_sugerido": "3125 C",
+        "uso": "Final del gradiente en claro",
+        "contraste_con_blanco": 2.8,
+        "contraste_con_grafito_950": 6.93
+      }
+    ],
+    "Lima": [
+      {
+        "nombre": "Lima 50",
+        "token": "lima.50",
+        "hex": "#F4FCE0",
+        "rgb": {
+          "r": 244,
+          "g": 252,
+          "b": 224
+        },
+        "hsl": {
+          "h": 77,
+          "s": 82,
+          "l": 93
+        },
+        "cmyk_aproximado": {
+          "c": 3,
+          "m": 0,
+          "y": 11,
+          "k": 1
+        },
+        "pantone_sugerido": "7485 C",
+        "uso": "Fondo de «en marcha» en claro",
+        "contraste_con_blanco": 1.06,
+        "contraste_con_grafito_950": 18.37
+      },
+      {
+        "nombre": "Lima 300",
+        "token": "lima.300",
+        "hex": "#E4F7B4",
+        "rgb": {
+          "r": 228,
+          "g": 247,
+          "b": 180
+        },
+        "hsl": {
+          "h": 77,
+          "s": 81,
+          "l": 84
+        },
+        "cmyk_aproximado": {
+          "c": 8,
+          "m": 0,
+          "y": 27,
+          "k": 3
+        },
+        "pantone_sugerido": "373 C",
+        "uso": "Texto lima atenuado sobre oscuro",
+        "contraste_con_blanco": 1.15,
+        "contraste_con_grafito_950": 16.9
+      },
+      {
+        "nombre": "Lima 500",
+        "token": "lima.500",
+        "hex": "#BFF24A",
+        "rgb": {
+          "r": 191,
+          "g": 242,
+          "b": 74
+        },
+        "hsl": {
+          "h": 78,
+          "s": 87,
+          "l": 62
+        },
+        "cmyk_aproximado": {
+          "c": 21,
+          "m": 0,
+          "y": 69,
+          "k": 5
+        },
+        "pantone_sugerido": "374 C",
+        "uso": "El nodo: dato destacado, acción, «en marcha» (sobre oscuro)",
+        "contraste_con_blanco": 1.31,
+        "contraste_con_grafito_950": 14.82
+      },
+      {
+        "nombre": "Lima 600",
+        "token": "lima.600",
+        "hex": "#7FB02E",
+        "rgb": {
+          "r": 127,
+          "g": 176,
+          "b": 46
+        },
+        "hsl": {
+          "h": 83,
+          "s": 59,
+          "l": 44
+        },
+        "cmyk_aproximado": {
+          "c": 28,
+          "m": 0,
+          "y": 74,
+          "k": 31
+        },
+        "pantone_sugerido": "376 C",
+        "uso": "Nodo sobre fondo claro (no para texto pequeño)",
+        "contraste_con_blanco": 2.58,
+        "contraste_con_grafito_950": 7.54
+      },
+      {
+        "nombre": "Lima 900",
+        "token": "lima.900",
+        "hex": "#3A4A12",
+        "rgb": {
+          "r": 58,
+          "g": 74,
+          "b": 18
+        },
+        "hsl": {
+          "h": 77,
+          "s": 61,
+          "l": 18
+        },
+        "cmyk_aproximado": {
+          "c": 22,
+          "m": 0,
+          "y": 76,
+          "k": 71
+        },
+        "pantone_sugerido": "5747 C",
+        "uso": "Texto sobre fondos lima claros",
+        "contraste_con_blanco": 9.69,
+        "contraste_con_grafito_950": 2.01
+      }
+    ],
+    "Estado": [
+      {
+        "nombre": "Éxito",
+        "token": "estado.exito",
+        "hex": "#1F9D55",
+        "rgb": {
+          "r": 31,
+          "g": 157,
+          "b": 85
+        },
+        "hsl": {
+          "h": 146,
+          "s": 67,
+          "l": 37
+        },
+        "cmyk_aproximado": {
+          "c": 80,
+          "m": 0,
+          "y": 46,
+          "k": 38
+        },
+        "pantone_sugerido": "355 C",
+        "uso": "Confirmaciones",
+        "contraste_con_blanco": 3.49,
+        "contraste_con_grafito_950": 5.56
+      },
+      {
+        "nombre": "Aviso",
+        "token": "estado.aviso",
+        "hex": "#F2A33A",
+        "rgb": {
+          "r": 242,
+          "g": 163,
+          "b": 58
+        },
+        "hsl": {
+          "h": 34,
+          "s": 88,
+          "l": 59
+        },
+        "cmyk_aproximado": {
+          "c": 0,
+          "m": 33,
+          "y": 76,
+          "k": 5
+        },
+        "pantone_sugerido": "1375 C",
+        "uso": "Avisos (con texto Grafito 950)",
+        "contraste_con_blanco": 2.08,
+        "contraste_con_grafito_950": 9.32
+      },
+      {
+        "nombre": "Error",
+        "token": "estado.error",
+        "hex": "#E5484D",
+        "rgb": {
+          "r": 229,
+          "g": 72,
+          "b": 77
+        },
+        "hsl": {
+          "h": 358,
+          "s": 75,
+          "l": 59
+        },
+        "cmyk_aproximado": {
+          "c": 0,
+          "m": 69,
+          "y": 66,
+          "k": 10
+        },
+        "pantone_sugerido": "7417 C",
+        "uso": "Errores y validación",
+        "contraste_con_blanco": 3.91,
+        "contraste_con_grafito_950": 4.97
+      }
+    ]
+  }
+}
