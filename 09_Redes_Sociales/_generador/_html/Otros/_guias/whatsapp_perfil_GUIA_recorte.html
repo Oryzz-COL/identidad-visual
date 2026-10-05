@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>whatsapp_perfil_GUIA_recorte</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 640px; --H: 640px; }
+.av-iso { position: absolute; left: 50%; top: 50%; width: 294.40000000000003px; height: 294.40000000000003px; margin: -147.20000000000002px 0 0 -147.20000000000002px; }
+.av-circ { position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 999px rgba(229,72,77,.35); border: 3px dashed #E5484D; z-index: 9; }
+</style>
+</head>
+<body class="oscuro f-avatar marca-oryzz guia">
+<div class="lienzo"><img class="av-iso" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/04_Isotipo/SVG/oryzz-isotipo_color-sobre-oscuro.svg" alt="oryzz">  <div class="marco">
+  </div>
+<div class="av-circ"></div></div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

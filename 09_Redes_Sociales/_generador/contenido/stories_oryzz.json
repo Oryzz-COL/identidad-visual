@@ -1,0 +1,107 @@
+{
+  "grupo": "Stories",
+  "comun": { "marca": "oryzz", "formato": "story", "tema": "oscuro", "handle": "@oryzzai", "web": "oryzz.com", "carpeta": "Oryzz" },
+  "piezas": [
+    {
+      "id": "01_pregunta",
+      "plantilla": "story",
+      "tipo": "pregunta",
+      "eyebrow": "Pregunta de la semana",
+      "titular": "¿Cuánto tardas en responder a un cliente **nuevo** por WhatsApp?",
+      "texto": "Sé sincero. Mañana compartimos lo que dicen los datos.",
+      "pista": "Pon aquí el sticker de pregunta",
+      "alto_sticker": 380
+    },
+    {
+      "id": "02_encuesta",
+      "plantilla": "story",
+      "tipo": "encuesta",
+      "eyebrow": "Encuesta",
+      "titular": "¿Qué te frena más para conseguir **clientes**?",
+      "texto": "Vota y te contamos por dónde empezar en cada caso.",
+      "pista": "Pon aquí el sticker de encuesta",
+      "alto_sticker": 420,
+      "opciones_sticker": ["No tengo tiempo", "No sé qué funciona", "Ya lo probé y no salió"]
+    },
+    {
+      "id": "03_dato",
+      "plantilla": "story",
+      "tipo": "dato",
+      "eyebrow": "Prueba inicial",
+      "cifra": "3–7",
+      "unidad": "días",
+      "tam_cifra": 330,
+      "titular": "para saber, con datos, si tu negocio puede **captar**.",
+      "texto": "Con un presupuesto publicitario orientativo de 50–100 €, que pagas tú directamente a la plataforma.",
+      "fuente": "Sin permanencia durante la prueba. No garantizamos ventas: medimos potencial real."
+    },
+    {
+      "id": "04_anuncio",
+      "plantilla": "story",
+      "tipo": "anuncio",
+      "etiqueta": "Nuevo servicio",
+      "eyebrow": "GEO",
+      "titular": "Que la IA te **recomiende**.",
+      "texto": "ChatGPT, Gemini y Perplexity ya responden a tus clientes. Te ayudamos a que te entiendan y te nombren.",
+      "pista": "Sticker de enlace · oryzz.com",
+      "alto_sticker": 170
+    },
+    {
+      "id": "05_testimonio",
+      "plantilla": "post_cita",
+      "eyebrow": "Lo que dicen",
+      "cita": "Ahora cada consulta tiene respuesta en un minuto y la cita queda en la agenda.",
+      "autor": "Nombre del cliente",
+      "negocio": "Centro de estética · Alicante",
+      "etiqueta": "Testimonio de ejemplo"
+    },
+    {
+      "id": "06_cta",
+      "plantilla": "post_cta",
+      "eyebrow": "Valoración gratuita",
+      "titular": "30 minutos. Sales con un **diagnóstico**.",
+      "texto": "No con un presupuesto. Si no encajamos, te lo decimos.",
+      "boton": "Reserva tu valoración",
+      "url": "cal.com/oryzz/30min"
+    },
+    {
+      "id": "_guia_zonas_seguras",
+      "plantilla": "story",
+      "tipo": "pregunta",
+      "guia": true,
+      "eyebrow": "Guía · zonas seguras",
+      "titular": "El texto vive entre **210 y 1620 px**.",
+      "texto": "Márgenes laterales de 88 px. Los stickers van en la zona reservada.",
+      "pista": "Zona de sticker",
+      "carpeta": ""
+    },
+    { "id": "01_servicios", "plantilla": "destacado", "icono_nombre": "capas", "carpeta": "Destacados", "reticula": false },
+    { "id": "02_casos", "plantilla": "destacado", "icono_nombre": "casos", "carpeta": "Destacados", "reticula": false },
+    { "id": "03_geo", "plantilla": "destacado", "icono_nombre": "geo", "carpeta": "Destacados", "reticula": false },
+    { "id": "04_tap", "plantilla": "destacado", "icono_nombre": "tap", "carpeta": "Destacados", "reticula": false },
+    { "id": "05_faq", "plantilla": "destacado", "icono_nombre": "pregunta", "carpeta": "Destacados", "reticula": false },
+    { "id": "06_equipo", "plantilla": "destacado", "icono_nombre": "equipo", "carpeta": "Destacados", "reticula": false },
+    { "id": "07_resenas", "plantilla": "destacado", "icono_nombre": "estrella", "carpeta": "Destacados", "reticula": false },
+    { "id": "08_contacto", "plantilla": "destacado", "icono_nombre": "sobre", "carpeta": "Destacados", "reticula": false },
+    {
+      "id": "00_vista_previa_perfil",
+      "plantilla": "destacados_vista",
+      "carpeta": "Destacados",
+      "formato": "story",
+      "ancho": 1880,
+      "alto": 420,
+      "tema": "oscuro",
+      "reticula": false,
+      "destacados": [
+        { "icono": "capas", "nombre": "Servicios" },
+        { "icono": "casos", "nombre": "Casos" },
+        { "icono": "geo", "nombre": "GEO" },
+        { "icono": "tap", "nombre": "Tap" },
+        { "icono": "pregunta", "nombre": "FAQ" },
+        { "icono": "equipo", "nombre": "Equipo" },
+        { "icono": "estrella", "nombre": "Reseñas" },
+        { "icono": "sobre", "nombre": "Contacto" }
+      ]
+    }
+  ]
+}

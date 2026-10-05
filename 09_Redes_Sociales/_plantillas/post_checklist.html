@@ -1,0 +1,19 @@
+{#- POST · CHECKLIST
+    Campos: eyebrow, titular, items [..] (3–6), cierre -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.lista { margin-top: 54px; }
+.cierre { margin-top: 44px; display: flex; gap: 18px; align-items: center; }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W + 30, 150, [130, 200], hueco=40, giro=150, paso=12, nodo=None)|safe }}{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 60px">
+  {{ m.eyebrow(eyebrow|default('Checklist')) }}
+  <h1 class="tit tit-l" style="margin-top:36px; max-width: 900px" data-fit="54">{{ titular|t }}</h1>
+  <ul class="lista">
+    {% for it in items %}<li data-fit="22"><span class="ic">{{ icono('check', 28, 'currentColor', 2.2)|safe }}</span><span>{{ it|t }}</span></li>{% endfor %}
+  </ul>
+  {% if cierre %}<div class="cierre"><span class="nodo-dot"></span><p class="texto" style="font-size:30px" data-fit="24">{{ cierre|t }}</p></div>{% endif %}
+</div>
+{% endblock %}

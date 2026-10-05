@@ -1,0 +1,140 @@
+{
+  "grupo": "Instagram_Oryzz",
+  "salida_por_tema": "carpeta",
+  "comun": {
+    "marca": "oryzz",
+    "formato": "post",
+    "temas": [
+      "oscuro",
+      "claro"
+    ],
+    "handle": "@oryzzai",
+    "web": "oryzz.com"
+  },
+  "piezas": [
+    {
+      "id": "01_titular",
+      "plantilla": "post_titular",
+      "eyebrow": "Captación",
+      "eyebrow_der": "Idea",
+      "titular": "El problema no es\nque no te vean.\nEs que no te **contactan**.",
+      "texto": "Más alcance no arregla una web que no convierte ni un WhatsApp que se responde al día siguiente. Primero, el sistema."
+    },
+    {
+      "id": "02_cifra",
+      "plantilla": "post_cifra",
+      "eyebrow": "Dato · Velocidad de respuesta",
+      "eyebrow_der": "Dato",
+      "cifra": "21",
+      "unidad": "×",
+      "titular": "más probabilidades de cualificar un lead si respondes en 5 minutos, no en 30.",
+      "comparativa": [
+        {
+          "etiqueta": "Respuesta en 5 min",
+          "valor": "21×",
+          "pct": 100,
+          "on": true
+        },
+        {
+          "etiqueta": "Respuesta en 30 min",
+          "valor": "1×",
+          "pct": 5
+        }
+      ],
+      "cierre": "Por eso la primera respuesta la automatizamos.",
+      "fuente": "Fuente: Lead Response Management Study, MIT e InsideSales.com (2007)."
+    },
+    {
+      "id": "03_mito",
+      "plantilla": "post_mito",
+      "eyebrow": "Mito vs realidad",
+      "eyebrow_der": "Mito",
+      "mito": "Si publico todos los días, los clientes llegarán solos.",
+      "realidad": "Publicar da visibilidad. Los clientes llegan cuando alguien **responde**, agenda y hace seguimiento.",
+      "nota": "Contenido sin sistema detrás son likes, no citas."
+    },
+    {
+      "id": "04_antes_despues",
+      "plantilla": "post_antes_despues",
+      "eyebrow": "Antes / después",
+      "eyebrow_der": "Sistema",
+      "titular": "Mismo presupuesto.\nOtro **sistema**.",
+      "sector": "Clínica dental · Ejemplo",
+      "antes": [
+        "El anuncio lleva a la página de inicio",
+        "WhatsApp respondido al día siguiente",
+        "Leads apuntados en una libreta",
+        "Nadie pide la reseña"
+      ],
+      "despues": [
+        "El anuncio abre un formulario de cita",
+        "Respuesta automática en menos de 1 minuto",
+        "Cada lead registrado y con seguimiento",
+        "Reseña pedida después de cada visita"
+      ],
+      "nota": "Caso ilustrativo, no es un cliente real."
+    },
+    {
+      "id": "05_cita",
+      "plantilla": "post_cita",
+      "eyebrow": "Lo que dicen",
+      "eyebrow_der": "Testimonio",
+      "cita": "Antes contestábamos los mensajes cuando podíamos. Ahora cada consulta tiene respuesta en un minuto y la cita queda en la agenda.",
+      "autor": "Nombre del cliente",
+      "negocio": "Centro de estética · Alicante",
+      "etiqueta": "Testimonio de ejemplo"
+    },
+    {
+      "id": "06_checklist",
+      "plantilla": "post_checklist",
+      "eyebrow": "Checklist · Antes de invertir en anuncios",
+      "eyebrow_der": "Checklist",
+      "titular": "¿Tu negocio está listo para **captar**?",
+      "items": [
+        "Respondes a un mensaje nuevo en menos de 5 minutos",
+        "Tienes una forma clara de pedir cita",
+        "Sabes cuántos clientes te trae cada canal",
+        "Pides reseña después de cada servicio",
+        "Tu ficha de Google está completa y al día"
+      ],
+      "cierre": "¿Te faltan dos o más? Empieza por ahí, no por el presupuesto."
+    },
+    {
+      "id": "07_servicio_geo",
+      "plantilla": "post_servicio",
+      "eyebrow": "Nuevo servicio · GEO",
+      "eyebrow_der": "GEO",
+      "titular": "Que la IA te **recomiende** cuando preguntan por lo tuyo.",
+      "chat": {
+        "plataforma": "Asistente de IA",
+        "pregunta": "¿Qué clínica dental de confianza me recomiendas en Alicante?",
+        "intro": "Estas son tres opciones bien valoradas:",
+        "opciones": [
+          {
+            "nombre": "Tu clínica",
+            "detalle": "Implantes y ortodoncia · 4,9 en Google",
+            "destacado": true
+          },
+          {
+            "nombre": ""
+          },
+          {
+            "nombre": ""
+          }
+        ]
+      },
+      "plataformas": "ChatGPT · Gemini · Perplexity",
+      "nota": "GEO no garantiza aparecer: aumenta las probabilidades de que te entiendan y te recomienden."
+    },
+    {
+      "id": "08_cta_valoracion",
+      "plantilla": "post_cta",
+      "eyebrow": "Valoración gratuita · 30 min",
+      "eyebrow_der": "Agenda",
+      "titular": "30 minutos. Sales con un **diagnóstico**, no con un presupuesto.",
+      "texto": "Revisamos tu negocio, tu competencia, tus anuncios y cómo apareces en Google y en la IA. Si no encajamos, te lo decimos.",
+      "boton": "Reserva tu valoración",
+      "url": "cal.com/oryzz/30min"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{#- POST · MITO vs REALIDAD
+    Campos: eyebrow, mito, realidad, nota -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.mr { display: grid; grid-template-columns: 72px 1fr; column-gap: 34px; margin-top: 64px; }
+.mr-lab { display: flex; align-items: center; font-family: var(--font-mono); font-size: 22px; letter-spacing: .18em; text-transform: uppercase; color: var(--tx3); height: 72px; }
+.mr-ic { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; color: var(--tx3); }
+.mr-ic.on { border-color: var(--tx); color: var(--tx); }
+.mr-linea { width: 72px; display: flex; justify-content: center; }
+.mr-linea i { width: 2px; background: var(--orb-fuerte); height: 100%; min-height: 80px; }
+.mito-tx { font-family: var(--font-display); font-weight: 500; font-size: 50px; line-height: 1.12; letter-spacing: -.025em; color: var(--tx3); padding: 10px 0 64px; text-wrap: balance; }
+.real-tx { padding-top: 10px; }
+.mr-nota { margin-top: 60px; display: flex; gap: 18px; align-items: center; }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W + 40, 190, [150, 225, 300], hueco=44, giro=160, paso=12, nodo=None)|safe }}{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 70px">
+  {{ m.eyebrow(eyebrow|default('Mito vs realidad')) }}
+  <div class="mr">
+    <div class="mr-ic">{{ icono('cruz', 34, 'currentColor', 2)|safe }}</div>
+    <div class="mr-lab">Mito</div>
+    <div class="mr-linea"><i></i></div>
+    <p class="mito-tx" data-fit="36">«{{ mito|t }}»</p>
+    <div class="mr-ic on">{{ icono('check', 34, 'currentColor', 2)|safe }}</div>
+    <div class="mr-lab" style="color:var(--tx)">Realidad</div>
+    <div></div>
+    <h2 class="tit tit-m real-tx" data-fit="44">{{ realidad|t }}</h2>
+  </div>
+  {% if nota %}<div class="mr-nota"><span class="nodo-dot"></span><span class="texto-s">{{ nota|t }}</span></div>{% endif %}
+</div>
+{% endblock %}

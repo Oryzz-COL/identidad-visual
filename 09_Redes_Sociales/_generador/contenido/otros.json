@@ -1,0 +1,65 @@
+{
+  "grupo": "Otros",
+  "comun": { "marca": "oryzz", "tema": "oscuro", "handle": "@oryzzai", "web": "oryzz.com" },
+  "piezas": [
+    {
+      "id": "youtube_miniatura_1280x720",
+      "plantilla": "yt_miniatura",
+      "formato": "youtube",
+      "eyebrow": "GEO para negocios locales",
+      "titular": "¿Te recomienda **ChatGPT**?",
+      "episodio": "Episodio 01",
+      "foto": null
+    },
+    {
+      "id": "reel_tiktok_portada_1080x1920",
+      "plantilla": "reel_portada",
+      "formato": "story",
+      "eyebrow": "Captación · en 60 segundos",
+      "titular": "3 errores que te cuestan **clientes** cada semana.",
+      "episodio": "Episodio 01"
+    },
+    {
+      "id": "reel_tiktok_portada_GUIA_zonas_seguras", "carpeta": "_guias",
+      "plantilla": "reel_portada",
+      "formato": "story",
+      "guia": true,
+      "eyebrow": "Captación · en 60 segundos",
+      "titular": "3 errores que te cuestan **clientes** cada semana.",
+      "episodio": "Episodio 01"
+    },
+    {
+      "id": "og_oryzz_1200x630",
+      "plantilla": "horizontal",
+      "formato": "og",
+      "eyebrow": "Agencia de captación con IA",
+      "titular": "Más clientes.\nNo más **likes**.",
+      "texto": "Sistemas que captan clientes para PYMES: anuncios, automatización con IA, SEO local y GEO.",
+      "url": "oryzz.com"
+    },
+    {
+      "id": "og_tap_1200x630",
+      "plantilla": "horizontal",
+      "formato": "og",
+      "marca": "tap",
+      "tema": "tap",
+      "producto": true,
+      "eyebrow": "Placas NFC + QR",
+      "titular": "Tu negocio.\nA un **toque**.",
+      "texto": "Convierte clientes satisfechos en reseñas de Google. Sin app, sin pilas, sin cuotas.",
+      "url": "oryzz.com/tap"
+    },
+    {
+      "id": "google_business_portada_1200x675",
+      "plantilla": "horizontal",
+      "formato": "gbp",
+      "eyebrow": "Oryzz · 100 % remoto",
+      "titular": "Sistemas que captan **clientes**.",
+      "servicios": "Meta Ads · Google Ads · TikTok Ads · Automatizaciones con IA · SEO local y reseñas · GEO",
+      "url": "oryzz.com · cal.com/oryzz/30min"
+    },
+    { "id": "whatsapp_perfil_oryzz_640", "plantilla": "avatar", "formato": "avatar", "reticula": false },
+    { "id": "whatsapp_perfil_tap_640", "plantilla": "avatar", "formato": "avatar", "marca": "tap", "tema": "tap", "reticula": false },
+    { "id": "whatsapp_perfil_GUIA_recorte", "plantilla": "avatar", "formato": "avatar", "guia": true, "reticula": false, "carpeta": "_guias" }
+  ]
+}

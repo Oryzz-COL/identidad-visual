@@ -1,0 +1,26 @@
+{#- POST · CTA VALORACIÓN (órbita-reloj de 30 minutos)
+    Campos: eyebrow, titular, texto, boton, url, minutos (30), reloj_etiqueta
+    Formatos: post, story, cuadrado, li -#}
+{% extends '_base.html' %}
+{% set story = formato == 'story' %}
+{% set rs = 430 if not story else 600 %}
+{% block estilo %}
+.reloj { position: absolute; right: {{ 60 if not story else 240 }}px; top: {{ 150 if not story else 330 }}px; width: {{ rs }}px; height: {{ rs }}px; }
+.reloj svg { width: 100%; height: 100%; }
+.reloj .rl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.reloj .rl b { font-family: var(--font-display); font-weight: 500; font-size: {{ 104 if not story else 140 }}px; letter-spacing: -.05em; line-height: 1; color: var(--tx); }
+.reloj .rl span { font-family: var(--font-mono); font-size: 20px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); margin-top: 14px; }
+.accion { display: flex; flex-direction: column; gap: 22px; margin-top: 52px; align-items: flex-start; }
+{% endblock %}
+{% set alinear = 'abajo' %}
+{% block fondo %}
+<div class="reloj">{{ arco_reloj(560, minutos|default(30), 60, 3)|safe }}<div class="rl"><b>{{ minutos|default(30) }}:00</b><span>{{ reloj_etiqueta|default('Google Meet') }}</span></div></div>
+{% endblock %}
+{% block cuerpo %}
+<div style="padding-bottom: 36px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-m" style="margin-top:30px; max-width: 900px" data-fit="46">{{ titular|t }}</h1>
+  {% if texto %}<p class="texto" style="margin-top:30px; font-size:30px; max-width: 860px" data-fit="24">{{ texto|t }}</p>{% endif %}
+  <div class="accion">{{ m.boton(boton|default('Reserva tu valoración')) }}<span class="url">{{ url|default('cal.com/oryzz/30min') }}</span></div>
+</div>
+{% endblock %}

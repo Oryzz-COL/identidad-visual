@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>documento_portada_1080x1350</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1350px; }
+.doc-et { display: flex; gap: 12px; }
+.autores { display: flex; gap: 40px; margin-top: 64px; }
+.autor { display: flex; align-items: center; gap: 18px; }
+.autor .av { width: 76px; height: 76px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--tx2); overflow: hidden; flex: none; }
+.autor .av img { width: 100%; height: 100%; object-fit: cover; }
+.autor b { display: block; font-size: 26px; font-weight: 700; color: var(--tx); }
+.autor span { font-size: 22px; color: var(--tx3); }
+.sigue { display: flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx2); }
+</style>
+</head>
+<body class="oscuro f-post marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M920.06 231.99A110 110 0 1 1 864.81 297.84" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M921.76 161.78A175 175 0 1 1 815.48 247.84" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M949.08 90.91A240 240 0 1 1 783.48 178.96" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1001.88 26.67A305 305 0 1 1 773.95 96.36" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1078.18 -23.83A370 370 0 1 1 790.62 6.39" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="857.33" cy="118.09" r="11" style="fill:var(--nodo)"/></svg>  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"></header>    <main class="cuerpo abajo" data-fit-box>
+<div style="padding-bottom: 60px">
+  <div class="doc-et"><span class="etiqueta">Guía PDF</span><span class="etiqueta">8 páginas</span></div>
+  <div style="height:48px"></div>
+  <div class="eyebrow ">GEO para negocios locales</div>
+  <h1 class="tit tit-xl" style="margin-top:34px" data-fit="64">Cómo conseguir que la IA <span class="hl">recomiende</span> tu negocio.</h1>
+<p class="texto" style="margin-top:34px; max-width:800px" data-fit="24">Qué miran ChatGPT, Gemini y Perplexity antes de nombrar una clínica, un centro o un gimnasio. Y qué puedes cambiar esta semana.</p>  <div class="autores">
+<div class="autor"><span class="av">JS</span><div><b>Juan Salazar</b><span>Estrategia &amp; Ads</span></div></div><div class="autor"><span class="av">DM</span><div><b>David Morales</b><span>Automatización &amp; IA</span></div></div>  </div>
+</div>
+    </main>
+<footer class="pie">
+  <span>linkedin.com/company/oryzz</span>
+  <span class="der"></span>
+</footer>  </div>
+<div class="sigue" style="position:absolute; right:88px; bottom:68px; z-index:3">Desliza para leer<svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div></div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

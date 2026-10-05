@@ -1,0 +1,57 @@
+{#- Plantilla base de todas las piezas. No se edita para cambiar copy: el copy vive en _generador/contenido/*.json -#}
+{%- import '_macros.html' as m with context -%}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>{{ id }}</title>
+<link rel="stylesheet" href="{{ css_marca }}">
+<link rel="stylesheet" href="{{ css_social }}">
+<style>
+:root { --W: {{ W }}px; --H: {{ H }}px; }
+{% block estilo %}{% endblock %}
+</style>
+</head>
+<body class="{{ tema }} {{ formato_clase }} marca-{{ marca }}{% if guia %} guia{% endif %}">
+<div class="lienzo">
+  {%- if reticula is not sameas false %}<div class="reticula" style="--rx: {{ reticula_x|default('72%') }}; --ry: {{ reticula_y|default('30%') }}"></div>{% endif %}
+  {% block fondo %}{% endblock %}
+  <div class="marco">
+    {% block marco %}
+    {% block cabecera %}{{ m.cabecera() }}{% endblock %}
+    <main class="cuerpo {{ alinear|default('') }}" data-fit-box>
+      {% block cuerpo %}{% endblock %}
+    </main>
+    {% block pie %}{{ m.pie() }}{% endblock %}
+    {% endblock %}
+  </div>
+  {% block encima %}{% endblock %}
+  {% if guia %}{% block guia %}{% endblock %}{% endif %}
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

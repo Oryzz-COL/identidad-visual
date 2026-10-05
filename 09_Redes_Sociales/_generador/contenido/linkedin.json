@@ -1,0 +1,133 @@
+{
+  "grupo": "LinkedIn",
+  "comun": {
+    "marca": "oryzz",
+    "tema": "oscuro",
+    "handle": "linkedin.com/company/oryzz",
+    "web": "oryzz.com"
+  },
+  "piezas": [
+    {
+      "id": "banner_empresa_1128x191",
+      "plantilla": "li_banner",
+      "formato": "li_banner_empresa",
+      "tipo": "empresa",
+      "titular": "Más clientes. No más **likes**.",
+      "servicios": "Meta Ads · Google Ads · TikTok Ads · Automatizaciones con IA · SEO local · GEO"
+    },
+    {
+      "id": "banner_personal_juan_salazar_1584x396",
+      "plantilla": "li_banner",
+      "formato": "li_banner_personal",
+      "tipo": "personal",
+      "eyebrow": "Socio de Oryzz · Estrategia & Ads",
+      "titular": "Campañas que se miden en **clientes**, no en clics.",
+      "pie": "oryzz.com · cal.com/oryzz/30min"
+    },
+    {
+      "id": "banner_personal_david_morales_1584x396",
+      "plantilla": "li_banner",
+      "formato": "li_banner_personal",
+      "tipo": "personal",
+      "eyebrow": "Socio de Oryzz · Automatización & IA",
+      "titular": "Que ningún cliente se quede **sin respuesta**.",
+      "pie": "oryzz.com · cal.com/oryzz/30min"
+    },
+    {
+      "id": "post_1x1_titular",
+      "plantilla": "post_titular",
+      "formato": "cuadrado",
+      "eyebrow": "Cómo trabajamos",
+      "eyebrow_der": "Oryzz",
+      "titular": "Un sistema de captación, no acciones **sueltas**.",
+      "texto": "Anuncios, respuesta, seguimiento y reseñas conectados. Si una pieza falla, el resto no compensa.",
+      "orbita": [
+        1080,
+        960,
+        0.95
+      ]
+    },
+    {
+      "id": "post_4x5_dato",
+      "plantilla": "post_cifra",
+      "formato": "li",
+      "tema": "claro",
+      "eyebrow": "Prueba inicial",
+      "eyebrow_der": "Método",
+      "cifra": "3–7",
+      "unidad": "días",
+      "tam_cifra": 300,
+      "titular": "para validar con datos si tu negocio puede captar, antes de gastar de más.",
+      "cierre": "Presupuesto orientativo de 50–100 €. Sin permanencia. Solo escalamos lo que los datos confirman.",
+      "fuente": "El presupuesto publicitario lo decides y lo pagas tú, directamente a la plataforma y aparte de nuestros honorarios."
+    },
+    {
+      "id": "post_4x5_proceso",
+      "plantilla": "post_proceso",
+      "formato": "li",
+      "eyebrow": "Nuestro proceso",
+      "eyebrow_der": "3 pasos",
+      "titular": "Así pasamos de la idea a **clientes** medibles.",
+      "pasos": [
+        {
+          "titulo": "Valoración de 30 minutos",
+          "texto": "Revisamos tu negocio, tu competencia y cómo apareces en Google y en la IA. Sales con un diagnóstico."
+        },
+        {
+          "titulo": "Prueba inicial de 3–7 días",
+          "texto": "Con 50–100 € de presupuesto orientativo, validamos si hay demanda que captar."
+        },
+        {
+          "titulo": "Escalado de lo que funciona",
+          "texto": "Solo invertimos más donde los datos lo confirman. Sin permanencia en la prueba."
+        }
+      ],
+      "nota": "No garantizamos ventas: medimos potencial real."
+    },
+    {
+      "id": "documento_portada_1080x1350",
+      "plantilla": "li_documento",
+      "formato": "documento",
+      "etiqueta": [
+        "Guía PDF",
+        "8 páginas"
+      ],
+      "eyebrow": "GEO para negocios locales",
+      "titular": "Cómo conseguir que la IA **recomiende** tu negocio.",
+      "texto": "Qué miran ChatGPT, Gemini y Perplexity antes de nombrar una clínica, un centro o un gimnasio. Y qué puedes cambiar esta semana.",
+      "autores": [
+        {
+          "iniciales": "JS",
+          "nombre": "Juan Salazar",
+          "rol": "Estrategia & Ads"
+        },
+        {
+          "iniciales": "DM",
+          "nombre": "David Morales",
+          "rol": "Automatización & IA"
+        }
+      ]
+    },
+    {
+      "id": "_guia_banner_empresa",
+      "plantilla": "li_banner",
+      "formato": "li_banner_empresa",
+      "tipo": "empresa",
+      "guia": true,
+      "carpeta": "_guias",
+      "titular": "Más clientes. No más **likes**.",
+      "servicios": "Meta Ads · Google Ads · TikTok Ads · Automatizaciones con IA · SEO local · GEO"
+    },
+    {
+      "id": "_guia_banner_personal",
+      "plantilla": "li_banner",
+      "formato": "li_banner_personal",
+      "tipo": "personal",
+      "guia": true,
+      "carpeta": "_guias",
+      "eyebrow": "Socio de Oryzz · Estrategia & Ads",
+      "titular": "Campañas que se miden en **clientes**, no en clics.",
+      "pie": "oryzz.com · cal.com/oryzz/30min"
+    }
+  ]
+}

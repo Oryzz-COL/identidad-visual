@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>07_servicio_geo</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1350px; }
+.chat { margin-top: 50px; }
+.plat { margin-top: 34px; display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; }
+.plat .mono { font-size: 21px; color: var(--tx2); text-transform: uppercase; letter-spacing: .16em; white-space: nowrap; }
+.plat .nota { max-width: 520px; text-align: right; font-size: 19px; }
+</style>
+</head>
+<body class="claro f-post marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div>  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-claro.svg" alt="oryzz"><div class="eyebrow sin-raya">GEO</div></header>    <main class="cuerpo arriba" data-fit-box>
+<div style="padding-top: 56px">
+  <div class="eyebrow ">Nuevo servicio&nbsp;· GEO</div>
+  <h1 class="tit tit-m" style="margin-top:32px" data-fit="48">Que la IA te <span class="hl">recomiende</span> cuando preguntan por lo tuyo.</h1>
+  <div class="chat tarjeta">
+  <div class="chat-cab"><span class="mono">Asistente de IA</span><span class="chat-pts"><i></i><i></i><i></i></span></div>
+  <div class="chat-preg">¿Qué clínica dental de confianza me recomiendas en Alicante?</div>
+  <div class="chat-resp">
+    <div class="chat-intro">Estas son tres opciones bien valoradas:</div>
+    <div class="chat-op on">
+      <span class="chat-n">1</span>
+<div><div class="chat-nom">Tu clínica</div><div class="chat-det">Implantes y ortodoncia · 4,9 en Google</div></div>
+<span class="nodo-dot"></span>    </div>
+    <div class="chat-op">
+      <span class="chat-n">2</span>
+<div class="chat-skel"><i style="width:64%"></i><i style="width:58%"></i></div>    </div>
+    <div class="chat-op">
+      <span class="chat-n">3</span>
+<div class="chat-skel"><i style="width:73%"></i><i style="width:52%"></i></div>    </div>
+  </div>
+</div>
+  <div class="plat"><span class="mono">ChatGPT · Gemini · Perplexity</span><span class="nota">GEO no garantiza aparecer: aumenta las probabilidades de que te entiendan y te recomienden.</span></div>
+</div>
+    </main>
+<footer class="pie">
+  <span>@oryzzai</span>
+  <span class="der">oryzz.com</span>
+</footer>  </div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

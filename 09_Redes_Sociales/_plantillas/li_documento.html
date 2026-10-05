@@ -1,0 +1,30 @@
+{#- LINKEDIN · PORTADA DE DOCUMENTO / CARRUSEL PDF (1080×1350)
+    Campos: etiqueta (tipo y páginas), eyebrow, titular, texto, autores [{iniciales, nombre, rol, foto}], pie_accion -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.doc-et { display: flex; gap: 12px; }
+.autores { display: flex; gap: 40px; margin-top: 64px; }
+.autor { display: flex; align-items: center; gap: 18px; }
+.autor .av { width: 76px; height: 76px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--tx2); overflow: hidden; flex: none; }
+.autor .av img { width: 100%; height: 100%; object-fit: cover; }
+.autor b { display: block; font-size: 26px; font-weight: 700; color: var(--tx); }
+.autor span { font-size: 22px; color: var(--tx3); }
+.sigue { display: flex; align-items: center; gap: 16px; font-family: var(--font-mono); font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx2); }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W - 110, 330, [110, 175, 240, 305, 370], hueco=46, giro=-140, paso=11, nodo=2)|safe }}{% endblock %}
+{% block cabecera %}{{ m.cabecera() }}{% endblock %}
+{% set alinear = 'abajo' %}
+{% block cuerpo %}
+<div style="padding-bottom: 60px">
+  <div class="doc-et">{% for e in etiqueta %}<span class="etiqueta">{{ e }}</span>{% endfor %}</div>
+  <div style="height:48px"></div>
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-xl" style="margin-top:34px" data-fit="64">{{ titular|t }}</h1>
+  {% if texto %}<p class="texto" style="margin-top:34px; max-width:800px" data-fit="24">{{ texto|t }}</p>{% endif %}
+  <div class="autores">
+    {% for a in autores %}<div class="autor"><span class="av">{% if a.foto %}<img src="{{ a.foto }}" alt="">{% else %}{{ a.iniciales }}{% endif %}</span><div><b>{{ a.nombre }}</b><span>{{ a.rol }}</span></div></div>{% endfor %}
+  </div>
+</div>
+{% endblock %}
+{% block pie %}{{ m.pie(handle, '', True) }}{% endblock %}
+{% block encima %}<div class="sigue" style="position:absolute; right:88px; bottom:68px; z-index:3">{{ pie_accion|default('Desliza para leer') }}{{ icono('flecha', 28, 'currentColor', 2)|safe }}</div>{% endblock %}

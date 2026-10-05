@@ -1,0 +1,23 @@
+{#- YOUTUBE · MINIATURA 1280×720
+    Campos: eyebrow, titular (máx. 5–6 palabras), foto (ruta relativa a 09_Redes_Sociales; sin foto se deja el marco rotulado), episodio
+    La esquina inferior derecha la tapa la duración del vídeo: no poner texto ahí. -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.yt-tx { position: absolute; left: 72px; top: 150px; width: 700px; z-index: 3; }
+.yt-tx .tit { font-size: 112px; line-height: .94; letter-spacing: -.05em; margin-top: 24px; }
+.yt-logo { position: absolute; left: 72px; top: 56px; height: 40px; z-index: 3; }
+.yt-foto { position: absolute; right: 56px; top: 56px; width: 440px; height: 608px; z-index: 2; }
+.yt-ep { position: absolute; left: 72px; bottom: 60px; z-index: 3; display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx2); }
+{% endblock %}
+{% block fondo %}
+{{ orbitas(W, H, W - 276, 360, [250, 320, 390], hueco=46, giro=-150, paso=12, nodo=None, clase='')|safe }}
+<div class="yt-foto">{{ m.marco_foto(foto, 'Foto del presentador
+recorte a cintura · mirada a cámara
+luz natural · fondo neutro', '100%', '100%', 0.15, 28) }}</div>
+{% endblock %}
+{% block marco %}{% endblock %}
+{% block encima %}
+<img class="yt-logo" src="{{ logo }}" alt="oryzz">
+<div class="yt-tx">{{ m.eyebrow(eyebrow) }}<div class="tit" data-fit="80">{{ titular|t }}</div></div>
+{% if episodio %}<div class="yt-ep"><span class="nodo-dot"></span>{{ episodio }}</div>{% endif %}
+{% endblock %}

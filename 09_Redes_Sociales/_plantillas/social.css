@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Oryzz · Sistema de plantillas para redes sociales · social.css v1.0
+   Depende de 00_Fuente_Maestra/brand.css (fuentes y tokens).
+   Temas:     .oscuro (principal Oryzz) · .claro · .tap (expresión clara de Oryzz Tap)
+   Formatos:  .f-post 1080×1350 · .f-story 1080×1920 · .f-cuadrado 1200×1200 · .f-li 1200×1500
+              .f-horizontal (YouTube, OG, GBP) · .f-banner (LinkedIn) · .f-avatar
+   ========================================================================== */
+
+/* ---------- Temas (solo tokens de tokens.json) ---------- */
+.oscuro {
+  --bg: #0B0D12; --sup: #12151D; --sup2: #171B25; --borde: #232836;
+  --tx: #FFFFFF; --tx2: #D5D9E0; --tx3: #8A90A0; --tx4: #5A6172;
+  --acento: #5C8BFF; --nodo: #BFF24A; --orb: #232836; --orb-fuerte: #3A4152;
+  --grid: rgba(255,255,255,.04);
+  --grad-a: #5C8BFF; --grad-b: #36CFE0; --grad: linear-gradient(135deg,#5C8BFF 0%,#36CFE0 100%);
+  --cta-bg: var(--grad); --cta-tx: #0B0D12;
+  --halo: rgba(59,114,255,.10);
+}
+.claro, .tap {
+  --bg: #FFFFFF; --sup: #F6F7F9; --sup2: #E5E8EE; --borde: #D5D9E0;
+  --tx: #0B0D12; --tx2: #3A4152; --tx3: #5A6172; --tx4: #8A90A0;
+  --acento: #3B72FF; --nodo: #7FB02E; --orb: #D5D9E0; --orb-fuerte: #C7CBD6;
+  --grid: rgba(11,13,18,.045);
+  --grad-a: #3B72FF; --grad-b: #17A9C2; --grad: linear-gradient(135deg,#3B72FF 0%,#17A9C2 100%);
+  --cta-bg: #2C5BD0; --cta-tx: #FFFFFF;
+  --halo: rgba(59,114,255,.07);
+}
+.tap { --bg: #F6F7F9; --sup: #FFFFFF; --sup2: #EEF0F4; }
+
+/* ---------- Lienzo ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: var(--W); height: var(--H); overflow: hidden; background: var(--bg); }
+body { font-family: var(--font-texto); color: var(--tx); -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; font-kerning: normal; }
+.lienzo { position: relative; width: var(--W); height: var(--H); overflow: hidden; background: var(--bg); }
+.f-post .orb, .f-story .orb, .f-cuadrado .orb, .f-li .orb { -webkit-mask-image: linear-gradient(#000 0, #000 calc(100% - 230px), transparent calc(100% - 130px)); mask-image: linear-gradient(#000 0, #000 calc(100% - 230px), transparent calc(100% - 130px)); }
+.capa, .capa-svg { position: absolute; left: 0; top: 0; pointer-events: none; }
+.reticula {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px; background-position: -1px -1px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at var(--rx, 70%) var(--ry, 35%), #000 15%, transparent 78%);
+          mask-image: radial-gradient(ellipse 75% 70% at var(--rx, 70%) var(--ry, 35%), #000 15%, transparent 78%);
+}
+.halo { position: absolute; width: 1100px; height: 1100px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, var(--halo), transparent); }
+
+/* Márgenes por formato. --m = margen lateral, --mt/--mb = superior/inferior (zonas seguras) */
+.f-post      { --m: 88px; --mt: 76px; --mb: 68px; }
+.f-story     { --m: 88px; --mt: 210px; --mb: 300px; }
+.f-cuadrado  { --m: 96px; --mt: 80px; --mb: 72px; }
+.f-li        { --m: 96px; --mt: 84px; --mb: 76px; }
+.f-horizontal{ --m: 88px; --mt: 64px; --mb: 60px; }
+.marco { position: absolute; inset: 0; padding: var(--mt) var(--m) var(--mb); display: flex; flex-direction: column; z-index: 2; }
+.cuerpo { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.cuerpo.arriba { justify-content: flex-start; }
+.cuerpo.abajo { justify-content: flex-end; }
+
+/* ---------- Cabecera y pie ---------- */
+.cab { display: flex; align-items: center; justify-content: space-between; height: 48px; flex: none; }
+.cab .logo { height: 44px; width: auto; display: block; }
+.cab .logo.tap { height: 44px; }
+.pie { flex: none; display: flex; align-items: center; justify-content: space-between; padding-top: 26px; border-top: 1px solid var(--borde);
+  font-family: var(--font-mono); font-size: 22px; letter-spacing: .06em; color: var(--tx3); }
+.pie .der { display: flex; align-items: center; gap: 14px; }
+.pie.sin-linea { border-top: 0; padding-top: 0; }
+
+/* ---------- Tipografía ---------- */
+.eyebrow { font-family: var(--font-mono); font-weight: 500; font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3);
+  display: inline-flex; align-items: center; gap: 16px; line-height: 1.2; }
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; opacity: .7; flex: none; }
+.eyebrow.sin-raya::before { display: none; }
+.contador { font-family: var(--font-mono); font-size: 22px; letter-spacing: .12em; color: var(--tx3); }
+.contador b { color: var(--tx); font-weight: 500; }
+.tit { font-family: var(--font-display); font-weight: 700; color: var(--tx); text-wrap: balance; }
+.tit-xxl { font-size: 150px; line-height: .93; letter-spacing: -.05em; }
+.tit-xl { font-size: 118px; line-height: .96; letter-spacing: -.047em; }
+.tit-l  { font-size: 94px;  line-height: .99; letter-spacing: -.042em; }
+.tit-m  { font-size: 70px;  line-height: 1.04; letter-spacing: -.036em; }
+.tit-s  { font-size: 52px;  line-height: 1.08; letter-spacing: -.03em; }
+.tit-xs { font-size: 38px;  line-height: 1.15; letter-spacing: -.022em; font-weight: 600; }
+.hl { color: var(--acento); }
+.dato-tx { color: var(--nodo); }
+.claro .dato-tx, .tap .dato-tx { color: var(--acento); } /* lima 600 no llega a 3:1 como texto sobre blanco */
+.texto { font-size: 34px; line-height: 1.45; color: var(--tx2); font-weight: 400; text-wrap: pretty; }
+.texto-s { font-size: 28px; line-height: 1.5; color: var(--tx2); text-wrap: pretty; }
+.texto b, .texto-s b { color: var(--tx); font-weight: 600; }
+.mono { font-family: var(--font-mono); letter-spacing: .08em; }
+.nota { font-family: var(--font-mono); font-size: 20px; letter-spacing: .04em; line-height: 1.45; color: var(--tx3); }
+.cifra { font-family: var(--font-display); font-weight: 500; letter-spacing: -.055em; line-height: .86; color: var(--tx); }
+s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: var(--tx4); color: var(--tx3); }
+
+/* ---------- Componentes ---------- */
+.tarjeta { background: var(--sup); border: 1px solid var(--borde); border-radius: 20px; }
+.boton { display: inline-flex; align-items: center; gap: 18px; height: 96px; padding: 0 44px 0 48px; border-radius: 999px;
+  background: var(--cta-bg); color: var(--cta-tx); font-family: var(--font-texto); font-weight: 700; font-size: 32px; letter-spacing: -.005em; white-space: nowrap; }
+.boton svg { flex: none; }
+.url { font-family: var(--font-mono); font-size: 24px; letter-spacing: .06em; color: var(--tx3); }
+.etiqueta { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--orb-fuerte);
+  font-family: var(--font-mono); font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); white-space: nowrap; }
+.etiqueta.ejemplo { border-style: dashed; }
+.etiqueta .punto { width: 10px; height: 10px; border-radius: 50%; background: var(--nodo); }
+.chips { display: flex; flex-wrap: wrap; gap: 12px; }
+.chip { height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid var(--borde); background: var(--sup);
+  display: inline-flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; color: var(--tx2); }
+.nodo-dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--nodo); flex: none; }
+.sep { height: 1px; background: var(--borde); }
+
+/* Lista con iconos (checklist, antes/después) */
+.lista { list-style: none; display: flex; flex-direction: column; }
+.lista li { display: grid; grid-template-columns: 56px 1fr; gap: 22px; align-items: start; padding: 24px 0; border-top: 1px solid var(--borde);
+  font-size: 32px; line-height: 1.35; color: var(--tx2); font-weight: 500; }
+.lista li:last-child { border-bottom: 1px solid var(--borde); }
+.lista .ic { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; color: var(--tx); margin-top: -6px; }
+.lista .num { font-family: var(--font-mono); font-size: 22px; color: var(--tx3); padding-top: 8px; letter-spacing: .08em; }
+
+/* Zona reservada para stickers de Instagram (pregunta, encuesta, enlace) */
+.zona-sticker { border-radius: 28px; display: grid; place-items: center; position: relative; }
+.zona-sticker .pista { display: flex; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); }
+.guia .zona-sticker { outline: 3px dashed #E5484D; outline-offset: -3px; }
+
+/* Marco para foto (cuando no hay foto) */
+.marco-foto { position: relative; overflow: hidden; border-radius: 24px; background:
+  repeating-linear-gradient(135deg, transparent 0 22px, var(--grid) 22px 23px), var(--sup);
+  border: 2px dashed var(--orb-fuerte); display: grid; place-items: center; }
+.marco-foto .rotulo { text-align: center; font-family: var(--font-mono); font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); line-height: 1.7; }
+.marco-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.marco-foto.con-foto { border: 0; }
+.marco-foto.con-foto::after { content: ""; position: absolute; inset: 0; background: rgba(11,13,18,var(--velo, 0)); }
+
+/* Aviso visible si el texto no cabe ni reduciendo el cuerpo (el generador lo marca) */
+.desborde::after { content: "TEXTO DEMASIADO LARGO · RECORTA EL COPY"; position: fixed; left: 0; right: 0; top: 0; z-index: 99;
+  background: #E5484D; color: #fff; font: 700 28px/1 var(--font-mono); padding: 18px; text-align: center; letter-spacing: .1em; }
+
+/* Texto SVG */
+.svg-mono { font-family: var(--font-mono); font-size: 20px; letter-spacing: .14em; fill: var(--tx3); text-transform: uppercase; }
+.svg-mono-on { fill: var(--tx); }
+
+/* ---------- Producto Oryzz Tap (ilustración vectorial, sin foto) ---------- */
+.placa { width: 100em; height: 100em; position: relative; flex: none; }
+.placa::before { content: ""; position: absolute; inset: 0; border-radius: 7em; transform: translate(0, 1.4em);
+  background: #C7CBD6; box-shadow: 0 3em 7em rgba(11,13,18,.16), 0 1em 2em rgba(11,13,18,.08); }
+.placa-cara { position: absolute; inset: 0; border-radius: 7em; padding: 8em 8em 7.5em; display: flex; flex-direction: column;
+  background: #FFFFFF; color: #0B0D12; box-shadow: inset 0 0 0 .25em rgba(11,13,18,.06); }
+.placa-negro::before { background: #000; }
+.placa-negro .placa-cara { background: #171B25; color: #FFFFFF; box-shadow: inset 0 0 0 .25em rgba(255,255,255,.08); }
+.p-sup { display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 3.6em; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.p-sup svg { width: 2.1em; height: 2.1em; }
+.p-tit { font-family: var(--font-display); font-weight: 700; font-size: 8.4em; letter-spacing: -.035em; line-height: 1; margin-top: .55em; }
+.p-inf { margin-top: auto; display: flex; gap: 6em; align-items: flex-end; }
+.p-qr svg { display: block; width: 42em; height: 42em; }
+.p-lat { flex: 1; height: 42em; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; }
+.p-sub { font-size: 3.9em; line-height: 1.3; font-weight: 600; opacity: .75; }
+.p-logo { height: 5.2em; width: auto; display: block; }
+
+.stand { width: 100em; position: relative; flex: none; padding-bottom: 12em; }
+.st-panel { position: relative; z-index: 2; width: 100em; height: 150em; border-radius: 8em 8em 2em 2em; padding: 10em 10em 9em; display: flex; flex-direction: column;
+  background: #FFFFFF; color: #0B0D12; box-shadow: inset 0 0 0 .35em rgba(11,13,18,.06), 0 3em 6em rgba(11,13,18,.10); }
+.stand .p-sup { font-size: 4.6em; }
+.stand .p-tit { font-size: 11.5em; }
+.st-qr { margin: auto 0; }
+.st-qr svg { display: block; width: 56em; height: 56em; }
+.st-pie { display: flex; justify-content: space-between; align-items: center; }
+.stand .p-logo { height: 6.4em; }
+.st-base { position: absolute; z-index: 3; left: -9em; right: -9em; bottom: 3em; height: 14em; border-radius: 3.5em;
+  background: linear-gradient(#E5E8EE, #C7CBD6); box-shadow: inset 0 .5em 0 rgba(255,255,255,.7), 0 2em 4em rgba(11,13,18,.14); }
+.st-sombra { position: absolute; z-index: 1; left: -4em; right: -4em; bottom: 0; height: 6em; border-radius: 50%; background: radial-gradient(closest-side, rgba(11,13,18,.22), transparent); }
+.stand-negro .st-panel { background: #171B25; color: #fff; box-shadow: inset 0 0 0 .35em rgba(255,255,255,.08), 0 3em 6em rgba(11,13,18,.2); }
+.stand-negro .st-base { background: linear-gradient(#232836, #0B0D12); box-shadow: inset 0 .5em 0 rgba(255,255,255,.08), 0 2em 4em rgba(11,13,18,.25); }
+
+
+/* ---------- Conversación IA (GEO) ---------- */
+.chat { padding: 34px 36px 38px; display: flex; flex-direction: column; gap: 26px; }
+.chat-cab { display: flex; justify-content: space-between; align-items: center; color: var(--tx3); font-size: 20px; }
+.chat-pts { display: flex; gap: 8px; } .chat-pts i { width: 8px; height: 8px; border-radius: 50%; background: var(--orb-fuerte); }
+.chat-preg { align-self: flex-end; max-width: 86%; background: var(--sup2); border-radius: 26px 26px 6px 26px; padding: 22px 28px; font-size: 28px; line-height: 1.35; color: var(--tx); font-weight: 500; }
+.chat-resp { display: flex; flex-direction: column; gap: 12px; }
+.chat-intro { font-size: 25px; color: var(--tx3); margin-bottom: 6px; }
+.chat-op { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px; align-items: center; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--borde); }
+.chat-op.on { border-color: var(--acento); background: color-mix(in srgb, var(--acento) 8%, transparent); }
+.chat-n { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-mono); font-size: 18px; color: var(--tx3); }
+.chat-op.on .chat-n { border-color: var(--acento); color: var(--acento); }
+.chat-nom { font-family: var(--font-display); font-weight: 600; font-size: 29px; letter-spacing: -.015em; color: var(--tx); }
+.chat-det { font-size: 22px; color: var(--tx3); margin-top: 4px; }
+.chat-skel { display: flex; flex-direction: column; gap: 10px; }
+.chat-skel i { display: block; height: 12px; border-radius: 9px; background: var(--sup2); }
+
+
+/* Móvil: --u = 1 % del ancho del teléfono (se fija en la macro). Sin em compuestos. */
+.movil { --u: 3px; width: calc(var(--u) * 100); height: calc(var(--u) * 200); border-radius: calc(var(--u) * 16); padding: calc(var(--u) * 3.2); flex: none;
+  background: #0B0D12; box-shadow: inset 0 0 0 calc(var(--u) * .6) #3A4152, 0 calc(var(--u) * 4) calc(var(--u) * 9) rgba(11,13,18,.18); }
+.mv-pantalla { width: 100%; height: 100%; border-radius: calc(var(--u) * 13); background: #FFFFFF; color: #0B0D12; padding: calc(var(--u) * 20) calc(var(--u) * 8) calc(var(--u) * 9); display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.mv-isla { position: absolute; top: calc(var(--u) * 4.5); left: 50%; width: calc(var(--u) * 28); height: calc(var(--u) * 8); margin-left: calc(var(--u) * -14); border-radius: 99px; background: #0B0D12; }
+.mv-cab { display: flex; align-items: center; gap: calc(var(--u) * 5); }
+.mv-av { width: calc(var(--u) * 18); height: calc(var(--u) * 18); border-radius: 50%; background: #E5E8EE; display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: calc(var(--u) * 8); line-height: 1; color: #3A4152; flex: none; }
+.mv-av.g { width: calc(var(--u) * 26); height: calc(var(--u) * 26); font-size: calc(var(--u) * 11); }
+.mv-nom { font-family: var(--font-display); font-weight: 700; font-size: calc(var(--u) * 7.4); line-height: 1.1; letter-spacing: -.02em; }
+.mv-det { font-size: calc(var(--u) * 5); color: #5A6172; margin-top: calc(var(--u) * 1.5); line-height: 1.35; }
+.mv-eti { font-family: var(--font-mono); font-size: calc(var(--u) * 4.6); letter-spacing: .16em; text-transform: uppercase; color: #5A6172; }
+.mv-preg { margin-top: calc(var(--u) * 18); font-family: var(--font-display); font-weight: 600; font-size: calc(var(--u) * 8); line-height: 1.15; letter-spacing: -.02em; }
+.mv-est { margin-top: calc(var(--u) * 7); }
+.mv-est .estrellas { gap: calc(var(--u) * 2) !important; }
+.mv-est svg { width: calc(var(--u) * 14) !important; height: calc(var(--u) * 14) !important; }
+.mv-caja { margin-top: calc(var(--u) * 12); border: calc(var(--u) * .5) solid #D5D9E0; border-radius: calc(var(--u) * 5); padding: calc(var(--u) * 7) calc(var(--u) * 6); display: flex; flex-direction: column; gap: calc(var(--u) * 4); }
+.mv-caja span { height: calc(var(--u) * 3.2); border-radius: 9px; background: #E5E8EE; }
+.mv-caja span.c { width: 55%; }
+.mv-btn { margin-top: auto; height: calc(var(--u) * 20); border-radius: 999px; background: #2C5BD0; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: calc(var(--u) * 7); }
+.mv-cod { margin-top: calc(var(--u) * 12); display: flex; gap: calc(var(--u) * 2.4); }
+.mv-cod span { flex: 1; height: calc(var(--u) * 20); border-radius: calc(var(--u) * 3.5); border: calc(var(--u) * .5) solid #D5D9E0; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 600; font-size: calc(var(--u) * 8); color: #0B0D12; }
+.mv-cod span.v { border-style: dashed; }
+.mv-links { margin-top: calc(var(--u) * 14); display: flex; flex-direction: column; gap: calc(var(--u) * 4.5); }
+.mv-links span { height: calc(var(--u) * 19); border-radius: 999px; border: calc(var(--u) * .5) solid #D5D9E0; display: grid; place-items: center; font-weight: 600; font-size: calc(var(--u) * 6.2); color: #0B0D12; }
+.mv-links span.on { background: #2C5BD0; border-color: #2C5BD0; color: #fff; }

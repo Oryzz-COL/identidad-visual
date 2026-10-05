@@ -1,0 +1,123 @@
+{#- Componentes reutilizables. Se importan en _base.html como `m`. -#}
+
+{% macro cabecera(der=None) -%}
+<header class="cab">
+  <img class="logo" src="{{ logo }}" alt="{{ 'oryzz tap' if marca == 'tap' else 'oryzz' }}">
+  {%- if der is not none %}<div>{{ der }}</div>
+  {%- elif contador %}<div class="contador"><b>{{ '%02d'|format(contador[0]) }}</b> / {{ '%02d'|format(contador[1]) }}</div>
+  {%- elif eyebrow_der %}<div class="eyebrow sin-raya">{{ eyebrow_der }}</div>{% endif %}
+</header>
+{%- endmacro %}
+
+{% macro pie(izq=None, der=None, linea=True) -%}
+<footer class="pie{% if not linea %} sin-linea{% endif %}">
+  <span>{{ izq if izq is not none else handle }}</span>
+  <span class="der">{{ der if der is not none else web }}</span>
+</footer>
+{%- endmacro %}
+
+{% macro eyebrow(texto, clase='') -%}
+{% if texto %}<div class="eyebrow {{ clase }}">{{ texto|t }}</div>{% endif %}
+{%- endmacro %}
+
+{% macro boton(texto, flecha=True) -%}
+<span class="boton">{{ texto|t }}{% if flecha %}{{ icono('flecha', 34, 'currentColor', 2.2)|safe }}{% endif %}</span>
+{%- endmacro %}
+
+{% macro etiqueta_ejemplo(texto='Ejemplo') -%}
+<span class="etiqueta ejemplo">{{ texto }}</span>
+{%- endmacro %}
+
+{% macro estrellas(n=5, llenas=5, size=34, color='var(--acento)') -%}
+<span class="estrellas" style="display:inline-flex;gap:{{ (size*0.18)|round|int }}px">
+{%- for i in range(n) -%}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.55 5.2 5.7.83-4.13 4.02.98 5.68L12 16.64l-5.1 2.69.98-5.68-4.13-4.02 5.7-.83z" style="fill:{{ color if i < llenas else 'none' }};stroke:{{ color }}" stroke-width="1.6" stroke-linejoin="round"/></svg>
+{%- endfor -%}
+</span>
+{%- endmacro %}
+
+{#- Placa Oryzz Tap (acrílico 3 mm, 100 × 100 mm). color: blanco | negro. 1em = 1 % del lado. -#}
+{% macro placa(lado=520, color='blanco', titulo='Déjanos tu reseña', rot=0, qr_url='https://oryzz.com/tap', clase='') -%}
+<div class="placa placa-{{ color }} {{ clase }}" style="font-size:{{ lado/100 }}px;{% if rot %}transform:rotate({{ rot }}deg){% endif %}">
+  <div class="placa-cara">
+    <div class="p-sup"><span>Acerca tu móvil</span>{{ icono('nfc', (lado*0.075)|int, 'currentColor', 1.9)|safe }}</div>
+    <div class="p-tit">{{ titulo }}</div>
+    <div class="p-inf">
+      <div class="p-qr">{{ qr(qr_url, (lado*0.42)|int, 'currentColor')|safe }}</div>
+      <div class="p-lat">
+        {{ estrellas(5, 5, (lado*0.052)|int, 'currentColor') }}
+        <span class="p-sub">o escanea<br>el código</span>
+        <img class="p-logo" src="{{ logos.tap_mono_claro if color == 'negro' else logos.tap_mono_oscuro }}" alt="oryzz tap">
+      </div>
+    </div>
+  </div>
+</div>
+{%- endmacro %}
+
+{#- Stand Oryzz Tap (vista frontal). 1em = 1 % del ancho del panel. -#}
+{% macro stand(ancho=380, color='blanco', titulo='Déjanos tu reseña', qr_url='https://oryzz.com/tap', clase='') -%}
+<div class="stand stand-{{ color }} {{ clase }}" style="font-size:{{ ancho/100 }}px">
+  <div class="st-panel">
+    <div class="p-sup"><span>Acerca tu móvil</span>{{ icono('nfc', (ancho*0.1)|int, 'currentColor', 1.9)|safe }}</div>
+    <div class="p-tit">{{ titulo }}</div>
+    <div class="st-qr">{{ qr(qr_url, (ancho*0.56)|int, 'currentColor')|safe }}</div>
+    <div class="st-pie">{{ estrellas(5, 5, (ancho*0.07)|int, 'currentColor') }}
+      <img class="p-logo" src="{{ logos.tap_mono_claro if color == 'negro' else logos.tap_mono_oscuro }}" alt="oryzz tap"></div>
+  </div>
+  <div class="st-base"></div>
+  <div class="st-sombra"></div>
+</div>
+{%- endmacro %}
+
+{#- Móvil ilustrativo (no reproduce interfaces de terceros). pantalla: resena | activar | perfil -#}
+{% macro movil(alto=640, pantalla='resena', negocio='Café Aroma', detalle='Ejemplo · Bogotá', estrellas_llenas=5, enlaces=None, clase='') -%}
+<div class="movil {{ clase }}" style="--u:{{ alto/200 }}px">
+  <div class="mv-pantalla">
+    <div class="mv-isla"></div>
+    {% if pantalla == 'activar' %}
+    <div class="mv-eti">Oryzz Tap</div>
+    <div class="mv-preg" style="margin-top:calc(var(--u)*6)">Activa tu placa</div>
+    <div class="mv-det" style="margin-top:calc(var(--u)*3)">Escribe el código impreso en la parte de atrás.</div>
+    <div class="mv-cod"><span>4</span><span>8</span><span>2</span><span>9</span><span class="v"></span><span class="v"></span></div>
+    <div class="mv-btn">Activar</div>
+    {% elif pantalla == 'perfil' %}
+    <div class="mv-cab" style="flex-direction:column;text-align:center;gap:calc(var(--u)*4)"><span class="mv-av g">{{ negocio[0] }}</span><div><div class="mv-nom">{{ negocio }}</div><div class="mv-det">{{ detalle }}</div></div></div>
+    <div class="mv-links">
+      {% for e in (enlaces or ['Déjanos tu reseña', 'WhatsApp', 'Instagram', 'Ver la carta']) %}<span{% if loop.first %} class="on"{% endif %}>{{ e }}</span>{% endfor %}
+    </div>
+    {% else %}
+    <div class="mv-cab"><span class="mv-av">{{ negocio[0] }}</span><div><div class="mv-nom">{{ negocio }}</div><div class="mv-det">{{ detalle }}</div></div></div>
+    <div class="mv-preg">¿Qué tal tu experiencia?</div>
+    <div class="mv-est">{{ estrellas(5, estrellas_llenas, (alto*0.07)|int) }}</div>
+    <div class="mv-caja"><span></span><span></span><span class="c"></span></div>
+    <div class="mv-btn">Publicar</div>
+    {% endif %}
+  </div>
+</div>
+{%- endmacro %}
+
+{#- Conversación con un asistente de IA (GEO). opciones: [{nombre, detalle, destacado}] -#}
+{% macro chat_ia(pregunta, intro, opciones, plataforma='Asistente de IA') -%}
+<div class="chat tarjeta">
+  <div class="chat-cab"><span class="mono">{{ plataforma }}</span><span class="chat-pts"><i></i><i></i><i></i></span></div>
+  <div class="chat-preg">{{ pregunta }}</div>
+  <div class="chat-resp">
+    <div class="chat-intro">{{ intro }}</div>
+    {% for o in opciones %}
+    <div class="chat-op{% if o.destacado %} on{% endif %}">
+      <span class="chat-n">{{ loop.index }}</span>
+      {% if o.nombre %}<div><div class="chat-nom">{{ o.nombre }}</div>{% if o.detalle %}<div class="chat-det">{{ o.detalle }}</div>{% endif %}</div>
+      {% else %}<div class="chat-skel"><i style="width:{{ 46 + loop.index*9 }}%"></i><i style="width:{{ 70 - loop.index*6 }}%"></i></div>{% endif %}
+      {% if o.destacado %}<span class="nodo-dot"></span>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{%- endmacro %}
+
+{#- Marco de foto: con `src` muestra la foto con velo; sin ella deja un hueco rotulado. -#}
+{% macro marco_foto(src=None, rotulo='Foto', ancho='100%', alto='100%', velo=0, radio=24) -%}
+<div class="marco-foto{% if src %} con-foto{% endif %}" style="width:{{ ancho }};height:{{ alto }};border-radius:{{ radio }}px;--velo:{{ velo }}">
+  {% if src %}<img src="{{ src }}" alt="">{% else %}<div class="rotulo">{{ rotulo|t }}</div>{% endif %}
+</div>
+{%- endmacro %}

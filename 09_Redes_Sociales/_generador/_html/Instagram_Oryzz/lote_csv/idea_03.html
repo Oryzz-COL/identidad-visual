@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>idea_03</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1350px; }
+.lista { margin-top: 54px; }
+.cierre { margin-top: 44px; display: flex; gap: 18px; align-items: center; }
+</style>
+</head>
+<body class="oscuro f-post marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M981.97 172.57A130 130 0 1 1 1026.44 249.59" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M910.12 143.02A200 200 0 1 1 952.40 273.13" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/></svg>  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"><div class="eyebrow sin-raya">Checklist</div></header>    <main class="cuerpo arriba" data-fit-box>
+<div style="padding-top: 60px">
+  <div class="eyebrow ">Checklist&nbsp;· Ficha de Google</div>
+  <h1 class="tit tit-l" style="margin-top:36px; max-width: 900px" data-fit="54">Tu ficha de Google, revisada en <span class="hl">5 minutos</span>.</h1>
+  <ul class="lista">
+<li data-fit="22"><span class="ic"><svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Horario real y actualizado</span></li><li data-fit="22"><span class="ic"><svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Fotos de este año</span></li><li data-fit="22"><span class="ic"><svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Categoría principal correcta</span></li><li data-fit="22"><span class="ic"><svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Respuesta a todas las reseñas</span></li><li data-fit="22"><span class="ic"><svg class="icono " width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span>Enlace directo para pedir cita</span></li>  </ul>
+<div class="cierre"><span class="nodo-dot"></span><p class="texto" style="font-size:30px" data-fit="24">Si falla una, ya estás perdiendo llamadas.</p></div></div>
+    </main>
+<footer class="pie">
+  <span>@oryzzai</span>
+  <span class="der">oryzz.com</span>
+</footer>  </div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

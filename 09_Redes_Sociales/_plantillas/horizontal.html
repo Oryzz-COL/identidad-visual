@@ -1,0 +1,32 @@
+{#- HORIZONTAL · imagen OG (1200×630) y portada de Google Business Profile (1200×675)
+    Campos: eyebrow, titular, texto, servicios, url, producto (true → dibuja la placa Tap a la derecha)
+    Zona segura: todo el texto dentro del 80 % central (WhatsApp, Slack y GBP recortan bordes). -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.hz { position: absolute; left: 96px; top: 50%; transform: translateY(-50%); max-width: {{ 620 if producto else 820 }}px; z-index: 2; }
+.hz .tit { font-size: {{ 84 if not producto else 80 }}px; line-height: .98; letter-spacing: -.045em; margin-top: 26px; }
+.hz .texto { font-size: 26px; margin-top: 26px; max-width: 600px; }
+.hz .serv { font-family: var(--font-mono); font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); margin-top: 28px; line-height: 1.7; max-width: 720px; }
+.hz-logo { position: absolute; left: 96px; top: 56px; height: 40px; z-index: 2; }
+.hz-url { position: absolute; right: 96px; bottom: 50px; font-family: var(--font-mono); font-size: 20px; letter-spacing: .08em; color: var(--tx2); z-index: 2; }
+.hz-prod { position: absolute; right: 90px; top: 50%; margin-top: -{{ 190 }}px; z-index: 1; }
+{% endblock %}
+{% block fondo %}
+{% if producto %}
+{{ orbitas(W, H, W - 280, H / 2, [240, 310, 380], hueco=46, giro=150, paso=12, nodo=0, clase='')|safe }}
+<div class="hz-prod">{{ m.placa(380, 'blanco', 'Déjanos tu reseña', -7) }}</div>
+{% else %}
+{{ orbitas(W, H, W - 170, H / 2 + 40, [90, 150, 210, 270, 330], hueco=46, giro=-140, paso=11, nodo=2, clase='')|safe }}
+{% endif %}
+{% endblock %}
+{% block marco %}{% endblock %}
+{% block encima %}
+<img class="hz-logo" src="{{ logo }}" alt="oryzz">
+<div class="hz">
+  {% if eyebrow %}{{ m.eyebrow(eyebrow) }}{% endif %}
+  <div class="tit">{{ titular|t }}</div>
+  {% if texto %}<p class="texto">{{ texto|t }}</p>{% endif %}
+  {% if servicios %}<div class="serv">{{ servicios|t }}</div>{% endif %}
+</div>
+<div class="hz-url">{{ url|default(web) }}</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{#- ORYZZ TAP · FORMATOS (placa vs stand)
+    Campos: eyebrow, titular, placa {nombre, texto, color}, stand {nombre, texto, color}, colores (texto), nota -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.esc { position: relative; height: 560px; margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; align-items: end; }
+.esc > div { display: flex; justify-content: center; align-items: flex-end; }
+.suelo { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--borde); }
+.fichas { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 34px; }
+.ficha .mono { font-size: 18px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); }
+.ficha h3 { font-family: var(--font-display); font-weight: 700; font-size: 46px; letter-spacing: -.03em; margin-top: 10px; }
+.ficha p { font-size: 24px; line-height: 1.4; color: var(--tx2); margin-top: 10px; }
+.colores { display: flex; gap: 10px; margin-top: 18px; align-items: center; font-size: 21px; color: var(--tx3); }
+.colores i { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: inline-block; }
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 56px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-m" style="margin-top:28px" data-fit="44">{{ titular|t }}</h1>
+  <div class="esc">
+    <div style="padding-bottom: 24px">{{ m.placa(360, placa.color|default('blanco'), placa.titulo|default('Déjanos tu reseña')) }}</div>
+    <div>{{ m.stand(260, stand.color|default('negro'), stand.titulo|default('Déjanos tu reseña')) }}</div>
+    <span class="suelo"></span>
+  </div>
+  <div class="fichas">
+    {% for f in [placa, stand] %}
+    <div class="ficha"><span class="mono">{{ f.etiqueta }}</span><h3>{{ f.nombre }}</h3><p>{{ f.texto|t }}</p>
+      <div class="colores"><i style="background:#FFFFFF"></i><i style="background:#171B25"></i><span>{{ colores|default('Blanco o negro') }}</span></div></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

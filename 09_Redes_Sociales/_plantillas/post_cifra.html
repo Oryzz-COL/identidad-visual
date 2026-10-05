@@ -1,0 +1,39 @@
+{#- POST · CIFRA / DATO
+    Campos: eyebrow, cifra, unidad (en lima), titular (qué significa), comparativa [{etiqueta, valor, pct, on}],
+            cierre, fuente (obligatoria si el dato es externo), tam_cifra (px, opcional) -#}
+{% extends '_base.html' %}
+{% set tc = tam_cifra|default(360) %}
+{% block estilo %}
+.cifra-fila { display: flex; align-items: flex-start; gap: 6px; margin-top: 44px; white-space: nowrap; overflow: hidden; }
+.cifra { font-size: {{ tc }}px; }
+.unidad { font-family: var(--font-display); font-weight: 500; font-size: {{ tc * 0.62 }}px; line-height: 1; letter-spacing: -.04em; margin-top: .06em; }
+.explica { margin-top: 36px; max-width: 860px; }
+.comp { margin-top: 56px; display: flex; flex-direction: column; gap: 26px; }
+.comp-fila { display: grid; grid-template-columns: 300px 1fr auto; align-items: center; gap: 24px; }
+.comp-et { font-family: var(--font-mono); font-size: 21px; letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); }
+.comp-bar { height: 14px; border-radius: 99px; background: var(--sup2); overflow: hidden; }
+.comp-bar i { display: block; height: 100%; border-radius: 99px; background: var(--orb-fuerte); }
+.comp-fila.on .comp-et { color: var(--tx); }
+.comp-fila.on .comp-bar i { background: var(--tx); }
+.comp-val { white-space: nowrap; min-width: 90px; font-family: var(--font-display); font-weight: 500; font-size: 36px; text-align: right; color: var(--tx3); letter-spacing: -.02em; }
+.comp-fila.on .comp-val { color: var(--tx); }
+.fuente { margin-top: 44px; max-width: 840px; }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W - 40, 400, [150, 220], hueco=40, giro=150, paso=14, nodo=None)|safe }}{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 70px">
+  {{ m.eyebrow(eyebrow) }}
+  <div class="cifra-fila"><span class="cifra" data-fit="150">{{ cifra|t }}</span>{% if unidad %}<span class="unidad dato-tx">{{ unidad }}</span>{% endif %}</div>
+  <h2 class="tit tit-s explica" data-fit="36">{{ titular|t }}</h2>
+  {% if comparativa %}
+  <div class="comp">
+    {% for c in comparativa %}
+    <div class="comp-fila{% if c.on %} on{% endif %}"><span class="comp-et">{{ c.etiqueta }}</span><span class="comp-bar"><i style="width:{{ c.pct }}%"></i></span><span class="comp-val">{{ c.valor }}</span></div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if cierre %}<p class="texto" style="margin-top:48px" data-fit="24">{{ cierre|t }}</p>{% endif %}
+  {% if fuente %}<p class="nota fuente">{{ fuente|t }}</p>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>google_business_portada_1200x675</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1200px; --H: 675px; }
+.hz { position: absolute; left: 96px; top: 50%; transform: translateY(-50%); max-width: 820px; z-index: 2; }
+.hz .tit { font-size: 84px; line-height: .98; letter-spacing: -.045em; margin-top: 26px; }
+.hz .texto { font-size: 26px; margin-top: 26px; max-width: 600px; }
+.hz .serv { font-family: var(--font-mono); font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); margin-top: 28px; line-height: 1.7; max-width: 720px; }
+.hz-logo { position: absolute; left: 96px; top: 56px; height: 40px; z-index: 2; }
+.hz-url { position: absolute; right: 96px; bottom: 50px; font-family: var(--font-mono); font-size: 20px; letter-spacing: .08em; color: var(--tx2); z-index: 2; }
+.hz-prod { position: absolute; right: 90px; top: 50%; margin-top: -190px; z-index: 1; }
+</style>
+</head>
+<body class="oscuro f-horizontal marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg " width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M989.14 297.31A90 90 0 1 1 943.93 351.19" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M988.65 233.31A150 150 0 1 1 897.56 307.08" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1011.70 168.30A210 210 0 1 1 866.80 245.34" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1058.22 108.98A270 270 0 1 1 856.45 170.67" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1126.48 61.92A330 330 0 1 1 870.01 88.88" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="931.41" cy="192.08" r="11" style="fill:var(--nodo)"/></svg>
+  <div class="marco">
+  </div>
+<img class="hz-logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz">
+<div class="hz">
+<div class="eyebrow ">Oryzz&nbsp;· 100&nbsp;% remoto</div>  <div class="tit">Sistemas que captan <span class="hl">clientes</span>.</div>
+<div class="serv">Meta Ads&nbsp;· Google Ads&nbsp;· TikTok Ads&nbsp;· Automatizaciones con IA&nbsp;· SEO local y reseñas&nbsp;· GEO</div></div>
+<div class="hz-url">oryzz.com · cal.com/oryzz/30min</div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

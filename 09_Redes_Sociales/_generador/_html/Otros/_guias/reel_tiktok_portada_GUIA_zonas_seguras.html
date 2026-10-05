@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>reel_tiktok_portada_GUIA_zonas_seguras</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1920px; }
+.rl-tx { position: absolute; left: 88px; right: 180px; top: 620px; z-index: 3; }
+.rl-tx .tit { font-size: 118px; line-height: .95; letter-spacing: -.048em; margin-top: 34px; }
+.rl-logo { position: absolute; left: 88px; top: 300px; height: 44px; z-index: 3; }
+.rl-ep { position: absolute; left: 88px; top: 1360px; z-index: 3; display: flex; gap: 14px; align-items: center; font-family: var(--font-mono); font-size: 24px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx2); }
+.rl-foto { position: absolute; inset: 0; z-index: 1; }
+.rl-foto .marco-foto { border-radius: 0; border: 0; }
+.g { position: absolute; z-index: 20; display: flex; align-items: center; justify-content: center; text-align: center; font: 700 22px/1.35 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.g.ig { background: rgba(229,72,77,.16); border: 3px dashed #E5484D; color: #E5484D; }
+.g.tt { background: rgba(242,163,58,.14); border: 3px dashed #F2A33A; color: #F2A33A; }
+.g.rc { border: 3px solid #5C8BFF; color: #5C8BFF; background: transparent; align-items: flex-start; justify-content: flex-start; padding: 14px 18px; font-size: 20px; }
+.leyenda { position: absolute; z-index: 21; left: 88px; right: 88px; top: 40px; display: flex; gap: 26px; font: 600 20px/1.3 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+.leyenda i { display: inline-block; width: 18px; height: 18px; margin-right: 10px; vertical-align: -3px; }
+</style>
+</head>
+<body class="oscuro f-story marca-oryzz guia">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M888.36 1057.24A180 180 0 1 1 840.25 1189.42" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M867.18 969.66A260 260 0 1 1 762.53 1143.81" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M876.31 871.86A340 340 0 1 1 698.52 1069.31" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M918.39 772.48A420 420 0 1 1 656.27 970.00" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="797.14" cy="1046.09" r="11" style="fill:var(--nodo)"/></svg>
+  <div class="marco">
+  </div>
+<img class="rl-logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz">
+<div class="rl-tx"><div class="eyebrow ">Captación&nbsp;· en 60 segundos</div><div class="tit">3 errores que te cuestan <span class="hl">clientes</span> cada semana.</div></div>
+<div class="rl-ep"><span class="nodo-dot"></span>Episodio 01</div><div class="g ig" style="left:0;right:0;top:0;height:220px">IG · cabecera y audio<br>0–220 px</div>
+<div class="g ig" style="left:0;right:0;bottom:0;height:420px">IG · descripción, audio y botones<br>1500–1920 px</div>
+<div class="g ig" style="right:0;top:900px;width:140px;height:600px;writing-mode:vertical-rl">IG · botones</div>
+<div class="g tt" style="left:0;right:0;bottom:420px;height:60px">TikTok · descripción hasta 1440 px</div>
+<div class="g tt" style="right:140px;top:760px;width:40px;height:680px"></div>
+<div class="g rc" style="left:0;right:0;top:240px;height:1440px">Recorte 3:4 en la cuadrícula del perfil (1080×1440)</div>
+<div class="leyenda"><span><i style="background:#E5484D"></i>Instagram</span><span><i style="background:#F2A33A"></i>TikTok</span><span><i style="border:3px solid #5C8BFF"></i>Recorte perfil</span></div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{#- POST · ANUNCIO DE SERVICIO (p. ej. GEO)
+    Campos: eyebrow, titular, chat {pregunta, intro, opciones[{nombre, detalle, destacado}], plataforma},
+            plataformas, nota -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.chat { margin-top: 50px; }
+.plat { margin-top: 34px; display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; }
+.plat .mono { font-size: 21px; color: var(--tx2); text-transform: uppercase; letter-spacing: .16em; white-space: nowrap; }
+.plat .nota { max-width: 520px; text-align: right; font-size: 19px; }
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 56px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-m" style="margin-top:32px" data-fit="48">{{ titular|t }}</h1>
+  {{ m.chat_ia(chat.pregunta, chat.intro, chat.opciones, chat.plataforma|default('Asistente de IA')) }}
+  <div class="plat"><span class="mono">{{ plataformas }}</span>{% if nota %}<span class="nota">{{ nota|t }}</span>{% endif %}</div>
+</div>
+{% endblock %}

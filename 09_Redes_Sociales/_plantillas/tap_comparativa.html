@@ -1,0 +1,51 @@
+{#- ORYZZ TAP · COMPARATIVA de líneas (Reseñas Google vs Oryzz Pro)
+    Campos: eyebrow, titular, columnas [{linea, titulo, texto, destinos [..], puntos [..], on}], nota -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 54px; }
+.col { background: var(--sup); border: 1px solid var(--borde); border-radius: 24px; padding: 34px 28px 30px; display: flex; flex-direction: column; }
+.col.on { border-color: var(--acento); box-shadow: 0 0 0 1px var(--acento); }
+.col .mono { font-size: 18px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); display: flex; align-items: center; gap: 12px; }
+.col h3 { font-family: var(--font-display); font-weight: 700; font-size: 44px; letter-spacing: -.03em; line-height: 1.04; margin-top: 14px; }
+.col .d { font-size: 24px; line-height: 1.4; color: var(--tx2); margin-top: 12px; min-height: 62px; }
+.col svg.diag { margin: 18px 0 4px; display: block; }
+.col ul { list-style: none; margin-top: 14px; }
+.col li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; font-size: 23px; line-height: 1.32; color: var(--tx); padding: 14px 0; border-top: 1px solid var(--borde); font-weight: 500; }
+.col li svg { margin-top: 2px; color: var(--tx3); }
+.svg-et { font-family: var(--font-mono); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; fill: var(--tx2); }
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 56px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-m" style="margin-top:28px" data-fit="44">{{ titular|t }}</h1>
+  <div class="cols">
+    {% for c in columnas %}
+    <div class="col{% if c.on %} on{% endif %}">
+      <span class="mono">{% if c.on %}<span class="nodo-dot" style="width:12px;height:12px"></span>{% endif %}{{ c.linea }}</span>
+      <h3>{{ c.titulo|t }}</h3>
+      <p class="d">{{ c.texto|t }}</p>
+      {% set n = c.destinos|length %}
+      <svg class="diag" width="380" height="143" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="47" width="56" height="56" rx="12" fill="none" style="stroke:var(--tx)" stroke-width="2"/>
+        <path d="M22 66a10 10 0 0 1 0 18M30 60a18 18 0 0 1 0 30" fill="none" style="stroke:var(--tx)" stroke-width="2" stroke-linecap="round"/>
+        {% if n == 1 %}
+        <path d="M70 75H230" fill="none" style="stroke:var(--orb-fuerte)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="244" cy="75" r="12" style="fill:var(--nodo)"/>
+        <text x="268" y="81" class="svg-et">{{ c.destinos[0] }}</text>
+        {% else %}
+        {% for d in c.destinos %}
+        {% set y = 14 + loop.index0 * (122 / (n - 1)) %}
+        <path d="M70 75H120{% if y < 75 %}V{{ y + 16 }}Q120 {{ y }} 136 {{ y }}{% elif y > 75 %}V{{ y - 16 }}Q120 {{ y }} 136 {{ y }}{% endif %}H200" fill="none" style="stroke:var(--orb-fuerte)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="210" cy="{{ y }}" r="{{ 9 if loop.first else 7 }}" style="{{ 'fill:var(--nodo)' if loop.first else 'fill:var(--bg);stroke:var(--tx3);stroke-width:2' }}"/>
+        <text x="232" y="{{ y + 5 }}" class="svg-et">{{ d }}</text>
+        {% endfor %}
+        {% endif %}
+      </svg>
+      <ul>{% for p in c.puntos %}<li>{{ icono('check', 24, 'currentColor', 2.2)|safe }}<span>{{ p|t }}</span></li>{% endfor %}</ul>
+    </div>
+    {% endfor %}
+  </div>
+  {% if nota %}<p class="nota" style="margin-top:30px">{{ nota|t }}</p>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{#- AVATAR · foto de perfil (WhatsApp Business, 640×640, recorte circular)
+    El isotipo ocupa el 46 % del lado y queda centrado dentro del círculo. Campos: guia (muestra el círculo de recorte) -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.av-iso { position: absolute; left: 50%; top: 50%; width: {{ W * 0.46 }}px; height: {{ W * 0.46 }}px; margin: -{{ W * 0.23 }}px 0 0 -{{ W * 0.23 }}px; }
+.av-circ { position: absolute; inset: 0; border-radius: 50%; box-shadow: 0 0 0 999px rgba(229,72,77,.35); border: 3px dashed #E5484D; z-index: 9; }
+{% endblock %}
+{% block fondo %}<img class="av-iso" src="{{ iso }}" alt="oryzz">{% endblock %}
+{% block marco %}{% endblock %}
+{% block guia %}<div class="av-circ"></div>{% endblock %}

@@ -1,0 +1,33 @@
+{#- ORYZZ TAP · PASOS (cómo funciona / activación) con placa + móvil
+    Campos: eyebrow, titular, pasos [..] (3), pantalla (resena|activar|perfil), negocio, detalle, nota
+    Formatos: post, story -#}
+{% extends '_base.html' %}
+{% set story = formato == 'story' %}
+{% set alto_mv = 470 if not story else 640 %}
+{% set lado = 300 if not story else 350 %}
+{% block estilo %}
+.escena { position: relative; height: {{ alto_mv + 40 }}px; margin-top: {{ 40 if not story else 90 }}px; display: flex; align-items: center; justify-content: center; gap: {{ 30 if not story else 40 }}px; }
+.ondas { color: var(--acento); display: flex; }
+.pasos3 { display: grid; grid-template-columns: {{ 'repeat(3, 1fr)' if not story else '1fr' }}; gap: {{ 30 if not story else 22 }}px; margin-top: {{ 40 if not story else 90 }}px; }
+.p3 { display: flex; {{ 'flex-direction: column;' if not story else 'align-items: center;' }} gap: 18px; }
+.p3 .n { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-mono); font-size: 20px; color: var(--tx3); flex: none; background: var(--bg); }
+.p3:last-child .n { background: var(--nodo); border-color: var(--nodo); color: #fff; font-weight: 700; }
+.p3 p { font-size: {{ 27 if not story else 32 }}px; line-height: 1.35; color: var(--tx); font-weight: 600; }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W / 2, (360 if not story else 760) + alto_mv / 2, [alto_mv * 0.62, alto_mv * 0.62 + 90], hueco=46, giro=-150, paso=14, nodo=None)|safe }}{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: {{ 56 if not story else 60 }}px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-m" style="margin-top:28px; max-width: 900px" data-fit="44">{{ titular|t }}</h1>
+  <div class="escena">
+    {{ m.placa(lado, color_placa|default('blanco'), titulo_placa|default('Déjanos tu reseña'), -6) }}
+    <span class="ondas">{{ icono('nfc', 90 if not story else 110, 'currentColor', 1.6)|safe }}</span>
+    {{ m.movil(alto_mv, pantalla|default('resena'), negocio|default('Café Aroma'), detalle|default('Ejemplo · Bogotá')) }}
+  </div>
+  <div class="pasos3">
+    {% for p in pasos %}<div class="p3"><span class="n">{{ loop.index }}</span><p data-fit="22">{{ p|t }}</p></div>{% endfor %}
+  </div>
+  {% if nota %}<p class="nota" style="margin-top:{{ 34 if not story else 60 }}px">{{ nota|t }}</p>{% endif %}
+</div>
+{% endblock %}

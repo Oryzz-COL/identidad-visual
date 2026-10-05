@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>02_cifra</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1350px; }
+.cifra-fila { display: flex; align-items: flex-start; gap: 6px; margin-top: 44px; white-space: nowrap; overflow: hidden; }
+.cifra { font-size: 360px; }
+.unidad { font-family: var(--font-display); font-weight: 500; font-size: 223.2px; line-height: 1; letter-spacing: -.04em; margin-top: .06em; }
+.explica { margin-top: 36px; max-width: 860px; }
+.comp { margin-top: 56px; display: flex; flex-direction: column; gap: 26px; }
+.comp-fila { display: grid; grid-template-columns: 300px 1fr auto; align-items: center; gap: 24px; }
+.comp-et { font-family: var(--font-mono); font-size: 21px; letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); }
+.comp-bar { height: 14px; border-radius: 99px; background: var(--sup2); overflow: hidden; }
+.comp-bar i { display: block; height: 100%; border-radius: 99px; background: var(--orb-fuerte); }
+.comp-fila.on .comp-et { color: var(--tx); }
+.comp-fila.on .comp-bar i { background: var(--tx); }
+.comp-val { white-space: nowrap; min-width: 90px; font-family: var(--font-display); font-weight: 500; font-size: 36px; text-align: right; color: var(--tx3); letter-spacing: -.02em; }
+.comp-fila.on .comp-val { color: var(--tx); }
+.fuente { margin-top: 44px; max-width: 840px; }
+</style>
+</head>
+<body class="claro f-post marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M892.28 426.05A150 150 0 1 1 943.58 514.91" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M820.54 384.65A220 220 0 1 1 862.02 529.31" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/></svg>  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-claro.svg" alt="oryzz"><div class="eyebrow sin-raya">Dato</div></header>    <main class="cuerpo arriba" data-fit-box>
+<div style="padding-top: 70px">
+  <div class="eyebrow ">Dato&nbsp;· Velocidad de respuesta</div>
+  <div class="cifra-fila"><span class="cifra" data-fit="150">21</span><span class="unidad dato-tx">×</span></div>
+  <h2 class="tit tit-s explica" data-fit="36">más probabilidades de cualificar un lead si respondes en 5 minutos, no en 30.</h2>
+  <div class="comp">
+    <div class="comp-fila on"><span class="comp-et">Respuesta en 5 min</span><span class="comp-bar"><i style="width:100%"></i></span><span class="comp-val">21×</span></div>
+    <div class="comp-fila"><span class="comp-et">Respuesta en 30 min</span><span class="comp-bar"><i style="width:5%"></i></span><span class="comp-val">1×</span></div>
+  </div>
+<p class="texto" style="margin-top:48px" data-fit="24">Por eso la primera respuesta la automatizamos.</p><p class="nota fuente">Fuente: Lead Response Management Study, MIT e InsideSales.com (2007).</p></div>
+    </main>
+<footer class="pie">
+  <span>@oryzzai</span>
+  <span class="der">oryzz.com</span>
+</footer>  </div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

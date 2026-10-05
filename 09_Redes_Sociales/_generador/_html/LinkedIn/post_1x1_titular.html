@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>post_1x1_titular</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1200px; --H: 1200px; }
+.bloque { padding-top: 90px; max-width: 940px; }
+.bloque .tit { margin-top: 40px; }
+.bloque .texto { margin-top: 46px; max-width: 690px; }
+</style>
+</head>
+<body class="oscuro f-cuadrado marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1032.56 866.89A104.5 104.5 0 1 1 980.07 929.45" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1032.87 795.62A171.0 171.0 0 1 1 929.02 879.72" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1059.30 723.40A237.5 237.5 0 1 1 895.43 810.54" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1111.78 657.67A304.0 304.0 0 1 1 884.59 727.12" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="972.39" cy="827.11" r="11" style="fill:var(--nodo)"/></svg>
+  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"><div class="eyebrow sin-raya">Oryzz</div></header>    <main class="cuerpo arriba" data-fit-box>
+<div class="bloque">
+  <div class="eyebrow ">Cómo trabajamos</div>
+  <h1 class="tit tit-xl" data-fit="60">Un sistema de captación, no acciones <span class="hl">sueltas</span>.</h1>
+<p class="texto" data-fit="26">Anuncios, respuesta, seguimiento y reseñas conectados. Si una pieza falla, el resto no compensa.</p></div>
+    </main>
+<footer class="pie">
+  <span>linkedin.com/company/oryzz</span>
+  <span class="der">oryzz.com</span>
+</footer>  </div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

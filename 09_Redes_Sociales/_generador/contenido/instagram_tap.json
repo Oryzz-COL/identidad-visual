@@ -1,0 +1,118 @@
+{
+  "grupo": "Instagram_Tap",
+  "comun": { "marca": "tap", "formato": "post", "tema": "tap", "handle": "@oryzztap", "web": "oryzz.com/tap" },
+  "piezas": [
+    {
+      "id": "01_producto",
+      "plantilla": "tap_producto",
+      "eyebrow": "Oryzz Tap · NFC + QR",
+      "eyebrow_der": "Producto",
+      "titular": "Tu negocio.\nA un **toque**.",
+      "texto": "Una placa con chip NFC y código QR que lleva a tu cliente directo a dejarte una reseña en Google.",
+      "chips": ["Sin app", "Sin pilas", "Sin cuotas"]
+    },
+    {
+      "id": "02_como_funciona",
+      "plantilla": "tap_pasos",
+      "eyebrow": "Cómo funciona",
+      "eyebrow_der": "3 pasos",
+      "titular": "De cliente contento a reseña publicada en **30 segundos**.",
+      "pantalla": "resena",
+      "pasos": ["Acerca el móvil o escanea el QR", "Se abre tu página de reseñas", "Elige las estrellas y publica"],
+      "nota": "Funciona con iPhone y Android. Tu cliente no instala nada."
+    },
+    {
+      "id": "03_resenas_vs_pro",
+      "plantilla": "tap_comparativa",
+      "eyebrow": "Dos líneas",
+      "eyebrow_der": "Comparativa",
+      "titular": "Reseñas Google u Oryzz Pro. Tú eliges el **destino**.",
+      "columnas": [
+        {
+          "linea": "Reseñas Google",
+          "titulo": "Directo a la reseña",
+          "texto": "Un toque y tu cliente está en tu página de reseñas.",
+          "destinos": ["Reseña"],
+          "puntos": ["Un único destino, sin pasos intermedios", "Ideal para caja, barra o recepción", "Llega grabado y listo para usar"]
+        },
+        {
+          "linea": "Oryzz Pro",
+          "on": true,
+          "titulo": "Tu perfil en un toque",
+          "texto": "Reseña arriba y tus enlaces debajo, en una sola página.",
+          "destinos": ["Reseña", "WhatsApp", "Instagram", "Web"],
+          "puntos": ["Cambias el destino desde el panel", "Sin tocar ni reimprimir la placa", "Ves qué punto funciona: caja, mesa 4…"]
+        }
+      ]
+    },
+    {
+      "id": "04_placa_vs_stand",
+      "plantilla": "tap_formatos",
+      "eyebrow": "Formatos",
+      "eyebrow_der": "Placa · Stand",
+      "titular": "Ponlo donde tu cliente **termina**.",
+      "placa": { "etiqueta": "Adhesiva", "nombre": "Placa", "texto": "100 × 100 mm, acrílico de 3 mm y adhesivo 3M. Para pared, barra, caja o mesa.", "color": "blanco" },
+      "stand": { "etiqueta": "De pie", "nombre": "Stand", "texto": "Sin adhesivo, se mueve contigo. Para mostrador, recepción o caja.", "color": "negro" },
+      "colores": "Blanco o negro"
+    },
+    {
+      "id": "05_activacion",
+      "plantilla": "tap_pasos",
+      "eyebrow": "Activación",
+      "eyebrow_der": "2 minutos",
+      "titular": "Llega, lo activas y **funciona**.",
+      "pantalla": "activar",
+      "pasos": ["Escanea tu Tap por primera vez", "Escribe el código impreso detrás", "Elige el destino: reseñas, perfil o ambos"],
+      "nota": "Listo en 2 minutos. El destino se cambia cuando quieras, gratis."
+    },
+    {
+      "id": "06_promocion",
+      "plantilla": "tap_promo",
+      "eyebrow": "Oferta · Pack x2",
+      "eyebrow_der": "Oferta",
+      "aviso_precio": "Precio de ejemplo · confirmar antes de publicar",
+      "titular": "2 Oryzz Tap por",
+      "precio": "$ 99.900",
+      "moneda": "COP",
+      "precio_antes": "$ 118.000",
+      "incluye": ["Envío gratis en 24/48 h", "Grabados con tu enlace", "Pago único, sin cuotas"],
+      "boton": "Quiero mis 2 Oryzz Tap",
+      "url": "shop.oryzz.com"
+    },
+    {
+      "id": "01_producto",
+      "carpeta": "stories",
+      "formato": "story",
+      "plantilla": "tap_producto",
+      "eyebrow": "Oryzz Tap · NFC + QR",
+      "titular": "Tu negocio.\nA un **toque**.",
+      "texto": "Acerca el teléfono y ocurre: tu cliente llega directo a dejarte una reseña.",
+      "chips": ["Sin app", "Sin pilas", "Sin cuotas"]
+    },
+    {
+      "id": "02_como_funciona",
+      "carpeta": "stories",
+      "formato": "story",
+      "plantilla": "tap_pasos",
+      "eyebrow": "Cómo funciona",
+      "titular": "Reseña publicada en **30 segundos**.",
+      "pantalla": "resena",
+      "pasos": ["Acerca el móvil o escanea el QR", "Se abre tu página de reseñas", "Elige las estrellas y publica"]
+    },
+    {
+      "id": "03_promocion",
+      "carpeta": "stories",
+      "formato": "story",
+      "plantilla": "tap_promo",
+      "eyebrow": "Oferta · Pack x2",
+      "aviso_precio": "Precio de ejemplo · confirmar antes de publicar",
+      "titular": "2 Oryzz Tap por",
+      "precio": "$ 99.900",
+      "moneda": "COP",
+      "precio_antes": "$ 118.000",
+      "incluye": ["Envío gratis en 24/48 h", "Grabados con tu enlace", "Pago único, sin cuotas"],
+      "boton": "Quiero mis 2 Oryzz Tap",
+      "url": "shop.oryzz.com"
+    }
+  ]
+}

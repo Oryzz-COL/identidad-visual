@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>05_testimonio</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1080px; --H: 1920px; }
+.comilla { font-family: var(--font-display); font-weight: 500; font-size: 190px; line-height: .7; color: var(--acento); letter-spacing: -.05em; height: 120px; margin-top: 70px; }
+.cita-tx { font-family: var(--font-display); font-weight: 600; font-size: 72px; line-height: 1.1; letter-spacing: -.03em; color: var(--tx); margin-top: 40px; text-wrap: balance; }
+.firma { display: flex; align-items: center; gap: 26px; margin-top: 64px; flex-wrap: wrap; }
+.firma .av { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex: none; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; color: var(--tx3); }
+.firma .av img { width: 100%; height: 100%; object-fit: cover; }
+.firma .nom { font-family: var(--font-texto); font-weight: 700; font-size: 30px; color: var(--tx); }
+.firma .neg { font-size: 26px; color: var(--tx3); margin-top: 4px; }
+.firma .etiqueta { margin-left: auto; }
+</style>
+</head>
+<body class="oscuro f-story marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M967.78 1404.16A120 120 0 1 1 920.89 1485.38" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M959.70 1327.80A190 190 0 1 1 860.35 1438.14" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M981.51 1246.66A260 260 0 1 1 817.14 1366.09" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="936.08" cy="1440.00" r="11" style="fill:var(--nodo)"/></svg>  <div class="marco">
+<header class="cab">
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"></header>    <main class="cuerpo " data-fit-box>
+<div style="padding-top: 0px">
+  <div class="eyebrow ">Lo que dicen</div>
+  <div class="comilla">«</div>
+  <blockquote class="cita-tx" data-fit="40">Ahora cada consulta tiene respuesta en un minuto y la cita queda en la agenda.</blockquote>
+  <div class="firma">
+    <div class="av"><svg class="icono " width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3"/><circle cx="12" cy="9.5" r="2.6"/><path d="M8 16.5h8"/></svg></div>
+    <div><div class="nom">Nombre del cliente</div><div class="neg">Centro de estética · Alicante</div></div>
+<span class="etiqueta ejemplo">Testimonio de ejemplo</span>  </div>
+</div>
+    </main>
+<footer class="pie">
+  <span>@oryzzai</span>
+  <span class="der">oryzz.com</span>
+</footer>  </div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

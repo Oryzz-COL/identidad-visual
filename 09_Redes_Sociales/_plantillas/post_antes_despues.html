@@ -1,0 +1,25 @@
+{#- POST · ANTES / DESPUÉS
+    Campos: eyebrow, titular, sector (etiqueta, se marca como Ejemplo), antes [..], despues [..] (mismo número), nota -#}
+{% extends '_base.html' %}
+{% block estilo %}
+.ad-cab { display: grid; grid-template-columns: 1fr 64px 1fr; margin-top: 60px; padding-bottom: 20px; border-bottom: 1px solid var(--borde); }
+.ad-lab { font-family: var(--font-mono); font-size: 22px; letter-spacing: .18em; text-transform: uppercase; color: var(--tx3); display: flex; align-items: center; gap: 14px; }
+.ad-lab.on { color: var(--tx); }
+.ad-fila { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--borde); }
+.ad-a { font-size: 28px; line-height: 1.3; color: var(--tx3); padding-right: 12px; }
+.ad-d { font-size: 28px; line-height: 1.3; color: var(--tx); font-weight: 600; }
+.ad-f { color: var(--orb-fuerte); display: flex; justify-content: center; }
+.ad-pie { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 24px; }
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: 60px">
+  {{ m.eyebrow(eyebrow|default('Antes / después')) }}
+  <h1 class="tit tit-l" style="margin-top:36px" data-fit="56">{{ titular|t }}</h1>
+  <div class="ad-cab"><span class="ad-lab">Antes</span><span></span><span class="ad-lab on"><span class="nodo-dot"></span>Después</span></div>
+  {% for a in antes %}
+  <div class="ad-fila"><span class="ad-a" data-fit="22">{{ a|t }}</span><span class="ad-f">{{ icono('flecha', 30, 'currentColor', 2)|safe }}</span><span class="ad-d" data-fit="22">{{ despues[loop.index0]|t }}</span></div>
+  {% endfor %}
+  <div class="ad-pie">{% if nota %}<span class="texto-s" style="font-size:24px;color:var(--tx3)">{{ nota|t }}</span>{% endif %}{{ m.etiqueta_ejemplo(sector|default('Ejemplo')) }}</div>
+</div>
+{% endblock %}

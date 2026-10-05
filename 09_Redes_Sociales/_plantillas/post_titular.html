@@ -1,0 +1,21 @@
+{#- POST · TITULAR / IDEA
+    Campos: eyebrow, titular, texto, eyebrow_der (opcional), orbita [cx, cy, escala] (opcional)
+    Formatos: post, cuadrado, li, story -#}
+{% extends '_base.html' %}
+{% set o = orbita|default([W - 130, H - 250, 1]) %}
+{% block estilo %}
+.bloque { padding-top: {{ 90 if formato != 'story' else 150 }}px; max-width: 940px; }
+.bloque .tit { margin-top: 40px; }
+.bloque .texto { margin-top: 46px; max-width: 690px; }
+{% endblock %}
+{% block fondo %}
+{{ orbitas(W, H, o[0], o[1], [110*o[2], 180*o[2], 250*o[2], 320*o[2]], hueco=46, giro=-140, paso=11, nodo=1)|safe }}
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div class="bloque">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-xl" data-fit="60">{{ titular|t }}</h1>
+  {% if texto %}<p class="texto" data-fit="26">{{ texto|t }}</p>{% endif %}
+</div>
+{% endblock %}

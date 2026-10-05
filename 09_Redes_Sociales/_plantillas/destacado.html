@@ -1,0 +1,14 @@
+{#- PORTADA DE DESTACADO 1080×1920 · Instagram recorta un círculo en el centro.
+    Campos: icono_nombre (nombre de graficos.ICONOS), nombre (solo para el archivo y la vista previa: no se pinta)
+    El icono vive dentro del círculo central (Instagram recorta ~1080 px de diámetro); la órbita abierta y el nodo repiten el isotipo. -#}
+{% extends '_base.html' %}
+{% set cx = W / 2 %}{% set cy = H / 2 %}
+{% block estilo %}
+.ic-dest { position: absolute; left: {{ cx - 190 }}px; top: {{ cy - 190 }}px; width: 380px; height: 380px; color: var(--tx2); }
+.ic-dest svg { width: 100%; height: 100%; }
+{% endblock %}
+{% block fondo %}
+{{ orbitas(W, H, cx, cy, [340], hueco=54, giro=-62, paso=0, nodo=0, nodo_r=34, trazo=14, clase='', color='var(--orb-fuerte)')|safe }}
+<div class="ic-dest">{{ icono(icono_nombre, 380, 'currentColor', 1.25)|safe }}</div>
+{% endblock %}
+{% block marco %}{% endblock %}

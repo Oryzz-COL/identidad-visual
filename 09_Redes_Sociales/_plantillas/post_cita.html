@@ -1,0 +1,28 @@
+{#- POST · CITA DE CLIENTE
+    Campos: eyebrow, cita, autor, negocio, etiqueta (por defecto «Ejemplo»; pon false solo con testimonios reales y autorizados), foto (opcional) -#}
+{% extends '_base.html' %}
+{% set story = formato == 'story' %}
+{% block estilo %}
+.comilla { font-family: var(--font-display); font-weight: 500; font-size: 190px; line-height: .7; color: var(--acento); letter-spacing: -.05em; height: 120px; margin-top: 70px; }
+.cita-tx { font-family: var(--font-display); font-weight: 600; font-size: {{ 64 if not story else 72 }}px; line-height: 1.1; letter-spacing: -.03em; color: var(--tx); margin-top: 40px; text-wrap: balance; }
+.firma { display: flex; align-items: center; gap: 26px; margin-top: 64px; flex-wrap: wrap; }
+.firma .av { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex: none; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; color: var(--tx3); }
+.firma .av img { width: 100%; height: 100%; object-fit: cover; }
+.firma .nom { font-family: var(--font-texto); font-weight: 700; font-size: 30px; color: var(--tx); }
+.firma .neg { font-size: 26px; color: var(--tx3); margin-top: 4px; }
+.firma .etiqueta { margin-left: auto; }
+{% endblock %}
+{% block fondo %}{{ orbitas(W, H, W - 40, H - (120 if not story else 420), [120, 190, 260], hueco=46, giro=-150, paso=12, nodo=0)|safe }}{% endblock %}
+{% set alinear = 'arriba' if not story else '' %}
+{% block cuerpo %}
+<div style="padding-top: {{ 70 if not story else 0 }}px">
+  {{ m.eyebrow(eyebrow|default('Lo que dicen')) }}
+  <div class="comilla">«</div>
+  <blockquote class="cita-tx" data-fit="40">{{ cita|t }}</blockquote>
+  <div class="firma">
+    <div class="av">{% if foto %}<img src="{{ foto }}" alt="">{% else %}{{ icono('perfil', 44, 'currentColor')|safe }}{% endif %}</div>
+    <div><div class="nom">{{ autor }}</div><div class="neg">{{ negocio }}</div></div>
+    {% if etiqueta is not sameas false %}{{ m.etiqueta_ejemplo(etiqueta|default('Ejemplo')) }}{% endif %}
+  </div>
+</div>
+{% endblock %}

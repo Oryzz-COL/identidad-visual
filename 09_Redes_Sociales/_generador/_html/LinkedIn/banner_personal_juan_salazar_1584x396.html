@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>banner_personal_juan_salazar_1584x396</title>
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/00_Fuente_Maestra/brand.css">
+<link rel="stylesheet" href="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/09_Redes_Sociales/_plantillas/social.css">
+<style>
+:root { --W: 1584px; --H: 396px; }
+.bn { position: absolute; inset: 0; z-index: 2; }
+.bn-tx { position: absolute; left: 620px; right: 90px; top: 74px; }
+.bn-tit { font-family: var(--font-display); font-weight: 700; font-size: 60px; letter-spacing: -.04em; line-height: 1.02; margin-top: 22px; max-width: 860px; text-wrap: balance; }
+.bn-pie { position: absolute; left: 620px; right: 90px; bottom: 44px; display: flex; align-items: center; justify-content: space-between; }
+.bn-pie img { height: 34px; }
+.bn-pie span { font-family: var(--font-mono); font-size: 18px; letter-spacing: .08em; color: var(--tx3); }
+.zona-foto { position: absolute; z-index: 9; border: 3px dashed #E5484D; background: rgba(229,72,77,.15); color: #E5484D; font: 700 14px/1.3 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; display: grid; place-items: center; text-align: center; }
+</style>
+</head>
+<body class="oscuro f-banner marca-oryzz">
+<div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg " width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M441.68 247.47A170 170 0 1 1 359.81 149.90" fill="none" stroke-width="1.4" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M513.71 275.44A235 235 0 1 1 431.06 119.98" fill="none" stroke-width="1.4" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M578.36 331.36A300 300 0 1 1 516.40 115.30" fill="none" stroke-width="1.4" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M627.14 412.79A365 365 0 1 1 608.06 139.99" fill="none" stroke-width="1.4" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M652.39 515.00A430 430 0 1 1 697.23 195.97" fill="none" stroke-width="1.4" stroke-linecap="round" style="stroke:var(--orb)"/><circle cx="487.49" cy="189.67" r="10" style="fill:var(--nodo)"/></svg>
+  <div class="marco">
+  </div>
+<div class="bn">
+  <div class="bn-tx"><div class="eyebrow ">Socio de Oryzz&nbsp;· Estrategia &amp; Ads</div><div class="bn-tit">Campañas que se miden en <span class="hl">clientes</span>, no en clics.</div></div>
+  <div class="bn-pie"><img src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"><span>oryzz.com · cal.com/oryzz/30min</span></div>
+</div>
+</div>
+<script>
+/* Ajuste automático: si un texto con data-fit no cabe, se reduce su cuerpo hasta el
+   mínimo indicado (data-fit="px"). Si aun así no cabe, la pieza se marca en rojo. */
+(function () {
+  function desborda(box) { return box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1; }
+  function ajustar() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('[data-fit-box]'));
+    boxes.forEach(function (box) {
+      var els = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'));
+      var guard = 0;
+      while (desborda(box) && guard++ < 200) {
+        var cambiado = false;
+        els.forEach(function (el) {
+          var fs = parseFloat(getComputedStyle(el).fontSize), min = parseFloat(el.dataset.fit) || fs * .7;
+          if (fs > min) { el.style.fontSize = Math.max(min, fs - 2) + 'px'; cambiado = true; }
+        });
+        if (!cambiado) break;
+      }
+      if (desborda(box)) document.body.classList.add('desborde');
+    });
+    document.body.setAttribute('data-listo', '1');
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar); else window.onload = ajustar;
+})();
+</script>
+</body>
+</html>

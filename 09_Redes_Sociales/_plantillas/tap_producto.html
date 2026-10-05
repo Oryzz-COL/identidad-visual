@@ -1,0 +1,27 @@
+{#- ORYZZ TAP · PRODUCTO (placa NFC + QR dibujada en vector; con `foto` se usa la foto real)
+    Campos: eyebrow, titular, texto, chips [..], color_placa (blanco|negro), titulo_placa, foto (opcional)
+    Formatos: post, story -#}
+{% extends '_base.html' %}
+{% set story = formato == 'story' %}
+{% set lado = 520 if not story else 640 %}
+{% set px = W - lado - 30 if not story else (W - lado) / 2 + 60 %}
+{% set py = H - lado - 150 if not story else 900 %}
+{% block estilo %}
+.prod { position: absolute; left: {{ px }}px; top: {{ py }}px; z-index: 1; }
+.chips { margin-top: 44px; }
+.foto-prod { position: absolute; left: {{ px - 40 }}px; top: {{ py - 40 }}px; width: {{ lado + 60 }}px; height: {{ lado + 60 }}px; z-index: 1; }
+{% endblock %}
+{% block fondo %}
+{{ orbitas(W, H, px + lado / 2, py + lado / 2, [lado * 0.62, lado * 0.62 + 80, lado * 0.62 + 160], hueco=46, giro=148, paso=12, nodo=1)|safe }}
+{% if foto %}<div class="foto-prod">{{ m.marco_foto(foto) }}</div>
+{% else %}<div class="prod">{{ m.placa(lado, color_placa|default('blanco'), titulo_placa|default('Déjanos tu reseña'), -7) }}</div>{% endif %}
+{% endblock %}
+{% set alinear = 'arriba' %}
+{% block cuerpo %}
+<div style="padding-top: {{ 70 if not story else 60 }}px; max-width: {{ 600 if not story else 900 }}px">
+  {{ m.eyebrow(eyebrow) }}
+  <h1 class="tit tit-xl" style="margin-top:36px" data-fit="60">{{ titular|t }}</h1>
+  {% if texto %}<p class="texto" style="margin-top:36px; font-size:31px" data-fit="24">{{ texto|t }}</p>{% endif %}
+  {% if chips %}<div class="chips">{% for c in chips %}<span class="chip">{{ c }}</span>{% endfor %}</div>{% endif %}
+</div>
+{% endblock %}
