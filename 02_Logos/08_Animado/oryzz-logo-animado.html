@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oryzz · Logo animado</title>
+<link rel="icon" href="../06_Favicon/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../00_Fuente_Maestra/brand.css">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--grafito-950);color:#fff;font-family:var(--font-texto);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:72px 32px 120px}
+  header{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;padding-bottom:48px;border-bottom:1px solid var(--grafito-700)}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grafito-400)}
+  h1{font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1.05;letter-spacing:-.035em;margin:16px 0 0}
+  h1 em{font-style:normal;color:var(--azul-400)}
+  header p{color:var(--grafito-200);font-size:16px;line-height:1.6;margin:0;max-width:44ch}
+  section{padding:56px 0;border-bottom:1px solid var(--grafito-700)}
+  .row{display:grid;grid-template-columns:260px 1fr;gap:48px}
+  h2{font-family:var(--font-display);font-weight:600;font-size:28px;letter-spacing:-.02em;margin:10px 0 12px}
+  .side p{color:var(--grafito-400);font-size:14px;line-height:1.55;margin:0 0 16px}
+  .stage{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .panel{border-radius:20px;border:1px solid var(--grafito-700);background:var(--grafito-950);min-height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .panel.claro{background:var(--grafito-50);border-color:var(--grafito-200)}
+  .panel .tag{position:absolute;left:18px;bottom:14px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--grafito-400)}
+  .panel.claro .tag{color:var(--grafito-500)}
+  .panel img.lock{width:78%;max-width:440px;display:block}
+  .panel img.load{width:96px;height:96px;display:block}
+  .panel img.gif{max-width:100%;display:block}
+  button{font-family:var(--font-texto);font-weight:600;font-size:14px;border:0;border-radius:999px;padding:12px 20px;cursor:pointer;background:var(--grad-ia-oscuro);color:var(--grafito-950)}
+  button:focus-visible{outline:2px solid var(--azul-300);outline-offset:3px}
+  table{border-collapse:collapse;width:100%;font-family:var(--font-mono);font-size:13px}
+  td,th{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--grafito-800);vertical-align:top}
+  th{color:var(--grafito-400);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+  td{color:var(--grafito-200)}
+  td b{color:#fff;font-weight:500}
+  pre{margin:0;background:var(--grafito-850);border:1px solid var(--grafito-700);border-radius:14px;padding:20px;overflow:auto;font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--grafito-200)}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lima-500);margin-right:8px;vertical-align:1px}
+  @media (max-width:860px){header,.row,.stage{grid-template-columns:1fr}h1{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">02 Logos · 08 Animado · v2.0</div>
+      <h1>La órbita gira.<br>El <em>nodo</em> respira.</h1>
+    </div>
+    <p>Movimiento oficial del logo: la órbita gira a 4,4 s por vuelta (lineal), el nodo respira y las «zz» saltan con resorte y 0,17 s de desfase. Solo en intros, loaders y cierres; nunca en bucle dentro de una interfaz.</p>
+  </header>
+
+  <section>
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">01 · Intro</div>
+        <h2>Entrada única</h2>
+        <p>Se reproduce una vez (3 s) y termina en el logo maestro, en reposo. Úsalo al abrir la web, al inicio de un vídeo o de una presentación.</p>
+        <p><button type="button" id="replay">Repetir intro</button></p>
+      </div>
+      <div class="stage">
+        <div class="panel"><img class="lock intro" src="oryzz-logo-intro.svg" alt="oryzz"><span class="tag">oryzz-logo-intro.svg</span></div>
+        <div class="panel claro"><img class="lock intro" src="oryzz-logo-intro_sobre-claro.svg" alt="oryzz"><span class="tag">oryzz-logo-intro_sobre-claro.svg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">02 · Bucle</div>
+        <h2>Logo animado</h2>
+        <p>Versión en bucle para pantallas de espera, cierres de vídeo y stands. Respeta <span style="font-family:var(--font-mono)">prefers-reduced-motion</span>: si el usuario lo pide, se queda quieto.</p>
+      </div>
+      <div class="stage">
+        <div class="panel"><img class="lock" src="oryzz-logo-animado.svg" alt="oryzz"><span class="tag">oryzz-logo-animado.svg</span></div>
+        <div class="panel claro"><img class="lock" src="oryzz-logo-animado_sobre-claro.svg" alt="oryzz"><span class="tag">oryzz-logo-animado_sobre-claro.svg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">03 · Loader</div>
+        <h2>Solo isotipo</h2>
+        <p>Para estados de carga. Tamaño recomendado: 32–96 px. Nunca con el wordmark al lado.</p>
+      </div>
+      <div class="stage">
+        <div class="panel" style="min-height:220px"><img class="load" src="oryzz-loader.svg" alt="Cargando"><span class="tag">oryzz-loader.svg</span></div>
+        <div class="panel claro" style="min-height:220px"><img class="load" src="oryzz-loader_sobre-claro.svg" alt="Cargando"><span class="tag">oryzz-loader_sobre-claro.svg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">04 · GIF</div>
+        <h2>Para donde no hay SVG</h2>
+        <p>Email, WhatsApp, Notion, presentaciones. Fondo sólido incluido (el GIF no admite transparencia suave).</p>
+      </div>
+      <div class="stage">
+        <div class="panel" style="grid-column:1/-1;min-height:0;padding:0"><img class="gif" src="oryzz-logo-intro_800x300.gif" alt="oryzz"></div>
+        <div class="panel" style="min-height:0;padding:24px 0 48px"><img src="oryzz-loader_sobre-oscuro_256.gif" alt="Cargando" width="128" height="128"><span class="tag">oryzz-loader_sobre-oscuro_256.gif</span></div>
+        <div class="panel claro" style="min-height:0;padding:24px 0 48px;background:#fff"><img src="oryzz-loader_sobre-claro_256.gif" alt="Cargando" width="128" height="128"><span class="tag">oryzz-loader_sobre-claro_256.gif</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">05 · Especificación</div>
+        <h2>Tiempos</h2>
+        <p>Curvas de <span style="font-family:var(--font-mono)">tokens.json → motion</span>.</p>
+      </div>
+      <table>
+        <tr><th>Elemento</th><th>Bucle</th><th>Intro</th></tr>
+        <tr><td><b>Órbita + nodo</b></td><td>rotate 360° · 4,4 s · linear · infinito</td><td>−150° → 0° · 1,5 s · ease-marca</td></tr>
+        <tr><td><b>Trazo</b></td><td>—</td><td>se dibuja en 1,25 s · ease-marca</td></tr>
+        <tr><td><b>Nodo</b></td><td>escala 1 → 0,80 → 1 · 4,4 s · ease-in-out</td><td>aparece 0,95 s con resorte · respira una vez</td></tr>
+        <tr><td><b>«ory»</b></td><td>—</td><td>entra desde la izquierda · 0,5–1,2 s</td></tr>
+        <tr><td><b>«z» «z»</b></td><td>salto 0,26 em · 1,95 s · resorte · desfase 0,17 s</td><td>caen y rebotan · 1,1 s · desfase 0,17 s</td></tr>
+        <tr><td><b>Resorte</b></td><td colspan="2">cubic-bezier(.34, 1.4, .5, 1)  ·  ease-marca cubic-bezier(.2, .8, .2, 1)</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section style="border-bottom:0">
+    <div class="row">
+      <div class="side">
+        <div class="eyebrow">06 · Código</div>
+        <h2>Cómo insertarlo</h2>
+        <p><span class="dot"></span>Como imagen: la animación CSS funciona dentro de &lt;img&gt;. Para repetir la intro, vuelve a asignar el src.</p>
+      </div>
+      <pre>&lt;img src="/brand/oryzz-logo-intro.svg" alt="Oryzz" width="280" height="95"&gt;
+
+&lt;!-- loader --&gt;
+&lt;img src="/brand/oryzz-loader.svg" alt="Cargando" width="48" height="48"&gt;</pre>
+    </div>
+  </section>
+</div>
+<script>
+  document.getElementById('replay').addEventListener('click', function () {
+    document.querySelectorAll('img.intro').forEach(function (img) {
+      var base = img.getAttribute('src').split('?')[0];
+      img.setAttribute('src', base + '?r=' + Date.now());
+    });
+  });
+</script>
+</body>
+</html>
