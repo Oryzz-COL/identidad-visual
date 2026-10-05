@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Manrope',system-ui,sans-serif;background:#0B0D12;-webkit-font-smoothing:antialiased}
+    @keyframes orbSpin{to{transform:rotate(360deg)}}
+    @keyframes nodeGlow{0%,100%{opacity:1}50%{opacity:.55}}
+    @keyframes zHop{
+      0%{transform:translateY(0) scaleY(1)}
+      10%{transform:translateY(0) scaleY(.84)}
+      40%{transform:translateY(-34px) scaleY(1.07)}
+      62%{transform:translateY(0) scaleY(.9)}
+      74%{transform:translateY(-6px) scaleY(1.02)}
+      84%,100%{transform:translateY(0) scaleY(1)}
+    }
+    @keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  </style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif">
+
+  <!-- ====== TEMA OSCURO ====== -->
+  <sc-if value="{{ oscuro }}" hint-placeholder-val="{{ true }}">
+  <section data-screen-label="Animacion oscuro" style="position:relative;width:100%;height:620px;background:#0B0D12;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 78% 12%, rgba(59,114,255,.20), transparent 55%),radial-gradient(90% 70% at 12% 95%, rgba(54,207,224,.10), transparent 60%)"></div>
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(80% 80% at 50% 50%,#000,transparent 82%)"></div>
+
+    <div style="position:relative;display:flex;align-items:center;gap:30px;animation:floatUp 6s ease-in-out infinite">
+      <svg viewBox="0 0 100 100" width="138" height="138" style="display:block;overflow:visible;transform-origin:50% 50%;animation:orbSpin 4.4s linear infinite">
+        <defs><linearGradient id="anOrbD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5C8BFF"/><stop offset="1" stop-color="#36CFE0"/></linearGradient></defs>
+        <path d="M35.6 19.2 A34 34 0 1 0 64.4 19.2" fill="none" stroke="url(#anOrbD)" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="64.4" cy="19.2" r="7.5" fill="#BFF24A" style="filter:drop-shadow(0 0 9px rgba(191,242,74,.6));animation:nodeGlow 4.4s ease-in-out infinite"/>
+      </svg>
+
+      <sc-if value="{{ conTexto }}" hint-placeholder-val="{{ true }}">
+      <div style="display:inline-flex;align-items:flex-end;font-weight:700;font-size:130px;line-height:.86;letter-spacing:-.05em;color:#fff">
+        <span style="display:inline-block">ory</span>
+        <span style="display:inline-block;transform-origin:bottom center;background:linear-gradient(105deg,#5C8BFF,#36CFE0);-webkit-background-clip:text;background-clip:text;color:transparent;animation:zHop 1.95s cubic-bezier(.34,1.4,.5,1) infinite">z</span>
+        <span style="display:inline-block;transform-origin:bottom center;background:linear-gradient(105deg,#5C8BFF,#36CFE0);-webkit-background-clip:text;background-clip:text;color:transparent;animation:zHop 1.95s cubic-bezier(.34,1.4,.5,1) .17s infinite">z</span>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ====== TEMA CLARO ====== -->
+  <sc-if value="{{ claro }}" hint-placeholder-val="{{ false }}">
+  <section data-screen-label="Animacion claro" style="position:relative;width:100%;height:620px;background:#F6F7F9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(11,13,18,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(11,13,18,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(80% 80% at 50% 50%,#000,transparent 82%)"></div>
+
+    <div style="position:relative;display:flex;align-items:center;gap:30px;animation:floatUp 6s ease-in-out infinite">
+      <svg viewBox="0 0 100 100" width="138" height="138" style="display:block;overflow:visible;transform-origin:50% 50%;animation:orbSpin 4.4s linear infinite">
+        <defs><linearGradient id="anOrbL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B72FF"/><stop offset="1" stop-color="#36CFE0"/></linearGradient></defs>
+        <path d="M35.6 19.2 A34 34 0 1 0 64.4 19.2" fill="none" stroke="url(#anOrbL)" stroke-width="11" stroke-linecap="round"/>
+        <circle cx="64.4" cy="19.2" r="7.5" fill="#7FB02E" style="animation:nodeGlow 4.4s ease-in-out infinite"/>
+      </svg>
+
+      <sc-if value="{{ conTexto }}" hint-placeholder-val="{{ true }}">
+      <div style="display:inline-flex;align-items:flex-end;font-weight:700;font-size:130px;line-height:.86;letter-spacing:-.05em;color:#0B0D12">
+        <span style="display:inline-block">ory</span>
+        <span style="display:inline-block;transform-origin:bottom center;background:linear-gradient(105deg,#3B72FF,#36CFE0);-webkit-background-clip:text;background-clip:text;color:transparent;animation:zHop 1.95s cubic-bezier(.34,1.4,.5,1) infinite">z</span>
+        <span style="display:inline-block;transform-origin:bottom center;background:linear-gradient(105deg,#3B72FF,#36CFE0);-webkit-background-clip:text;background-clip:text;color:transparent;animation:zHop 1.95s cubic-bezier(.34,1.4,.5,1) .17s infinite">z</span>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:620},&quot;temaClaro&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;mostrarTexto&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const claro = this.props.temaClaro ?? false;
+    return {
+      claro,
+      oscuro: !claro,
+      conTexto: this.props.mostrarTexto ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
