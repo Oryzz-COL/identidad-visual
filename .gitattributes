@@ -1,0 +1,24 @@
+# Texto con saltos de línea normalizados
+* text=auto
+
+# SVG, HTML y CSS se versionan como texto (los diffs son útiles)
+*.svg text
+*.html text
+*.css text
+*.md text
+*.json text
+*.py text
+
+# Binarios: nunca convertir saltos de línea ni intentar diffs
+*.pdf binary
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.pptx binary
+*.docx binary
+*.ase binary
+*.zip binary
