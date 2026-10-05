@@ -1,0 +1,64 @@
+ASUNTO: Asunto: 35–50 caracteres, concreto, sin emojis
+PREHEADER: Preheader: completa el asunto en 40–90 caracteres; no lo repitas.
+================================================================
+
+ORYZZ · Tipo de correo
+
+Rótulo del hero
+
+TITULAR CORTO, CON UNA SOLA PALABRA EN AZUL.
+
+Entradilla opcional de una o dos frases que explica qué gana quien sigue leyendo.
+
+Rótulo del correo
+
+UN TITULAR CORTO QUE DICE UNA SOLA COSA.
+
+Hola, {{nombre}}. Este es el párrafo destacado: la primera frase dice para qué escribimos y la segunda, qué tiene que hacer la persona. Si no cabe en dos frases, el correo es demasiado largo.
+
+Un párrafo normal tiene tres o cuatro líneas como mucho. Habla de clientes, citas y euros, no de impresiones. Si enlazas algo en el texto, que sea algo concreto (https://oryzz.com) y que el texto del enlace diga adónde lleva.
+
+Verbo + resultado: https://oryzz.com
+
+Rótulo · Datos de ejemplo
+- Métrica: 128 (+12 % vs. mes anterior)
+- Otra métrica: 9,80 € (Sin cambios)
+
+1. Empieza por la acción, y después la explicación en la misma línea.
+2. Un elemento, una idea. Si necesitas dos frases, probablemente son dos elementos.
+3. Tres elementos se leen; siete, no.
+
+> «Sales con un diagnóstico, no con un presupuesto.»
+> — Oryzz · valoración de 30 minutos
+
+[Imagen: Diagrama del sistema de captación de Oryzz: anuncios, respuesta en minutos y citas en agenda.]
+
+Clave: Valor concreto
+Fecha: {{fecha}} · {{hora}}
+Importe: 1.500 € al mes + IVA
+
+1. [Hoy] Primer paso
+   Qué pasa y qué tiene que hacer la persona, en una frase.
+2. [Mañana] Segundo paso
+   Plazos en números: «3–7 días», «30 minutos».
+
+――――――――――――――――――――――――
+
+01 · Titular de la sección en una línea
+---------------------------------------
+Texto de la sección: el aprendizaje, el dato y qué hacer con él.
+
+Leer el caso completo → (https://oryzz.com)
+
+- Juan Salazar (Estrategia &amp; Ads): {{email_juan}}
+- David Morales (Automatización &amp; IA): {{email_david}}
+
+Un saludo,
+Juan Salazar
+Estrategia & Ads · Oryzz
+
+Oryzz · Sistemas que captan clientes.
+oryzz.com · Instagram: https://instagram.com/oryzzai · LinkedIn: https://www.linkedin.com/company/oryzz
+Te escribimos porque… (motivo real del envío).
+Darte de baja: {{baja_url}}
+{{direccion_postal}}

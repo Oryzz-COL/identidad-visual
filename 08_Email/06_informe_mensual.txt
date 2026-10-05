@@ -1,0 +1,48 @@
+ASUNTO: Septiembre en {{negocio}}: 61 citas y el coste por lead a la baja
+PREHEADER: El mes en cuatro cifras, qué funcionó, qué cambiamos y el plan para octubre.
+================================================================
+
+ORYZZ · Informe mensual
+
+Septiembre 2026
+
+61 CITAS NUEVAS. MISMO PRESUPUESTO, MENOS COSTE POR LEAD.
+
+La versión corta: la respuesta automática por WhatsApp convirtió más contactos en citas.
+
+Hola, {{nombre}}. Aquí tienes el resumen de septiembre. Las cifras salen del panel de campañas y de tu agenda.
+
+Resumen · Datos de ejemplo
+- Leads: 184 (+22 % vs. agosto)
+- Citas: 61 (+14 % vs. agosto)
+- Coste por lead: 11,40 € (−9 % vs. agosto)
+- Inversión: 2.100 € (En presupuesto)
+
+Lo que funcionó
+---------------
+
+La campaña de «primera revisión sin coste» en Meta trajo el 58 % de los leads. El asistente de WhatsApp respondió en menos de 5 minutos al 92 % de los mensajes, también fuera de horario.
+
+Lo que cambiamos
+----------------
+
+Pausamos Google Ads entre las 23:00 y las 7:00: se llevaba el 18 % del presupuesto y no traía citas. Ese dinero pasó a la campaña que mejor convierte.
+
+Plan para octubre
+-----------------
+
+1. Probar un segundo anuncio en vídeo grabado con tu equipo en la clínica.
+2. Activar el recordatorio de cita 24 horas antes para bajar las ausencias.
+3. Pedir la reseña al terminar cada tratamiento, con la placa de recepción.
+
+Ver el panel completo: {{url_panel}}
+
+Si quieres repasarlo por videollamada, responde a este correo y buscamos hueco.
+
+Un saludo,
+Juan Salazar
+Estrategia & Ads · Oryzz
+
+Oryzz · Sistemas que captan clientes.
+oryzz.com · Instagram: https://instagram.com/oryzzai · LinkedIn: https://www.linkedin.com/company/oryzz
+Te escribimos porque {{negocio}} es cliente de Oryzz. Las cifras de esta plantilla son de ejemplo.

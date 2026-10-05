@@ -1,0 +1,40 @@
+ASUNTO: Confirmada tu valoración: {{fecha}}, {{hora}}
+PREHEADER: 30 minutos por videollamada. Te contamos qué tener a mano para aprovecharlos.
+================================================================
+
+ORYZZ · Valoración · 30 min
+
+Cita confirmada
+
+NOS VEMOS EL {{FECHA}}.
+
+Hola, {{nombre}}. Gracias por reservar. En 30 minutos revisamos cómo le llegan hoy los clientes a {{negocio}}, dónde se pierden y qué haríamos primero. Sales con un diagnóstico, no con un presupuesto.
+
+Cuándo: {{fecha}} · {{hora}} (hora peninsular)
+Duración: 30 minutos
+Dónde: Videollamada, con el enlace de abajo
+Con: {{anfitrion}}
+
+Entrar a la videollamada: {{enlace_videollamada}}
+
+¿No te va bien la hora? Cámbiala o cancélala aquí ({{enlace_reprogramar}}).
+
+――――――――――――――――――――――――
+
+Qué tener a mano (10 minutos)
+-----------------------------
+
+1. Cuánto vale un cliente para ti. Ticket medio o valor de un tratamiento; con una cifra aproximada basta.
+2. Cuántos contactos te llegan al mes y por dónde: llamadas, WhatsApp, formulario, Instagram.
+3. Qué has probado ya. Anuncios, agencias, promociones: qué pasó y qué no te convenció.
+4. Tu objetivo para los próximos tres meses, aunque sea una intuición.
+
+No hace falta preparar presentaciones ni darnos accesos todavía. Y si no encajamos, te lo decimos.
+
+Hasta el {{fecha}},
+Juan Salazar
+Estrategia & Ads · Oryzz
+
+Oryzz · Sistemas que captan clientes.
+oryzz.com · Instagram: https://instagram.com/oryzzai · LinkedIn: https://www.linkedin.com/company/oryzz
+Te escribimos porque reservaste una valoración en cal.com/oryzz/30min.

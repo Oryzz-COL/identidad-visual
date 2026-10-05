@@ -1,0 +1,18 @@
+ASUNTO: Pregunta sobre las citas de {{negocio}}
+================================================================
+
+Hola, {{nombre}}:
+
+Buscando «{{servicio}} en {{ciudad}}» he visto que {{negocio}} sale en el mapa de Google, pero {{observacion_concreta}}. Son detalles pequeños que suelen costar citas que ya estaban a punto de llegar.
+
+Soy Juan, de Oryzz. Montamos sistemas de captación para clínicas y negocios locales: anuncios en Meta y Google, respuesta por WhatsApp en minutos y la ficha de Google bien trabajada. Lo medimos en citas, no en likes.
+
+¿Te mando en tres líneas lo que cambiaría primero en tu caso? Sin llamada, por aquí mismo.
+
+Si no es buen momento, respóndeme «no» y no vuelvo a escribirte.
+
+Un saludo,
+
+Juan Salazar
+Oryzz · Estrategia & Ads
+https://oryzz.com

@@ -1,0 +1,36 @@
+ASUNTO: Pedido {{numero_pedido}} confirmado: ya preparamos tu Oryzz Tap
+PREHEADER: Te avisamos cuando salga, con el número de seguimiento. Entrega estimada: {{plazo_entrega}}.
+================================================================
+
+ORYZZ TAP · Pedido {{numero_pedido}}
+
+Pedido confirmado
+
+GRACIAS, {{NOMBRE}}. YA ESTAMOS PREPARANDO TU ORYZZ TAP.
+
+Hemos recibido tu pedido y el pago. Lo preparamos y te escribimos en cuanto salga, con el número de seguimiento.
+
+Producto: {{producto}}
+Cantidad: {{cantidad}}
+Total: {{total}}
+Envío a: {{direccion_envio}}
+Entrega: {{plazo_entrega}}
+
+Ver mi pedido: {{url_pedido}}
+
+Qué pasa ahora
+--------------
+
+1. Preparamos tu pedido y te enviamos el número de seguimiento.
+2. Llega a tu dirección en {{plazo_entrega}}.
+3. La activas en 2 minutos: ese mismo día te mandamos los pasos.
+
+¿Algo del pedido no está bien? Responde a este correo o escríbenos a pedidos@oryzz.com.
+
+Gracias por confiar en nosotros,
+Equipo Oryzz Tap
+Tu negocio. A un toque.
+
+Oryzz Tap · Tu negocio. A un toque.
+oryzz.com/tap · Instagram: https://instagram.com/oryzztap · TikTok: https://www.tiktok.com/@oryzz.tap · pedidos@oryzz.com
+Te escribimos porque hiciste un pedido en shop.oryzz.com.

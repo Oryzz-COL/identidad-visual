@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Firmas de correo · Oryzz</title>
+<script>
+/* ══════════ CONFIGURACIÓN · edita solo esto ══════════ */
+const BASE_URL = 'https://oryzz.com/brand/email';          // donde has subido 08_Email/assets/ (sin barra final)
+const DATOS = {
+  email_juan:     '{{email_juan}}',     // p. ej. juan@oryzz.com
+  telefono_juan:  '{{telefono_juan}}',  // p. ej. +34 600 000 000
+  email_david:    '{{email_david}}',
+  telefono_david: '{{telefono_david}}',
+  telefono_tap:   '{{telefono_tap}}'
+};
+/* ═════════════════════════════════════════════════════ */
+</script>
+<style>
+:root{--fondo:#F6F7F9;--superficie:#FFFFFF;--borde:#E5E8EE;--texto:#0B0D12;--texto-2:#3A4152;--texto-3:#5A6172;--azul:#2C5BD0;--nodo:#7FB02E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--fondo:#0B0D12;--superficie:#12151D;--borde:#232836;--texto:#FFFFFF;--texto-2:#D5D9E0;--texto-3:#8A90A0;--azul:#9FB8FF;--nodo:#BFF24A}}
+:root[data-theme="dark"]{--fondo:#0B0D12;--superficie:#12151D;--borde:#232836;--texto:#FFFFFF;--texto-2:#D5D9E0;--texto-3:#8A90A0;--azul:#9FB8FF;--nodo:#BFF24A}
+body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.6 Manrope,Arial,sans-serif}
+main{max-width:880px;margin:0 auto;padding:48px 16px 80px}
+.eb{font:500 12px/16px 'JetBrains Mono',Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-3);margin:0 0 12px}
+.eb b{color:var(--nodo);font-weight:500}
+h1{font:700 40px/1.1 'Space Grotesk',Arial,sans-serif;letter-spacing:-.03em;margin:0 0 12px}
+h2{font:600 20px/1.3 'Space Grotesk',Arial,sans-serif;margin:0 0 4px}
+p.lead{color:var(--texto-2);margin:0 0 32px;max-width:640px}
+.aviso{display:none;border:1px solid #F2A33A;border-radius:12px;padding:14px 18px;margin:0 0 32px;color:var(--texto-2)}
+.f{background:var(--superficie);border:1px solid var(--borde);border-radius:16px;padding:24px;margin:0 0 20px}
+.f header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 18px;flex-wrap:wrap}
+.f small{color:var(--texto-3);font-size:14px}
+.lienzo{background:#FFFFFF;border-radius:10px;padding:20px;overflow-x:auto}
+button{font:700 15px Manrope,Arial,sans-serif;background:var(--azul);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}
+@media (prefers-color-scheme:dark){button{color:#0B0D12}}
+button.ok{background:#1F9D55;color:#fff}
+ol{color:var(--texto-2);padding-left:20px}
+code{font-family:'JetBrains Mono',Consolas,monospace;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<p class="eb"><b>●</b>&nbsp; 08_Email · firmas</p>
+<h1>Firmas de correo</h1>
+<p class="lead">Pulsa «Copiar firma» y pégala en Gmail (Configuración → Ver todos los ajustes → Firma) o en Outlook. Usa la completa para correos nuevos y la compacta para respuestas. Antes, edita la configuración al principio de este archivo (BASE_URL, correos y teléfonos).</p>
+<div class="aviso" id="aviso"><strong>Las imágenes no están subidas todavía.</strong> Se muestran desde la carpeta local <code>assets/</code>. Súbelas a <code id="burl"></code> antes de copiar la firma completa, o Gmail la mostrará sin logo.</div>
+<section class="f"><header><div><h2>Juan Salazar</h2><small>Completa · correos nuevos</small></div><button type="button" data-copiar="juan-salazar-completa">Copiar firma</button></header><div class="lienzo" id="juan-salazar-completa"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;"><tr><td valign="top" style="padding:2px 16px 0 0;"><a href="https://oryzz.com" target="_blank"><img src="%BASE_PLACEHOLDER%/firma-avatar-oryzz.png" width="56" height="56" alt="Oryzz" style="display:block;width:56px;height:56px;border:0;border-radius:12px;"></a></td><td valign="top" style="border-left:1px solid #D5D9E0;padding:0 0 0 16px;font-family:Arial,Helvetica,sans-serif;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:22px;font-weight:bold;color:#0B0D12;">Juan Salazar</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#5A6172;padding:0 0 8px;">Socio · Estrategia &amp; Ads · Oryzz</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="mailto:{{email_juan}}" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">{{email_juan}}</a> &nbsp;·&nbsp; <a href="tel:{{telefono_juan}}" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">{{telefono_juan}}</a></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="https://cal.com/oryzz/30min" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;font-weight:bold;">Agenda 30 minutos →</a> &nbsp;·&nbsp; <a href="https://oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">oryzz.com</a></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;padding:6px 0 0;"><a href="https://instagram.com/oryzzai" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">Instagram</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/company/oryzz" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">LinkedIn</a></div></td></tr></table></div></section>
+<section class="f"><header><div><h2>Juan Salazar</h2><small>Compacta · respuestas y reenvíos</small></div><button type="button" data-copiar="juan-salazar-compacta">Copiar firma</button></header><div class="lienzo" id="juan-salazar-compacta"><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><b style="color:#0B0D12;">Juan Salazar</b> · Oryzz</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;">Estrategia &amp; Ads &nbsp;·&nbsp; {{telefono_juan}} &nbsp;·&nbsp; <a href="https://oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;">oryzz.com</a></div></div></section>
+<section class="f"><header><div><h2>David Morales</h2><small>Completa · correos nuevos</small></div><button type="button" data-copiar="david-morales-completa">Copiar firma</button></header><div class="lienzo" id="david-morales-completa"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;"><tr><td valign="top" style="padding:2px 16px 0 0;"><a href="https://oryzz.com" target="_blank"><img src="%BASE_PLACEHOLDER%/firma-avatar-oryzz.png" width="56" height="56" alt="Oryzz" style="display:block;width:56px;height:56px;border:0;border-radius:12px;"></a></td><td valign="top" style="border-left:1px solid #D5D9E0;padding:0 0 0 16px;font-family:Arial,Helvetica,sans-serif;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:22px;font-weight:bold;color:#0B0D12;">David Morales</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#5A6172;padding:0 0 8px;">Socio · Automatización &amp; IA · Oryzz</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="mailto:{{email_david}}" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">{{email_david}}</a> &nbsp;·&nbsp; <a href="tel:{{telefono_david}}" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">{{telefono_david}}</a></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="https://cal.com/oryzz/30min" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;font-weight:bold;">Agenda 30 minutos →</a> &nbsp;·&nbsp; <a href="https://oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">oryzz.com</a></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;padding:6px 0 0;"><a href="https://instagram.com/oryzzai" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">Instagram</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/company/oryzz" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">LinkedIn</a></div></td></tr></table></div></section>
+<section class="f"><header><div><h2>David Morales</h2><small>Compacta · respuestas y reenvíos</small></div><button type="button" data-copiar="david-morales-compacta">Copiar firma</button></header><div class="lienzo" id="david-morales-compacta"><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><b style="color:#0B0D12;">David Morales</b> · Oryzz</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;">Automatización &amp; IA &nbsp;·&nbsp; {{telefono_david}} &nbsp;·&nbsp; <a href="https://oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;">oryzz.com</a></div></div></section>
+<section class="f"><header><div><h2>Equipo Oryzz Tap</h2><small>Completa · correos nuevos</small></div><button type="button" data-copiar="oryzz-tap-completa">Copiar firma</button></header><div class="lienzo" id="oryzz-tap-completa"><table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;"><tr><td valign="top" style="padding:2px 16px 0 0;"><a href="https://oryzz.com/tap" target="_blank"><img src="%BASE_PLACEHOLDER%/firma-avatar-tap.png" width="56" height="56" alt="Oryzz" style="display:block;width:56px;height:56px;border:0;border-radius:12px;"></a></td><td valign="top" style="border-left:1px solid #D5D9E0;padding:0 0 0 16px;font-family:Arial,Helvetica,sans-serif;"><div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:22px;font-weight:bold;color:#0B0D12;">Equipo Oryzz Tap</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:20px;color:#5A6172;padding:0 0 8px;">Placas NFC + QR para reseñas y perfil</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="mailto:pedidos@oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">pedidos@oryzz.com</a> &nbsp;·&nbsp; <a href="https://shop.oryzz.com" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#3A4152;text-decoration:none;">shop.oryzz.com</a></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><a href="https://oryzz.com/tap" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;font-weight:bold;">Ver Oryzz Tap →</a> &nbsp;·&nbsp; Tu negocio. A un toque.</div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;padding:6px 0 0;"><a href="https://instagram.com/oryzztap" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">Instagram @oryzztap</a> &nbsp;·&nbsp; <a href="https://www.tiktok.com/@oryzz.tap" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#5A6172;text-decoration:none;">TikTok @oryzz.tap</a></div></td></tr></table></div></section>
+<section class="f"><header><div><h2>Equipo Oryzz Tap</h2><small>Compacta · respuestas y reenvíos</small></div><button type="button" data-copiar="oryzz-tap-compacta">Copiar firma</button></header><div class="lienzo" id="oryzz-tap-compacta"><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#3A4152;"><b style="color:#0B0D12;">Equipo Oryzz Tap</b></div><div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:21px;color:#5A6172;">pedidos@oryzz.com &nbsp;·&nbsp; <a href="https://oryzz.com/tap" target="_blank" style="font-family:Arial,Helvetica,sans-serif;color:#2C5BD0;text-decoration:none;">oryzz.com/tap</a></div></div></section>
+<ol>
+<li>La firma compacta no lleva imágenes: se puede instalar ya.</li>
+<li>Gmail en el móvil solo admite firma en texto: usa la versión de texto de <code>como-instalar-en-gmail.md</code>.</li>
+</ol>
+</main>
+<script>
+(function(){
+  let local = false;
+  document.querySelectorAll('.lienzo').forEach(function(c){
+    let h = c.innerHTML;
+    Object.keys(DATOS).forEach(function(k){ h = h.split('{{'+k+'}}').join(DATOS[k]); });
+    h = h.split('%BASE_PLACEHOLDER%').join(BASE_URL);
+    c.innerHTML = h;
+  });
+  document.querySelectorAll('.lienzo img').forEach(function(img){
+    img.addEventListener('error', function(){
+      if (img.dataset.fallback) return;
+      img.dataset.fallback = '1'; local = true;
+      img.src = '../assets/' + img.src.split('/').pop();
+      document.getElementById('aviso').style.display = 'block';
+      document.getElementById('burl').textContent = BASE_URL + '/';
+    });
+  });
+  document.querySelectorAll('button[data-copiar]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const el = document.getElementById(btn.dataset.copiar);
+      const r = document.createRange(); r.selectNodeContents(el);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      let ok = false; try { ok = document.execCommand('copy'); } catch(e) {}
+      s.removeAllRanges();
+      btn.textContent = ok ? 'Copiada. Pégala en Gmail' : 'Selecciona y copia a mano (Ctrl+C)';
+      btn.classList.toggle('ok', ok);
+      setTimeout(function(){ btn.textContent = 'Copiar firma'; btn.classList.remove('ok'); }, 2600);
+    });
+  });
+})();
+</script>
+</body>
+</html>

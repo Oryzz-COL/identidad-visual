@@ -1,0 +1,15 @@
+ASUNTO: Re: Pregunta sobre las citas de {{negocio}}
+================================================================
+
+Hola, {{nombre}}:
+
+Te escribo de nuevo por si mi correo del {{dia_primer_correo}} se quedó abajo en la bandeja.
+
+En una frase: creo que {{negocio}} está perdiendo citas entre el anuncio (o la búsqueda en Google) y la primera respuesta, y eso se arregla sin subir lo que inviertes.
+
+¿Te lo cuento en tres líneas?
+
+Gracias,
+
+Juan
+Oryzz · https://oryzz.com

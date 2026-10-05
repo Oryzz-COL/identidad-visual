@@ -1,0 +1,40 @@
+ASUNTO: Activa tu Oryzz Tap en 2 minutos
+PREHEADER: Acerca el teléfono, escribe tu código de 8 dígitos y elige qué se abre con cada toque.
+================================================================
+
+ORYZZ TAP · Activación
+
+Tu Oryzz Tap ya llegó
+
+ACERCA EL TELÉFONO Y OCURRE.
+
+Hola, {{nombre}}. Antes de ponerla en el mostrador, actívala: son cuatro pasos y unos 2 minutos.
+
+1. Acerca el teléfono o escanea el QR
+   Acerca la parte de arriba del móvil a la placa. Si no reacciona, abre la cámara y escanea el código QR.
+2. Escribe tu código de 8 dígitos
+   Viene con tu Oryzz Tap. Escríbelo sin espacios: así sabemos que la placa es tuya.
+   Formato: 8 dígitos (0000 0000)
+3. Crea tu cuenta
+   Con tu correo y una contraseña. Desde ahí cambias a dónde lleva tu placa cuando quieras.
+4. Configura tu perfil
+   Pega el enlace de reseñas de Google o elige tu perfil Oryzz Pro y guarda. Desde ese momento, cada toque abre esa pantalla.
+
+Activar mi Oryzz Tap: {{url_activacion}}
+
+――――――――――――――――――――――――
+
+Dónde colocarla
+---------------
+
+Donde el cliente ya tiene el móvil en la mano: junto a la caja o en recepción, a la altura de la mano. Y pídelo en voz alta: «¿Nos dejas una reseña? Acerca el móvil aquí».
+
+¿No se activa? Escríbenos a pedidos@oryzz.com con tu número de pedido y lo resolvemos.
+
+Que la disfrutes,
+Equipo Oryzz Tap
+Tu negocio. A un toque.
+
+Oryzz Tap · Tu negocio. A un toque.
+oryzz.com/tap · Instagram: https://instagram.com/oryzztap · TikTok: https://www.tiktok.com/@oryzz.tap · pedidos@oryzz.com
+Te escribimos porque tu pedido {{numero_pedido}} ya está entregado.

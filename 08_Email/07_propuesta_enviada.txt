@@ -1,0 +1,32 @@
+ASUNTO: Tu propuesta de captación para {{negocio}}
+PREHEADER: Qué haríamos, en cuánto tiempo y cuánto cuesta. En una página y sin letra pequeña.
+================================================================
+
+ORYZZ · Propuesta
+
+Propuesta · válida hasta el {{fecha_validez}}
+
+TU PLAN PARA CONSEGUIR MÁS CITAS, EN UNA PÁGINA.
+
+Hola, {{nombre}}. Gracias por la llamada del {{fecha_llamada}}. Como quedamos, aquí tienes la propuesta para {{negocio}}. Te resumo lo importante:
+
+Objetivo: {{objetivo}}
+Canales: {{canales}}
+Arranque: Primeras campañas listas para revisar en 3–7 días desde la firma
+Anuncios: {{inversion_ads}} al mes, que pagas directamente a cada plataforma
+Honorarios: {{honorarios}} al mes + IVA
+Compromiso: {{permanencia}}
+
+Ver la propuesta completa: {{url_propuesta}}
+
+Si algo no te cuadra, dímelo tal cual: prefiero ajustar el alcance antes que inflar el precio. Y si ves que no encajamos, también me sirve saberlo.
+
+Para seguir adelante, basta con responder «adelante» a este correo. Te enviamos el contrato y la lista de accesos el mismo día.
+
+Un saludo,
+Juan Salazar
+Estrategia & Ads · Oryzz
+
+Oryzz · Sistemas que captan clientes.
+oryzz.com · Instagram: https://instagram.com/oryzzai · LinkedIn: https://www.linkedin.com/company/oryzz
+Te escribimos porque pediste una propuesta a Oryzz para {{negocio}}.
