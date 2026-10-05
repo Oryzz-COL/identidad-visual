@@ -1,0 +1,35 @@
+/* Oryzz · presupuesto y factura (A4, una página) */
+.fiscal { padding: 20mm; }
+.fiscal .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10mm; }
+.fiscal .tipo-doc table.kv { width: 72mm; margin: 5mm 0 0 auto; }
+.fiscal .logo { width: 34mm; margin-top: 1mm; }
+.fiscal .tipo-doc { text-align: right; }
+.fiscal .numero { font-family: var(--font-display); font-weight: 600; font-size: 20pt; letter-spacing: -.02em; margin: 2mm 0 0; }
+.fiscal .partes { padding-bottom: 7mm; border-bottom: 0.25mm solid var(--grafito-100); margin-bottom: 9mm; }
+.fiscal .partes p { margin: 0; font-size: 9.5pt; line-height: 1.55; }
+.fiscal .partes .eyebrow { margin-bottom: 2mm; }
+table.kv { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+table.kv td { padding: 0 0 1.6mm; vertical-align: top; }
+table.kv td:first-child { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); letter-spacing: .04em; padding-right: 3mm; white-space: nowrap; }
+table.kv td:last-child { text-align: right; }
+.fiscal .asunto { font-size: 17pt; font-weight: 600; letter-spacing: -.02em; margin-bottom: 5mm; }
+table.totales { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+table.totales td { padding: 2mm 0; border-bottom: 0.25mm solid var(--grafito-100); }
+table.totales td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+table.totales tr.total td { border-top: 0.5mm solid var(--grafito-950); border-bottom: 0; font-family: var(--font-display); font-size: 14pt; font-weight: 600; padding-top: 3mm; }
+table.totales tr.sig td { border: 0; color: var(--grafito-500); font-size: 9pt; padding-top: 0; }
+.fiscal .condiciones { position: absolute; left: 20mm; right: 20mm; bottom: 26mm; border-top: 0.25mm solid var(--grafito-100); padding-top: 6mm; }
+.fiscal .condiciones .eyebrow { margin-bottom: 2mm; }
+.fiscal .firma { height: 12mm; border-bottom: 0.25mm solid var(--grafito-950); margin-bottom: 2mm; }
+.fiscal .pie-fiscal { position: absolute; left: 20mm; right: 20mm; bottom: 11mm; display: flex; justify-content: space-between; }
+.fiscal .pie-fiscal span { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); letter-spacing: .02em; }
+.fiscal .estado-pago { display: inline-block; font-family: var(--font-mono); font-size: 9pt; letter-spacing: .1em; text-transform: uppercase; border: 0.25mm solid var(--grafito-950); border-radius: 5mm; padding: 0.6mm 2.6mm; margin-top: 3mm; }
+.fiscal .tipo-doc table.kv td:first-child { text-align: left; }
+.fiscal .condiciones.flujo { position: static; margin-top: 9mm; }
+.fiscal .metas { border-top: 0.25mm solid var(--grafito-100); border-bottom: 0.25mm solid var(--grafito-100); padding: 4mm 0; margin-bottom: 7mm; }
+.fiscal .metas .eyebrow { margin-bottom: 1.2mm; }
+.fiscal .metas p { margin: 0; font-size: 9.5pt; }
+.fiscal .partes { border-bottom: 0; padding-bottom: 0; }
+.fiscal .metas { display: grid; grid-template-columns: repeat(4, 1fr); }
+.fiscal .condiciones { bottom: 21mm; }
+.fiscal .asunto { font-size: 15pt; margin-bottom: 3mm; }

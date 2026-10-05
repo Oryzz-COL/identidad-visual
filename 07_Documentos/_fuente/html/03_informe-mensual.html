@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe mensual de resultados · Oryzz</title>
+<link rel="stylesheet" href="../css/oryzz-docs.css">
+<script src="../js/paginas.js"></script>
+<style>
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 5mm; }
+  .kpis .dato .cifra { font-size: 24pt; }
+  .fig { margin: 0; }
+  .fig figcaption { font-size: 9pt; color: var(--grafito-500); margin-top: 2mm; }
+  .fig .tit { font-family: var(--font-display); font-weight: 600; font-size: 11pt; letter-spacing: -.01em; margin: 0 0 1mm; }
+  .fig .sub { font-size: 9pt; color: var(--grafito-500); margin: 0 0 3mm; }
+  svg text { font-family: 'JetBrains Mono', Consolas, monospace; }
+  .ley { display: flex; gap: 5mm; font-size: 9pt; color: var(--grafito-600); margin: 0 0 2mm; }
+  .ley i { display: inline-block; width: 5mm; height: 0; border-top: 0.5mm solid var(--azul-500); vertical-align: middle; margin-right: 1.5mm; }
+  .ley i.obj { border-top: 0.35mm dashed var(--grafito-500); }
+  .col-cambios h3 { display: flex; gap: 2.5mm; align-items: baseline; }
+  .col-cambios h3 .mono { font-size: 9pt; color: var(--azul-600); font-weight: 500; }
+</style>
+</head>
+<body data-doc="Informe mensual · Agosto 2026 · Centro Estético Lumen" data-pie="oryzz.com · Datos de ejemplo">
+
+<section class="page portada">
+  <img class="orbitas" src="../img/orbitas-portada-oscuro.svg" alt="">
+  <img class="logo" src="../../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz">
+  <span class="tipo ejemplo-tag">Datos de ejemplo</span>
+  <div class="cuerpo">
+    <p class="eyebrow">Informe mensual de resultados · Agosto 2026</p>
+    <h1>64 citas agendadas. <span class="acento">18,40 €</span> por cita.</h1>
+    <p class="lead">Qué ha pasado este mes en la captación de Centro Estético Lumen, qué ha funcionado, qué hemos cambiado y qué haremos en septiembre.</p>
+  </div>
+  <div class="meta">
+    <div><p class="eyebrow">Cliente</p><p>Centro Estético Lumen · Sevilla</p></div>
+    <div class="c1"><p class="eyebrow">Periodo</p><p>1–31 ago</p></div>
+    <div class="c1"><p class="eyebrow">Entrega</p><p>5 sep 2026</p></div>
+    <div><p class="eyebrow">Equipo</p><p>Juan Salazar · Ads<br>David Morales · Automatización</p></div>
+  </div>
+</section>
+
+<!-- 01 RESUMEN -->
+<section class="page">
+  <p class="eyebrow"><span class="n">01</span>Resumen del mes</p>
+  <div class="g"><div class="s5"><h1>Mejor mes desde que empezamos: más citas y más baratas.</h1></div></div>
+
+  <div class="kpis mt4">
+    <div class="dato"><p class="eyebrow">Citas</p><p class="cifra num">64</p><p class="delta">+16 % vs julio (55)</p></div>
+    <div class="dato"><p class="eyebrow">€ por cita</p><p class="cifra num">18,40<small>€</small></p><p class="delta">−9 % vs julio (20,30 €)</p></div>
+    <div class="dato"><p class="eyebrow">Solicitudes</p><p class="cifra num">142</p><p class="delta">45 % acaban en cita</p></div>
+    <div class="dato"><p class="eyebrow">Asistencia</p><p class="cifra num">81<small>%</small></p><p class="delta">52 de 64 acudieron</p></div>
+  </div>
+
+  <div class="g mt12">
+    <figure class="fig s4">
+      <p class="tit">Citas agendadas por mes</p>
+      <p class="sub">Todas las fuentes medidas · marzo–agosto 2026</p>
+      <svg viewBox="0 0 110 60" width="110mm" height="60mm" role="img" aria-label="Citas agendadas por mes: marzo 22, abril 31, mayo 40, junio 47, julio 55, agosto 64">
+        <g stroke="#E5E8EE" stroke-width="0.25">
+          <line x1="10" y1="10.57" x2="110" y2="10.57"/><line x1="10" y1="23.71" x2="110" y2="23.71"/><line x1="10" y1="36.86" x2="110" y2="36.86"/>
+        </g>
+        <line x1="10" y1="50" x2="110" y2="50" stroke="#0B0D12" stroke-width="0.3"/>
+        <g font-size="3.1" fill="#5A6172" text-anchor="end">
+          <text x="7" y="11.6">60</text><text x="7" y="24.8">40</text><text x="7" y="37.9">20</text><text x="7" y="51.1">0</text>
+        </g>
+        <g fill="#D5D9E0">
+          <path d="M13.33 50V36.54Q13.33 35.54 14.33 35.54H22.33Q23.33 35.54 23.33 36.54V50Z"/>
+          <path d="M30 50V30.63Q30 29.63 31 29.63H39Q40 29.63 40 30.63V50Z"/>
+          <path d="M46.67 50V24.71Q46.67 23.71 47.67 23.71H55.67Q56.67 23.71 56.67 24.71V50Z"/>
+          <path d="M63.33 50V20.11Q63.33 19.11 64.33 19.11H72.33Q73.33 19.11 73.33 20.11V50Z"/>
+          <path d="M80 50V14.86Q80 13.86 81 13.86H89Q90 13.86 90 14.86V50Z"/>
+        </g>
+        <path d="M96.67 50V8.94Q96.67 7.94 97.67 7.94H105.67Q106.67 7.94 106.67 8.94V50Z" fill="#3B72FF"/>
+        <g font-size="3.1" fill="#0B0D12" text-anchor="middle">
+          <text x="18.33" y="33.3">22</text>
+          <text x="101.67" y="5.7" font-weight="700">64</text>
+        </g>
+        <g font-size="3.1" fill="#5A6172" text-anchor="middle">
+          <text x="18.33" y="55.6">mar</text><text x="35" y="55.6">abr</text><text x="51.67" y="55.6">may</text><text x="68.33" y="55.6">jun</text><text x="85" y="55.6">jul</text><text x="101.67" y="55.6" fill="#0B0D12">ago</text>
+        </g>
+      </svg>
+      <figcaption>Fuente: CRM de Oryzz (citas con origen registrado). No incluye clientas recurrentes.</figcaption>
+    </figure>
+    <div class="s2">
+      <p class="eyebrow">Lectura</p>
+      <p>Agosto suele ser flojo en estética. Aun así, las citas crecieron por sexto mes seguido gracias a la campaña de depilación láser antes de septiembre.</p>
+      <p>La asistencia sube al 81 % desde que el recordatorio de WhatsApp se envía 2 h antes, además de 24 h antes.</p>
+      <p class="pequeno">Ingresos estimados de primeras visitas: <strong class="num">≈ 5.300 €</strong> (52 × ticket medio de 102 €, dato facilitado por el centro).</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 POR CANAL -->
+<section class="page">
+  <p class="eyebrow"><span class="n">02</span>Resultados por canal</p>
+  <div class="g"><div class="s4"><h1>Meta trae volumen. Google trae las citas más baratas.</h1></div></div>
+
+  <table class="t mt4">
+    <tr><th>Canal</th><th class="r">Inversión</th><th class="r">Solicitudes</th><th class="r">Citas</th><th class="r">Coste / cita</th><th class="r">vs julio</th></tr>
+    <tr><td><strong>Meta Ads</strong><span class="det">Instagram y Facebook · mensajes a WhatsApp</span></td><td class="r">790,00 €</td><td class="r">88</td><td class="r">34</td><td class="r">23,24 €</td><td class="r mono">−6 %</td></tr>
+    <tr><td><strong>Google Ads</strong><span class="det">Búsqueda · «depilación láser Sevilla» y similares</span></td><td class="r">387,60 €</td><td class="r">36</td><td class="r">19</td><td class="r">20,40 €</td><td class="r mono">−14 %</td></tr>
+    <tr><td><strong>Google Maps</strong><span class="det">Perfil de empresa · llamadas y rutas</span></td><td class="r">—</td><td class="r">13</td><td class="r">8</td><td class="r">—</td><td class="r mono">+2 citas</td></tr>
+    <tr><td><strong>Otros</strong><span class="det">Web directa y recomendación registrada</span></td><td class="r">—</td><td class="r">5</td><td class="r">3</td><td class="r">—</td><td class="r mono">=</td></tr>
+    <tr class="total"><td>Total</td><td class="r">1.177,60 €</td><td class="r">142</td><td class="r">64</td><td class="r">18,40 €*</td><td class="r"></td></tr>
+  </table>
+  <p class="nota-pie">* Coste por cita total = inversión en anuncios / todas las citas medidas. Solo citas atribuidas a anuncios (53): 22,22 €. Inversión pagada directamente a Meta y Google; no incluye honorarios de Oryzz.</p>
+
+  <div class="g mt8">
+    <figure class="fig s3">
+      <p class="tit">Citas por canal</p>
+      <p class="sub">Agosto 2026 · 64 citas</p>
+      <svg viewBox="0 0 82 42" width="82mm" height="42mm" role="img" aria-label="Citas por canal: Meta Ads 34, Google Ads 19, Google Maps 8, Otros 3">
+        <g font-size="3.1" fill="#3A4152">
+          <text x="0" y="6.8">Meta Ads</text><text x="0" y="16.8">Google Ads</text><text x="0" y="26.8">Google Maps</text><text x="0" y="36.8">Otros</text>
+        </g>
+        <line x1="24" y1="1" x2="24" y2="41" stroke="#0B0D12" stroke-width="0.3"/>
+        <g fill="#3B72FF">
+          <path d="M24 2.5H66.5Q67.5 2.5 67.5 3.5V7.5Q67.5 8.5 66.5 8.5H24Z"/>
+          <path d="M24 12.5H47.3Q48.3 12.5 48.3 13.5V17.5Q48.3 18.5 47.3 18.5H24Z"/>
+          <path d="M24 22.5H33.2Q34.2 22.5 34.2 23.5V27.5Q34.2 28.5 33.2 28.5H24Z"/>
+          <path d="M24 32.5H26.8Q27.8 32.5 27.8 33.5V37.5Q27.8 38.5 26.8 38.5H24Z"/>
+        </g>
+        <g font-size="3.1" fill="#0B0D12">
+          <text x="69.5" y="6.8">34</text><text x="50.3" y="16.8">19</text><text x="36.2" y="26.8">8</text><text x="29.8" y="36.8">3</text>
+        </g>
+      </svg>
+    </figure>
+    <figure class="fig s3">
+      <p class="tit">Coste por cita</p>
+      <div class="ley"><span><i></i>Coste por cita (€)</span><span><i class="obj"></i>Objetivo 25 €</span></div>
+      <svg viewBox="0 0 82 44" width="82mm" height="44mm" role="img" aria-label="Coste por cita: marzo 31,20; abril 27,90; mayo 24,60; junio 22,10; julio 20,30; agosto 18,40 euros">
+        <g stroke="#E5E8EE" stroke-width="0.25"><line x1="9" y1="9" x2="82" y2="9"/><line x1="9" y1="22" x2="82" y2="22"/></g>
+        <line x1="9" y1="35" x2="82" y2="35" stroke="#0B0D12" stroke-width="0.3"/>
+        <g font-size="3.1" fill="#5A6172" text-anchor="end"><text x="7" y="10">30</text><text x="7" y="23">20</text><text x="7" y="36">10</text></g>
+        <line x1="9" y1="15.5" x2="82" y2="15.5" stroke="#5A6172" stroke-width="0.3" stroke-dasharray="1.2 1"/>
+        <polyline fill="none" stroke="#3B72FF" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="round"
+          points="13,7.44 26,11.73 39,16.02 52,19.27 65,21.61 78,24.08"/>
+        <g fill="#3B72FF" stroke="#fff" stroke-width="0.5">
+          <circle cx="13" cy="7.44" r="1.2"/><circle cx="78" cy="24.08" r="1.4"/>
+        </g>
+        <g font-size="3.1" fill="#0B0D12"><text x="15.5" y="6.2">31,20</text><text x="78" y="29.6" text-anchor="end" font-weight="700">18,40</text></g>
+        <g font-size="3.1" fill="#5A6172" text-anchor="middle">
+          <text x="13" y="41">mar</text><text x="26" y="41">abr</text><text x="39" y="41">may</text><text x="52" y="41">jun</text><text x="65" y="41">jul</text><text x="78" y="41" fill="#0B0D12">ago</text>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- 03 QUÉ FUNCIONÓ / QUÉ CAMBIAMOS / SIGUIENTE MES -->
+<section class="page">
+  <p class="eyebrow"><span class="n">03</span>Aprendizajes y cambios</p>
+  <div class="g"><div class="s4"><h1>Lo que funcionó, lo que cambiamos y lo que viene.</h1></div></div>
+
+  <div class="g mt4 col-cambios">
+    <div class="s3">
+      <p class="eyebrow">Qué funcionó</p>
+      <h3 class="mt0"><span class="mono">01</span>Vídeo de la profesional explicando la sesión</h3>
+      <p>El anuncio grabado en cabina, 22 segundos y sin música, trajo el 41 % de las solicitudes de Meta con el coste por mensaje más bajo del mes (4,10 €).</p>
+      <h3><span class="mono">02</span>Precio visible desde el primer mensaje</h3>
+      <p>Decir «desde 39 € la sesión» en el asistente redujo las conversaciones que se quedaban en «¿precio?» y subió la conversión de solicitud a cita del 38 % al 45 %.</p>
+      <h3><span class="mono">03</span>Doble recordatorio</h3>
+      <p>Recordatorio a 24 h y a 2 h: 5 ausencias menos que en julio.</p>
+    </div>
+    <div class="s3">
+      <p class="eyebrow">Qué cambiamos</p>
+      <h3 class="mt0"><span class="mono">01</span>Pausamos la campaña de «tratamiento facial»</h3>
+      <p>31 € por cita, por encima del objetivo durante tres semanas. Su presupuesto pasó a láser.</p>
+      <h3><span class="mono">02</span>Añadimos 42 palabras negativas en Google</h3>
+      <p>Búsquedas como «curso depilación láser» o «máquina láser precio» se llevaban el 12 % del gasto.</p>
+      <h3><span class="mono">03</span>Nuevo horario del asistente</h3>
+      <p>Los sábados por la tarde el asistente ofrece huecos del lunes en lugar de «te llamamos».</p>
+    </div>
+  </div>
+
+  <hr class="mt8">
+  <p class="eyebrow"><span class="n">04</span>Siguiente mes · septiembre</p>
+  <div class="g">
+    <div class="s4">
+      <table class="t compacta mb0">
+        <tr><th>Acción</th><th style="width:28%">Responsable</th><th class="r" style="width:20%">Fecha</th></tr>
+        <tr><td>2 vídeos nuevos en cabina (láser y presoterapia)</td><td>Lumen graba · Oryzz edita</td><td class="r mono">10 sep</td></tr>
+        <tr><td>Campaña de recaptación a 96 solicitudes sin cita</td><td>Oryzz</td><td class="r mono">12 sep</td></tr>
+        <tr><td>Petición de reseña automática tras la 2.ª sesión</td><td>Oryzz</td><td class="r mono">15 sep</td></tr>
+        <tr><td>Revisión de precios «desde» con el centro</td><td>Lumen + Oryzz</td><td class="r mono">19 sep</td></tr>
+      </table>
+    </div>
+    <div class="s2 dato">
+      <p class="eyebrow">Presupuesto anuncios</p>
+      <p class="cifra num">1.280<small>€</small></p>
+      <p class="delta neutra">Propuesto para septiembre (+9 %). Meta 780 € · Google 500 €. Pendiente de vuestra aprobación.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

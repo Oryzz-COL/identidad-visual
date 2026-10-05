@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Oryzz · Sistema editorial A4 v2.0
+   Márgenes 20 mm · retícula 6 columnas · medianil 5 mm · texto mínimo 9 pt
+   Depende de 00_Fuente_Maestra/brand.css (tokens + @font-face locales)
+   ========================================================================== */
+@import url('../../../00_Fuente_Maestra/brand.css');
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+body {
+  font-family: var(--font-texto);
+  font-size: 9.5pt; line-height: 1.55; font-weight: 400;
+  color: var(--grafito-950);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  font-kerning: normal; text-rendering: geometricPrecision;
+  hyphens: manual;
+}
+p { margin: 0 0 3.2mm; }
+strong, b { font-weight: 700; }
+a { color: var(--azul-600); text-decoration: none; }
+
+/* ---------- Página ---------- */
+.page {
+  width: 210mm; height: 297mm; position: relative; overflow: hidden;
+  padding: 30mm 20mm 24mm; page-break-after: always; break-after: page;
+  background: #fff;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+.page.oscura { background: var(--grafito-950); color: #fff; }
+
+/* Cabecera y pie (inyectados por paginas.js) */
+.run-head {
+  position: absolute; top: 11mm; left: 20mm; right: 20mm; height: 7mm;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 0.25mm solid var(--grafito-100); padding-bottom: 3mm; box-sizing: content-box;
+}
+.run-head img { height: 5.9mm; width: auto; display: block; }
+.run-head span, .run-foot span {
+  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .04em; color: var(--grafito-500);
+}
+.run-foot {
+  position: absolute; bottom: 11mm; left: 20mm; right: 20mm;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.run-foot .folio { color: var(--grafito-950); }
+.oscura .run-head { border-color: var(--grafito-700); }
+.oscura .run-head span, .oscura .run-foot span { color: var(--grafito-400); }
+.oscura .run-foot .folio { color: #fff; }
+
+/* ---------- Retícula 6 columnas ---------- */
+.g { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; row-gap: 5mm; }
+.s1 { grid-column: span 1; } .s2 { grid-column: span 2; } .s3 { grid-column: span 3; }
+.s4 { grid-column: span 4; } .s5 { grid-column: span 5; } .s6 { grid-column: span 6; }
+.o1 { grid-column-start: 2; } .o2 { grid-column-start: 3; } .o3 { grid-column-start: 4; }
+
+/* ---------- Tipografía ---------- */
+.eyebrow {
+  font-family: var(--font-mono); font-size: 9pt; font-weight: 500; line-height: 1.2;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--grafito-500); margin: 0 0 4mm;
+}
+.eyebrow .n { color: var(--azul-600); margin-right: 2.5mm; }
+.oscura .eyebrow { color: var(--grafito-400); }
+.oscura .eyebrow .n { color: var(--lima-500); }
+
+h1, h2, h3, h4, .display { font-family: var(--font-display); margin: 0; color: inherit; }
+h1 { font-size: 27pt; line-height: 1.06; font-weight: 700; letter-spacing: -.032em; margin-bottom: 6mm; }
+h2 { font-size: 15pt; line-height: 1.2; font-weight: 600; letter-spacing: -.02em; margin: 7mm 0 3mm; }
+h3 { font-size: 11pt; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; margin: 5mm 0 1.8mm; }
+h2:first-child, h3:first-child { margin-top: 0; }
+.acento { color: var(--azul-500); }
+.oscura .acento { color: var(--azul-400); }
+.lead { font-size: 12pt; line-height: 1.5; color: var(--grafito-600); margin-bottom: 6mm; }
+.oscura .lead { color: var(--grafito-200); }
+.pequeno, .nota-pie { font-size: 9pt; line-height: 1.45; color: var(--grafito-500); }
+.mono { font-family: var(--font-mono); }
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.derecha { text-align: right; }
+
+ul.lista, ol.lista { margin: 0 0 3.5mm; padding: 0; list-style: none; }
+ul.lista li, ol.lista li { position: relative; padding-left: 5mm; margin-bottom: 1.6mm; }
+ul.lista li::before {
+  content: ''; position: absolute; left: 0.4mm; top: 2.05mm; width: 1.5mm; height: 1.5mm;
+  border-radius: 50%; border: 0.3mm solid var(--azul-500);
+}
+ol.lista { counter-reset: n; }
+ol.lista li { counter-increment: n; padding-left: 8mm; }
+ol.lista li::before {
+  content: counter(n, decimal-leading-zero); position: absolute; left: 0; top: 0.2mm;
+  font-family: var(--font-mono); font-size: 9pt; color: var(--azul-600);
+}
+
+/* Cita */
+.cita {
+  font-family: var(--font-display); font-weight: 500; font-size: 15pt; line-height: 1.3; letter-spacing: -.015em;
+  border-left: 0.6mm solid var(--azul-500); padding: 0.5mm 0 0.5mm 6mm; margin: 6mm 0;
+}
+.cita small { display: block; font-family: var(--font-mono); font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; color: var(--grafito-500); margin-top: 3mm; font-weight: 400; }
+
+/* Nota / callout sobrio */
+.nota { background: var(--grafito-50); border-radius: 3mm; padding: 5mm 6mm; margin: 5mm 0; }
+.nota .eyebrow { margin-bottom: 2mm; }
+.nota p:last-child { margin-bottom: 0; }
+.nota.linea { background: none; border-radius: 0; border-left: 0.6mm solid var(--azul-500); padding: 1mm 0 1mm 6mm; }
+.aviso-legal {
+  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .06em; text-transform: uppercase;
+  color: #9A5B00; background: #FFF6E8; border: 0.25mm solid #F2D3A0; border-radius: 1.5mm;
+  padding: 1.2mm 2.5mm; display: inline-block; margin-bottom: 2.5mm;
+}
+
+/* Separadores */
+hr { border: 0; border-top: 0.25mm solid var(--grafito-100); margin: 6mm 0; }
+.oscura hr { border-color: var(--grafito-700); }
+
+/* ---------- Tabla Oryzz ---------- */
+table.t { width: 100%; border-collapse: collapse; margin: 2mm 0 5mm; font-size: 9.5pt; line-height: 1.4; }
+table.t th {
+  font-family: var(--font-mono); font-weight: 500; font-size: 9pt; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--grafito-500); text-align: left; padding: 0 3mm 2.4mm 0; border-bottom: 0.5mm solid var(--grafito-950);
+  vertical-align: bottom;
+}
+table.t td { padding: 2.6mm 3mm 2.6mm 0; border-bottom: 0.25mm solid var(--grafito-100); vertical-align: top; }
+table.t th:last-child, table.t td:last-child { padding-right: 0; }
+table.t .r { text-align: right; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+table.t td.r { white-space: nowrap; }
+table.t tr.sub td { background: var(--grafito-50); font-weight: 600; }
+table.t tr.total td {
+  border-top: 0.5mm solid var(--grafito-950); border-bottom: 0; font-family: var(--font-display);
+  font-weight: 600; font-size: 12pt; padding-top: 3mm;
+}
+table.t td .det { display: block; color: var(--grafito-500); font-size: 9pt; margin-top: 0.6mm; }
+table.t.compacta td { padding-top: 1.8mm; padding-bottom: 1.8mm; }
+
+/* ---------- Tarjetas dato ---------- */
+.dato {
+  background: var(--grafito-50); border-radius: 3.5mm; padding: 5mm 5mm 4.5mm; position: relative;
+}
+.dato .eyebrow { margin-bottom: 3mm; font-size: 9pt; }
+.dato .cifra { font-family: var(--font-display); font-weight: 500; font-size: 26pt; line-height: 1; letter-spacing: -.03em; }
+.dato .cifra small { font-size: 12pt; letter-spacing: -.01em; margin-left: .5mm; color: var(--grafito-600); }
+.dato .delta { font-size: 9pt; line-height: 1.35; color: var(--grafito-600); margin: 3mm 0 0; display: flex; align-items: flex-start; gap: 1.8mm; }
+.dato .delta::before { content: ''; width: 1.8mm; height: 1.8mm; border-radius: 50%; background: var(--lima-600); flex: none; margin-top: 1mm; }
+.dato .delta.neutra::before { background: var(--grafito-300); }
+.dato .delta.baja::before { background: none; border: 0.3mm solid var(--grafito-500); width: 1.3mm; height: 1.3mm; }
+.oscura .dato { background: var(--grafito-850); border: 0.25mm solid var(--grafito-700); }
+.oscura .dato .cifra small { color: var(--grafito-400); }
+.oscura .dato .delta { color: var(--lima-500); }
+.oscura .dato .delta::before { background: var(--lima-500); }
+
+/* ---------- Semáforo sobrio ---------- */
+.estado { display: inline-flex; align-items: center; gap: 1.8mm; font-family: var(--font-mono); font-size: 9pt; letter-spacing: .04em; white-space: nowrap; }
+.estado::before { content: ''; width: 2.2mm; height: 2.2mm; border-radius: 50%; flex: none; }
+.estado.critico::before { background: var(--estado-error); }
+.estado.mejorable::before { background: var(--estado-aviso); }
+.estado.correcto::before { background: var(--estado-exito); }
+.estado.na::before { background: none; border: 0.3mm solid var(--grafito-300); width: 1.6mm; height: 1.6mm; }
+
+/* ---------- Rutas y nodos (plan por fases) ---------- */
+.ruta { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 5mm; padding-top: 9mm; }
+.ruta::before { content: ''; position: absolute; top: 2.1mm; left: 1mm; right: 0; height: 0; border-top: 0.3mm solid var(--grafito-200); }
+.ruta .fase { position: relative; }
+.ruta .fase::before {
+  content: ''; position: absolute; top: -8.1mm; left: 0; width: 3.4mm; height: 3.4mm; border-radius: 50%;
+  background: #fff; border: 0.35mm solid var(--grafito-950);
+}
+.ruta .fase.fin::before { background: var(--lima-600); border-color: var(--lima-600); }
+.ruta .fase h3 { margin-top: 0; }
+.ruta .fase .eyebrow { margin-bottom: 2mm; }
+
+/* ---------- Portada oscura ---------- */
+.portada { background: var(--grafito-950); color: #fff; padding: 0; }
+.portada .orbitas { position: absolute; inset: 0; width: 210mm; height: 297mm; }
+.portada .logo { position: absolute; top: 20mm; left: 20mm; width: 34mm; }
+.portada .tipo { position: absolute; top: 22.5mm; right: 20mm; }
+.portada .cuerpo { position: absolute; left: 20mm; right: 20mm; top: 128mm; }
+.portada h1 { font-size: 42pt; line-height: 1.0; letter-spacing: -.04em; margin-bottom: 8mm; max-width: 150mm; }
+.portada .lead { max-width: 118mm; color: var(--grafito-200); font-size: 12.5pt; }
+.portada .meta {
+  position: absolute; left: 20mm; right: 20mm; bottom: 20mm;
+  display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm;
+  border-top: 0.25mm solid var(--grafito-700); padding-top: 5mm;
+}
+.portada .meta div { grid-column: span 2; }
+.portada .meta div.c1 { grid-column: span 1; }
+.portada .meta .eyebrow { margin-bottom: 1.6mm; }
+.portada .meta p { margin: 0; font-size: 10pt; color: #fff; }
+.portada.clara { background: var(--grafito-50); color: var(--grafito-950); }
+.portada.clara .lead { color: var(--grafito-600); }
+.portada.clara .meta { border-color: var(--grafito-200); }
+.portada.clara .meta p { color: var(--grafito-950); }
+
+/* ---------- Utilidades ---------- */
+.mt0 { margin-top: 0 !important; } .mb0 { margin-bottom: 0 !important; }
+.mt4 { margin-top: 4mm; } .mt8 { margin-top: 8mm; } .mt12 { margin-top: 12mm; }
+.mb4 { margin-bottom: 4mm; } .mb8 { margin-bottom: 8mm; }
+.gris { color: var(--grafito-600); } .gris3 { color: var(--grafito-500); }
+.abajo { position: absolute; left: 20mm; right: 20mm; bottom: 24mm; }
+.campo { font-family: var(--font-mono); font-size: 9pt; color: var(--azul-600); background: var(--azul-50); border-radius: 1mm; padding: 0 1mm; }
+.ejemplo-tag {
+  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .1em; text-transform: uppercase;
+  border: 0.25mm solid var(--grafito-300); color: var(--grafito-500); border-radius: 5mm; padding: 0.6mm 2.6mm; display: inline-block;
+}
+.oscura .ejemplo-tag { border-color: var(--grafito-600); color: var(--grafito-400); }

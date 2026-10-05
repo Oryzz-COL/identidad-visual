@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>One-pager Oryzz Tap</title>
+<link rel="stylesheet" href="../css/oryzz-docs.css">
+<style>
+  .tap { background: var(--grafito-50); padding: 0; }
+  .tap .logo { position: absolute; left: 20mm; top: 18mm; width: 44mm; }
+  .tap .web { position: absolute; right: 20mm; top: 21mm; font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); letter-spacing: .04em; }
+  .tap .hero { position: absolute; left: 20mm; top: 50mm; width: 96mm; }
+  .tap h1 { font-size: 44pt; line-height: .98; letter-spacing: -.045em; margin-bottom: 7mm; }
+  .tap .lead { font-size: 12pt; }
+  .tap .prod { position: absolute; right: 14mm; top: 42mm; width: 80mm; height: 110mm; }
+  .tap .pasos { position: absolute; left: 20mm; right: 20mm; top: 157mm; }
+  .tap .pasos .fila { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 5mm; }
+  .tap .paso { border-top: 0.5mm solid var(--grafito-950); padding-top: 3.5mm; }
+  .tap .paso .mono { font-size: 9pt; color: var(--azul-600); }
+  .tap .paso h3 { margin: 1.5mm 0 1.5mm; }
+  .tap .paso p { margin: 0; color: var(--grafito-600); }
+  .tap .gama { position: absolute; left: 20mm; right: 20mm; top: 211mm; }
+  .tap .gama .fila { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; }
+  .tap .card { background: #fff; border-radius: 3.5mm; padding: 5mm; grid-column: span 3; border: 0.25mm solid var(--grafito-100); }
+  .tap .card h3 { margin: 0 0 1.5mm; font-size: 12pt; }
+  .tap .card p { margin: 0 0 2mm; color: var(--grafito-600); }
+  .tap .card .precio { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-950); margin: 3mm 0 0; }
+  .tap .pie { position: absolute; left: 20mm; right: 20mm; bottom: 16mm; display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; align-items: end; }
+  .tap .pie .frase { grid-column: span 3; font-family: var(--font-display); font-weight: 600; font-size: 14pt; letter-spacing: -.02em; line-height: 1.2; margin: 0; }
+  .tap .pie .boton { grid-column: span 2; background: var(--azul-600); color: #fff; border-radius: 99mm; padding: 3.2mm 5mm; font-weight: 700; font-size: 10pt; text-align: center; }
+  .tap .pie .datos { grid-column: span 1; font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); line-height: 1.5; text-align: right; }
+  .tap .chips { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 2mm; }
+  .tap .chips span { font-family: var(--font-mono); font-size: 9pt; border: 0.25mm solid var(--grafito-300); border-radius: 5mm; padding: 0.6mm 2.6mm; color: var(--grafito-600); }
+</style>
+</head>
+<body>
+<section class="page sin-marco tap">
+  <img class="logo" src="../../../02_Logos/07_Submarca_Tap/SVG/oryzz-tap-horizontal_color-sobre-claro.svg" alt="oryzz tap">
+  <span class="web">oryzz.com/tap</span>
+
+  <div class="hero">
+    <p class="eyebrow">Placas y stands NFC + QR</p>
+    <h1>Tu negocio.<br><span class="acento">A un toque.</span></h1>
+    <p class="lead">Tus clientes acercan el teléfono y ocurre: dejan una reseña en Google, te escriben por WhatsApp o te siguen. Sin apps, sin buscarte.</p>
+    <div class="chips"><span>iPhone y Android</span><span>Sin pilas</span><span>QR de respaldo</span></div>
+  </div>
+
+  <!-- Ilustración plana del stand de mostrador -->
+  <svg class="prod" viewBox="0 0 80 110" role="img" aria-label="Stand Oryzz Tap de mostrador">
+    <path d="M14 100 L66 100 L60 107 L20 107 Z" fill="#D5D9E0"/>
+    <rect x="12" y="6" width="56" height="94" rx="6" fill="#0B0D12"/>
+    <image href="../../../02_Logos/04_Isotipo/SVG/oryzz-isotipo_color-sobre-oscuro.svg" x="33" y="15" width="14" height="14"/>
+    <text x="40" y="40" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="600" font-size="5.6" fill="#FFFFFF" letter-spacing="-0.1">Acerca tu</text>
+    <text x="40" y="46.6" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="600" font-size="5.6" fill="#FFFFFF" letter-spacing="-0.1">teléfono</text>
+    <g fill="none" stroke="#3A4152" stroke-width="0.7" stroke-linecap="round">
+      <path d="M34.5 55.5a8 8 0 0 1 11 0"/><path d="M31.5 52.5a12 12 0 0 1 17 0"/>
+    </g>
+    <circle cx="40" cy="59.2" r="1.3" fill="#8A90A0"/>
+    <rect x="25" y="66" width="30" height="30" rx="2.4" fill="#FFFFFF"/>
+    <image href="../img/qr-oryzz-tap.svg" x="26" y="67" width="28" height="28"/>
+    <text x="40" y="104.6" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="2.8" fill="#5A6172" letter-spacing="0.3">RESEÑAS GOOGLE</text>
+  </svg>
+
+  <div class="pasos">
+    <p class="eyebrow">Cómo funciona</p>
+    <div class="fila">
+      <div class="paso"><span class="mono">01</span><h3>Acerca el teléfono</h3><p>El chip NFC abre tu enlace al instante. Si el móvil no tiene NFC, el QR hace lo mismo.</p></div>
+      <div class="paso"><span class="mono">02</span><h3>Se abre tu página</h3><p>Directo a dejar la reseña, a tu WhatsApp o a tu perfil. Sin pasos de más.</p></div>
+      <div class="paso"><span class="mono">03</span><h3>Lo cambias cuando quieras</h3><p>El destino de la placa se edita sin reimprimir nada.</p></div>
+    </div>
+  </div>
+
+  <div class="gama">
+    <p class="eyebrow">Gama</p>
+    <div class="fila">
+      <div class="card"><h3>Reseñas Google</h3><p>Placa o stand que lleva directo a la ventana de reseña de tu ficha. Para mostrador, mesa o caja.</p><p class="precio">Desde {{$ 000.000 COP}}</p></div>
+      <div class="card"><h3>Oryzz Pro</h3><p>Tu placa conectada a una página con todos tus enlaces: reseñas, WhatsApp, redes y carta.</p><p class="precio">Desde {{$ 000.000 COP}}</p></div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <p class="frase">Conecta lo que eres.<br>Acerca lo que sigue.</p>
+    <div class="boton">Pídela en shop.oryzz.com</div>
+    <div class="datos">pedidos@oryzz.com<br>@oryzztap<br>TikTok @oryzz.tap</div>
+  </div>
+</section>
+</body>
+</html>
