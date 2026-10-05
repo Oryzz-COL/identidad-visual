@@ -1,0 +1,202 @@
+/* Oryzz · design tokens v2.0 (2026-09-29) — GENERADO desde 00_Fuente_Maestra/tokens.json con build/web_tokens.py. No editar a mano.
+ *
+ * Uso:
+ *   <link rel="stylesheet" href="/tokens.css">          (incluye @font-face → /fonts/*.woff2)
+ *   <html data-tema="oscuro">  → oryzz.com (por defecto)
+ *   <html data-tema="claro">   → oryzz.com/tap, documentos web, emails claros
+ *   Se puede anidar: <section data-tema="claro"> dentro de una página oscura.
+ */
+
+/* ---------------------------------------------------------------- Fuentes */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/SpaceGrotesk-Light.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/SpaceGrotesk-Regular.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/SpaceGrotesk-Medium.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/SpaceGrotesk-Bold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Manrope-Regular.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/Manrope-Medium.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/Manrope-SemiBold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Manrope-Bold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/Manrope-ExtraBold.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/JetBrainsMono-Regular.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/JetBrainsMono-Medium.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/JetBrainsMono-Bold.woff2') format('woff2')}
+
+/* ---------------------------------------------------------------- Primitivos */
+:root{
+  --grafito-950:#0B0D12;
+  --grafito-900:#0E1118;
+  --grafito-850:#12151D;
+  --grafito-800:#171B25;
+  --grafito-700:#232836;
+  --grafito-600:#3A4152;
+  --grafito-500:#5A6172;
+  --grafito-400:#8A90A0;
+  --grafito-300:#C7CBD6;
+  --grafito-200:#D5D9E0;
+  --grafito-100:#E5E8EE;
+  --grafito-50:#F6F7F9;
+  --grafito-0:#FFFFFF;
+  --azul-50:#EEF3FF;
+  --azul-300:#9FB8FF;
+  --azul-400:#5C8BFF;
+  --azul-500:#3B72FF;
+  --azul-600:#2C5BD0;
+  --azul-700:#1F43A0;
+  --azul-900:#0F1E4A;
+  --cyan-50:#E8FAFC;
+  --cyan-300:#7DE6F2;
+  --cyan-500:#36CFE0;
+  --cyan-600:#17A9C2;
+  --lima-50:#F4FCE0;
+  --lima-300:#E4F7B4;
+  --lima-500:#BFF24A;
+  --lima-600:#7FB02E;
+  --lima-900:#3A4A12;
+  --estado-exito:#1F9D55;
+  --estado-aviso:#F2A33A;
+  --estado-error:#E5484D;
+  --grad-ia-oscuro:linear-gradient(135deg, #5C8BFF 0%, #36CFE0 100%);
+  --grad-ia-claro:linear-gradient(135deg, #3B72FF 0%, #17A9C2 100%);
+  --font-display:'Space Grotesk', Arial, Helvetica, sans-serif;
+  --font-texto:'Manrope', Arial, Helvetica, sans-serif;
+  --font-mono:'JetBrains Mono', Consolas, 'Courier New', monospace;
+  --text-display-xl:6rem; --leading-display-xl:0.95; --tracking-display-xl:-0.045em;
+  --text-display-l:4.5rem; --leading-display-l:1.0; --tracking-display-l:-0.04em;
+  --text-h1:3.5rem; --leading-h1:1.05; --tracking-h1:-0.035em;
+  --text-h2:2.5rem; --leading-h2:1.1; --tracking-h2:-0.03em;
+  --text-h3:1.75rem; --leading-h3:1.2; --tracking-h3:-0.02em;
+  --text-h4:1.25rem; --leading-h4:1.3; --tracking-h4:-0.01em;
+  --text-lead:1.25rem; --leading-lead:1.55; --tracking-lead:0em;
+  --text-body:1rem; --leading-body:1.6; --tracking-body:0em;
+  --text-small:0.875rem; --leading-small:1.5; --tracking-small:0em;
+  --text-eyebrow:0.75rem; --leading-eyebrow:1.2; --tracking-eyebrow:0.16em;
+  --text-dato:4rem; --leading-dato:1.0; --tracking-dato:-0.03em;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+  --space-9:96px;
+  --space-10:128px;
+  --space-11:192px;
+  --radius-xs:6px;
+  --radius-s:10px;
+  --radius-m:14px;
+  --radius-l:20px;
+  --radius-xl:28px;
+  --radius-pill:999px;
+  --radius-app-icon:22.5%;
+  --stroke-hairline:1px;
+  --stroke-icono:1.75px;
+  --stroke-grafico:2px;
+  --motion-ease-marca:cubic-bezier(.2,.8,.2,1);
+  --motion-ease-salto:cubic-bezier(.34,1.4,.5,1);
+  --motion-rapido:160ms;
+  --motion-base:280ms;
+  --motion-lento:560ms;
+  --motion-orbita:4.4s linear infinite;
+  --max-ancho:1200px;
+  --gutter:24px;
+}
+
+/* ---------------------------------------------------------------- Semántica · oscuro (por defecto) */
+:root, [data-tema="oscuro"]{
+  --color-fondo:var(--grafito-950);
+  --color-superficie:var(--grafito-850);
+  --color-superficie-2:var(--grafito-800);
+  --color-borde:var(--grafito-700);
+  --color-texto:var(--grafito-0);
+  --color-texto-2:var(--grafito-200);
+  --color-texto-3:var(--grafito-400);
+  --color-acento:var(--azul-400);
+  --color-enlace:var(--azul-300);
+  --color-dato:var(--lima-500);
+  --color-cta-fondo:var(--grad-ia-oscuro);
+  --color-cta-texto:var(--grafito-950);
+  --color-cta-fondo-hover:linear-gradient(135deg, #9FB8FF 0%, #7DE6F2 100%);
+  --color-cta-2-fondo:transparent;
+  --color-cta-2-texto:var(--grafito-0);
+  --color-cta-2-borde:var(--grafito-500);
+  --color-foco:var(--azul-400);
+  --color-seleccion:var(--azul-600);
+  --color-enlace-hover:var(--grafito-0);
+  --color-borde-fuerte:var(--grafito-500);
+  --color-exito:var(--estado-exito);
+  --color-aviso:var(--estado-aviso);
+  --color-error:var(--estado-error);
+  --color-texto-sobre-dato:var(--grafito-950);
+  --color-dato-texto:var(--lima-500);
+  color-scheme:dark;
+}
+
+/* ---------------------------------------------------------------- Semántica · claro */
+[data-tema="claro"]{
+  --color-fondo:var(--grafito-0);
+  --color-superficie:var(--grafito-50);
+  --color-superficie-2:var(--grafito-100);
+  --color-borde:var(--grafito-200);
+  --color-texto:var(--grafito-950);
+  --color-texto-2:var(--grafito-600);
+  --color-texto-3:var(--grafito-500);
+  --color-acento:var(--azul-500);
+  --color-enlace:var(--azul-600);
+  --color-dato:var(--lima-600);
+  --color-cta-fondo:var(--azul-600);
+  --color-cta-texto:var(--grafito-0);
+  --color-cta-fondo-hover:var(--azul-700);
+  --color-cta-2-fondo:var(--grafito-0);
+  --color-cta-2-texto:var(--grafito-950);
+  --color-cta-2-borde:var(--grafito-400);
+  --color-foco:var(--azul-600);
+  --color-seleccion:var(--azul-300);
+  --color-enlace-hover:var(--azul-700);
+  --color-borde-fuerte:var(--grafito-400);
+  --color-exito:var(--estado-exito);
+  --color-aviso:var(--estado-aviso);
+  --color-error:var(--estado-error);
+  --color-texto-sobre-dato:var(--grafito-0);
+  --color-dato-texto:var(--lima-900);
+  color-scheme:light;
+}
+
+/* Opcional: seguir la preferencia del sistema con data-tema="auto" */
+@media (prefers-color-scheme: light){
+  [data-tema="auto"]{
+  --color-fondo:var(--grafito-0);
+  --color-superficie:var(--grafito-50);
+  --color-superficie-2:var(--grafito-100);
+  --color-borde:var(--grafito-200);
+  --color-texto:var(--grafito-950);
+  --color-texto-2:var(--grafito-600);
+  --color-texto-3:var(--grafito-500);
+  --color-acento:var(--azul-500);
+  --color-enlace:var(--azul-600);
+  --color-dato:var(--lima-600);
+  --color-cta-fondo:var(--azul-600);
+  --color-cta-texto:var(--grafito-0);
+  --color-cta-fondo-hover:var(--azul-700);
+  --color-cta-2-fondo:var(--grafito-0);
+  --color-cta-2-texto:var(--grafito-950);
+  --color-cta-2-borde:var(--grafito-400);
+  --color-foco:var(--azul-600);
+  --color-seleccion:var(--azul-300);
+  --color-enlace-hover:var(--azul-700);
+  --color-borde-fuerte:var(--grafito-400);
+  --color-exito:var(--estado-exito);
+  --color-aviso:var(--estado-aviso);
+  --color-error:var(--estado-error);
+  --color-texto-sobre-dato:var(--grafito-0);
+  --color-dato-texto:var(--lima-900);
+  color-scheme:light;
+  }
+}
+
+/* ---------------------------------------------------------------- Base mínima */
+[data-tema]{background-color:var(--color-fondo);color:var(--color-texto-2)}
+::selection{background:var(--color-seleccion);color:var(--color-texto)}
+:focus-visible{outline:2px solid var(--color-foco);outline-offset:3px;border-radius:var(--radius-xs)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

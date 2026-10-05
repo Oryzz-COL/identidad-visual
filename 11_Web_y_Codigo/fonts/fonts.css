@@ -1,0 +1,25 @@
+/* Oryzz · fuentes de marca en WOFF2 (licencia SIL OFL 1.1, ver /Licencias).
+ * Copia esta carpeta a la raíz pública del sitio como /fonts/ y enlaza: <link rel="stylesheet" href="/fonts/fonts.css">
+ * Precarga solo lo que se ve arriba del todo:
+ *   <link rel="preload" href="/fonts/SpaceGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin>
+ *   <link rel="preload" href="/fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
+ * Alternativa: las variables *-VF.woff2 (un archivo por familia) — ver bloque comentado al final. */
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300;font-display:swap;src:url('/fonts/SpaceGrotesk-Light.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/SpaceGrotesk-Regular.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/SpaceGrotesk-Medium.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/SpaceGrotesk-SemiBold.woff2') format('woff2')}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/SpaceGrotesk-Bold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/Manrope-Regular.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/Manrope-Medium.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/Manrope-SemiBold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/Manrope-Bold.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/Manrope-ExtraBold.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/JetBrainsMono-Regular.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/JetBrainsMono-Medium.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/JetBrainsMono-Bold.woff2') format('woff2')}
+
+/* --- Variante con fuentes variables (sustituye todo lo anterior si la usas) ---
+@font-face{font-family:'Space Grotesk';font-weight:300 700;font-display:swap;src:url('/fonts/SpaceGrotesk-VF.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-weight:200 800;font-display:swap;src:url('/fonts/Manrope-VF.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-weight:100 800;font-display:swap;src:url('/fonts/JetBrainsMono-VF.woff2') format('woff2')}
+*/

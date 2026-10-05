@@ -1,0 +1,109 @@
+/* Oryzz · componentes de referencia v2.0
+ * Requiere ../tokens/tokens.css (variables primitivas + semánticas por data-tema).
+ * Todo usa variables semánticas: el mismo HTML funciona en data-tema="oscuro" y "claro".
+ * Contrastes verificados (WCAG 2.2): ver 03_Color/Oryzz_Paleta_y_Contraste.pdf
+ */
+
+/* @comp base */
+.ox{font-family:var(--font-texto);font-size:16px;line-height:1.6;color:var(--color-texto-2);background:var(--color-fondo);-webkit-font-smoothing:antialiased}
+.ox h1,.ox h2,.ox h3,.ox h4{font-family:var(--font-display);color:var(--color-texto);margin:0;font-weight:700}
+.ox-h1{font-size:var(--text-h1);line-height:var(--leading-h1);letter-spacing:var(--tracking-h1)}
+.ox-h2{font-size:var(--text-h2);line-height:var(--leading-h2);letter-spacing:var(--tracking-h2)}
+.ox-h3{font-size:var(--text-h3);line-height:var(--leading-h3);letter-spacing:var(--tracking-h3);font-weight:600}
+.ox-lead{font-size:var(--text-lead);line-height:var(--leading-lead);color:var(--color-texto-2)}
+.ox-small{font-size:14px;line-height:1.5;color:var(--color-texto-3)}      /* mínimo de texto: 14 px */
+.ox-resalte{color:var(--color-acento)}                                     /* una palabra por titular, ≥ 24 px */
+/* @end */
+
+/* @comp boton */
+.ox-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;
+  font-family:var(--font-display);font-weight:600;font-size:16px;line-height:1;letter-spacing:-.005em;
+  border-radius:var(--radius-m);border:1px solid transparent;text-decoration:none;cursor:pointer;
+  transition:background var(--motion-rapido) var(--motion-ease-marca),border-color var(--motion-rapido) var(--motion-ease-marca),transform var(--motion-rapido) var(--motion-ease-marca)}
+.ox-btn svg{width:18px;height:18px;flex:0 0 auto}
+/* Primario: oscuro = gradiente IA + texto Grafito 950 (6,1–10,3:1) · claro = Azul 600 + blanco (6,0:1) */
+.ox-btn--primario{background:var(--color-cta-fondo);color:var(--color-cta-texto)}
+.ox-btn--primario:hover{background:var(--color-cta-fondo-hover)}
+/* Secundario: contorno, nunca compite con el primario */
+.ox-btn--secundario{background:var(--color-cta-2-fondo);color:var(--color-cta-2-texto);border-color:var(--color-cta-2-borde)}
+.ox-btn--secundario:hover{border-color:var(--color-texto-3)}
+.ox-btn:active{transform:translateY(1px)}
+.ox-btn:focus-visible{outline:2px solid var(--color-foco);outline-offset:3px}
+.ox-btn[disabled],.ox-btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+.ox-btn--lg{min-height:56px;padding:0 28px;font-size:17px}
+.ox-btn--sm{min-height:40px;padding:0 16px;font-size:15px;border-radius:var(--radius-s)}
+/* Sin sombras de color, sin brillos, sin "glow": el contraste hace el trabajo. */
+/* @end */
+
+/* @comp enlace */
+.ox-link{color:var(--color-enlace);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;font-weight:600}
+.ox-link:hover{color:var(--color-enlace-hover);text-decoration-thickness:2px}
+.ox-link--flecha{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--font-display);font-weight:500}
+.ox-link--flecha::after{content:"→";transition:transform var(--motion-rapido) var(--motion-ease-marca)}
+.ox-link--flecha:hover::after{transform:translateX(3px)}
+/* @end */
+
+/* @comp eyebrow */
+.ox-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);line-height:1.2}
+.ox-eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--color-acento);flex:0 0 auto}
+.ox-eyebrow--nodo::before{background:var(--color-dato)}    /* el nodo lima: solo uno por pieza */
+/* @end */
+
+/* @comp dato */
+.ox-dato{background:var(--color-superficie);border:1px solid var(--color-borde);border-radius:var(--radius-l);padding:24px;min-width:240px}
+.ox-dato__cifra{display:block;font-family:var(--font-display);font-weight:500;font-size:56px;line-height:1;letter-spacing:-.03em;color:var(--color-texto);margin-top:14px}
+.ox-dato__cifra small{font-size:.45em;letter-spacing:-.01em;color:var(--color-texto-2);margin-left:4px}
+.ox-dato__delta{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--font-mono);font-size:14px;font-weight:500;color:var(--color-dato-texto)}
+.ox-dato__nota{display:block;margin-top:6px;font-size:14px;color:var(--color-texto-3)}
+/* @end */
+
+/* @comp badge */
+.ox-badge{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 12px;border-radius:var(--radius-pill);
+  font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--color-borde-fuerte);color:var(--color-texto-2);background:transparent}
+.ox-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.ox-badge--marcha::before{background:var(--color-dato)}
+.ox-badge--info::before{background:var(--color-acento)}
+.ox-badge--aviso::before{background:var(--color-aviso)}
+.ox-badge--error::before{background:var(--color-error)}
+/* El color de estado va en el punto; el texto se mantiene legible (≥ 4,5:1). */
+/* @end */
+
+/* @comp input */
+.ox-campo{display:flex;flex-direction:column;gap:8px;max-width:360px}
+.ox-campo label{font-family:var(--font-texto);font-weight:600;font-size:14px;color:var(--color-texto)}
+.ox-input{height:48px;padding:0 14px;border-radius:var(--radius-s);border:1px solid var(--color-borde-fuerte);
+  background:var(--color-fondo);color:var(--color-texto);font:500 16px/1 var(--font-texto)}
+.ox-input::placeholder{color:var(--color-texto-3)}
+.ox-input:hover{border-color:var(--color-texto-3)}
+.ox-input:focus{outline:2px solid var(--color-foco);outline-offset:1px;border-color:transparent}
+.ox-ayuda{font-size:14px;color:var(--color-texto-3)}
+.ox-campo--error .ox-input{border-color:var(--color-error)}
+.ox-campo--error .ox-ayuda{color:var(--color-texto)}
+.ox-campo--error .ox-ayuda::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--color-error);margin-right:8px;vertical-align:1px}
+/* @end */
+
+/* @comp navbar */
+.ox-nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px;padding:0 32px;
+  background:var(--color-fondo);border-bottom:1px solid var(--color-borde)}
+.ox-nav__logo{display:flex;align-items:center}
+.ox-nav__logo img{height:26px;width:auto;display:block}   /* SVG del logo v2: nunca texto vivo */
+.ox-nav__links{display:flex;gap:4px;margin:0;padding:0;list-style:none}
+.ox-nav__links a{display:block;padding:8px 12px;border-radius:var(--radius-s);font-size:15px;font-weight:500;color:var(--color-texto-2);text-decoration:none}
+.ox-nav__links a:hover,.ox-nav__links a[aria-current="page"]{color:var(--color-texto);background:var(--color-superficie)}
+@media (max-width:899px){.ox-nav__links{display:none}.ox-nav{padding:0 20px}}
+/* @end */
+
+/* @comp footer */
+.ox-footer{padding:56px 32px 28px;border-top:1px solid var(--color-borde);background:var(--color-fondo)}
+.ox-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;max-width:1200px;margin:0 auto}
+.ox-footer__grid img{height:24px}
+.ox-footer__grid p{margin:14px 0 0;max-width:34ch;font-size:14px;color:var(--color-texto-3)}
+.ox-footer h4{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);margin:0 0 12px}
+.ox-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ox-footer ul a{font-size:14px;color:var(--color-texto-2);text-decoration:none}
+.ox-footer ul a:hover{color:var(--color-texto);text-decoration:underline}
+.ox-footer__legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1200px;margin:40px auto 0;padding-top:20px;border-top:1px solid var(--color-borde);font-size:14px;color:var(--color-texto-3)}
+@media (max-width:720px){.ox-footer__grid{grid-template-columns:1fr}}
+/* @end */
