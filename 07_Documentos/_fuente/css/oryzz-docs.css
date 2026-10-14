@@ -55,11 +55,12 @@ a { color: var(--azul-600); text-decoration: none; }
 .o1 { grid-column-start: 2; } .o2 { grid-column-start: 3; } .o3 { grid-column-start: 4; }
 
 /* ---------- Tipografía ---------- */
+/* Etiqueta en tipo frase. Prohibido: MAYÚSCULAS espaciadas y números de sección (BRAND_SPEC §4). */
 .eyebrow {
-  font-family: var(--font-mono); font-size: 9pt; font-weight: 500; line-height: 1.2;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--grafito-500); margin: 0 0 4mm;
+  font-family: var(--font-texto); font-size: 9.5pt; font-weight: 600; line-height: 1.3;
+  letter-spacing: 0; text-transform: none; color: var(--grafito-500); margin: 0 0 4mm;
 }
-.eyebrow .n { color: var(--azul-600); margin-right: 2.5mm; }
+.eyebrow .n { display: none; }
 .oscura .eyebrow { color: var(--grafito-400); }
 .oscura .eyebrow .n { color: var(--lima-500); }
 
@@ -115,7 +116,7 @@ hr { border: 0; border-top: 0.25mm solid var(--grafito-100); margin: 6mm 0; }
 /* ---------- Tabla Oryzz ---------- */
 table.t { width: 100%; border-collapse: collapse; margin: 2mm 0 5mm; font-size: 9.5pt; line-height: 1.4; }
 table.t th {
-  font-family: var(--font-mono); font-weight: 500; font-size: 9pt; letter-spacing: .1em; text-transform: uppercase;
+  font-family: var(--font-texto); font-weight: 600; font-size: 9pt; letter-spacing: 0; text-transform: none;
   color: var(--grafito-500); text-align: left; padding: 0 3mm 2.4mm 0; border-bottom: 0.5mm solid var(--grafito-950);
   vertical-align: bottom;
 }

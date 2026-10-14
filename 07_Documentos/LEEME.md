@@ -1,5 +1,7 @@
 # 07 · Documentos Oryzz
 
+> **Regla vigente desde el 14 de octubre de 2026:** nada de etiquetas en MAYÚSCULAS espaciadas ni numeraciones de sección («01 · CONTEXTO», «PASO 02»). Ver `BRAND_SPEC.md`, sección 4. Las plantillas Word y los PDF de ejemplo de esta carpeta todavía usan el estilo antiguo y están pendientes de migrar: no lo copies en piezas nuevas. El CSS de `_fuente/css/oryzz-docs.css` ya aplica la regla.
+
 Plantillas editables de Word y versiones PDF de ejemplo (A4) del sistema editorial Oryzz v2.0.
 Fuente de verdad: `00_Fuente_Maestra/BRAND_SPEC.md` y `tokens.json`.
 
@@ -37,7 +39,7 @@ Los clientes, cifras y testimonios de los PDF son **ficticios** y van marcados c
 | **Cuerpo** (y Normal) | Texto corrido | Manrope 9,5 pt, interlineado 1,35, 6 pt después |
 | **Entradilla** | Primer párrafo de sección | Manrope 12 pt, Grafito 600 |
 | **Cita** (Quote) | Testimonios y frases | Space Grotesk Medium 14 pt, filete izquierdo Azul IA |
-| **Eyebrow** | Etiqueta sobre titulares (`01 · CONTEXTO`) | JetBrains Mono 9 pt, mayúsculas, +1,45 pt |
+| **Eyebrow** | Etiqueta sobre titulares (`Contexto`) | Manrope 600 9,5 pt, tipo frase, sin tracking (las plantillas aún tienen el estilo antiguo: pendiente de migrar) |
 | **Nota** | Fuentes, letra pequeña | Manrope 9 pt, Grafito 500 |
 | **Dato** | Cifra grande en tarjetas | Space Grotesk Medium 26 pt |
 | **Aviso legal** | «Texto a revisar por asesor legal» | JetBrains Mono 9 pt sobre ámbar claro |
@@ -62,13 +64,13 @@ Los clientes, cifras y testimonios de los PDF son **ficticios** y van marcados c
 - Composición asimétrica: texto en 3–4 columnas y datos o tablas al lado. Nada de tres tarjetas idénticas como único recurso.
 
 **Jerarquía (siempre en este orden)**
-1. Eyebrow mono con número de sección en Azul 600 (`01  CONTEXTO`).
+1. Etiqueta de sección en tipo frase, Azul 600, sin número (`Contexto`).
 2. Titular (Título 1): una frase, máximo 2–3 líneas, un único fragmento en Azul IA (estilo Acento).
 3. Entradilla (12 pt) con la idea de la página.
 4. Cuerpo 9,5 pt. **Nunca por debajo de 9 pt** impreso (incluye pies, tablas y notas).
 
 **Tablas («Tabla Oryzz»)**
-- Cabecera en JetBrains Mono 9 pt mayúsculas, Grafito 500, con filete inferior de 1 pt en Grafito 950.
+- Cabecera en Manrope 600 9 pt, tipo frase, Grafito 500, con filete inferior de 1 pt en Grafito 950.
 - Filas separadas por filete de 0,5 pt en Grafito 100. Sin rellenos alternos ni bordes verticales.
 - Cifras alineadas a la derecha, formato español: `1.470,00 €`, `21 %`, `4,8 ★`.
 - Fila de total (activa «Fila de totales» en Diseño de tabla): Space Grotesk Bold 11 pt con filete superior de 1 pt.

@@ -11,7 +11,7 @@ Kit completo de marca de **Oryzz** (agencia de captación de clientes con IA par
 - **Plataforma:** *Sistemas que captan clientes.* Claim: «Más clientes. No más likes.»
 - **Concepto visual:** *Órbita y nodo.* La O es una órbita abierta (el sistema en marcha); el nodo lima es el resultado medible (el lead, la cita, el cliente).
 - **Color:** 60 % Grafito `#0B0D12` · 25 % Blanco / Grafito 50 · 10 % Azul IA `#3B72FF` / Cyan `#36CFE0` · ≤ 5 % Lima `#BFF24A` (un solo acento por pieza).
-- **Tipografía:** Space Grotesk (titulares) · Manrope (texto) · JetBrains Mono (datos y eyebrows).
+- **Tipografía:** Space Grotesk (titulares) · Manrope (texto) · JetBrains Mono (solo datos técnicos). Sin etiquetas en mayúsculas espaciadas ni numeraciones de sección.
 - **Voz:** clara, directa, segura, sin humo. Hablamos de clientes, citas, mensajes y euros.
 
 ## Mapa del kit

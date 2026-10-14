@@ -80,7 +80,9 @@ Proporción de uso: **60 % Grafito · 25 % Blanco / Grafito 50 · 10 % Azul IA /
 
 - **Space Grotesk** (display): titulares, cifras grandes, logo. 500/600/700. Tracking negativo (ver `tokens.json`).
 - **Manrope** (texto): párrafos, interfaz, documentos. 400/500/600/700.
-- **JetBrains Mono** (datos): etiquetas tipo *eyebrow* (MAYÚSCULAS, 12 px, tracking +0,16 em), métricas, códigos, notas técnicas. Es nueva en v2: da el tono «sistema / dato» sin iconos de IA.
+- **JetBrains Mono** (datos): solo códigos, URLs técnicas y cifras tabulares. **Nunca** para etiquetas ni en mayúsculas.
+- **Etiquetas (*eyebrow*):** tipo frase («Qué no necesita tu cliente»), Manrope 600, mismo tamaño que el texto o un punto menos, Grafito 500 (o Azul 600 para la etiqueta de sección), **sin mayúsculas ni tracking extra**. Sin números de sección («01 · Contexto» no).
+- **Regla dura (2026-10-14):** prohibidas las etiquetas en MAYÚSCULAS espaciadas y las numeraciones de sección o de pasos («01», «Paso 02», «02 / 07» con ceros). Es el sello más reconocible de un documento hecho con IA. El folio de página se permite sin ceros a la izquierda: «2 / 9».
 - Office sin fuentes instaladas: Arial como alternativa. Las TTF están en `04_Tipografia/` (licencia OFL, se pueden instalar y compartir libremente).
 - Titulares: frases cortas, máximo 2–3 líneas, con un solo fragmento resaltado en Azul (en la web se usa «Más **clientes**.»). Nunca frases enteras en gradiente.
 
@@ -89,7 +91,7 @@ Proporción de uso: **60 % Grafito · 25 % Blanco / Grafito 50 · 10 % Azul IA /
 1. **Órbitas:** arcos abiertos concéntricos, trazo 1–2 px en Grafito 700 (oscuro) o Grafito 200 (claro), con un solo nodo lima o azul. Recurso de fondo y de portada.
 2. **Rutas y nodos:** líneas ortogonales con esquinas redondeadas que conectan nodos (canal → sistema → cliente). Explican procesos.
 3. **Retícula técnica:** cuadrícula de 64 px al 3,5 % de opacidad en oscuro y al 5 % en claro, desvanecida en los bordes. Solo como textura, nunca protagonista.
-4. **Tarjetas dato:** superficie Grafito 850, borde 1 px Grafito 700, radio 14 px (`radius m`, el mismo que los botones), eyebrow en mono, cifra en Space Grotesk 500 y delta en lima.
+4. **Tarjetas dato:** superficie Grafito 850, borde 1 px Grafito 700, radio 14 px (`radius m`, el mismo que los botones), etiqueta en tipo frase (Manrope 600), cifra en Space Grotesk 500 y delta en lima.
 5. **Iconografía:** retícula 24 px, trazo 1,75 px, puntas y uniones redondeadas, monocromo (Grafito 200 en oscuro / Grafito 950 en claro); el acento solo en un elemento. Se prohíben iconos rellenos de stock, emojis e iconos de colores mezclados. Los logos de plataformas (Meta, Google, TikTok) se usan solo en su versión monocroma.
 6. **Fotografía:** personas reales de negocios reales (clínicas, estética, fitness, hostelería), luz natural, encuadres cercanos a manos, mostradores o pantallas; graduación fría y neutra. Nada de stock de apretón de manos, cerebros, robots ni hologramas. Sobre foto: velo Grafito 950 al 55–70 %.
 7. **Motion:** la órbita gira (4,4 s lineal), el nodo respira y las «zz» saltan (1,95 s, resorte, desfase 0,17 s). Solo en intros, loaders y cierres; nunca en bucle dentro de la interfaz.
@@ -116,7 +118,8 @@ Oryzz Tap **usa el mismo sistema** que Oryzz (paleta, tipografías y logo). Dife
 5. Composiciones asimétricas con jerarquía clara; no todo centrado ni todo en tarjetas idénticas en rejilla de tres.
 6. Un solo acento por pieza. Si ya hay lima, no hay más colores de acento.
 7. Cifras con unidades y fuente reales; no se inventan resultados de clientes como si fueran reales: se marcan como «Ejemplo» o como `{{dato}}`.
-8. Alineación a la retícula, márgenes generosos, y tamaño mínimo de texto:
+8. Nada de etiquetas en MAYÚSCULAS espaciadas ni numeraciones de sección o pasos (ver sección 4). Ni en documentos, ni en slides, ni en redes, ni en vídeo.
+9. Alineación a la retícula, márgenes generosos, y tamaño mínimo de texto:
    - Pantalla: 14 px.
    - Impreso: 9 pt.
    - Slides a 1920×1080: texto de lectura ≥ 36 px (18 pt); etiquetas, eyebrows y notas de fuente ≥ 24 px (12 pt).
