@@ -55,9 +55,9 @@ body{font-family:var(--ft);color:var(--g950);-webkit-print-color-adjust:exact;pr
 .page:last-child{page-break-after:auto;break-after:auto}
 .dark{background:var(--g950);color:#fff}
 .soft{background:var(--g50)}
-.eyebrow{font-family:var(--fm);font-size:7.5pt;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--g500)}
+.eyebrow{font-family:var(--ft);font-size:9pt;font-weight:600;letter-spacing:0;text-transform:none;color:var(--g500)}  /* tipo frase, sin números (BRAND_SPEC §4) */
 .dark .eyebrow{color:var(--g400)}
-.eyebrow .n{color:var(--a600)} .dark .eyebrow .n{color:var(--l500)}
+.eyebrow .n{display:none}
 h1,h2,h3,h4{font-family:var(--fd);font-weight:700;letter-spacing:-.03em;line-height:1.05}
 h1{font-size:44pt;letter-spacing:-.045em;line-height:.98}
 h2{font-size:24pt}
@@ -68,20 +68,20 @@ p{max-width:120mm}
 .muted{color:var(--g500)} .dark .muted{color:var(--g400)}
 .mono{font-family:var(--fm)}
 .hl{color:var(--a600)} .dark .hl{color:var(--a400)}
-.folio{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;justify-content:space-between;font-family:var(--fm);font-size:6.5pt;letter-spacing:.14em;text-transform:uppercase;color:var(--g400)}
+.folio{position:absolute;left:18mm;right:18mm;bottom:8mm;display:flex;justify-content:space-between;align-items:center;font-family:var(--ft);font-size:9pt;font-weight:500;letter-spacing:0;color:var(--g400)}
 .dark .folio{color:var(--g500)}
 .folio img{height:3.4mm}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:5mm}
 .rule{height:1px;background:var(--g200);margin:5mm 0} .dark .rule{background:var(--g700)}
 table{border-collapse:collapse;width:100%}
-.tag{display:inline-block;font-family:var(--fm);font-size:6.5pt;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.6mm 1.8mm;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.tag{display:inline-block;font-family:var(--ft);font-size:9pt;font-weight:600;letter-spacing:0;text-transform:none;padding:.6mm 1.8mm;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
 """
 
 
 def folio(texto, n, dark=False):
     way = 'mono-blanco' if dark else 'mono-grafito'
     return (f'<div class="folio"><span><img src="{logo("wordmark", way)}" alt="oryzz" style="vertical-align:middle;opacity:.8"></span>'
-            f'<span>{texto}</span><span>{n:02d}</span></div>')
+            f'<span>{texto}</span><span>{n}</span></div>')
 
 
 def html_doc(title, body, extra_css=''):

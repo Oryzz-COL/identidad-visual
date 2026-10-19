@@ -44,18 +44,18 @@ body{margin:0;background:#0B0D12;font-family:'Manrope',Arial,sans-serif}
 .duo{display:grid;grid-template-columns:1fr 1fr;border:1px solid #232836;border-radius:20px;overflow:hidden}
 .duo>div{padding:32px;min-height:120px}
 .duo--pila{grid-template-columns:1fr}
-.duo .t{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);margin-bottom:20px;display:block}
+.duo .t{font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;color:var(--color-texto-3);margin-bottom:20px;display:block}
 .fila{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .fila+.fila,.fila+.ox-small{margin-top:16px}
 .pila{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 details{margin-top:18px;grid-column:2}
-summary{cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9FB8FF}
+summary{cursor:pointer;font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;color:#9FB8FF}
 pre{margin:12px 0 0;padding:20px;background:#12151D;border:1px solid #232836;border-radius:14px;overflow:auto;max-height:420px}
 pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;color:#D5D9E0;white-space:pre}
 @media (max-width:980px){.duo,.comp__head,.doc>header{grid-template-columns:1fr}details{grid-column:1}}
 </style></head>
 <body class="ox" data-tema="oscuro"><div class="doc">
-<header><div><span class="ox-eyebrow">Oryzz · Sistema web v2.0</span><h1 class="ox-h1" style="margin-top:18px">Componentes<br><span class="ox-resalte">de referencia</span>.</h1></div>
+<header><div><span class="ox-eyebrow">Sistema web de Oryzz v2.0</span><h1 class="ox-h1" style="margin-top:18px">Componentes<br><span class="ox-resalte">de referencia</span>.</h1></div>
 <div><p>Cada componente se muestra en los dos temas con el mismo HTML: solo cambia <code>data-tema="oscuro|claro"</code> en un contenedor. Enlaza <code>tokens/tokens.css</code> y <code>componentes/oryzz-ui.css</code>, o copia el bloque CSS de cada componente.</p>
 <details style="grid-column:1"><summary>CSS base (tipografía)</summary><pre><code>.ox{font-family:var(--font-texto);font-size:16px;line-height:1.6;color:var(--color-texto-2);background:var(--color-fondo);-webkit-font-smoothing:antialiased}
 .ox h1,.ox h2,.ox h3,.ox h4{font-family:var(--font-display);color:var(--color-texto);margin:0;font-weight:700}
@@ -66,7 +66,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-small{font-size:14px;line-height:1.5;color:var(--color-texto-3)}      /* mínimo de texto: 14 px */
 .ox-resalte{color:var(--color-acento)}                                     /* una palabra por titular, ≥ 24 px */</code></pre></details></div></header>
 <section class="comp" id="boton"><div class="comp__head">
-          <div><span class="ox-eyebrow">01 · Componente</span><h2>Botones</h2><p>Un único primario por vista. Oscuro: gradiente IA con texto Grafito 950. Claro: Azul 600 con texto blanco. Corrige el texto blanco sobre gradiente de la web actual (1,88:1).</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Botones</h2><p>Un único primario por vista. Oscuro: gradiente IA con texto Grafito 950. Claro: Azul 600 con texto blanco. Corrige el texto blanco sobre gradiente de la web actual (1,88:1).</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><div class="fila"><a class="ox-btn ox-btn--primario ox-btn--lg" href="#">Agendar valoración <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="ox-btn ox-btn--secundario ox-btn--lg" href="#">Ver qué hacemos</a></div>
           <div class="fila"><button class="ox-btn ox-btn--primario">Reservar 30 min</button><button class="ox-btn ox-btn--secundario">Cancelar</button>
@@ -94,7 +94,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-btn--lg{min-height:56px;padding:0 28px;font-size:17px}
 .ox-btn--sm{min-height:40px;padding:0 16px;font-size:15px;border-radius:var(--radius-s)}
 /* Sin sombras de color, sin brillos, sin &quot;glow&quot;: el contraste hace el trabajo. */</code></pre></details></div></section><section class="comp" id="enlace"><div class="comp__head">
-          <div><span class="ox-eyebrow">02 · Componente</span><h2>Enlaces</h2><p>Subrayados siempre en texto corrido. Azul 300 en oscuro (9,97:1) y Azul 600 en claro (5,98:1).</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Enlaces</h2><p>Subrayados siempre en texto corrido. Azul 300 en oscuro (9,97:1) y Azul 600 en claro (5,98:1).</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><p>Si no encajamos, te lo decimos. Lee la <a class="ox-link" href="#">política de privacidad</a> antes de reservar.</p>
           <p style="margin-top:12px"><a class="ox-link ox-link--flecha" href="#">Ver casos de clínicas</a></p></div>
           <div class="ox" data-tema="claro"><span class="t">Claro · oryzz.com/tap</span><p>Si no encajamos, te lo decimos. Lee la <a class="ox-link" href="#">política de privacidad</a> antes de reservar.</p>
@@ -104,16 +104,16 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-link--flecha{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--font-display);font-weight:500}
 .ox-link--flecha::after{content:&quot;→&quot;;transition:transform var(--motion-rapido) var(--motion-ease-marca)}
 .ox-link--flecha:hover::after{transform:translateX(3px)}</code></pre></details></div></section><section class="comp" id="eyebrow"><div class="comp__head">
-          <div><span class="ox-eyebrow">03 · Componente</span><h2>Eyebrow y titular</h2><p>JetBrains Mono 12 px, +0,16 em, mayúsculas. Un solo fragmento del titular en azul.</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Etiqueta y titular</h2><p>Manrope 600 a 14 px, en tipo frase, sin tracking ni números. Un solo fragmento del titular en azul.</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><div class="pila"><span class="ox-eyebrow">Qué hacemos</span><span class="ox-eyebrow ox-eyebrow--nodo">Valoración gratuita</span>
           <h3 class="ox-h3" style="margin-top:4px">Un sistema de captación, <span class="ox-resalte">no acciones sueltas</span>.</h3></div></div>
           <div class="ox" data-tema="claro"><span class="t">Claro · oryzz.com/tap</span><div class="pila"><span class="ox-eyebrow">Qué hacemos</span><span class="ox-eyebrow ox-eyebrow--nodo">Valoración gratuita</span>
           <h3 class="ox-h3" style="margin-top:4px">Un sistema de captación, <span class="ox-resalte">no acciones sueltas</span>.</h3></div></div></div>
-          <details><summary>CSS para copiar · eyebrow</summary><pre><code>.ox-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);line-height:1.2}
+          <details><summary>CSS para copiar · eyebrow</summary><pre><code>.ox-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-texto);font-size:14px;font-weight:600;
+  letter-spacing:0;color:var(--color-texto-3);line-height:1.3}    /* tipo frase, sin mayúsculas ni números (BRAND_SPEC §4) */
 .ox-eyebrow::before{content:&quot;&quot;;width:7px;height:7px;border-radius:50%;background:var(--color-acento);flex:0 0 auto}
 .ox-eyebrow--nodo::before{background:var(--color-dato)}    /* el nodo lima: solo uno por pieza */</code></pre></details></div></section><section class="comp" id="dato"><div class="comp__head">
-          <div><span class="ox-eyebrow">04 · Componente</span><h2>Tarjeta dato</h2><p>Superficie, borde 1 px, radio 20 px. Cifra en Space Grotesk 500 y delta en color dato. Datos ficticios marcados como «Ejemplo».</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Tarjeta dato</h2><p>Superficie, borde 1 px, radio 20 px. Cifra en Space Grotesk 500 y delta en color dato. Datos ficticios marcados como «Ejemplo».</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><div class="fila"><div class="ox-dato"><span class="ox-eyebrow">Coste por cita · Ejemplo</span>
           <span class="ox-dato__cifra">14,20<small>€</small></span><span class="ox-dato__delta">▼ 32 % vs. mes anterior</span>
           <span class="ox-dato__nota">Clínica dental · Meta Ads · {{dato}}</span></div>
@@ -129,13 +129,13 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-dato__cifra small{font-size:.45em;letter-spacing:-.01em;color:var(--color-texto-2);margin-left:4px}
 .ox-dato__delta{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--font-mono);font-size:14px;font-weight:500;color:var(--color-dato-texto)}
 .ox-dato__nota{display:block;margin-top:6px;font-size:14px;color:var(--color-texto-3)}</code></pre></details></div></section><section class="comp" id="badge"><div class="comp__head">
-          <div><span class="ox-eyebrow">05 · Componente</span><h2>Badge de estado</h2><p>El color va en el punto; el texto se mantiene en gris legible. Nada de fondos saturados.</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Badge de estado</h2><p>El color va en el punto; el texto se mantiene en gris legible. Nada de fondos saturados.</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><div class="fila"><span class="ox-badge ox-badge--marcha">En marcha</span><span class="ox-badge ox-badge--info">Prueba inicial</span>
           <span class="ox-badge ox-badge--aviso">Pendiente</span><span class="ox-badge ox-badge--error">Pausada</span></div></div>
           <div class="ox" data-tema="claro"><span class="t">Claro · oryzz.com/tap</span><div class="fila"><span class="ox-badge ox-badge--marcha">En marcha</span><span class="ox-badge ox-badge--info">Prueba inicial</span>
           <span class="ox-badge ox-badge--aviso">Pendiente</span><span class="ox-badge ox-badge--error">Pausada</span></div></div></div>
           <details><summary>CSS para copiar · badge</summary><pre><code>.ox-badge{display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 12px;border-radius:var(--radius-pill);
-  font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  font-family:var(--font-texto);font-size:14px;font-weight:600;letter-spacing:0;
   border:1px solid var(--color-borde-fuerte);color:var(--color-texto-2);background:transparent}
 .ox-badge::before{content:&quot;&quot;;width:6px;height:6px;border-radius:50%;background:currentColor}
 .ox-badge--marcha::before{background:var(--color-dato)}
@@ -143,7 +143,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-badge--aviso::before{background:var(--color-aviso)}
 .ox-badge--error::before{background:var(--color-error)}
 /* El color de estado va en el punto; el texto se mantiene legible (≥ 4,5:1). */</code></pre></details></div></section><section class="comp" id="input"><div class="comp__head">
-          <div><span class="ox-eyebrow">06 · Componente</span><h2>Campo de formulario</h2><p>Borde ≥ 3:1 respecto al fondo (WCAG 1.4.11), foco de 2 px y error comunicado con texto, no solo con color.</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Campo de formulario</h2><p>Borde ≥ 3:1 respecto al fondo (WCAG 1.4.11), foco de 2 px y error comunicado con texto, no solo con color.</p></div>
           <div class="duo"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><div class="fila" style="align-items:flex-start"><div class="ox-campo"><label for="n-oscuro">Nombre del negocio</label>
           <input class="ox-input" id="n-oscuro" placeholder="Clínica Dental Sonrisa"><span class="ox-ayuda">Lo usamos para preparar el diagnóstico.</span></div>
           <div class="ox-campo ox-campo--error"><label for="e-oscuro">Correo</label><input class="ox-input" id="e-oscuro" value="clinica@"><span class="ox-ayuda">Falta el dominio del correo.</span></div></div></div>
@@ -161,7 +161,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-campo--error .ox-input{border-color:var(--color-error)}
 .ox-campo--error .ox-ayuda{color:var(--color-texto)}
 .ox-campo--error .ox-ayuda::before{content:&quot;&quot;;display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--color-error);margin-right:8px;vertical-align:1px}</code></pre></details></div></section><section class="comp" id="navbar"><div class="comp__head">
-          <div><span class="ox-eyebrow">07 · Componente</span><h2>Barra de navegación</h2><p>Logo siempre en SVG (nunca texto vivo). Nombre del enlace: «Oryzz Tap», nunca «OryzzTAP».</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Barra de navegación</h2><p>Logo siempre en SVG (nunca texto vivo). Nombre del enlace: «Oryzz Tap», nunca «OryzzTAP».</p></div>
           <div class="duo duo--pila"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><nav class="ox-nav" style="position:relative" aria-label="Principal"><a class="ox-nav__logo" href="#"><img src="../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="Oryzz"></a>
           <ul class="ox-nav__links"><li><a href="#" aria-current=page>Qué hacemos</a></li><li><a href="#">Agenda</a></li><li><a href="#">Nosotros</a></li><li><a href="#">Oryzz Tap</a></li></ul>
           <a class="ox-btn ox-btn--primario ox-btn--sm" href="#">Agendar valoración</a></nav>
@@ -178,7 +178,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-nav__links a{display:block;padding:8px 12px;border-radius:var(--radius-s);font-size:15px;font-weight:500;color:var(--color-texto-2);text-decoration:none}
 .ox-nav__links a:hover,.ox-nav__links a[aria-current=&quot;page&quot;]{color:var(--color-texto);background:var(--color-superficie)}
 @media (max-width:899px){.ox-nav__links{display:none}.ox-nav{padding:0 20px}}</code></pre></details></div></section><section class="comp" id="footer"><div class="comp__head">
-          <div><span class="ox-eyebrow">08 · Componente</span><h2>Pie de página</h2><p>Texto mínimo 14 px y gris Titanio 400 / Grafito 500 según tema (nunca #5A6172 sobre oscuro).</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>Pie de página</h2><p>Texto mínimo 14 px y gris Titanio 400 / Grafito 500 según tema (nunca #5A6172 sobre oscuro).</p></div>
           <div class="duo duo--pila"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span><footer class="ox-footer" style="padding:36px 24px 20px"><div class="ox-footer__grid"><div><img src="../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="Oryzz">
           <p>Sistemas que captan clientes para PYMES. 100&nbsp;% en remoto.</p></div>
           <div><h4>Empresa</h4><ul><li><a href="#">Qué hacemos</a></li><li><a href="#">Oryzz Tap</a></li><li><a href="#">Contacto</a></li></ul></div>
@@ -193,7 +193,7 @@ pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;c
 .ox-footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;max-width:1200px;margin:0 auto}
 .ox-footer__grid img{height:24px}
 .ox-footer__grid p{margin:14px 0 0;max-width:34ch;font-size:14px;color:var(--color-texto-3)}
-.ox-footer h4{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);margin:0 0 12px}
+.ox-footer h4{font-family:var(--font-texto);font-size:14px;font-weight:600;letter-spacing:0;color:var(--color-texto-3);margin:0 0 12px}
 .ox-footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .ox-footer ul a{font-size:14px;color:var(--color-texto-2);text-decoration:none}
 .ox-footer ul a:hover{color:var(--color-texto);text-decoration:underline}

@@ -34,22 +34,22 @@
 | Post feed | 1080×1350 (4:5) | Una idea con impacto, un dato | `post_*` |
 | Carrusel | 1080×1350 × 5–10 | Explicar un problema y su solución; guardados y compartidos | `carrusel` |
 | Story | 1080×1920 | Conversación: preguntas, encuestas, avisos, CTA con enlace | `story`, `post_cta`, `post_cita` |
-| Reel / TikTok | 1080×1920 vídeo + portada | Demostraciones de 15–45 s; la portada con `reel_portada` | `reel_portada` |
+| Reel / TikTok | 1080×1920 vídeo + portada | Demostraciones de 15–45 s; la portada con `reel_portada`. Subtítulos sin caja (BRAND_SPEC §5.8): Manrope Bold blanco con sombra difusa Grafito 950, máx. 2 líneas, ≥ 48 px; edición con la skill `editor-oryzz` | `reel_portada` |
 | Post LinkedIn | 1200×1200 o 1200×1500 | Criterio, método, datos | `post_titular`, `post_cifra`, `post_proceso` |
 | Documento LinkedIn | PDF 1080×1350 | Guías de 6–10 páginas | `li_documento` + slides `carrusel` |
 | Miniatura YouTube | 1280×720 | Vídeos largos, siempre con foto real | `yt_miniatura` |
 
 ## 4. Jerarquía y reglas de texto en imagen
 
-Orden de lectura en todas las piezas: **eyebrow (contexto, mono) → titular (la idea) → apoyo (1–2 frases) → acción o fuente**. El logo arriba a la izquierda; handle y web en el pie.
+Orden de lectura en todas las piezas: **etiqueta (contexto) → titular (la idea) → apoyo (1–2 frases) → acción o fuente**. El logo arriba a la izquierda; handle y web en el pie.
 
 | Elemento | Máximo | Tamaño en 1080 px | Notas |
 |---|---|---|---|
-| Eyebrow | 5 palabras | 22 px mono, mayúsculas | Contexto o categoría, nunca el mensaje |
+| Etiqueta (eyebrow) | 5 palabras | 28 px Manrope 600, tipo frase, sin tracking | Contexto o categoría, nunca el mensaje. Sin mayúsculas espaciadas ni numeraciones («01 ·», «Razón 1 de 4», «Episodio 01») |
 | Titular | **12 palabras** (post), **9** (story), **6** (miniatura YouTube, portada Reel) | 70–118 px | Máx. 3–4 líneas. Un solo fragmento en `**azul**` |
 | Texto de apoyo | **30 palabras** | 30–34 px | Nunca un segundo titular |
 | Ítems de lista | 5 ítems × **10 palabras** | 28–32 px | Empiezan con verbo o sustantivo, sin punto final |
-| Nota / fuente | 20 palabras | 20 px mono | Obligatoria si hay un dato externo |
+| Nota / fuente | 20 palabras | 22 px Manrope 500 | Obligatoria si hay un dato externo |
 | Slide de carrusel | **45 palabras** en total | — | Una idea por slide |
 | Total story | **30 palabras** | — | Se lee en 3 segundos |
 
@@ -59,7 +59,9 @@ Reglas:
 - Nada de emojis, exclamaciones dobles, «siguiente nivel», «resultados garantizados», «multiplica tus ventas».
 - Nunca inventar resultados de clientes. Si es ilustrativo: etiqueta «Ejemplo». Si falta el dato: `{{dato}}` hasta tenerlo.
 - Nombres: «Oryzz» y «Oryzz Tap» en texto; el logo siempre es el SVG (nunca texto vivo).
-- Texto mínimo: 20 px sobre 1080 px de ancho (se ve a ~7 px en móvil: por debajo es ilegible).
+- Texto mínimo: 20 px sobre 1080 px de ancho (se ve a ~7 px en móvil: por debajo es ilegible); etiquetas y pies, 24 px o más.
+- JetBrains Mono solo para dato técnico (URL como `cal.com/oryzz/30min`, códigos). Chips, rótulos, pies y contadores van en Manrope. El folio de carrusel va sin ceros: «2 / 8».
+- Los pasos se distinguen por su título o por un nodo, nunca por un número.
 
 ## 5. Zonas seguras por red
 

@@ -33,40 +33,41 @@ def tag(prio):
 CSS = """
 code{font-family:var(--fm);font-size:.86em;background:var(--g100);padding:.1mm 1mm;border-radius:1mm;color:var(--g950);word-break:break-word}
 .dark code{background:var(--g800);color:var(--g200)}
-.prio{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--fm);font-size:7pt;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--g300);border-radius:999px;padding:.8mm 2.6mm .8mm 2mm;color:var(--g950)}
+.prio{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--ft);font-size:9pt;font-weight:600;border:1px solid var(--g300);border-radius:999px;padding:.8mm 2.6mm .8mm 2mm;color:var(--g950)}
 .dark .prio{color:#fff;border-color:var(--g600)}
 .prio i{width:2.2mm;height:2.2mm;border-radius:50%;display:inline-block}
-.hid{font-family:var(--fm);font-size:7.5pt;letter-spacing:.14em;color:var(--g500);text-transform:uppercase}
-.ev li,.fx li{font-size:7.9pt;line-height:1.45;margin:0 0 1.6mm 3.6mm}
+.hid{font-family:var(--ft);font-size:9pt;font-weight:600;color:var(--g500)}
+.ev li,.fx li{font-size:9pt;line-height:1.45;margin:0 0 1.6mm 3.6mm}
 .ev li::marker{color:var(--g400)}
-.lbl{font-family:var(--fm);font-size:6.8pt;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--g500);margin:4mm 0 1.6mm}
-.imp{font-size:8.6pt;line-height:1.45;color:var(--g950);border-left:2px solid var(--a600);padding-left:3mm}
+.lbl{font-family:var(--ft);font-size:9pt;font-weight:600;color:var(--g500);margin:4mm 0 1.6mm}
+.imp{font-size:9pt;line-height:1.45;color:var(--g950);border-left:2px solid var(--a600);padding-left:3mm}
 .fx{background:var(--g950);color:#E5E8EE;border-radius:3mm;padding:4mm 5mm 2.4mm}
 .fx .lbl{color:var(--l500);margin-top:0}
 .fx code{background:#232836;color:#fff}
 .fx li::marker{color:var(--l500)}
 .shot{border-radius:2.5mm;overflow:hidden;border:1px solid var(--g200);background:var(--g50);display:flex;align-items:center;justify-content:center}
 .shot img{display:block;max-width:100%;max-height:100%;object-fit:contain}
-.cap{font-family:var(--fm);font-size:6.3pt;color:var(--g500);margin-top:1.2mm;letter-spacing:.04em}
+.cap{font-family:var(--ft);font-size:9pt;font-weight:500;color:var(--g500);margin-top:1.2mm}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:9mm;margin-top:5mm}
 .pair>div{min-width:0}
 .pair h3{margin-top:2.2mm}
 .kpi{border-top:1px solid var(--g700);padding-top:3mm}
 .kpi b{display:block;font-family:var(--fd);font-weight:500;font-size:26pt;letter-spacing:-.03em;color:#fff;line-height:1}
-.kpi span{display:block;font-size:7.6pt;color:var(--g400);margin-top:2mm;line-height:1.35}
+.kpi span{display:block;font-size:9pt;color:var(--g400);margin-top:2mm;line-height:1.35}
 .bar{height:3.2mm;background:var(--g100);border-radius:999px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:999px}
-table.t{font-size:7.6pt}
-table.t th{font-family:var(--fm);font-size:6.3pt;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);text-align:left;border-bottom:1px solid var(--g300);padding:1.4mm 2mm}
+table.t{font-size:9pt}
+table.t th{font-family:var(--ft);font-size:9pt;font-weight:600;color:var(--g500);text-align:left;border-bottom:1px solid var(--g300);padding:1.4mm 2mm}
 table.t td{border-bottom:1px solid var(--g100);padding:1.5mm 2mm;vertical-align:top;line-height:1.35}
+table.compacta td{padding:1.05mm 2mm;line-height:1.3}
 .fase{border:1px solid var(--g200);border-radius:3mm;padding:3.5mm;background:#fff}
 .fase h4{margin-top:1.5mm}
 .fase ul{margin-top:2mm}
-.fase li{font-size:7.2pt;line-height:1.4;margin:0 0 1.3mm 3mm}
+.fase li{font-size:9pt;line-height:1.4;margin:0 0 1.3mm 3mm}
 .chk{columns:3;column-gap:8mm;margin-top:5mm}
 .chk section{break-inside:avoid;margin-bottom:4mm}
 .chk h4{font-size:9pt;margin-bottom:1.8mm}
-.chk label{display:flex;gap:2mm;font-size:7.5pt;line-height:1.35;margin-bottom:1.5mm}
+.chk label{display:flex;gap:2mm;font-size:9pt;line-height:1.35;margin-bottom:1.5mm}
 .chk label i{flex:0 0 3.2mm;height:3.2mm;border:1px solid var(--g500);border-radius:.8mm;margin-top:.3mm}
 """
 
@@ -124,7 +125,7 @@ def build():
     pages.append(f'''<section class="page dark" style="padding:18mm">
       <img src="{logo('horizontal','color-sobre-oscuro')}" style="height:9mm">
       <div style="position:absolute;left:18mm;bottom:34mm;width:170mm">
-        <div class="eyebrow"><span class="n">12</span> · Auditoría y mejoras · {FECHA}</div>
+        <div class="eyebrow">Auditoría y mejoras · {FECHA}</div>
         <h1 style="margin-top:6mm;font-size:52pt">Auditoría<br>de marca.</h1>
         <p class="lead" style="margin-top:6mm;max-width:130mm">Estado de la identidad de Oryzz en oryzz.com, oryzz.com/tap, documentos y producto. Hallazgos priorizados con evidencia, impacto y corrección exacta, y el plan para migrar al sistema v2.</p>
       </div>
@@ -132,21 +133,21 @@ def build():
         <path d="M35.58 19.2A34 34 0 1 0 72.1 24.4" stroke="#232836" stroke-width=".35"/>
         <path d="M31.4 9.6A44 44 0 1 0 78.5 16.3" stroke="#171B25" stroke-width=".35"/>
         <circle cx="64.4" cy="19.2" r="1.6" fill="#BFF24A"/></svg>
-      <div class="folio" style="color:#5A6172"><span>Confidencial · uso interno</span><span>oryzz.com</span><span>01</span></div></section>''')
+      <div class="folio" style="color:#5A6172"><span>Confidencial · uso interno</span><span>oryzz.com</span><span>1</span></div></section>''')
     n += 1
     # 2 · Resumen
     kpis = ''.join(f'<div class="kpi"><b>{v}</b><span>{t}</span></div>' for v, t in CIFRAS)
-    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/5"><div class="eyebrow"><span class="n">01</span> · Resumen ejecutivo</div>
+    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/5"><div class="eyebrow">Resumen ejecutivo</div>
       <h2 style="margin-top:4mm">Una buena idea<br>con tres caras.</h2>
       <p class="lead" style="margin-top:4mm">Nota global <b style="color:#fff">4,3 / 10</b>. La plataforma es sólida; la ejecución visual está fragmentada y suspende en accesibilidad justo en el botón que convierte.</p></div>
-      <div style="grid-column:6/13">{''.join(f'<p style="font-size:8.8pt;line-height:1.5;color:#D5D9E0;margin-bottom:3mm;max-width:none">{md(p)}</p>' for p in RESUMEN)}</div></div>
+      <div style="grid-column:6/13">{''.join(f'<p style="font-size:9pt;line-height:1.5;color:#D5D9E0;margin-bottom:3mm;max-width:none">{md(p)}</p>' for p in RESUMEN)}</div></div>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6mm;position:absolute;left:18mm;right:18mm;bottom:20mm">{kpis}</div>''', n, 'dark')); n += 1
     # 3 · Puntuación
     filas = ''.join(f'''<tr><td style="width:48mm;font-weight:600">{a}</td><td style="width:70mm"><div class="bar"><i style="width:{s * 10}%;background:{'#2C5BD0' if s >= 6 else ('#F2A33A' if s >= 4 else '#E5484D')}"></i></div></td>
       <td style="width:14mm;font-family:var(--fd);font-weight:600;font-size:10pt">{s}</td><td class="muted">{d}</td></tr>''' for a, s, d in PUNTUACION)
-    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">02</span> · Puntuación</div><h2 style="margin-top:4mm">Diez áreas,<br>de 0 a 10.</h2>
+    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Puntuación</div><h2 style="margin-top:4mm">Diez áreas,<br>de 0 a 10.</h2>
       <p class="muted" style="margin-top:3mm">Criterio de estudio: 10 = sistema coherente, accesible y reconocible en todos los canales. 5 = funciona pero no escala. &lt; 4 = daña la marca.</p>
-      <div style="margin-top:8mm;display:flex;flex-direction:column;gap:2mm;font-size:7.5pt">
+      <div style="margin-top:8mm;display:flex;flex-direction:column;gap:2mm;font-size:9pt">
         <span><i style="display:inline-block;width:3mm;height:3mm;border-radius:50%;background:#2C5BD0;vertical-align:-.4mm;margin-right:2mm"></i>≥ 6 · mantener</span>
         <span><i style="display:inline-block;width:3mm;height:3mm;border-radius:50%;background:#F2A33A;vertical-align:-.4mm;margin-right:2mm"></i>4–5 · corregir</span>
         <span><i style="display:inline-block;width:3mm;height:3mm;border-radius:50%;background:#E5484D;vertical-align:-.4mm;margin-right:2mm"></i>≤ 3 · rehacer</span></div></div>
@@ -160,7 +161,7 @@ def build():
     tabla = lambda hs: '<table class="t"><tr><th>ID</th><th>Prioridad</th><th>Hallazgo · área</th></tr>' + ''.join(fila(h) for h in hs) + '</table>'
     filas = f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm">{tabla(HALLAZGOS[:mitad])}{tabla(HALLAZGOS[mitad:])}</div>'
     cnt = {p: sum(1 for h in HALLAZGOS if h['prio'] == p) for p in PRIO_COLOR}
-    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">03</span> · Hallazgos priorizados</div><h2 style="margin-top:4mm">{len(HALLAZGOS)} hallazgos.</h2>
+    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Hallazgos priorizados</div><h2 style="margin-top:4mm">{len(HALLAZGOS)} hallazgos.</h2>
       <p class="muted" style="margin-top:3mm">{cnt['Crítico']} críticos, {cnt['Alto']} altos, {cnt['Medio']} medios y {cnt['Bajo']} bajos. Crítico: daña conversión o reconocimiento hoy. Alto: afecta a todos los canales. Medio: percepción y credibilidad. Bajo: mantenimiento.</p>
       <p class="muted" style="margin-top:3mm">Evidencia recogida el 29-09-2026 sobre la web publicada (estilos computados en Chrome) y el código de <code>TAP/OryzzTAP/oryzz/</code>.</p></div>
       <div style="grid-column:4/13">{filas}</div></div>''', n)); n += 1
@@ -193,8 +194,8 @@ def build():
     pages.append(pagina(f'''{cabecera(h)}<div class="grid" style="margin-top:4mm"><div style="grid-column:1/6">{cuerpo(h)}</div>
       <div style="grid-column:6/13;display:flex;flex-direction:column;gap:3mm">{shot('ev01_home_cabecera.png', 11, CAPS['ev01_home_cabecera.png'])}{shot('ev02_tap_cabecera.png', 14, CAPS['ev02_tap_cabecera.png'])}{comp}{fix(h)}</div></div>''', n)); n += 1
     pages.append(pagina(full('C2', ['ev04_home_cta.png'], [34]) + '''<div style="position:absolute;right:18mm;bottom:16mm;display:flex;gap:4mm">
-      <div style="background:#0B0D12;border-radius:2.5mm;padding:3.5mm 4mm;display:flex;align-items:center;gap:3mm"><span style="display:inline-flex;height:9mm;align-items:center;padding:0 5mm;border-radius:2.5mm;background:linear-gradient(135deg,#5C8BFF,#36CFE0);color:#0B0D12;font:600 9.5pt 'Space Grotesk'">Agendar valoración</span><span class="mono" style="font-size:6.3pt;color:#D5D9E0">6,10–10,33:1</span></div>
-      <div style="background:#fff;border:1px solid #E5E8EE;border-radius:2.5mm;padding:3.5mm 4mm;display:flex;align-items:center;gap:3mm"><span style="display:inline-flex;height:9mm;align-items:center;padding:0 5mm;border-radius:2.5mm;background:#2C5BD0;color:#fff;font:600 9.5pt 'Space Grotesk'">Elegir el mío</span><span class="mono" style="font-size:6.3pt;color:#3A4152">5,98:1</span></div></div>''', n)); n += 1
+      <div style="background:#0B0D12;border-radius:2.5mm;padding:3.5mm 4mm;display:flex;align-items:center;gap:3mm"><span style="display:inline-flex;height:9mm;align-items:center;padding:0 5mm;border-radius:2.5mm;background:linear-gradient(135deg,#5C8BFF,#36CFE0);color:#0B0D12;font:600 9.5pt 'Space Grotesk'">Agendar valoración</span><span class="mono" style="font-size:9pt;color:#D5D9E0">6,10–10,33:1</span></div>
+      <div style="background:#fff;border:1px solid #E5E8EE;border-radius:2.5mm;padding:3.5mm 4mm;display:flex;align-items:center;gap:3mm"><span style="display:inline-flex;height:9mm;align-items:center;padding:0 5mm;border-radius:2.5mm;background:#2C5BD0;color:#fff;font:600 9.5pt 'Space Grotesk'">Elegir el mío</span><span class="mono" style="font-size:9pt;color:#3A4152">5,98:1</span></div></div>''', n)); n += 1
     # C3: logo antiguo vs v2
     h = H['C3']
     pages.append(pagina(f'''{cabecera(h)}<div class="grid" style="margin-top:4mm"><div style="grid-column:1/6">{cuerpo(h)}</div>
@@ -225,17 +226,18 @@ def build():
     pages.append(pagina(f'''<div style="display:flex;align-items:center;gap:4mm"><span class="hid">Hallazgos · B1–B{len(bajos)}</span>{tag("Bajo")}</div><h2 style="margin-top:3mm">Mantenimiento y confianza</h2>
       <table class="t" style="margin-top:6mm"><tr><th>ID</th><th>Hallazgo</th><th>Evidencia</th><th>Impacto</th><th>Corrección</th></tr>{filas}</table>''', n)); n += 1
     # Plan
-    fases = ''.join(f'<div class="fase"><span class="hid">{f} · {s}</span><h4>{t}</h4><ul>' + ''.join(f'<li>{md(x)}</li>' for x in items) + '</ul></div>' for f, t, s, items in FASES)
+    nombre_fase = {f: t for f, t, s, items in FASES}
+    fases = ''.join(f'<div class="fase"><span class="hid">{s}</span><h4>{t}</h4><ul>' + ''.join(f'<li>{md(x)}</li>' for x in items) + '</ul></div>' for f, t, s, items in FASES)
     head = '<tr><th style="width:22mm"></th>' + ''.join(f'<th>{c}</th>' for c in CANALES) + '</tr>'
-    rows = ''.join(f'<tr><td style="font-family:var(--fm);font-weight:700">{f}</td>' + ''.join(f'<td>{md(x)}</td>' for x in MATRIZ_PLAN[f]) + '</tr>' for f in MATRIZ_PLAN)
-    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/5"><div class="eyebrow"><span class="n">04</span> · Plan de migración</div><h2 style="margin-top:4mm">Cinco fases,<br>seis semanas.</h2></div>
+    rows = ''.join(f'<tr><td style="font-weight:700">{nombre_fase[f]}</td>' + ''.join(f'<td>{md(x)}</td>' for x in MATRIZ_PLAN[f]) + '</tr>' for f in MATRIZ_PLAN)
+    pages.append(pagina(f'''<div class="grid"><div style="grid-column:1/5"><div class="eyebrow">Plan de migración</div><h2 style="margin-top:4mm">Cinco fases,<br>seis semanas.</h2></div>
       <p class="muted" style="grid-column:6/13;margin-top:8mm;max-width:none">Primero lo que cuesta clientes (CTA y contraste), después el sistema (tokens y fuentes) y al final lo que vive fuera de la web. Cada fase se puede publicar sola.</p></div>
-      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;margin-top:5mm">{fases}</div>
-      <table class="t" style="margin-top:5mm">{head}{rows}</table>''', n, 'soft')); n += 1
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;margin-top:4mm">{fases}</div>
+      <table class="t compacta" style="margin-top:3mm">{head}{rows}</table>''', n, 'soft')); n += 1
     # Checklist
     chk = ''.join(f'<section><h4>{g}</h4>' + ''.join(f'<label><i></i><span>{md(x)}</span></label>' for x in items) + '</section>' for g, items in CHECKLIST)
     total = sum(len(i) for _, i in CHECKLIST)
-    pages.append(pagina(f'''<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="eyebrow"><span class="n">05</span> · Checklist de migración</div><h2 style="margin-top:4mm">{total} comprobaciones.</h2></div>
+    pages.append(pagina(f'''<div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div class="eyebrow">Checklist de migración</div><h2 style="margin-top:4mm">{total} comprobaciones.</h2></div>
       <p class="muted" style="max-width:110mm">Imprímela o cópiala en el gestor de tareas. Una casilla = una tarea verificable con captura antes / después.</p></div>
       <div class="chk">{chk}</div>''', n)); n += 1
 
@@ -248,20 +250,20 @@ def build():
 def build_md():
     L = [f'# Oryzz · Auditoría de marca', '', f'*{FECHA} · Identidad visual v2.0 · uso interno*', '',
          'Fuente del PDF `Oryzz_Auditoria_de_Marca.pdf`. Evidencias en `evidencias/`. Generado con `00_Fuente_Maestra/build/auditoria_pdf.py` desde `auditoria_datos.py`.', '',
-         '## 1. Resumen ejecutivo', '', 'Nota global: **4,3 / 10**.', '']
+         '## Resumen ejecutivo', '', 'Nota global: **4,3 / 10**.', '']
     L += [f'- {p}' for p in RESUMEN] + ['', '| Cifra | Qué mide |', '|---|---|'] + [f'| {v} | {t} |' for v, t in CIFRAS]
-    L += ['', '## 2. Puntuación por área', '', '| Área | Nota | Por qué |', '|---|---|---|'] + [f'| {a} | {s}/10 | {d} |' for a, s, d in PUNTUACION] + ['| **Media** | **4,3** | |']
-    L += ['', '## 3. Hallazgos priorizados', '', '| ID | Prioridad | Área | Hallazgo |', '|---|---|---|---|'] + [f'| {h["id"]} | {h["prio"]} | {h["area"]} | {h["titulo"]} |' for h in HALLAZGOS]
+    L += ['', '## Puntuación por área', '', '| Área | Nota | Por qué |', '|---|---|---|'] + [f'| {a} | {s}/10 | {d} |' for a, s, d in PUNTUACION] + ['| **Media** | **4,3** | |']
+    L += ['', '## Hallazgos priorizados', '', '| ID | Prioridad | Área | Hallazgo |', '|---|---|---|---|'] + [f'| {h["id"]} | {h["prio"]} | {h["area"]} | {h["titulo"]} |' for h in HALLAZGOS]
     for h in HALLAZGOS:
         L += ['', f'### {h["id"]} · {h["titulo"]}', '', f'**Prioridad:** {h["prio"]} · **Área:** {h["area"]}', '']
         L += [f'![{CAPS.get(i, i)}](evidencias/{i})' for i in h['img']]
         L += ['', '**Evidencia**', ''] + [f'- {x}' for x in h['evidencia']]
         L += ['', f'**Impacto.** {h["impacto"]}', '', '**Corrección**', ''] + [f'- {x}' for x in h['correccion']]
-    L += ['', '## 4. Plan de migración por fases', '']
+    L += ['', '## Plan de migración por fases', '']
     for f, t, s, items in FASES:
-        L += [f'### {f} · {t} ({s})', ''] + [f'- {x}' for x in items] + ['']
-    L += ['| Fase | ' + ' | '.join(CANALES) + ' |', '|---|' + '---|' * len(CANALES)] + [f'| {f} | ' + ' | '.join(v) + ' |' for f, v in MATRIZ_PLAN.items()]
-    L += ['', '## 5. Checklist de migración', '']
+        L += [f'### {t} ({s})', ''] + [f'- {x}' for x in items] + ['']
+    L += ['| Fase | ' + ' | '.join(CANALES) + ' |', '|---|' + '---|' * len(CANALES)] + [f'| {dict((a, b) for a, b, _, _ in FASES)[f]} | ' + ' | '.join(v) + ' |' for f, v in MATRIZ_PLAN.items()]
+    L += ['', '## Checklist de migración', '']
     for g, items in CHECKLIST:
         L += [f'### {g}', ''] + [f'- [ ] {x}' for x in items] + ['']
     L += ['## Método', '', '- Capturas y estilos computados de https://oryzz.com/ y https://oryzz.com/tap/ con Chrome headless (`00_Fuente_Maestra/build/web_capture.py`), 1440×900 y 390×844.',

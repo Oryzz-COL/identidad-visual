@@ -2,11 +2,12 @@ ASUNTO: Septiembre en {{negocio}}: 61 citas y el coste por lead a la baja
 PREHEADER: El mes en cuatro cifras, qué funcionó, qué cambiamos y el plan para octubre.
 ================================================================
 
-ORYZZ · Informe mensual
+Oryzz · Informe mensual
 
 Septiembre 2026
 
-61 CITAS NUEVAS. MISMO PRESUPUESTO, MENOS COSTE POR LEAD.
+61 citas nuevas. Mismo presupuesto, menos coste por lead.
+=========================================================
 
 La versión corta: la respuesta automática por WhatsApp convirtió más contactos en citas.
 
@@ -31,9 +32,9 @@ Pausamos Google Ads entre las 23:00 y las 7:00: se llevaba el 18 % del presupues
 Plan para octubre
 -----------------
 
-1. Probar un segundo anuncio en vídeo grabado con tu equipo en la clínica.
-2. Activar el recordatorio de cita 24 horas antes para bajar las ausencias.
-3. Pedir la reseña al terminar cada tratamiento, con la placa de recepción.
+- Probar un segundo anuncio en vídeo grabado con tu equipo en la clínica.
+- Activar el recordatorio de cita 24 horas antes para bajar las ausencias.
+- Pedir la reseña al terminar cada tratamiento, con la placa de recepción.
 
 Ver el panel completo: {{url_panel}}
 

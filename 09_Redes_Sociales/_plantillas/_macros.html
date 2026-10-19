@@ -4,8 +4,8 @@
 <header class="cab">
   <img class="logo" src="{{ logo }}" alt="{{ 'oryzz tap' if marca == 'tap' else 'oryzz' }}">
   {%- if der is not none %}<div>{{ der }}</div>
-  {%- elif contador %}<div class="contador"><b>{{ '%02d'|format(contador[0]) }}</b> / {{ '%02d'|format(contador[1]) }}</div>
-  {%- elif eyebrow_der %}<div class="eyebrow sin-raya">{{ eyebrow_der }}</div>{% endif %}
+  {%- elif contador %}<div class="contador"><b>{{ contador[0] }}</b> / {{ contador[1] }}</div>
+  {%- elif eyebrow_der %}<div class="eyebrow">{{ eyebrow_der }}</div>{% endif %}
 </header>
 {%- endmacro %}
 
@@ -99,7 +99,7 @@
 {#- Conversación con un asistente de IA (GEO). opciones: [{nombre, detalle, destacado}] -#}
 {% macro chat_ia(pregunta, intro, opciones, plataforma='Asistente de IA') -%}
 <div class="chat tarjeta">
-  <div class="chat-cab"><span class="mono">{{ plataforma }}</span><span class="chat-pts"><i></i><i></i><i></i></span></div>
+  <div class="chat-cab"><span class="etq">{{ plataforma }}</span><span class="chat-pts"><i></i><i></i><i></i></span></div>
   <div class="chat-preg">{{ pregunta }}</div>
   <div class="chat-resp">
     <div class="chat-intro">{{ intro }}</div>

@@ -198,7 +198,7 @@ def exportar(pieza, carpeta, W, H, caras, b=3, troquel=None, info='', preview_dp
     if troquel:
         tsvg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{-b - slug} {-b - slug} {W + 2 * (b + slug)} {H + 2 * (b + slug)}" '
                 f'width="{W + 2 * (b + slug)}mm" height="{H + 2 * (b + slug)}mm"><g id="troquel" fill="none" stroke="#E6007E" stroke-width="0.25">{troquel}</g>'
-                f'{_marcas(W, H, b, 5, f"{info} · TROQUEL (línea de corte, no imprimir) · {W:g} × {H:g} mm")}</svg>')
+                f'{_marcas(W, H, b, 5, f"{info} · troquel (línea de corte, no imprimir) · {W:g} × {H:g} mm")}</svg>')
         open(os.path.join(carpeta, 'SVG_editable', f'{pieza}_troquel.svg'), 'w', encoding='utf8').write(tsvg)
         pdf([tsvg], W + 2 * (b + slug), H + 2 * (b + slug), os.path.join(carpeta, 'PDF_imprenta_con_marcas', f'{pieza}_troquel.pdf'))
     return p_sin, p_con

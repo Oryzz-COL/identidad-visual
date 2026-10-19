@@ -269,12 +269,12 @@
       "eyebrow": {
         "type": "typography",
         "value": {
-          "fontFamily": "{fontFamilies.mono}",
-          "fontWeight": "Medium",
-          "fontSize": "12",
-          "lineHeight": "120%",
-          "letterSpacing": "16%",
-          "textCase": "uppercase"
+          "fontFamily": "{fontFamilies.texto}",
+          "fontWeight": "SemiBold",
+          "fontSize": "14",
+          "lineHeight": "130%",
+          "letterSpacing": "0%",
+          "textCase": "none"
         }
       },
       "dato": {

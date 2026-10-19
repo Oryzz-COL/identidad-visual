@@ -64,7 +64,7 @@ $escala-tipo: (
   "lead": (size: 20px, line: 1.55, tracking: 0em, font: "texto", weight: 400),
   "body": (size: 16px, line: 1.6, tracking: 0em, font: "texto", weight: 400),
   "small": (size: 14px, line: 1.5, tracking: 0em, font: "texto", weight: 500),
-  "eyebrow": (size: 12px, line: 1.2, tracking: 0.16em, font: "mono", weight: 500),
+  "eyebrow": (size: 14px, line: 1.3, tracking: 0em, font: "texto", weight: 600),
   "dato": (size: 64px, line: 1.0, tracking: -0.03em, font: "display", weight: 500),
 );
 
@@ -149,5 +149,4 @@ $tema-claro: (
   @if $f == "display" { font-family: $font-display; } @else if $f == "mono" { font-family: $font-mono; } @else { font-family: $font-texto; }
   font-size: map.get($t, size); line-height: map.get($t, line);
   letter-spacing: map.get($t, tracking); font-weight: map.get($t, weight);
-  @if $paso == "eyebrow" { text-transform: uppercase; }
 }

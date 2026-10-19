@@ -44,7 +44,8 @@ CSS = """
 .dark .nota{color:var(--g400)}
 /* matriz */
 .mx{border-collapse:separate;border-spacing:1.2mm}
-.mx th{font-family:var(--fm);font-size:6.3pt;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--g500);text-align:left;padding:0 1mm;vertical-align:bottom}
+.mx th{font-family:var(--ft);font-size:7pt;font-weight:600;letter-spacing:0;color:var(--g500);text-align:left;padding:0 1mm;vertical-align:bottom}
+.mx th .hx{font-family:var(--fm);font-weight:500;font-size:6.3pt}
 .mx th.fg{text-align:right;white-space:nowrap;padding-right:2mm;vertical-align:middle;text-transform:none;letter-spacing:0;font-family:var(--ft);font-size:7.5pt;color:var(--g950)}
 .dark .mx th.fg{color:#fff}
 .mx th .sw{display:inline-block;width:3mm;height:3mm;border-radius:1mm;vertical-align:-.4mm;margin-right:1.4mm;border:1px solid rgba(128,128,128,.35)}
@@ -53,14 +54,14 @@ CSS = """
 .cell .s small{font-family:var(--ft);font-weight:500;font-size:6.2pt}
 .cell .r{display:flex;justify-content:space-between;align-items:center;padding:.5mm 1.6mm;font-family:var(--fm);font-size:6.2pt;background:#fff;color:var(--g950)}
 .dark .cell .r{background:var(--g850);color:#fff}
-.lv{font-weight:700;letter-spacing:.04em}
+.lv{font-weight:700}
 .lv-AAA{color:#1F7A45} .lv-AA{color:#1F7A45} .lv-AAg{color:#9A5B00} .lv-No{color:#C0282D}
 .dark .lv-AAA,.dark .lv-AA{color:var(--l500)} .dark .lv-AAg{color:var(--warn)} .dark .lv-No{color:#FF8A8E}
 .leyenda{display:flex;gap:6mm;font-size:7pt;margin-top:3mm}
 .leyenda b{font-family:var(--fm)}
 /* barras */
 .prop{display:flex;height:34mm;border-radius:3mm;overflow:hidden;margin-top:8mm}
-.prop div{display:flex;flex-direction:column;justify-content:flex-end;padding:3mm;font-family:var(--fm);font-size:7pt;letter-spacing:.06em}
+.prop div{display:flex;flex-direction:column;justify-content:flex-end;padding:3mm;font-family:var(--ft);font-weight:600;font-size:7.5pt}
 .prop b{font-family:var(--fd);font-size:20pt;letter-spacing:-.03em;font-weight:600}
 .cta{display:inline-flex;align-items:center;gap:2.5mm;height:12mm;padding:0 6mm;border-radius:3mm;font-family:var(--fd);font-weight:600;font-size:11pt}
 .reco li{margin:0 0 2.4mm 4mm;font-size:8.6pt;line-height:1.45}
@@ -74,7 +75,7 @@ def pagina(cls, body, n, dark=False):
 
 def matriz(fgs, bgs, dark=False):
     head = '<tr><th></th>' + ''.join(
-        f'<th><span class="sw" style="background:{P[b]["hex"]}"></span>{b}<br><span style="opacity:.8">{P[b]["hex"]}</span></th>' for b in bgs) + '</tr>'
+        f'<th><span class="sw" style="background:{P[b]["hex"]}"></span>{b}<br><span class="hx" style="opacity:.8">{P[b]["hex"]}</span></th>' for b in bgs) + '</tr>'
     rows = []
     for f in fgs:
         cells = []
@@ -98,31 +99,31 @@ def build_pdf():
     pages.append(f'''<section class="page dark" style="padding:18mm">
       <img src="{logo('horizontal','color-sobre-oscuro')}" style="height:9mm">
       <div style="position:absolute;left:18mm;top:62mm;width:150mm">
-        <div class="eyebrow"><span class="n">03</span> · Sistema de color · v2.0</div>
+        <div class="eyebrow">Sistema de color · v2.0</div>
         <h1 style="margin-top:6mm">Color y<br>contraste.</h1>
         <p class="lead" style="margin-top:6mm;max-width:110mm">Paleta de marca, proporción de uso, gradientes y la matriz de contraste WCAG 2.2 calculada para cada combinación útil.</p>
       </div>
       <div style="position:absolute;right:18mm;top:18mm;bottom:18mm;width:88mm;display:flex;flex-direction:column;border-radius:4mm;overflow:hidden">
-        <div style="flex:60;background:#12151D;border:1px solid #232836;border-bottom:0;padding:4mm;display:flex;align-items:flex-end" class="mono"><span style="font-size:7pt;color:#8A90A0">60 % GRAFITO</span></div>
-        <div style="flex:25;background:#F6F7F9;padding:4mm;display:flex;align-items:flex-end" class="mono"><span style="font-size:7pt;color:#3A4152">25 % BLANCO / GRAFITO 50</span></div>
-        <div style="flex:10;background:linear-gradient(135deg,#5C8BFF,#36CFE0);padding:0 4mm;display:flex;align-items:center" class="mono"><span style="font-size:7pt;color:#0B0D12">10 % AZUL IA / CYAN</span></div>
-        <div style="flex:5;background:#BFF24A;padding:0 4mm;display:flex;align-items:center" class="mono"><span style="font-size:7pt;color:#0B0D12">≤ 5 % LIMA</span></div>
+        <div style="flex:60;background:#12151D;border:1px solid #232836;border-bottom:0;padding:4mm;display:flex;align-items:flex-end" ><span style="font-size:8pt;font-weight:600;color:#8A90A0">60 % Grafito</span></div>
+        <div style="flex:25;background:#F6F7F9;padding:4mm;display:flex;align-items:flex-end" ><span style="font-size:8pt;font-weight:600;color:#3A4152">25 % Blanco y Grafito 50</span></div>
+        <div style="flex:10;background:linear-gradient(135deg,#5C8BFF,#36CFE0);padding:0 4mm;display:flex;align-items:center" ><span style="font-size:8pt;font-weight:600;color:#0B0D12">10 % Azul IA y Cyan</span></div>
+        <div style="flex:5;background:#BFF24A;padding:0 4mm;display:flex;align-items:center" ><span style="font-size:8pt;font-weight:600;color:#0B0D12">≤ 5 % Lima</span></div>
       </div>
-      <div class="folio" style="color:#5A6172"><span>Identidad visual Oryzz · 2026</span><span>oryzz.com</span><span>01</span></div>
+      <div class="folio" style="color:#5A6172"><span>Identidad visual de Oryzz · 2026</span><span>oryzz.com</span><span>1</span></div>
     </section>''')
     n += 1
     # 2 · Proporción
     pages.append(pagina('', f'''
       <div class="grid">
-        <div style="grid-column:1/5"><div class="eyebrow"><span class="n">01</span> · Proporción</div>
+        <div style="grid-column:1/5"><div class="eyebrow">Proporción</div>
           <h2 style="margin-top:4mm">Mucho grafito.<br>Un solo acento.</h2>
           <p class="lead" style="margin-top:4mm">El grafito es el espacio donde el sistema trabaja. El azul marca la tecnología; el lima es el nodo: el lead, la cita, el cliente. Si una pieza ya tiene lima, no lleva otro acento.</p></div>
         <div style="grid-column:6/13">
           <div class="prop">
-            <div style="flex:60;background:#0B0D12;color:#8A90A0"><b style="color:#fff">60 %</b>GRAFITO 950 · 850 · 800</div>
-            <div style="flex:25;background:#F6F7F9;color:#3A4152;border:1px solid #E5E8EE"><b style="color:#0B0D12">25 %</b>BLANCO · GRAFITO 50</div>
-            <div style="flex:10;background:linear-gradient(135deg,#5C8BFF,#36CFE0);color:#0B0D12;padding:3mm 2mm"><b style="font-size:13pt">10 %</b>AZUL</div>
-            <div style="flex:5;background:#BFF24A;color:#0B0D12;padding:3mm 1.5mm"><b style="font-size:10pt">5 %</b>LIMA</div>
+            <div style="flex:60;background:#0B0D12;color:#8A90A0"><b style="color:#fff">60 %</b>Grafito 950, 850 y 800</div>
+            <div style="flex:25;background:#F6F7F9;color:#3A4152;border:1px solid #E5E8EE"><b style="color:#0B0D12">25 %</b>Blanco y Grafito 50</div>
+            <div style="flex:10;background:linear-gradient(135deg,#5C8BFF,#36CFE0);color:#0B0D12;padding:3mm 2mm"><b style="font-size:13pt">10 %</b>Azul</div>
+            <div style="flex:5;background:#BFF24A;color:#0B0D12;padding:3mm 1.5mm"><b style="font-size:10pt">5 %</b>Lima</div>
           </div>
           <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:9mm;column-gap:7mm">
             <div><h3>Fondos</h3><p class="muted" style="margin-top:2mm">Grafito 950 en digital y presentaciones; blanco o Grafito 50 en documentos, Tap y piezas de producto. Nunca fondos completos de azul, cyan o lima salvo piezas puntuales de campaña.</p></div>
@@ -135,7 +136,7 @@ def build_pdf():
     g1 = ['Grafito 950', 'Grafito 850', 'Grafito 800', 'Grafito 700', 'Grafito 600', 'Grafito 500', 'Titanio 400']
     g2 = ['Grafito 300', 'Grafito 200', 'Grafito 100', 'Grafito 50', 'Blanco', 'Grafito 900']
     pages.append(pagina('', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">02</span> · Neutros</div><h2 style="margin-top:4mm">Grafito</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Neutros</div><h2 style="margin-top:4mm">Grafito</h2>
       <p class="muted" style="margin-top:3mm">Neutros fríos (tono 220–224°). Sustituyen a los 40+ grises sueltos de las webs actuales.</p></div>
       <div style="grid-column:4/13"><div class="row" style="grid-template-columns:repeat(7,1fr)">{''.join(ficha(P[x], True) for x in g1)}</div>
       <div class="row" style="grid-template-columns:repeat(7,1fr);margin-top:6mm">{''.join(ficha(P[x]) for x in g2)}<div></div></div></div></div>
@@ -144,7 +145,7 @@ def build_pdf():
     az = ['Azul 300', 'Azul 400', 'Azul IA 500', 'Azul 600', 'Azul 700', 'Azul 900', 'Azul 50']
     cy = ['Cyan 300', 'Cyan 500', 'Cyan 600', 'Cyan 50']
     pages.append(pagina('', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">03</span> · Acento tecnológico</div><h2 style="margin-top:4mm">Azul IA<br>y Cyan</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Acento tecnológico</div><h2 style="margin-top:4mm">Azul IA<br>y Cyan</h2>
       <p class="muted" style="margin-top:3mm">El Azul IA 500 <span class="mono">#3B72FF</span> es el color de marca. El 400 lo sustituye sobre oscuro y el 600 es el azul que funciona en botones y enlaces sobre claro. El cyan solo existe como final del gradiente y como color de dato.</p></div>
       <div style="grid-column:4/13"><div class="row" style="grid-template-columns:repeat(7,1fr)">{''.join(ficha(P[x], x == 'Azul IA 500') for x in az)}</div>
       <div class="row" style="grid-template-columns:repeat(7,1fr);margin-top:6mm">{''.join(ficha(P[x], x == 'Cyan 500') for x in cy)}</div></div></div>''', n)); n += 1
@@ -152,7 +153,7 @@ def build_pdf():
     li = ['Lima 500', 'Lima 600', 'Lima 300', 'Lima 900', 'Lima 50']
     es = ['Éxito', 'Aviso', 'Error']
     pages.append(pagina('', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">04</span> · El nodo y los estados</div><h2 style="margin-top:4mm">Lima<br>y Estado</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">El nodo y los estados</div><h2 style="margin-top:4mm">Lima<br>y Estado</h2>
       <p class="muted" style="margin-top:3mm">El lima es escaso a propósito: ≤ 5 % de la superficie. Los colores de estado son funcionales (formularios, alertas, informes) y nunca decorativos.</p></div>
       <div style="grid-column:4/13"><div class="row" style="grid-template-columns:repeat(7,1fr)">{''.join(ficha(P[x], x == 'Lima 500') for x in li)}</div>
       <div class="eyebrow" style="margin-top:8mm">Estado</div>
@@ -160,15 +161,15 @@ def build_pdf():
       <p class="nota" style="margin-top:5mm;max-width:200mm">Éxito y Error no alcanzan 4,5:1 con texto blanco (3,49 y 3,91:1). Úsalos como icono, borde o fondo suave con el mensaje en Grafito 950; sobre fondo oscuro sí sirven como texto (5,56 y 4,97:1).</p></div></div>''', n)); n += 1
     # 6 · Gradientes
     pages.append(pagina('dark', f'''
-      <div class="grid"><div style="grid-column:1/5"><div class="eyebrow"><span class="n">05</span> · Gradiente IA</div><h2 style="margin-top:4mm">Dos colores.<br>135°. Nada más.</h2>
+      <div class="grid"><div style="grid-column:1/5"><div class="eyebrow">Gradiente IA</div><h2 style="margin-top:4mm">Dos colores.<br>135°. Nada más.</h2>
       <p class="lead" style="margin-top:4mm">El gradiente es la firma de las «zz». Se usa en el logo, en el botón principal sobre oscuro y en una línea o un dato por pieza.</p>
       <div style="margin-top:8mm" class="mono muted">
-        <p style="font-size:7.5pt">OSCURO · linear-gradient(135deg, #5C8BFF, #36CFE0)</p>
-        <p style="font-size:7.5pt;margin-top:1.5mm">CLARO · linear-gradient(135deg, #3B72FF, #17A9C2)</p></div></div>
+        <p style="font-size:7.5pt"><span style="font-family:var(--ft);font-weight:600">Oscuro:</span> linear-gradient(135deg, #5C8BFF, #36CFE0)</p>
+        <p style="font-size:7.5pt;margin-top:1.5mm"><span style="font-family:var(--ft);font-weight:600">Claro:</span> linear-gradient(135deg, #3B72FF, #17A9C2)</p></div></div>
       <div style="grid-column:6/13">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm">
-          <div><div style="height:52mm;border-radius:4mm;background:var(--grad-d);display:flex;align-items:flex-end;padding:4mm"><span class="mono" style="font-size:7pt;color:#0B0D12">IA · OSCURO</span></div></div>
-          <div><div style="height:52mm;border-radius:4mm;background:#fff;padding:4mm;display:flex;align-items:flex-end"><div style="height:100%;width:100%;border-radius:3mm;background:var(--grad-l);display:flex;align-items:flex-end;padding:3mm"><span class="mono" style="font-size:7pt;color:#fff">IA · CLARO</span></div></div></div>
+          <div><div style="height:52mm;border-radius:4mm;background:var(--grad-d);display:flex;align-items:flex-end;padding:4mm"><span style="font-size:8pt;font-weight:600;color:#0B0D12">Gradiente IA oscuro</span></div></div>
+          <div><div style="height:52mm;border-radius:4mm;background:#fff;padding:4mm;display:flex;align-items:flex-end"><div style="height:100%;width:100%;border-radius:3mm;background:var(--grad-l);display:flex;align-items:flex-end;padding:3mm"><span style="font-size:8pt;font-weight:600;color:#fff">Gradiente IA claro</span></div></div></div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8mm;margin-top:8mm">
           <div><h4 style="color:var(--l500)">Sí</h4><ul class="reco" style="margin-top:2mm;color:#D5D9E0">
@@ -180,7 +181,7 @@ def build_pdf():
     fg_d = ['Blanco', 'Grafito 200', 'Grafito 300', 'Titanio 400', 'Grafito 500', 'Azul 300', 'Azul 400', 'Azul IA 500', 'Cyan 500', 'Lima 500', 'Éxito', 'Aviso', 'Error']
     bg_d = ['Grafito 950', 'Grafito 850', 'Grafito 800', 'Grafito 700', 'Azul 900']
     pages.append(pagina('dark', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">06</span> · Contraste WCAG 2.2</div><h2 style="margin-top:4mm">Sobre<br>oscuro</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Contraste WCAG 2.2</div><h2 style="margin-top:4mm">Sobre<br>oscuro</h2>
       <p class="muted" style="margin-top:3mm">Relación de contraste calculada con la fórmula de luminancia relativa de WCAG 2.2 (criterios 1.4.3 y 1.4.6).</p>
       <div style="margin-top:6mm;font-size:8pt;line-height:1.5;color:#D5D9E0"><b style="color:#fff">Lectura rápida</b><br>Texto: Blanco, Grafito 200 y 300.<br>Texto terciario: Titanio 400 (nunca Grafito 500).<br>Enlaces: Azul 300.<br>Dato: Lima 500 o Cyan 500.</div></div>
       <div style="grid-column:4/13">{matriz(fg_d, bg_d, True)}{LEYENDA}</div></div>''', n, True)); n += 1
@@ -188,7 +189,7 @@ def build_pdf():
     fg_l = ['Grafito 950', 'Grafito 600', 'Grafito 500', 'Titanio 400', 'Azul IA 500', 'Azul 600', 'Azul 700', 'Cyan 600', 'Lima 600', 'Lima 900', 'Éxito', 'Aviso', 'Error']
     bg_l = ['Blanco', 'Grafito 50', 'Grafito 100', 'Azul 50', 'Lima 50']
     pages.append(pagina('', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">07</span> · Contraste WCAG 2.2</div><h2 style="margin-top:4mm">Sobre<br>claro</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Contraste WCAG 2.2</div><h2 style="margin-top:4mm">Sobre<br>claro</h2>
       <p class="muted" style="margin-top:3mm">El error más habitual en claro es usar el azul o el lima de la versión oscura. En claro manda el Azul 600.</p>
       <div style="margin-top:6mm;font-size:8pt;line-height:1.5;color:var(--g600)"><b style="color:var(--g950)">Lectura rápida</b><br>Texto: Grafito 950 y 600.<br>Texto terciario: Grafito 500 (nunca Titanio 400).<br>Enlaces y botones: Azul 600.<br>Dato: Lima 900 o Azul 600; Lima 600 solo como punto.</div></div>
       <div style="grid-column:4/13">{matriz(fg_l, bg_l)}{LEYENDA}</div></div>''', n)); n += 1
@@ -197,7 +198,7 @@ def build_pdf():
     bg_c = ['Azul 600', 'Azul IA 500', 'Azul 400', 'Cyan 500', 'Cyan 600', 'Lima 500']
     w = lambda a, b: fmt(contraste(a, b))
     pages.append(pagina('', f'''
-      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow"><span class="n">08</span> · Botones</div><h2 style="margin-top:4mm">Texto sobre<br>color</h2>
+      <div class="grid"><div style="grid-column:1/4"><div class="eyebrow">Botones</div><h2 style="margin-top:4mm">Texto sobre<br>color</h2>
       <p class="muted" style="margin-top:3mm">Un botón con gradiente se evalúa en su punto más débil. El texto blanco sobre el gradiente actual de la web cae a 1,88:1 en el extremo cyan.</p></div>
       <div style="grid-column:4/13">{matriz(fg_c, bg_c)}
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5mm;margin-top:7mm">
@@ -213,22 +214,22 @@ def build_pdf():
       </div></div></div>''', n)); n += 1
     # 10 · Recomendaciones + impresión
     pages.append(pagina('soft', f'''
-      <div class="grid"><div style="grid-column:1/5"><div class="eyebrow"><span class="n">09</span> · Reglas</div><h2 style="margin-top:4mm">Recomendaciones</h2>
+      <div class="grid"><div style="grid-column:1/5"><div class="eyebrow">Reglas</div><h2 style="margin-top:4mm">Recomendaciones</h2>
       <p class="muted" style="margin-top:3mm">Diez reglas que resuelven el 95 % de las decisiones de color sin abrir esta guía.</p></div>
       <div style="grid-column:5/13;display:grid;grid-template-columns:1fr 1fr;gap:7mm">
-      <ol class="reco" style="padding-left:2mm">
+      <ul class="reco" style="padding-left:2mm">
         <li><b>Botón principal en oscuro:</b> gradiente IA + texto Grafito 950 (6,10–10,33:1).</li>
         <li><b>Botón principal en claro:</b> Azul 600 + texto blanco (5,98:1). Hover: Azul 700 (8,87:1).</li>
         <li><b>Texto terciario:</b> Titanio 400 en oscuro (6,09:1), Grafito 500 en claro (6,20:1). No se intercambian: cruzados bajan a 3,14 y 3,19:1.</li>
         <li><b>Azul IA 500 como texto</b> solo ≥ 24 px (4,17:1 sobre blanco, 4,66:1 sobre Grafito 950).</li>
         <li><b>Enlaces:</b> Azul 300 en oscuro (9,97:1); Azul 600 subrayado en claro.</li>
-      </ol><ol class="reco" start="6" style="padding-left:2mm">
+      </ul><ul class="reco" style="padding-left:2mm">
         <li><b>Lima:</b> texto solo sobre oscuro (14,82:1). En claro, Lima 600 como punto (2,58:1, no apto para texto ni iconos informativos).</li>
         <li><b>Cyan:</b> dato y final del gradiente. Nunca texto sobre blanco (1,88:1; Cyan 600 2,80:1).</li>
         <li><b>Estados:</b> mensajes en Grafito 950 con icono o borde del color de estado.</li>
-        <li><b>Tamaño mínimo:</b> 14 px en pantalla (eyebrow mono 12 px como única excepción), 9 pt impreso.</li>
+        <li><b>Tamaño mínimo:</b> 14 px en pantalla (también en etiquetas), 9 pt impreso.</li>
         <li><b>Foco visible:</b> contorno 2 px Azul 400 en oscuro / Azul 600 en claro, desplazado 3 px.</li>
-      </ol></div></div>
+      </ul></div></div>
       <div class="rule" style="margin-top:9mm"></div>
       <div class="grid"><div style="grid-column:1/5"><h3>Impresión</h3></div>
       <div style="grid-column:5/13;display:grid;grid-template-columns:1fr 1fr;gap:7mm;font-size:8.2pt;color:var(--g600)">
@@ -263,17 +264,17 @@ def build_laminas():
                     f'<div style="font:400 15px \'JetBrains Mono\';color:{sub};line-height:1.5">RGB {" ".join(map(str, p["rgb"]))}<br>Pantone {p["pantone"] or "—"}</div></div>')
         body = f'''<div style="width:1920px;height:1080px;background:{bg};padding:96px 120px;position:relative;font-family:'Manrope'">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <div><div style="font:500 16px 'JetBrains Mono';letter-spacing:.16em;text-transform:uppercase;color:{sub}">Oryzz · Paleta v2.0 · {'versión oscura' if dark else 'versión clara'}</div>
+            <div><div style="font:600 24px 'Manrope';color:{sub}">Paleta de Oryzz v2.0 · {'versión oscura' if dark else 'versión clara'}</div>
             <div style="font:700 88px 'Space Grotesk';letter-spacing:-.045em;line-height:.95;color:{ink};margin-top:26px">Grafito, azul<br>y un <span style="color:{'#BFF24A' if dark else '#2C5BD0'}">nodo</span>.</div></div>
             <img src="{logo('horizontal', way)}" style="height:52px">
           </div>
           <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:28px;margin-top:70px">{''.join(sw(c, 170) for c in cols)}</div>
           <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:28px;margin-top:40px">{''.join(sw(c, 110) for c in acc)}
             <div style="display:flex;flex-direction:column;gap:14px"><div style="height:110px;border-radius:18px;background:{grad};display:flex;align-items:flex-end;padding:18px;color:{'#0B0D12' if dark else '#fff'};font:500 17px 'JetBrains Mono'">135°</div>
-            <div style="font:600 22px 'Space Grotesk';color:{ink}">Gradiente IA</div><div style="font:400 15px 'JetBrains Mono';color:{sub}">Solo logo, CTA y un dato</div></div>
+            <div style="font:600 22px 'Space Grotesk';color:{ink}">Gradiente IA</div><div style="font:500 17px 'Manrope';color:{sub}">Solo logo, CTA y un dato</div></div>
           </div>
-          <div style="position:absolute;left:120px;right:120px;bottom:60px;display:flex;justify-content:space-between;font:500 15px 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;color:{sub}">
-            <span>60 % grafito · 25 % {'blanco' if dark else 'blanco / grafito 50'} · 10 % azul / cyan · ≤ 5 % lima</span><span>oryzz.com</span></div></div>'''
+          <div style="position:absolute;left:120px;right:120px;bottom:60px;display:flex;justify-content:space-between;font:500 20px 'Manrope';color:{sub}">
+            <span>60 % grafito · 25 % {'blanco' if dark else 'blanco y Grafito 50'} · 10 % azul y cyan · ≤ 5 % lima</span><span>oryzz.com</span></div></div>'''
         return html_doc('Oryzz paleta', body, 'html,body{background:%s}' % bg)
     for dark, name in [(True, 'Oryzz_Paleta_Lamina_Oscura.png'), (False, 'Oryzz_Paleta_Lamina_Clara.png')]:
         src = os.path.join(TMP, name + '.html'); open(src, 'w', encoding='utf8').write(lam(dark))

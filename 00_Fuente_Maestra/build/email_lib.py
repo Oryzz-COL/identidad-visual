@@ -13,7 +13,7 @@ lista de bloques que se pasa a `documento()` (correos de marca) o a
 
 Uso desde otro script:
     import email_lib as E
-    bloques = [E.cabecera('NOTAS'), E.titular('Hola'), E.parrafo('...'), E.pie()]
+    bloques = [E.cabecera('Notas'), E.titular('Hola'), E.parrafo('...'), E.pie()]
     html, txt = E.documento(asunto, preheader, bloques)
 
 Colores y tipografías salen de 00_Fuente_Maestra/tokens.json (copiados aquí
@@ -152,6 +152,10 @@ def _fila(inner, pad='0 %dpx 16px' % PX, extra='', cls='o-px'):
     return '<tr><td class="%s" style="padding:%s;%s">%s</td></tr>' % (cls, pad, extra, inner)
 
 
+# Etiqueta (eyebrow, rótulos de tarjeta, claves): tipo frase, Manrope 600, 14 px, sin tracking ni mayúsculas.
+ETIQUETA = 'font-family:%s;font-size:14px;line-height:20px;font-weight:600;' % F_TEXT
+
+
 def _eyebrow_html(texto, oscuro=False, nodo=True, margen='0 0 16px'):
     col = C['g400'] if oscuro else C['g500']
     cls = '' if oscuro else ' class="o-t3"'
@@ -160,8 +164,7 @@ def _eyebrow_html(texto, oscuro=False, nodo=True, margen='0 0 16px'):
         ncol = C['l500'] if oscuro else C['l600']
         ncls = '' if oscuro else ' class="o-node"'
         node = '<span%s style="color:%s;font-size:10px;">&#9679;</span>&nbsp;&nbsp;' % (ncls, ncol)
-    return ('<p%s style="margin:%s;font-family:%s;font-size:12px;line-height:16px;font-weight:500;'
-            'letter-spacing:2px;text-transform:uppercase;color:%s;">%s%s</p>' % (cls, margen, F_MONO, col, node, texto))
+    return '<p%s style="margin:%s;%scolor:%s;">%s%s</p>' % (cls, margen, ETIQUETA, col, node, texto)
 
 
 # ---------------------------------------------------------------- bloques de marca
@@ -170,8 +173,7 @@ def cabecera(etiqueta='', variante='oscuro', url='https://oryzz.com'):
     tag = ''
     if etiqueta:
         col = C['g400']
-        tag = ('<td align="right" valign="middle" style="font-family:%s;font-size:12px;line-height:16px;font-weight:500;'
-               'letter-spacing:2px;text-transform:uppercase;color:%s;">%s</td>' % (F_MONO, col, etiqueta))
+        tag = '<td align="right" valign="middle" style="%scolor:%s;">%s</td>' % (ETIQUETA, col, etiqueta)
     if variante == 'tap':
         logo = ('<a href="%s" target="_blank" style="text-decoration:none;">'
                 '<img class="o-solo-claro" src="%soryzz-tap-logo_sobre-claro.png" width="150" height="28" alt="Oryzz Tap" '
@@ -190,7 +192,7 @@ def cabecera(etiqueta='', variante='oscuro', url='https://oryzz.com'):
               'padding:28px %dpx 26px;">' % PX)
     html = ('<tr>%s<table role="presentation" width="100%%" cellspacing="0" cellpadding="0" border="0"><tr>'
             '<td valign="middle">%s</td>%s</tr></table></td></tr>' % (td, logo, tag))
-    marca = 'ORYZZ TAP' if variante == 'tap' else 'ORYZZ'
+    marca = 'Oryzz Tap' if variante == 'tap' else 'Oryzz'
     return _bloque('cabecera', html, marca + (' · ' + etiqueta if etiqueta else '') + '\n')
 
 
@@ -209,7 +211,8 @@ def hero_oscuro(eyebrow, titulo, lead='', imagen='orbita-hero.png', alt=''):
             '<h1 class="o-h1-hero" style="margin:0;font-family:%s;font-size:34px;line-height:38px;font-weight:700;letter-spacing:-1px;color:#FFFFFF;">%s</h1>'
             '%s</td>%s</tr></table></td></tr>'
             % (PX, _eyebrow_html(eyebrow, oscuro=True), F_DISPLAY, titulo, txt_lead, img))
-    t = '%s\n\n%s\n' % (html_a_texto(eyebrow), html_a_texto(titulo).upper())
+    tt = html_a_texto(titulo)
+    t = '%s\n\n%s\n%s\n' % (html_a_texto(eyebrow), tt, '=' * min(len(tt), 60))
     if lead:
         t += '\n' + html_a_texto(lead) + '\n'
     return _bloque('hero oscuro', html, t)
@@ -229,7 +232,8 @@ def titular(texto, nivel=1, margen_inf=16):
     if nivel == 1:
         h = ('<h1 class="o-h1 o-t1" style="margin:0;font-family:%s;font-size:34px;line-height:38px;font-weight:700;'
              'letter-spacing:-1px;color:%s;">%s</h1>' % (F_DISPLAY, C['g950'], texto))
-        t = html_a_texto(texto).upper() + '\n'
+        tt = html_a_texto(texto)
+        t = tt + '\n' + '=' * min(len(tt), 60) + '\n'
     else:
         h = ('<h2 class="o-h2 o-t1" style="margin:0;font-family:%s;font-size:22px;line-height:28px;font-weight:600;'
              'letter-spacing:-0.4px;color:%s;">%s</h2>' % (F_DISPLAY, C['g950'], texto))
@@ -273,23 +277,26 @@ def separador(margen='8px %dpx 24px' % PX):
     return _bloque('separador', _fila(s, pad=margen), '―' * 24 + '\n')
 
 
-def lista(items, estilo='num', margen_inf=16):
-    """estilo 'num' (01, 02… en mono azul) o 'guion' (– en azul). Los items admiten <strong> y enlaces."""
+def lista(items, estilo='nodo', margen_inf=16):
+    """estilo 'nodo' (punto azul, por defecto) o 'guion' (– en azul). Sin números (BRAND_SPEC §4).
+    'num' se acepta como alias de 'nodo'. Los items admiten <strong> y enlaces."""
     rows, txt = [], []
-    for i, it in enumerate(items, 1):
-        mark = '%02d' % i if estilo == 'num' else '&ndash;'
-        rows.append('<tr><td class="o-num" width="36" valign="top" style="width:36px;padding:3px 0 12px;font-family:%s;'
-                    'font-size:14px;line-height:22px;font-weight:500;color:%s;">%s</td>'
+    for it in items:
+        if estilo == 'guion':
+            mark = '<span style="font-size:16px;line-height:26px;">&ndash;</span>'
+        else:
+            mark = '<span style="font-size:10px;line-height:26px;">&#9679;</span>'
+        rows.append('<tr><td class="o-num" width="28" valign="top" style="width:28px;padding:0 0 12px;font-family:%s;'
+                    'font-size:16px;line-height:26px;color:%s;">%s</td>'
                     '<td class="o-t2" valign="top" style="padding:0 0 12px;font-family:%s;font-size:16px;line-height:26px;color:%s;">%s</td></tr>'
-                    % (F_MONO, C['a600'], mark, F_TEXT, C['g600'], it))
-        txt.append(('%d. ' % i if estilo == 'num' else '- ') + html_a_texto(it))
+                    % (F_TEXT, C['a600'], mark, F_TEXT, C['g600'], it))
+        txt.append('- ' + html_a_texto(it))
     t = ('<table role="presentation" width="100%%" cellspacing="0" cellpadding="0" border="0">%s</table>' % ''.join(rows))
     return _bloque('lista', _fila(t, pad='0 %dpx %dpx' % (PX, max(0, margen_inf - 12))), '\n'.join(txt) + '\n')
 
 
 def cita(texto, autor=''):
-    au = ('<p class="o-t3" style="margin:12px 0 0;font-family:%s;font-size:12px;line-height:16px;letter-spacing:2px;'
-          'text-transform:uppercase;color:%s;">%s</p>' % (F_MONO, C['g500'], autor)) if autor else ''
+    au = ('<p class="o-t3" style="margin:12px 0 0;%scolor:%s;">%s</p>' % (ETIQUETA, C['g500'], autor)) if autor else ''
     q = ('<table role="presentation" width="100%%" cellspacing="0" cellpadding="0" border="0"><tr>'
          '<td class="o-quote" style="border-left:3px solid %s;padding:4px 0 4px 20px;">'
          '<p class="o-t1" style="margin:0;font-family:%s;font-size:20px;line-height:28px;font-weight:500;letter-spacing:-0.3px;color:%s;">%s</p>%s'
@@ -315,10 +322,10 @@ def detalles(filas, margen='0 %dpx 24px' % PX):
     for i, (k, v) in enumerate(filas):
         bt = '' if i == 0 else 'border-top:1px solid #E5E8EE;'
         rows.append('<tr><td class="o-bd o-t3 o-dl-k" width="150" valign="top" style="width:150px;%spadding:14px 12px 14px 20px;'
-                    'font-family:%s;font-size:12px;line-height:22px;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;color:%s;">%s</td>'
+                    'font-family:%s;font-size:14px;line-height:22px;font-weight:600;color:%s;">%s</td>'
                     '<td class="o-bd o-t1" valign="top" style="%spadding:14px 20px 14px 0;font-family:%s;font-size:16px;line-height:22px;'
-                    'font-weight:600;color:%s;">%s</td></tr>' % (bt, F_MONO, C['g500'], k, bt, F_TEXT, C['g950'], v))
-        txt.append('%s: %s' % (html_a_texto(k).capitalize(), html_a_texto(v)))
+                    'font-weight:600;color:%s;">%s</td></tr>' % (bt, F_TEXT, C['g500'], k, bt, F_TEXT, C['g950'], v))
+        txt.append('%s: %s' % (html_a_texto(k), html_a_texto(v)))
     t = ('<table role="presentation" class="o-bg-surface" width="100%%" cellspacing="0" cellpadding="0" border="0" '
          'style="background-color:%s;border-radius:14px;border-collapse:separate;">%s</table>' % (C['g50'], ''.join(rows)))
     return _bloque('detalles', _fila(t, pad=margen), '\n'.join(txt) + '\n')
@@ -332,12 +339,11 @@ def tarjetas_dato(items, eyebrow_txt='', margen='0 %dpx 28px' % PX):
         dcol = C['l500'] if it.get('tono', 'bueno') == 'bueno' else C['g400']
         cells.append('<td class="o-kpi-td" width="50%%" valign="top" bgcolor="#12151D" style="width:50%%;background-color:#12151D;'
                      'border:1px solid #232836;border-radius:14px;padding:20px 20px 18px;">'
-                     '<p style="margin:0 0 10px;font-family:%s;font-size:12px;line-height:16px;font-weight:500;letter-spacing:1.6px;'
-                     'text-transform:uppercase;color:%s;">%s</p>'
+                     '<p style="margin:0 0 10px;%scolor:%s;">%s</p>'
                      '<p class="o-kpi" style="margin:0;font-family:%s;font-size:36px;line-height:40px;font-weight:500;letter-spacing:-1px;color:#FFFFFF;">%s</p>'
                      '<p style="margin:8px 0 0;font-family:%s;font-size:14px;line-height:20px;font-weight:600;color:%s;">%s</p></td>'
-                     % (F_MONO, C['g400'], it['etiqueta'], F_DISPLAY, it['valor'], F_TEXT, dcol, it.get('delta', '&nbsp;')))
-        txt.append('- %s: %s (%s)' % (html_a_texto(it['etiqueta']).capitalize(), html_a_texto(it['valor']), html_a_texto(it.get('delta', ''))))
+                     % (ETIQUETA, C['g400'], it['etiqueta'], F_DISPLAY, it['valor'], F_TEXT, dcol, it.get('delta', '&nbsp;')))
+        txt.append('- %s: %s (%s)' % (html_a_texto(it['etiqueta']), html_a_texto(it['valor']), html_a_texto(it.get('delta', ''))))
     rows = ''.join('<tr>%s</tr>' % ''.join(cells[i:i + 2]) for i in range(0, len(cells), 2))
     eb = ''
     if eyebrow_txt:
@@ -351,7 +357,8 @@ def tarjetas_dato(items, eyebrow_txt='', margen='0 %dpx 28px' % PX):
 
 
 def pasos(items, iconos=None, margen_inf=12):
-    """Pasos con número (mono) o con icono PNG 48 px. items = [dict(titulo, texto, extra_html?)].
+    """Pasos con icono PNG 48 px o con nodo azul; se distinguen por su título, nunca por un número (BRAND_SPEC §4).
+    items = [dict(titulo, texto, cuando?, extra_html?)]. `cuando` es un rótulo temporal opcional («Hoy», «Días 2–3»).
     iconos = lista de nombres base: se usan assets/<nombre>_claro.png y _oscuro.png."""
     rows, txt = [], []
     for i, it in enumerate(items, 1):
@@ -362,41 +369,40 @@ def pasos(items, iconos=None, margen_inf=12):
                     '<img src="%sicono-%s_oscuro.png" width="48" height="48" alt="" style="display:block;width:48px;height:48px;border:0;"></div><!--<![endif]-->'
                     % (ASSETS, n, ASSETS, n))
             mtd = '<td width="64" valign="top" style="width:64px;padding:0 0 20px;">%s</td>' % mark
-            etiqueta = _eyebrow_html('Paso %d' % i, nodo=False, margen='0 0 4px')
         else:
-            mtd = ('<td class="o-num" width="44" valign="top" style="width:44px;padding:3px 0 20px;font-family:%s;font-size:14px;'
-                   'line-height:22px;font-weight:500;color:%s;">%02d</td>' % (F_MONO, C['a600'], i))
-            etiqueta = _eyebrow_html(it['cuando'], nodo=False, margen='0 0 4px') if it.get('cuando') else ''
+            mtd = ('<td class="o-num" width="28" valign="top" style="width:28px;padding:0 0 20px;font-family:%s;font-size:10px;'
+                   'line-height:24px;color:%s;">&#9679;</td>' % (F_TEXT, C['a600']))
+        etiqueta = _eyebrow_html(it['cuando'], nodo=False, margen='0 0 4px') if it.get('cuando') else ''
         extra = it.get('extra_html', '')
         rows.append('<tr>%s<td valign="top" style="padding:0 0 20px;">%s'
                     '<p class="o-t1" style="margin:0 0 4px;font-family:%s;font-size:18px;line-height:24px;font-weight:600;letter-spacing:-0.2px;color:%s;">%s</p>'
                     '<p class="o-t2" style="margin:0;font-family:%s;font-size:16px;line-height:25px;color:%s;">%s</p>%s</td></tr>'
                     % (mtd, etiqueta, F_DISPLAY, C['g950'], it['titulo'], F_TEXT, C['g600'], it['texto'], extra))
         pre = ('[%s] ' % html_a_texto(it['cuando'])) if it.get('cuando') else ''
-        txt.append('%d. %s%s\n   %s' % (i, pre, html_a_texto(it['titulo']), html_a_texto(it['texto'])))
+        txt.append('- %s%s\n  %s' % (pre, html_a_texto(it['titulo']), html_a_texto(it['texto'])))
         if it.get('extra_txt'):
-            txt.append('   ' + it['extra_txt'])
+            txt.append('  ' + it['extra_txt'])
     t = '<table role="presentation" width="100%%" cellspacing="0" cellpadding="0" border="0">%s</table>' % ''.join(rows)
     return _bloque('pasos', _fila(t, pad='4px %dpx %dpx' % (PX, margen_inf)), '\n'.join(txt) + '\n')
 
 
-def seccion(num, titulo, parrafos, enlace_html=''):
-    """Bloque editorial numerado (newsletter): número mono a la izquierda, contenido a la derecha."""
+def seccion(titulo, parrafos, enlace_html=''):
+    """Bloque editorial (newsletter): nodo azul a la izquierda, titular y texto a la derecha. Sin números."""
     ps = ''.join('<p class="o-t2" style="margin:0 0 14px;font-family:%s;font-size:16px;line-height:26px;color:%s;">%s</p>'
                  % (F_TEXT, C['g600'], p) for p in parrafos)
     if enlace_html:
         ps += '<p style="margin:0 0 14px;font-family:%s;font-size:16px;line-height:26px;font-weight:700;">%s</p>' % (F_TEXT, enlace_html)
     t = ('<table role="presentation" width="100%%" cellspacing="0" cellpadding="0" border="0"><tr>'
          '<td class="o-bd" colspan="2" style="border-top:1px solid #E5E8EE;font-size:0;line-height:0;height:1px;">&nbsp;</td></tr><tr>'
-         '<td class="o-num" width="52" valign="top" style="width:52px;padding:22px 0 0;font-family:%s;font-size:14px;line-height:22px;font-weight:500;color:%s;">%s</td>'
+         '<td class="o-num" width="28" valign="top" style="width:28px;padding:20px 0 0;font-family:%s;font-size:10px;line-height:28px;color:%s;">&#9679;</td>'
          '<td valign="top" style="padding:20px 0 0;">'
          '<h2 class="o-h2 o-t1" style="margin:0 0 12px;font-family:%s;font-size:22px;line-height:28px;font-weight:600;letter-spacing:-0.4px;color:%s;">%s</h2>%s</td>'
-         '</tr></table>' % (F_MONO, C['a600'], num, F_DISPLAY, C['g950'], titulo, ps))
-    tt = '%s · %s' % (num, html_a_texto(titulo))
+         '</tr></table>' % (F_TEXT, C['a600'], F_DISPLAY, C['g950'], titulo, ps))
+    tt = html_a_texto(titulo)
     txt = tt + '\n' + '-' * min(len(tt), 60) + '\n' + '\n\n'.join(html_a_texto(p) for p in parrafos)
     if enlace_html:
         txt += '\n\n' + html_a_texto(enlace_html)
-    return _bloque('sección numerada', _fila(t, pad='0 %dpx 12px' % PX), txt + '\n')
+    return _bloque('sección', _fila(t, pad='0 %dpx 12px' % PX), txt + '\n')
 
 
 def personas(lista_p, margen='0 %dpx 24px' % PX):
@@ -417,9 +423,9 @@ def personas(lista_p, margen='0 %dpx 24px' % PX):
 
 
 def codigo(texto, etiqueta=''):
-    """Caja mono para códigos o formatos (p. ej. código de activación). Devuelve HTML en línea para `extra_html`."""
-    et = ('<span class="o-t3" style="font-family:%s;font-size:12px;letter-spacing:1.6px;color:%s;">%s&nbsp;&nbsp;</span>'
-          % (F_MONO, C['g500'], etiqueta)) if etiqueta else ''
+    """Caja para códigos o formatos (p. ej. código de activación): rótulo en Manrope, código en mono (dato técnico).
+    Devuelve HTML en línea para `extra_html`."""
+    et = ('<span class="o-t3" style="%scolor:%s;">%s&nbsp;&nbsp;</span>' % (ETIQUETA, C['g500'], etiqueta)) if etiqueta else ''
     return ('<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin-top:12px;"><tr>'
             '<td class="o-bg-surface o-bd" style="background-color:%s;border:1px solid %s;border-radius:10px;padding:10px 16px;">%s'
             '<span class="o-t1" style="font-family:%s;font-size:18px;line-height:24px;font-weight:500;letter-spacing:3px;color:%s;">%s</span></td></tr></table>'

@@ -63,14 +63,14 @@ def logo(rel):
 
 def frame(T, n, total, eyebrow, title, note=''):
     s = f'<rect width="{W}" height="{H}" fill="{T["bg"]}"/>'
-    s += text(eyebrow, 'mono-medium', 13, MX, 104, T['txt3'], tracking=0.16, upper=True)
+    s += text(eyebrow, 'texto-semibold', 15, MX, 104, T['txt3'])
     s += text(title, 'display-bold', 46, MX, 164, T['txt'], tracking=-0.03)
     if note:
-        s += text(note, 'mono', 13, W - MX, 104, T['txt3'], tracking=0.08, anchor='end', upper=True)
+        s += text(note, 'texto-medium', 15, W - MX, 104, T['txt3'], anchor='end')
     s += f'<line x1="{MX}" y1="198" x2="{W - MX}" y2="198" stroke="{T["line"]}" stroke-width="1"/>'
     s += f'<line x1="{MX}" y1="{H - 88}" x2="{W - MX}" y2="{H - 88}" stroke="{T["line"]}" stroke-width="1"/>'
-    s += text('oryzz · sistema de logo v2.0', 'mono', 12, MX, H - 52, T['txt3'], tracking=0.14, upper=True)
-    s += text(f'{n:02d} / {total:02d}', 'mono', 12, W - MX, H - 52, T['txt3'], tracking=0.14, anchor='end')
+    s += text('Sistema de logo de Oryzz v2.0', 'texto-medium', 14, MX, H - 52, T['txt3'])
+    s += text(f'{n} / {total}', 'texto-medium', 14, W - MX, H - 52, T['txt3'], anchor='end')
     return s
 
 
@@ -95,7 +95,7 @@ def construccion(T):
     u = 6.2; bx, by = 190, 250
     P = lambda ux, uy: (bx + ux * u, by + uy * u)
     pol = lambda a, r: P(L.CX + r * math.cos(math.radians(a)), L.CY + r * math.sin(math.radians(a)))
-    s = frame(T, 1, 4, '09 · Construcción', 'Construcción del isotipo', 'geometría exacta · oryzz_logo.py')
+    s = frame(T, 1, 4, 'Logo', 'Construcción del isotipo', 'Geometría exacta, generada con oryzz_logo.py')
     # retícula 10 u
     g = ''
     for i in range(11):
@@ -103,7 +103,7 @@ def construccion(T):
         g += f'<line x1="{x:.1f}" y1="{by}" x2="{x:.1f}" y2="{by + 100 * u:.1f}"/><line x1="{bx}" y1="{y:.1f}" x2="{bx + 100 * u:.1f}" y2="{y:.1f}"/>'
     s += f'<g stroke="{T["line"]}" stroke-width="1">{g}</g>'
     s += f'<rect x="{bx}" y="{by}" width="{100 * u}" height="{100 * u}" fill="none" stroke="{T["txt3"]}" stroke-opacity=".5" stroke-width="1"/>'
-    s += text('100 u', 'mono', 12, bx + 50 * u, by - 12, T['txt3'], anchor='middle', tracking=0.08)
+    s += text('100 u', 'mono', 12, bx + 50 * u, by - 12, T['txt3'], anchor='middle')
     s += text('0', 'mono', 12, bx - 10, by + 4, T['txt3'], anchor='end')
     # isotipo maestro (misma función que genera los SVG)
     way = L.WAYS[T['way']]
@@ -160,13 +160,13 @@ def construccion(T):
         ('Grosor del trazo', '11 u · 11 %', 'Isotipo pequeño (≤ 24 px): 14 u'),
         ('Puntas', 'Redondas · r 5,5 u', 'Radio igual a medio trazo'),
         ('Nodo', 'Diámetro 15 u', 'Centro sobre el eje, a 25,1° de la vertical'),
-        ('Corte nodo ↔ trazo', '2,5 u', 'Una tinta, bordado y láser sin empastes'),
+        ('Corte entre nodo y trazo', '2,5 u', 'Una tinta, bordado y láser sin empastes'),
         ('Arco', f'{es(ARC)}° · hueco {es(GAP)}°', f'Entre centros de puntas · ≈ {es(ARC + 2 * math.degrees(L.SW / 2 / L.R), 0)}° visibles'),
     ]
     x0 = 928; y = 262
     for i, (k, v, n) in enumerate(rows, 1):
         s += callout(T, i, x0 + 12, y + 2)
-        s += text(k, 'mono-medium', 12, x0 + 44, y + 6, T['txt3'], tracking=0.14, upper=True)
+        s += text(k, 'texto-semibold', 14, x0 + 44, y + 6, T['txt3'])
         s += text(v, 'display-medium', 26, x0 + 44, y + 44, T['txt'], tracking=-0.02)
         s += text(n, 'texto', 15, x0 + 44, y + 70, T['txt3'])
         if i < len(rows):
@@ -177,7 +177,7 @@ def construccion(T):
 
 # ------------------------------------------------------------------ 02 área de respeto
 def respeto(T, c):
-    s = frame(T, 2, 4, '09 · Área de respeto', 'Área de respeto', 'mínimo alrededor del logo')
+    s = frame(T, 2, 4, 'Logo', 'Área de respeto', 'Mínimo alrededor del logo')
     hp = logo(f'01_Horizontal/SVG/oryzz-logo-horizontal_{T["way"]}.svg')
     x0, y0, x1, y1 = c.bbox(hp)
     zx = 496.0                                        # altura de la «z» (x del wordmark)
@@ -219,7 +219,7 @@ def respeto(T, c):
     # cota 25 %
     yy = iy + iw + 2 * m + 22
     s += f'<g stroke="{T["acc"]}" stroke-width="1.25"><line x1="{ix:.1f}" y1="{yy}" x2="{ix + m:.1f}" y2="{yy}"/><line x1="{ix:.1f}" y1="{yy - 5}" x2="{ix:.1f}" y2="{yy + 5}"/><line x1="{ix + m:.1f}" y1="{yy - 5}" x2="{ix + m:.1f}" y2="{yy + 5}"/></g>'
-    s += text('25 %', 'mono-medium', 12, ix + m + 10, yy + 4, T['acc'], tracking=0.06)
+    s += text('25 %', 'mono-medium', 12, ix + m + 10, yy + 4, T['acc'])
     s += text('Isotipo solo', 'display-semibold', 22, ix, oy + zh + 48, T['txt'], tracking=-0.01)
     s += text('25 % de su ancho por cada lado.', 'texto', 16, ix, oy + zh + 76, T['txt3'])
     s += text('En avatares y app ya va incluido.', 'texto', 16, ix, oy + zh + 100, T['txt3'])
@@ -228,11 +228,11 @@ def respeto(T, c):
 
 # ------------------------------------------------------------------ 03 tamaños mínimos
 def minimos(T, c):
-    s = frame(T, 3, 4, '09 · Tamaños mínimos', 'Tamaños mínimos', 'mostrado a tamaño real (1×)')
+    s = frame(T, 3, 4, 'Logo', 'Tamaños mínimos', 'Mostrado a tamaño real (1×)')
     # tarjeta horizontal
     cx0, cy0, cw, ch = MX, 236, 684, 560
     s += f'<rect x="{cx0}" y="{cy0}" width="{cw}" height="{ch}" rx="20" fill="{T["card"]}" stroke="{T["line"]}"/>'
-    s += text('Logo horizontal', 'mono-medium', 12, cx0 + 32, cy0 + 44, T['txt3'], tracking=0.16, upper=True)
+    s += text('Logo horizontal', 'texto-semibold', 15, cx0 + 32, cy0 + 44, T['txt3'])
     rows = [(88, T['solid'], 'Mínimo en pantalla', '88 px · 22 mm impreso · versión sólida'),
             (120, T['way'], 'Desde 120 px', 'A partir de aquí, versión con gradiente'),
             (240, T['way'], 'Uso habitual', 'Cabeceras web, firmas de documento')]
@@ -244,7 +244,7 @@ def minimos(T, c):
         lx = cx0 + 32
         # cota
         s += f'<g stroke="{T["acc"]}" stroke-width="1"><line x1="{lx}" y1="{y}" x2="{lx + w}" y2="{y}"/><line x1="{lx}" y1="{y - 5}" x2="{lx}" y2="{y + 5}"/><line x1="{lx + w}" y1="{y - 5}" x2="{lx + w}" y2="{y + 5}"/></g>'
-        s += text(f'{w} px', 'mono-medium', 12, lx + w + 12, y + 4, T['acc'], tracking=0.06)
+        s += text(f'{w} px', 'mono-medium', 12, lx + w + 12, y + 4, T['acc'])
         el, _, _ = embed(p, lx, y + 16, w, vb=(x0, y0, x1 - x0, y1 - y0)); s += el
         s += text(k, 'display-semibold', 20, cx0 + 360, y + 14, T['txt'], tracking=-0.01)
         s += text(n, 'texto', 15, cx0 + 360, y + 40, T['txt3'])
@@ -252,14 +252,14 @@ def minimos(T, c):
     # tarjeta isotipo
     ix0 = MX + cw + 32; iw_ = W - MX - ix0
     s += f'<rect x="{ix0}" y="{cy0}" width="{iw_}" height="{ch}" rx="20" fill="{T["card"]}" stroke="{T["line"]}"/>'
-    s += text('Isotipo', 'mono-medium', 12, ix0 + 32, cy0 + 44, T['txt3'], tracking=0.16, upper=True)
+    s += text('Isotipo', 'texto-semibold', 15, ix0 + 32, cy0 + 44, T['txt3'])
     x = ix0 + 32; base = cy0 + 210
     for sz, small in ((16, True), (24, True), (32, False), (48, False), (96, False)):
         p = logo(f'04_Isotipo/SVG_tamano_pequeno/oryzz-isotipo-small_{T["way"]}.svg' if small else f'04_Isotipo/SVG/oryzz-isotipo_{T["way"]}.svg')
         el, _, _ = embed(p, x, base - sz, sz); s += el
         s += f'<g stroke="{T["acc"]}" stroke-width="1"><line x1="{x}" y1="{base + 18}" x2="{x + sz}" y2="{base + 18}"/><line x1="{x}" y1="{base + 13}" x2="{x}" y2="{base + 23}"/><line x1="{x + sz}" y1="{base + 13}" x2="{x + sz}" y2="{base + 23}"/></g>'
-        s += text(f'{sz}', 'mono-medium', 12, x, base + 44, T['acc'], tracking=0.04)
-        s += text('small' if small else 'normal', 'mono', 11, x, base + 62, T['txt3'], tracking=0.06)
+        s += text(f'{sz}', 'mono-medium', 12, x, base + 44, T['acc'])
+        s += text('small' if small else 'normal', 'mono', 12, x, base + 62, T['txt3'])
         x += sz + 44
     s += f'<line x1="{ix0 + 32}" y1="{base + 100}" x2="{ix0 + iw_ - 32}" y2="{base + 100}" stroke="{T["line"]}"/>'
     s += text('Mínimo: 16 px · 5 mm impreso', 'display-semibold', 20, ix0 + 32, base + 144, T['txt'], tracking=-0.01)
@@ -267,12 +267,12 @@ def minimos(T, c):
     s += text('y nodo de 18 u, para que se lea a tamaño favicon.', 'texto', 15, ix0 + 32, base + 194, T['txt3'])
     # reglas
     ry = cy0 + ch + 44
-    rules = ['< 120 px → versión sólida', '≤ 24 px → isotipo-small', 'impreso: 22 mm / 5 mm']
+    rules = ['Menos de 120 px: versión sólida', 'Hasta 24 px: isotipo-small', 'Impreso: 22 mm y 5 mm']
     x = MX
     for r in rules:
         s += f'<circle cx="{x + 4}" cy="{ry - 4}" r="4" fill="{T["lime"]}"/>'
-        s += text(r, 'mono-medium', 13, x + 18, ry, T['txt2'], tracking=0.06, upper=True)
-        x += measure(r.upper(), 'mono-medium', 13, 0.06) + 64
+        s += text(r, 'texto-semibold', 15, x + 18, ry, T['txt2'])
+        x += measure(r, 'texto-semibold', 15) + 64
     return doc(s, 'Oryzz · Tamaños mínimos')
 
 
@@ -286,7 +286,7 @@ def star(cx, cy, r, fill):
 
 
 def incorrectos(T, c):
-    s = frame(T, 4, 4, '09 · Usos incorrectos', 'Usos incorrectos', 'no se hace')
+    s = frame(T, 4, 4, 'Logo', 'Usos incorrectos', 'Esto no se hace')
     dark = T['way'] == 'color-sobre-oscuro'
     hp = logo(f'01_Horizontal/SVG/oryzz-logo-horizontal_{T["way"]}.svg')
     x0, y0, x1, y1 = c.bbox(hp); vbh = (x0, y0, x1 - x0, y1 - y0)
@@ -306,7 +306,7 @@ def incorrectos(T, c):
         t += f'<line x1="{x + 28:.1f}" y1="{y + th - 28}" x2="{x + tw - 28:.1f}" y2="{y + 28}" stroke="{T["err"]}" stroke-width="2.5" stroke-linecap="round"/>'
         t += f'<circle cx="{x + 26:.1f}" cy="{y + 26}" r="12" fill="{T["err"]}"/>'
         t += f'<g stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"><line x1="{x + 21.5:.1f}" y1="{y + 21.5}" x2="{x + 30.5:.1f}" y2="{y + 30.5}"/><line x1="{x + 30.5:.1f}" y1="{y + 21.5}" x2="{x + 21.5:.1f}" y2="{y + 30.5}"/></g>'
-        t += text(f'{i + 1:02d} · {title}', 'mono-medium', 12, x, y + th + 32, T['txt'], tracking=0.12, upper=True)
+        t += text(title, 'texto-semibold', 16, x, y + th + 32, T['txt'])
         t += text(note, 'texto', 15, x, y + th + 56, T['txt3'])
         return t
 

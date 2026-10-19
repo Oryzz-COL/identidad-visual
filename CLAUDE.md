@@ -24,7 +24,7 @@ Este repositorio es el sistema de marca de Oryzz y Oryzz Tap. Cualquier pieza qu
 
 ## Vídeo
 
-Intro oficial del logo (`02_Logos/08_Animado`) solo al principio o al final. Rótulos: etiqueta en tipo frase + titular Space Grotesk alineados a la izquierda en zona segura. Subtítulos en Manrope Bold, blanco sobre caja Grafito 950 al 70 %, ≥ 48 px en 1080×1920. Cortes secos o fundidos de 160–280 ms. Graduación fría y neutra.
+Intro oficial del logo (`02_Logos/08_Animado`) solo al principio o al final (en piezas de menos de 20 s, solo al cierre). Rótulos: etiqueta en tipo frase + titular Space Grotesk alineados a la izquierda en zona segura. **Subtítulos sin caja:** Manrope Bold blanco con sombra difusa Grafito 950, máximo 2 líneas, ≥ 48 px en 1080×1920, palabra destacada en Azul 400 (BRAND_SPEC §5.8). Cortes secos o fundidos de 160–280 ms. Graduación fría y neutra. Para editar vídeos, usa la skill `editor-oryzz` (repo `Oryzz-COL/Editor`).
 
 ## Mantenimiento
 

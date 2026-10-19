@@ -70,7 +70,7 @@ def demo(nombre, tema):
 
 COMPS = [('boton', 'Botones', 'Un único primario por vista. Oscuro: gradiente IA con texto Grafito 950. Claro: Azul 600 con texto blanco. Corrige el texto blanco sobre gradiente de la web actual (1,88:1).'),
          ('enlace', 'Enlaces', 'Subrayados siempre en texto corrido. Azul 300 en oscuro (9,97:1) y Azul 600 en claro (5,98:1).'),
-         ('eyebrow', 'Eyebrow y titular', 'JetBrains Mono 12 px, +0,16 em, mayúsculas. Un solo fragmento del titular en azul.'),
+         ('eyebrow', 'Etiqueta y titular', 'Manrope 600 a 14 px, en tipo frase, sin tracking ni números. Un solo fragmento del titular en azul.'),
          ('dato', 'Tarjeta dato', 'Superficie, borde 1 px, radio 20 px. Cifra en Space Grotesk 500 y delta en color dato. Datos ficticios marcados como «Ejemplo».'),
          ('badge', 'Badge de estado', 'El color va en el punto; el texto se mantiene en gris legible. Nada de fondos saturados.'),
          ('input', 'Campo de formulario', 'Borde ≥ 3:1 respecto al fondo (WCAG 1.4.11), foco de 2 px y error comunicado con texto, no solo con color.'),
@@ -90,12 +90,12 @@ body{margin:0;background:#0B0D12;font-family:'Manrope',Arial,sans-serif}
 .duo{display:grid;grid-template-columns:1fr 1fr;border:1px solid #232836;border-radius:20px;overflow:hidden}
 .duo>div{padding:32px;min-height:120px}
 .duo--pila{grid-template-columns:1fr}
-.duo .t{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-texto-3);margin-bottom:20px;display:block}
+.duo .t{font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;color:var(--color-texto-3);margin-bottom:20px;display:block}
 .fila{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .fila+.fila,.fila+.ox-small{margin-top:16px}
 .pila{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 details{margin-top:18px;grid-column:2}
-summary{cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#9FB8FF}
+summary{cursor:pointer;font-family:'Manrope',sans-serif;font-size:14px;font-weight:600;letter-spacing:0;color:#9FB8FF}
 pre{margin:12px 0 0;padding:20px;background:#12151D;border:1px solid #232836;border-radius:14px;overflow:auto;max-height:420px}
 pre code{font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.6;color:#D5D9E0;white-space:pre}
 @media (max-width:980px){.duo,.comp__head,.doc>header{grid-template-columns:1fr}details{grid-column:1}}
@@ -107,7 +107,7 @@ def build(open_code=False):
     for i, (k, titulo, desc) in enumerate(COMPS, 1):
         code = html.escape(BLOQUES[k].strip())
         secciones.append(f'''<section class="comp" id="{k}"><div class="comp__head">
-          <div><span class="ox-eyebrow">{i:02d} · Componente</span><h2>{titulo}</h2><p>{desc}</p></div>
+          <div><span class="ox-eyebrow">Componente</span><h2>{titulo}</h2><p>{desc}</p></div>
           <div class="duo{' duo--pila' if k in ('navbar', 'footer') else ''}"><div class="ox" data-tema="oscuro"><span class="t">Oscuro · oryzz.com</span>{demo(k, 'oscuro')}</div>
           <div class="ox" data-tema="claro"><span class="t">Claro · oryzz.com/tap</span>{demo(k, 'claro')}</div></div>
           <details{' open' if open_code else ''}><summary>CSS para copiar · {k}</summary><pre><code>{code}</code></pre></details></div></section>''')
@@ -122,7 +122,7 @@ def build(open_code=False):
 <link rel="stylesheet" href="oryzz-ui.css">
 <style>{PAGE_CSS}</style></head>
 <body class="ox" data-tema="oscuro"><div class="doc">
-<header><div><span class="ox-eyebrow">Oryzz · Sistema web v2.0</span><h1 class="ox-h1" style="margin-top:18px">Componentes<br><span class="ox-resalte">de referencia</span>.</h1></div>
+<header><div><span class="ox-eyebrow">Sistema web de Oryzz v2.0</span><h1 class="ox-h1" style="margin-top:18px">Componentes<br><span class="ox-resalte">de referencia</span>.</h1></div>
 <div><p>Cada componente se muestra en los dos temas con el mismo HTML: solo cambia <code>data-tema="oscuro|claro"</code> en un contenedor. Enlaza <code>tokens/tokens.css</code> y <code>componentes/oryzz-ui.css</code>, o copia el bloque CSS de cada componente.</p>
 <details style="grid-column:1"><summary>CSS base (tipografía)</summary><pre><code>{base}</code></pre></details></div></header>
 {''.join(secciones)}

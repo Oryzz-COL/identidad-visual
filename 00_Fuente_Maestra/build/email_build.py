@@ -113,25 +113,25 @@ def build_assets():
 DIAGRAMA = """<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:SG;src:url('%FONTS%/SpaceGrotesk-SemiBold.ttf')}
 @font-face{font-family:MR;src:url('%FONTS%/Manrope-Medium.ttf')}
-@font-face{font-family:JB;src:url('%FONTS%/JetBrainsMono-Medium.ttf')}
+@font-face{font-family:MRS;src:url('%FONTS%/Manrope-SemiBold.ttf')}
 html,body{margin:0;width:518px;height:196px;background:#0B0D12;overflow:hidden}
 .w{position:relative;width:518px;height:196px}
 .c{position:absolute;top:44px;width:132px;height:104px;box-sizing:border-box;background:#12151D;border:1px solid #232836;border-radius:14px;padding:16px 16px 0}
 .c.s{border-color:#3A4152;background:#171B25}
-.e{font:500 11px/14px JB;letter-spacing:.14em;color:#8A90A0;text-transform:uppercase;margin:0 0 10px}
+.e{font:600 12px/14px MRS;color:#8A90A0;margin:0 0 10px}
 .t{font:600 22px/24px SG;letter-spacing:-.02em;color:#fff;margin:0 0 6px}
 .d{font:500 12.5px/16px MR;color:#D5D9E0;margin:0}
 .l{position:absolute;top:95px;height:0;border-top:1.5px solid #3A4152}
 .n{position:absolute;width:8px;height:8px;border-radius:50%;background:#5C8BFF;top:91px}
 .lima{background:#BFF24A;width:12px;height:12px;top:89px}
-.cap{position:absolute;left:24px;top:14px;font:500 11px/14px JB;letter-spacing:.14em;color:#5A6172}
+.cap{position:absolute;left:24px;top:14px;font:600 13px/16px MRS;color:#8A90A0}
 </style></head><body><div class="w">
-<div class="cap">TU SISTEMA DE CAPTACIÓN</div>
-<div class="c" style="left:24px"><p class="e">01 · Canales</p><p class="t">Anuncios</p><p class="d">Meta · Google · TikTok</p></div>
+<div class="cap">Tu sistema de captación</div>
+<div class="c" style="left:24px"><p class="e">Canales</p><p class="t">Anuncios</p><p class="d">Meta · Google · TikTok</p></div>
 <div class="l" style="left:156px;width:37px"></div><div class="n" style="left:170px"></div>
-<div class="c s" style="left:193px"><p class="e">02 · Sistema</p><p class="t">Respuesta</p><p class="d">En minutos, con seguimiento</p></div>
+<div class="c s" style="left:193px"><p class="e">Sistema</p><p class="t">Respuesta</p><p class="d">En minutos, con seguimiento</p></div>
 <div class="l" style="left:325px;width:37px"></div><div class="n" style="left:339px"></div>
-<div class="c" style="left:362px"><p class="e">03 · Cliente</p><p class="t">Citas</p><p class="d">En tu agenda y medidas en €</p></div>
+<div class="c" style="left:362px"><p class="e">Cliente</p><p class="t">Citas</p><p class="d">En tu agenda y medidas en €</p></div>
 <div class="n lima" style="left:484px;top:38px"></div>
 </div></body></html>"""
 
@@ -149,7 +149,7 @@ def shot(html_path, png_path, w, h, scale=2):
 # =====================================================================
 def comentario(nombre, asunto, preheader, alternativas, notas, cuerpo=''):
     alt = '\n'.join('    · ' + a for a in alternativas)
-    return ('  ORYZZ · PLANTILLA DE EMAIL · %s\n'
+    return ('  Oryzz · Plantilla de email · %s\n'
             '  ─────────────────────────────────────────────────────────────\n'
             '  Asunto:      %s\n'
             '  Preheader:   %s\n'
@@ -197,19 +197,19 @@ def plantillas():
             E.espacio(36),
             E.parrafo('Hola, {{nombre}}. Esta es la carta mensual de Oryzz: tres ideas, cinco minutos de lectura y ninguna promesa milagro.',
                       margen_inf=24),
-            E.seccion('01', 'Contestar en 5 minutos vale más que otro anuncio', [
+            E.seccion('Contestar en 5 minutos vale más que otro anuncio', [
                 'Quien escribe a las 21:40 y recibe respuesta a la mañana siguiente ya ha pedido precio en otros dos sitios. '
                 'Lo vemos cada mes: casi nunca faltan contactos; lo que pasa es que se enfrían.',
                 '%s mira cuánto tardaste en responder los últimos diez mensajes de WhatsApp o del formulario. '
                 'Si pasa de una hora, un asistente puede hacer la primera pregunta y proponer hora por ti.' % b('Para esta semana:'),
             ]),
-            E.seccion('02', 'ChatGPT ya recomienda negocios de tu zona. ¿Te nombra a ti?', [
+            E.seccion('ChatGPT ya recomienda negocios de tu zona. ¿Te nombra a ti?', [
                 'Cada vez más gente pregunta a ChatGPT, Gemini o Perplexity «qué fisio me recomiendas en Valencia» en lugar de buscar en Google. '
                 'Las respuestas salen de reseñas, fichas y webs que esos modelos pueden leer.',
                 '%s hazle esa pregunta con tu servicio y tu ciudad. Si no sales, empieza por lo básico: ficha de Google completa, '
                 'servicios con precio orientativo en tu web y reseñas que nombren el tratamiento concreto.' % b('Prueba rápida:'),
             ]),
-            E.seccion('03', 'La reseña se pide en el mostrador, no una semana después', [
+            E.seccion('La reseña se pide en el mostrador, no una semana después', [
                 'El mejor momento para pedir una reseña es justo cuando el cliente dice «qué bien ha ido». '
                 'Un correo a los siete días llega tarde y compite con todo lo demás.',
                 'En recepción funciona una placa NFC: el cliente acerca el móvil y se abre directamente la pantalla para valorar. '
@@ -226,9 +226,9 @@ def plantillas():
         ['Tres cosas que movieron citas en septiembre', 'Tu próximo cliente ya está preguntando a ChatGPT',
          'Por qué el lead de las 21:40 no te llama mañana'],
         ['Envío mensual desde Brevo / Mailchimp. Sustituye {{baja_url}} por la etiqueta de baja de tu plataforma (ver LEEME).',
-         '2–3 bloques de «sección numerada». Un único botón al final.',
+         '2–3 bloques de «sección» (nodo azul + titular + texto). Un único botón al final.',
          'La órbita del hero se oculta en móvil (clase o-hide-m).'],
-        'Newsletter', 'Novedades y aprendizajes del mes: 3 bloques numerados + CTA de agenda.')
+        'Newsletter', 'Novedades y aprendizajes del mes: 3 bloques editoriales + CTA de agenda.')
 
     # ------------------------------------------------------------ 02 PROSPECCIÓN
     registrar(
@@ -491,7 +491,7 @@ def plantillas():
                      texto='Acerca la parte de arriba del móvil a la placa. Si no reacciona, abre la cámara y escanea el código QR.'),
                 dict(titulo='Escribe tu código de 8 dígitos',
                      texto='Viene con tu Oryzz Tap. Escríbelo sin espacios: así sabemos que la placa es tuya.',
-                     extra_html=E.codigo('0000&nbsp;0000', 'FORMATO'), extra_txt='Formato: 8 dígitos (0000 0000)'),
+                     extra_html=E.codigo('0000&nbsp;0000', 'Formato'), extra_txt='Formato: 8 dígitos (0000 0000)'),
                 dict(titulo='Crea tu cuenta',
                      texto='Con tu correo y una contraseña. Desde ahí cambias a dónde lleva tu placa cuando quieras.'),
                 dict(titulo='Configura tu perfil',
@@ -509,7 +509,7 @@ def plantillas():
         ],
         ['{{nombre}}, tu placa está lista para activar', 'Cuatro pasos y tu Oryzz Tap empieza a funcionar'],
         ['Se envía al marcar el pedido como entregado (Shopify Flow o manual).',
-         'Verifica con producto dónde viene impreso el código de 8 dígitos y ajusta el paso 2 si hace falta.',
+         'Verifica con producto dónde viene impreso el código de 8 dígitos y ajusta el paso «Escribe tu código de 8 dígitos» si hace falta.',
          'Iconos oficiales de 05_Elementos_Graficos/01_Iconos (nfc, usuario, check-orbita) + «codigo» dibujado en el mismo estilo.'],
         'Oryzz Tap', 'Activación de Oryzz Tap: NFC/QR → 8 dígitos → cuenta → perfil.')
 
@@ -530,14 +530,14 @@ def base_blanco():
         doc('CABECERA · obligatoria, siempre la primera fila de la tarjeta.\n'
             'E.cabecera(etiqueta, variante): «oscuro» = Oryzz (banda Grafito 950 + logo sólido).\n'
             'Para Oryzz Tap copia la cabecera de 08_tap_pedido_confirmado.html (expresión clara, logo que cambia en modo oscuro).\n'
-            'La etiqueta de la derecha: MAYÚSCULAS, máx. 18 caracteres, sin emojis.',
+            'La etiqueta de la derecha: tipo frase (solo la primera letra en mayúscula), Manrope 600, máx. 18 caracteres, sin emojis.',
             E.cabecera('Tipo de correo')),
         doc('HERO OSCURO · opcional (newsletter, informes, anuncios importantes). Sustituye a EYEBROW + TITULAR.\n'
             'La órbita de la derecha es decorativa (alt vacío) y se oculta en móvil. Un solo fragmento en azul.',
             E.hero_oscuro('Rótulo del hero', 'Titular corto, con una sola %s en azul.' % hl_oscuro('palabra'),
                           'Entradilla opcional de una o dos frases que explica qué gana quien sigue leyendo.')),
         E.espacio(36),
-        doc('EYEBROW · rótulo en JetBrains Mono, MAYÚSCULAS, 12 px, con el nodo lima delante.\n'
+        doc('EYEBROW · rótulo en tipo frase, Manrope 600, 14 px, sin tracking ni mayúsculas, con el nodo lima delante.\n'
             'Dice qué es el correo en 2–4 palabras. Usa E.espacio(14) debajo antes del titular.',
             E.eyebrow('Rótulo del correo')),
         E.espacio(14),
@@ -563,7 +563,7 @@ def base_blanco():
             E.tarjetas_dato([dict(etiqueta='Métrica', valor='128', delta='+12&nbsp;% vs. mes anterior'),
                              dict(etiqueta='Otra métrica', valor='9,80&nbsp;€', delta='Sin cambios', tono='neutro')],
                             eyebrow_txt='Rótulo · Datos de ejemplo')),
-        doc('LISTA · estilo «num» (01, 02… en mono azul) o «guion». Máx. 5 elementos, una idea por línea.\n'
+        doc('LISTA · estilo «nodo» (punto azul) o «guion». Sin números. Máx. 5 elementos, una idea por línea.\n'
             'Puedes empezar cada elemento con <strong> para que se lea en diagonal.',
             E.lista(['%s y después la explicación en la misma línea.' % b('Empieza por la acción,'),
                      'Un elemento, una idea. Si necesitas dos frases, probablemente son dos elementos.',
@@ -576,16 +576,16 @@ def base_blanco():
             E.imagen('diagrama-sistema.png', 'Diagrama del sistema de captación de Oryzz: anuncios, respuesta en minutos y citas en agenda.',
                      ancho=518, alto=196)),
         doc('DETALLES · tarjeta clave/valor (fecha y hora, resumen de pedido, condiciones de una propuesta).\n'
-            'Clave en mono MAYÚSCULAS (máx. 12 caracteres); valor en Manrope 600.',
+            'Clave en tipo frase, Manrope 600 en Grafito 500 (máx. 14 caracteres); valor en Manrope 600.',
             E.detalles([('Clave', 'Valor concreto'), ('Fecha', '{{fecha}} · {{hora}}'), ('Importe', '1.500&nbsp;€ al mes + IVA')])),
-        doc('PASOS · proceso de 3–5 pasos. Con rótulo temporal («Hoy», «Días 2–3») o con iconos PNG 48 px\n'
+        doc('PASOS · proceso de 3–5 pasos, distinguidos por su título (nunca «Paso 1» ni «01»). Con rótulo temporal («Hoy», «Días 2–3») o con iconos PNG 48 px\n'
             '(ver 09_tap_activacion.html: E.pasos(items, iconos=[...]) usa assets/icono-<nombre>_claro/_oscuro.png).',
             E.pasos([dict(cuando='Hoy', titulo='Primer paso', texto='Qué pasa y qué tiene que hacer la persona, en una frase.'),
                      dict(cuando='Mañana', titulo='Segundo paso', texto='Plazos en números: «3–7 días», «30 minutos».')])),
         doc('SEPARADOR · línea de 1 px Grafito 100. Úsalo entre partes del correo, no entre cada párrafo.',
             E.separador()),
-        doc('SECCIÓN NUMERADA · bloque editorial de la newsletter (número mono + titular + texto + enlace opcional).',
-            E.seccion('01', 'Titular de la sección en una línea', ['Texto de la sección: el aprendizaje, el dato y qué hacer con él.'],
+        doc('SECCIÓN · bloque editorial de la newsletter (nodo azul + titular + texto + enlace opcional). Sin números.',
+            E.seccion('Titular de la sección en una línea', ['Texto de la sección: el aprendizaje, el dato y qué hacer con él.'],
                       enlace('Leer el caso completo →', 'https://oryzz.com'))),
         doc('PERSONAS · tarjetas de contacto del equipo (2 columnas; se apilan en móvil).',
             E.personas([('Juan Salazar', 'Estrategia &amp; Ads', '{{email_juan}}'), ('David Morales', 'Automatización &amp; IA', '{{email_david}}')])),
@@ -602,7 +602,7 @@ def base_blanco():
         ['ESQUELETO MODULAR. Cada bloque va entre dos comentarios: «▸ BLOQUE · NOMBRE» y «◂ FIN · NOMBRE».',
          'Para crear un correo nuevo: duplica este archivo, borra los bloques que no uses y reescribe los textos.',
          'Para repetir un bloque, copia desde «▸ BLOQUE» hasta «◂ FIN» (ambos incluidos) y pégalo donde quieras dentro de la tarjeta.',
-         'No cambies colores fuera de los tokens (00_Fuente_Maestra/tokens.json). Tamaño mínimo de texto: 14 px (rótulos mono: 12 px).',
+         'No cambies colores fuera de los tokens (00_Fuente_Maestra/tokens.json). Tamaño mínimo de texto: 14 px, también en rótulos y etiquetas.',
          'Modo oscuro: conserva las clases o-t1/o-t2/o-t3/o-link/o-bd/o-bg-surface; son las que cambian el color en Apple Mail y Outlook.com.'],
         'Base', 'Esqueleto modular documentado con todos los bloques del sistema.')
 
@@ -677,7 +677,7 @@ def firma_txt(f, completa=True):
 
 def firma_archivo(titulo, cuerpo):
     return ('<!DOCTYPE html>\n<html lang="es">\n<head>\n<meta charset="utf-8">\n<title>%s</title>\n'
-            '<!--\n  ORYZZ · FIRMA DE CORREO\n'
+            '<!--\n  Oryzz · Firma de correo\n'
             '  BASE_URL = %s\n'
             '  (las imágenes se cargan desde BASE_URL. Si cambias el alojamiento, busca y reemplaza esa URL.)\n'
             '  Sustituye los {{marcadores}} (email, teléfono) antes de instalarla.\n'
@@ -710,8 +710,8 @@ const DATOS = {
 :root[data-theme="dark"]{--fondo:#0B0D12;--superficie:#12151D;--borde:#232836;--texto:#FFFFFF;--texto-2:#D5D9E0;--texto-3:#8A90A0;--azul:#9FB8FF;--nodo:#BFF24A}
 body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.6 Manrope,Arial,sans-serif}
 main{max-width:880px;margin:0 auto;padding:48px 16px 80px}
-.eb{font:500 12px/16px 'JetBrains Mono',Consolas,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--texto-3);margin:0 0 12px}
-.eb b{color:var(--nodo);font-weight:500}
+.eb{font:600 15px/20px Manrope,Arial,sans-serif;color:var(--texto-3);margin:0 0 12px}
+.eb b{color:var(--nodo);font-weight:600}
 h1{font:700 40px/1.1 'Space Grotesk',Arial,sans-serif;letter-spacing:-.03em;margin:0 0 12px}
 h2{font:600 20px/1.3 'Space Grotesk',Arial,sans-serif;margin:0 0 4px}
 p.lead{color:var(--texto-2);margin:0 0 32px;max-width:640px}
@@ -729,7 +729,7 @@ code{font-family:'JetBrains Mono',Consolas,monospace;font-size:14px}
 </head>
 <body>
 <main>
-<p class="eb"><b>●</b>&nbsp; 08_Email · firmas</p>
+<p class="eb"><b>●</b>&nbsp; Firmas de correo de Oryzz</p>
 <h1>Firmas de correo</h1>
 <p class="lead">Pulsa «Copiar firma» y pégala en Gmail (Configuración → Ver todos los ajustes → Firma) o en Outlook. Usa la completa para correos nuevos y la compacta para respuestas. Antes, edita la configuración al principio de este archivo (BASE_URL, correos y teléfonos).</p>
 <div class="aviso" id="aviso"><strong>Las imágenes no están subidas todavía.</strong> Se muestran desde la carpeta local <code>assets/</code>. Súbelas a <code id="burl"></code> antes de copiar la firma completa, o Gmail la mostrará sin logo.</div>
@@ -888,9 +888,9 @@ def preview_firmas(png):
         for tipo in ('completa', 'compacta'):
             cuerpo = firma_completa(f, base) if tipo == 'completa' else firma_compacta(f)
             filas.append('<tr><td style="padding:28px 32px;border-top:1px solid #E5E8EE;vertical-align:top;width:200px;'
-                         'font:500 12px/16px JetBrains Mono,monospace;letter-spacing:.14em;color:#5A6172;text-transform:uppercase">'
+                         'font:600 14px/20px Manrope,Arial,sans-serif;color:#5A6172">'
                          '%s<br>%s</td><td style="padding:28px 32px;border-top:1px solid #E5E8EE">%s</td></tr>'
-                         % (_html.unescape(f['nombre']), tipo, cuerpo))
+                         % (_html.unescape(f['nombre']), 'Firma completa' if tipo == 'completa' else 'Firma compacta', cuerpo))
     page = ('<!doctype html><html lang="es"><head><meta charset="utf-8"></head><body style="margin:0;background:#FFFFFF">'
             '<table style="border-collapse:collapse;width:100%%">%s</table></body></html>' % ''.join(filas))
     for k, v in MUESTRA.items():

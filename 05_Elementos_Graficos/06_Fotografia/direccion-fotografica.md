@@ -47,7 +47,7 @@ Oryzz Tap enseña **producto en uso**: la placa en el mostrador, el móvil que s
 ## 5. Tratamiento sobre foto (obligatorio con texto)
 
 1. **Velo Grafito 950 `#0B0D12` al 55–70 %** sobre toda la foto. Más denso (70 %) del lado del texto, más ligero (55 %) del lado del sujeto. Es un degradado de **un solo color** en opacidad, no un degradado de colores.
-2. **Texto** en blanco (titular) y Grafito 200 `#D5D9E0` (bajada). Eyebrow en JetBrains Mono.
+2. **Texto** en blanco (titular) y Grafito 200 `#D5D9E0` (bajada). Etiqueta en Manrope 600, tipo frase y sin tracking (nunca en mono ni en mayúsculas).
 3. **Órbita**: un arco abierto blanco al 30–40 %, trazo 2 px, que abraza al sujeto sin tocar su cara ni sus manos; con **un solo nodo lima** `#BFF24A` en su extremo, separado del trazo.
 4. **Logo**: `color-sobre-oscuro` solo con velo; sin velo, usa `mono-blanco`.
 5. **CTA**: botón primario oscuro (gradiente IA + texto Grafito 950).

@@ -37,7 +37,7 @@ a { color: var(--azul-600); text-decoration: none; }
 }
 .run-head img { height: 5.9mm; width: auto; display: block; }
 .run-head span, .run-foot span {
-  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .04em; color: var(--grafito-500);
+  font-family: var(--font-texto); font-weight: 500; font-size: 9pt; letter-spacing: 0; color: var(--grafito-500);
 }
 .run-foot {
   position: absolute; bottom: 11mm; left: 20mm; right: 20mm;
@@ -60,9 +60,7 @@ a { color: var(--azul-600); text-decoration: none; }
   font-family: var(--font-texto); font-size: 9.5pt; font-weight: 600; line-height: 1.3;
   letter-spacing: 0; text-transform: none; color: var(--grafito-500); margin: 0 0 4mm;
 }
-.eyebrow .n { display: none; }
 .oscura .eyebrow { color: var(--grafito-400); }
-.oscura .eyebrow .n { color: var(--lima-500); }
 
 h1, h2, h3, h4, .display { font-family: var(--font-display); margin: 0; color: inherit; }
 h1 { font-size: 27pt; line-height: 1.06; font-weight: 700; letter-spacing: -.032em; margin-bottom: 6mm; }
@@ -84,11 +82,10 @@ ul.lista li::before {
   content: ''; position: absolute; left: 0.4mm; top: 2.05mm; width: 1.5mm; height: 1.5mm;
   border-radius: 50%; border: 0.3mm solid var(--azul-500);
 }
-ol.lista { counter-reset: n; }
-ol.lista li { counter-increment: n; padding-left: 8mm; }
+/* Pasos: se distinguen por el nodo y por su texto, nunca por un número (BRAND_SPEC §4). */
 ol.lista li::before {
-  content: counter(n, decimal-leading-zero); position: absolute; left: 0; top: 0.2mm;
-  font-family: var(--font-mono); font-size: 9pt; color: var(--azul-600);
+  content: ''; position: absolute; left: 0.4mm; top: 2.05mm; width: 1.5mm; height: 1.5mm;
+  border-radius: 50%; background: var(--azul-500);
 }
 
 /* Cita */
@@ -96,7 +93,7 @@ ol.lista li::before {
   font-family: var(--font-display); font-weight: 500; font-size: 15pt; line-height: 1.3; letter-spacing: -.015em;
   border-left: 0.6mm solid var(--azul-500); padding: 0.5mm 0 0.5mm 6mm; margin: 6mm 0;
 }
-.cita small { display: block; font-family: var(--font-mono); font-size: 9pt; letter-spacing: .08em; text-transform: uppercase; color: var(--grafito-500); margin-top: 3mm; font-weight: 400; }
+.cita small { display: block; font-family: var(--font-texto); font-size: 9pt; letter-spacing: 0; color: var(--grafito-500); margin-top: 3mm; font-weight: 500; }
 
 /* Nota / callout sobrio */
 .nota { background: var(--grafito-50); border-radius: 3mm; padding: 5mm 6mm; margin: 5mm 0; }
@@ -104,7 +101,7 @@ ol.lista li::before {
 .nota p:last-child { margin-bottom: 0; }
 .nota.linea { background: none; border-radius: 0; border-left: 0.6mm solid var(--azul-500); padding: 1mm 0 1mm 6mm; }
 .aviso-legal {
-  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .06em; text-transform: uppercase;
+  font-family: var(--font-texto); font-weight: 600; font-size: 9pt; letter-spacing: 0; text-transform: none;
   color: #9A5B00; background: #FFF6E8; border: 0.25mm solid #F2D3A0; border-radius: 1.5mm;
   padding: 1.2mm 2.5mm; display: inline-block; margin-bottom: 2.5mm;
 }
@@ -149,7 +146,7 @@ table.t.compacta td { padding-top: 1.8mm; padding-bottom: 1.8mm; }
 .oscura .dato .delta::before { background: var(--lima-500); }
 
 /* ---------- Semáforo sobrio ---------- */
-.estado { display: inline-flex; align-items: center; gap: 1.8mm; font-family: var(--font-mono); font-size: 9pt; letter-spacing: .04em; white-space: nowrap; }
+.estado { display: inline-flex; align-items: center; gap: 1.8mm; font-family: var(--font-texto); font-weight: 600; font-size: 9pt; letter-spacing: 0; white-space: nowrap; }
 .estado::before { content: ''; width: 2.2mm; height: 2.2mm; border-radius: 50%; flex: none; }
 .estado.critico::before { background: var(--estado-error); }
 .estado.mejorable::before { background: var(--estado-aviso); }
@@ -198,7 +195,7 @@ table.t.compacta td { padding-top: 1.8mm; padding-bottom: 1.8mm; }
 .abajo { position: absolute; left: 20mm; right: 20mm; bottom: 24mm; }
 .campo { font-family: var(--font-mono); font-size: 9pt; color: var(--azul-600); background: var(--azul-50); border-radius: 1mm; padding: 0 1mm; }
 .ejemplo-tag {
-  font-family: var(--font-mono); font-size: 9pt; letter-spacing: .1em; text-transform: uppercase;
+  font-family: var(--font-texto); font-weight: 600; font-size: 9pt; letter-spacing: 0; text-transform: none;
   border: 0.25mm solid var(--grafito-300); color: var(--grafito-500); border-radius: 5mm; padding: 0.6mm 2.6mm; display: inline-block;
 }
 .oscura .ejemplo-tag { border-color: var(--grafito-600); color: var(--grafito-400); }

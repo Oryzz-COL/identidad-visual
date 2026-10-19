@@ -81,7 +81,8 @@ Proporción de uso: **60 % Grafito · 25 % Blanco / Grafito 50 · 10 % Azul IA /
 - **Space Grotesk** (display): titulares, cifras grandes, logo. 500/600/700. Tracking negativo (ver `tokens.json`).
 - **Manrope** (texto): párrafos, interfaz, documentos. 400/500/600/700.
 - **JetBrains Mono** (datos): solo códigos, URLs técnicas y cifras tabulares. **Nunca** para etiquetas ni en mayúsculas.
-- **Etiquetas (*eyebrow*):** tipo frase («Qué no necesita tu cliente»), Manrope 600, mismo tamaño que el texto o un punto menos, Grafito 500 (o Azul 600 para la etiqueta de sección), **sin mayúsculas ni tracking extra**. Sin números de sección («01 · Contexto» no).
+- **Etiquetas (*eyebrow*):** tipo frase («Qué no necesita tu cliente»), Manrope 600, mismo tamaño que el texto o un punto menos, Grafito 500 sobre claro (o Azul 600 para la etiqueta de sección) y Titanio 400 o Grafito 200 sobre oscuro, **sin mayúsculas ni tracking extra**. Sin números de sección («01 · Contexto» no). Lo mismo vale para chips, rótulos de diagramas, notas de fuente y pies: tipo frase en Manrope («En marcha», «Meta Ads», «Fuente: …»).
+- **JetBrains Mono, solo dato técnico:** URL técnicas, código, cifras tabulares y ejes de gráficos (S1, S2…). Nunca etiquetas, chips, títulos ni pies.
 - **Regla dura (2026-10-14):** prohibidas las etiquetas en MAYÚSCULAS espaciadas y las numeraciones de sección o de pasos («01», «Paso 02», «02 / 07» con ceros). Es el sello más reconocible de un documento hecho con IA. El folio de página se permite sin ceros a la izquierda: «2 / 9».
 - Office sin fuentes instaladas: Arial como alternativa. Las TTF están en `04_Tipografia/` (licencia OFL, se pueden instalar y compartir libremente).
 - Titulares: frases cortas, máximo 2–3 líneas, con un solo fragmento resaltado en Azul (en la web se usa «Más **clientes**.»). Nunca frases enteras en gradiente.
@@ -95,6 +96,14 @@ Proporción de uso: **60 % Grafito · 25 % Blanco / Grafito 50 · 10 % Azul IA /
 5. **Iconografía:** retícula 24 px, trazo 1,75 px, puntas y uniones redondeadas, monocromo (Grafito 200 en oscuro / Grafito 950 en claro); el acento solo en un elemento. Se prohíben iconos rellenos de stock, emojis e iconos de colores mezclados. Los logos de plataformas (Meta, Google, TikTok) se usan solo en su versión monocroma.
 6. **Fotografía:** personas reales de negocios reales (clínicas, estética, fitness, hostelería), luz natural, encuadres cercanos a manos, mostradores o pantallas; graduación fría y neutra. Nada de stock de apretón de manos, cerebros, robots ni hologramas. Sobre foto: velo Grafito 950 al 55–70 %.
 7. **Motion:** la órbita gira (4,4 s lineal), el nodo respira y las «zz» saltan (1,95 s, resorte, desfase 0,17 s). Solo en intros, loaders y cierres; nunca en bucle dentro de la interfaz.
+8. **Vídeo (2026-10-18):**
+   - Intro oficial del logo (≤ 3 s) solo al principio o al final; en piezas de menos de 20 s, solo al cierre.
+   - Rótulos: etiqueta en tipo frase (Manrope 600) + titular Space Grotesk, alineados a la izquierda dentro de la zona segura, con un fragmento en azul.
+   - **Subtítulos sin caja:** Manrope Bold (700) blanco, máximo 2 líneas, ≥ 48 px en 1080×1920. La legibilidad la da una sombra difusa Grafito 950 (desenfoque 8–16 px, opacidad 60–80 %, desplazamiento ≤ 2 px) y, solo si el fondo lo exige, un contorno de 2–3 px Grafito 950 o un velo Grafito 950 al 55–70 % en degradado sobre la zona de los subtítulos. Palabra destacada en Azul 400 `#5C8BFF`, una por bloque como máximo. Nunca caja de color, amarillo ni lima.
+   - Cortes secos o fundidos de 160–280 ms; nada de transiciones de plantilla (cubos, zoom-blur, destellos, glitch).
+   - Graduación fría y neutra; ningún LUT cálido ni teal-orange.
+   - Datos en pantalla con el lenguaje de las tarjetas dato, «Ejemplo» si no son reales y un solo lima a la vez.
+   - Dirección completa de edición: skill `editor-oryzz` (repo `Oryzz-COL/Editor`).
 
 ## 6. Voz
 

@@ -31,7 +31,7 @@ python componentes_web.py   # componentes/componentes.html + componentes_preview
 - **Bordes de controles** (inputs, botón secundario) ≥ 3:1: `--color-borde-fuerte` = Grafito 500 en oscuro / Titanio 400 en claro.
 - **Dato en claro:** `--color-dato` (Lima 600) es solo un punto gráfico (2,58:1); para texto usa `--color-dato-texto` (Lima 900 en claro, Lima 500 en oscuro).
 - **Sin** `box-shadow` de color en botones, sin halos animados, sin `filter:brightness` en hover.
-- Texto mínimo **14 px** (el eyebrow mono de 12 px es la única excepción).
+- Texto mínimo **14 px**, sin excepciones (el eyebrow es Manrope 600 a 14 px, en tipo frase).
 - `prefers-reduced-motion` desactiva animaciones.
 
 ## Aplicarlo en oryzz.com (sitio estático)
@@ -54,7 +54,7 @@ Código: `TAP/OryzzTAP/oryzz/` (`index.html`, `contacto.html`, `legal.html`, `st
 
 4. **Botón.** `.btn-grad{background:var(--color-cta-fondo);color:var(--color-cta-texto);box-shadow:none}` y hover `background:var(--color-cta-fondo-hover)` (o usa `.ox-btn--primario`). Aplica también a `.ck-accept` de `cookies.js`.
 5. **Logo.** Sustituye el SVG dibujado a mano + `<span class="wordmark">` por `<img src="/brand/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="Oryzz" height="26">` (copia de `02_Logos/01_Horizontal/SVG/`). En el footer, lo mismo. `favicon.svg` → `02_Logos/06_Favicon/favicon.svg` y añade `apple-touch-icon` PNG 180 px.
-6. **Eyebrow** en JetBrains Mono (`.ox-eyebrow`), no en Space Grotesk.
+6. **Eyebrow** con `.ox-eyebrow`: Manrope 600, tipo frase, sin mayúsculas, sin tracking y sin números de sección. JetBrains Mono queda solo para datos técnicos.
 7. **Iconos.** Sustituye los `<symbol>` de colores (`kgMeta`, `kgGem`, `kgIg`, `ic-google` multicolor, `ic-wa`, `ic-pin` rojo/azul) por la iconografía monocroma de `05_Elementos_Graficos/01_Iconos` (trazo 1,75 px, `currentColor`). Elimina `background:rgba(255,90,90,.1);color:#FF7B7B` de las tarjetas «El problema».
 8. **Escenografía.** Elimina `.aura` (dos manchas de 560–680 px con `blur` y animación en bucle) o deja **una** sola sin animar al ≤ 20 % de opacidad.
 9. **Nombre.** «OryzzTAP» → «Oryzz Tap» (3 apariciones en `index.html`, 2 en `contacto.html`). En texto corrido, «Oryzz» con mayúscula (title, `og:site_name`, JSON-LD, `llms.txt`).

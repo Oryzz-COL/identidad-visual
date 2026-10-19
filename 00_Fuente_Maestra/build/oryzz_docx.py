@@ -4,9 +4,11 @@ Oryzz · librería para plantillas Word (.docx) v2.0
 - Estilos con nombre: Título, Subtítulo, Título 1-3 (alias «Encabezado 1-3»), Cuerpo, Entradilla,
   Cita, Eyebrow, Nota, Dato, Campo, Acento, Aviso legal, Línea de respuesta y el estilo de tabla «Tabla Oryzz».
 - Tema de Office «Oryzz» (colores y fuentes del tema).
-- Fuentes de marca incrustadas (Space Grotesk, Space Grotesk Medium, Manrope, JetBrains Mono)
+- Fuentes de marca incrustadas (Space Grotesk, Space Grotesk Medium, Manrope, Manrope SemiBold, JetBrains Mono)
   con Arial como alternativa declarada en la tabla de fuentes.
-- Encabezado con logo + etiqueta, pie con oryzz.com y folio «01 / 08».
+- Encabezado con logo + etiqueta, pie con oryzz.com y folio «1 / 8».
+- Etiquetas en tipo frase (Manrope SemiBold), sin mayúsculas ni tracking y sin números de sección
+  (BRAND_SPEC §4). JetBrains Mono solo para dato técnico.
 
 Marcado en línea para los textos:  **negrita**  {{campo editable}}  [[acento azul]]
 """
@@ -32,6 +34,7 @@ CY600, LI600, LI500 = '17A9C2', '7FB02E', 'BFF24A'
 AVISO_TXT, AVISO_BG = '8A5200', 'FFF6E8'
 
 DISPLAY, DISPLAY_MED, TEXTO, MONO = 'Space Grotesk', 'Space Grotesk Medium', 'Manrope', 'JetBrains Mono'
+TEXTO_SEMI = 'Manrope SemiBold'  # etiquetas (Manrope 600)
 
 
 # ---------------------------------------------------------------- utilidades XML
@@ -148,18 +151,28 @@ def setup_styles(doc):
     _pborder(q.element.get_or_add_pPr(), 'left', 18, AZ500, 14)
     _alias(q, 'Cita')
 
-    ey = para('Eyebrow'); style_font(ey, MONO, 9, G500, caps=True, tracking=29); style_par(ey, 0, 8, 1.1, True)
+    ey = para('Eyebrow'); style_font(ey, TEXTO_SEMI, 9.5, G500, caps=False, tracking=0); style_par(ey, 0, 6, 1.2, True)
     lead = para('Entradilla'); style_font(lead, TEXTO, 12, G600); style_par(lead, 0, 14, 1.4)
     nota = para('Nota'); style_font(nota, TEXTO, 9, G500); style_par(nota, 0, 4, 1.35)
     dato = para('Dato'); style_font(dato, DISPLAY_MED, 26, G950, tracking=-15); style_par(dato, 0, 2, 1.0)
-    aviso = para('Aviso legal'); style_font(aviso, MONO, 9, AVISO_TXT, tracking=6); style_par(aviso, 0, 4, 1.2, True)
+    aviso = para('Aviso legal'); style_font(aviso, TEXTO_SEMI, 9, AVISO_TXT, tracking=0); style_par(aviso, 0, 4, 1.2, True)
     _shade(aviso.element.get_or_add_pPr(), AVISO_BG)
     resp = para('Línea de respuesta'); style_font(resp, TEXTO, 9.5, G950); style_par(resp, 0, 0, 1.0)
     resp.paragraph_format.left_indent = Mm(9); resp.paragraph_format.space_before = Pt(14)
     _pborder(resp.element.get_or_add_pPr(), 'bottom', 4, G200, 2)
     tabla_txt = para('Texto de tabla'); style_font(tabla_txt, TEXTO, 9.5, G950); style_par(tabla_txt, 0, 0, 1.25)
-    tabla_cab = para('Cabecera de tabla', 'Texto de tabla'); style_font(tabla_cab, MONO, 9, G500, caps=True, tracking=14)
-    pie = para('Pie Oryzz'); style_font(pie, MONO, 9, G500, tracking=2); style_par(pie, 0, 0, 1.0)
+    tabla_cab = para('Cabecera de tabla', 'Texto de tabla'); style_font(tabla_cab, TEXTO_SEMI, 9, G500, caps=False, tracking=0)
+    pie = para('Pie Oryzz'); style_font(pie, TEXTO, 9, G500, tracking=0); style_par(pie, 0, 0, 1.0)
+
+    # Estilos de carácter heredados de la plantilla de Word: fuera tracking y versalitas (BRAND_SPEC §4)
+    for nm in ('Title Char', 'Subtitle Char', 'Intense Reference', 'Subtle Reference', 'Book Title'):
+        try:
+            rpr = st[nm].element.get_or_add_rPr()
+        except KeyError:
+            continue
+        for tag in ('w:spacing', 'w:smallCaps', 'w:caps'):
+            for c in rpr.findall(qn(tag)):
+                rpr.remove(c)
 
     # listas
     for nm, alias in (('List Bullet', 'Lista Oryzz'), ('List Number', 'Lista numerada Oryzz')):
@@ -202,7 +215,7 @@ def _tabla_oryzz(doc):
   <w:tblPr><w:tblStyleRowBandSize w:val="1"/><w:tblStyleColBandSize w:val="1"/>
     <w:tblBorders><w:top w:val="nil"/><w:left w:val="nil"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="{G100}"/><w:right w:val="nil"/><w:insideH w:val="single" w:sz="4" w:space="0" w:color="{G100}"/><w:insideV w:val="nil"/></w:tblBorders>
     <w:tblCellMar><w:top w:w="110" w:type="dxa"/><w:left w:w="0" w:type="dxa"/><w:bottom w:w="110" w:type="dxa"/><w:right w:w="170" w:type="dxa"/></w:tblCellMar></w:tblPr>
-  <w:tblStylePr w:type="firstRow"><w:pPr><w:keepNext/></w:pPr><w:rPr><w:rFonts w:ascii="{MONO}" w:hAnsi="{MONO}" w:cs="{MONO}" w:eastAsia="{MONO}"/><w:color w:val="{G500}"/><w:spacing w:val="14"/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>
+  <w:tblStylePr w:type="firstRow"><w:pPr><w:keepNext/></w:pPr><w:rPr><w:rFonts w:ascii="{TEXTO_SEMI}" w:hAnsi="{TEXTO_SEMI}" w:cs="{TEXTO_SEMI}" w:eastAsia="{TEXTO_SEMI}"/><w:color w:val="{G500}"/><w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>
     <w:tblPr/><w:trPr><w:tblHeader/></w:trPr><w:tcPr><w:tcBorders><w:bottom w:val="single" w:sz="8" w:space="0" w:color="{G950}"/></w:tcBorders><w:vAlign w:val="bottom"/></w:tcPr></w:tblStylePr>
   <w:tblStylePr w:type="lastRow"><w:rPr><w:rFonts w:ascii="{DISPLAY}" w:hAnsi="{DISPLAY}" w:cs="{DISPLAY}" w:eastAsia="{DISPLAY}"/><w:b/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>
     <w:tblPr/><w:tcPr><w:tcBorders><w:top w:val="single" w:sz="8" w:space="0" w:color="{G950}"/><w:bottom w:val="nil"/></w:tcBorders></w:tcPr></w:tblStylePr>
@@ -315,7 +328,7 @@ def running_header(section, label, pie='oryzz.com', logo='logo-horizontal-claro.
     _tab_right(p)
     r = p.add_run(); r.add_picture(res(logo), width=Mm(24))
     r = p.add_run('\t' + label)
-    r.font.name = MONO; _set_fonts(r._r.get_or_add_rPr(), MONO); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
+    r.font.name = TEXTO_SEMI; _set_fonts(r._r.get_or_add_rPr(), TEXTO_SEMI); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
     _pborder(p._p.get_or_add_pPr(), 'bottom', 4, G100, 8)
     f = section.footer
     fp = f.paragraphs[0]; fp.text = ''
@@ -324,9 +337,9 @@ def running_header(section, label, pie='oryzz.com', logo='logo-horizontal-claro.
     fp.add_run(pie)
     if folio:
         fp.add_run('\t')
-        _field(fp, 'PAGE \\# "00"', '01')
+        _field(fp, 'PAGE', '1')
         r = fp.add_run(' / ')
-        _field(fp, 'NUMPAGES \\# "00"', '01')
+        _field(fp, 'NUMPAGES', '1')
 
 
 def new_section(doc):
@@ -334,11 +347,10 @@ def new_section(doc):
 
 
 # ---------------------------------------------------------------- bloques
-def eyebrow(doc, text, n=None, color=None):
+def eyebrow(doc, text, color=None):
+    """Etiqueta en tipo frase. Sin números de sección (BRAND_SPEC §4)."""
     p = doc.add_paragraph(style='Eyebrow')
-    if n:
-        r = p.add_run(n + '   '); r.font.color.rgb = RGBColor.from_string(color or AZ600)
-    add_text(p, text)
+    add_text(p, text, color=color)
     return p
 
 
@@ -495,8 +507,8 @@ def portada(doc, tipo, titulo, lead, meta, oscura=True, etiqueta=None):
     anchor_image(p.add_run(), res('portada-oscura.png' if oscura else 'portada-clara.png'), 210, 297)
     p.add_run().add_picture(res('logo-horizontal-oscuro.png' if oscura else 'logo-horizontal-claro.png'), width=Mm(34))
     if etiqueta:
-        _tab_right(p); r = p.add_run('\t' + etiqueta.upper())
-        _set_fonts(r._r.get_or_add_rPr(), MONO); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G400 if oscura else AVISO_TXT)
+        _tab_right(p); r = p.add_run('\t' + etiqueta)
+        _set_fonts(r._r.get_or_add_rPr(), TEXTO_SEMI); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G400 if oscura else AVISO_TXT)
     p = doc.add_paragraph(style='Eyebrow'); p.paragraph_format.space_before = Pt(262)
     add_text(p, tipo, color=G400 if oscura else G500)
     p = doc.add_paragraph(style='Title'); add_text(p, titulo, color=blanco)
@@ -532,6 +544,7 @@ EMBED = [  # (familia en Word, regular, negrita)
     (DISPLAY, 'SpaceGrotesk-Regular.ttf', 'SpaceGrotesk-Bold.ttf'),
     (DISPLAY_MED, 'SpaceGrotesk-Medium.ttf', None),
     (TEXTO, 'Manrope-Regular.ttf', 'Manrope-Bold.ttf'),
+    (TEXTO_SEMI, 'Manrope-SemiBold.ttf', None),
     (MONO, 'JetBrainsMono-Regular.ttf', None),
 ]
 

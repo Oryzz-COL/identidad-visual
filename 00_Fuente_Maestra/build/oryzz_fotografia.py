@@ -37,7 +37,7 @@ def veil(uid, w, h, lado='izq', op_min=0.55, op_max=0.70):
 
 
 def nota(x, y, s, k, col, anchor='end'):
-    return T(x, y, s.upper(), 'mono', 500, 14, col, tracking=0.12, anchor=anchor, contornos=k)
+    return T(x, y, s, 'texto', 500, 16, col, anchor=anchor, contornos=k)
 
 
 def orbita_foto(cx, cy, r, a_nodo, col, nodo, sw=2, op=.35, ab=48):
@@ -64,7 +64,7 @@ def t1(k):
     s += veil('f1', w, h, 'izq', 0.55, 0.70)
     s += orbita_foto(1340, 560, 420, -140, C['blanco'], C['lima-500'])
     lg, _ = embed_logo(120, 108, 176, 'horizontal', 'color-sobre-oscuro', uid='t1l'); s += lg
-    s += T(120, 470, 'CLÍNICAS · ESTÉTICA · FITNESS', 'mono', 500, 16, C['grafito-200'], tracking=0.16, contornos=k)
+    s += T(120, 470, 'Clínicas, estética y fitness', 'texto', 600, 26, C['grafito-200'], contornos=k)
     s += T(120, 576, 'Más clientes.', 'display', 700, 96, C['blanco'], tracking=-0.045, contornos=k)
     s += T(120, 668, 'No más likes.', 'display', 700, 96, C['blanco'], tracking=-0.045, contornos=k)
     s += T(120, 740, 'Un sistema de captación, no acciones sueltas.', 'texto', 400, 24, C['grafito-200'], contornos=k)
@@ -80,7 +80,7 @@ def t2(k):
     s = foto('f2', w, h)
     s += veil('f2', w, h, 'arriba', 0.55, 0.70)
     s += orbita_foto(720, 1010, 360, -118, C['blanco'], C['lima-500'], op=.4)
-    s += T(96, 170, 'GIMNASIO · EJEMPLO', 'mono', 500, 16, C['grafito-200'], tracking=0.16, contornos=k)
+    s += T(96, 170, 'Gimnasio · Ejemplo', 'texto', 600, 26, C['grafito-200'], contornos=k)
     y = 250
     for l in ['El problema no', 'es que no te vean.', 'Es que no te', 'contactan.']:
         s += T(96, y, l, 'display', 700, 76, C['blanco'], tracking=-0.04, contornos=k); y += 80
@@ -101,8 +101,8 @@ def t3(k):
           f'<path d="{arc(730, 530, 262, -30, -96)}" fill="none" stroke="{C["grafito-950"]}" stroke-width="2" opacity=".35" stroke-linecap="round"/>')
     nx, ny = pol(730, 530, 262, -44)
     s += f'<circle cx="{nx:.1f}" cy="{ny:.1f}" r="11" fill="{C["lima-600"]}"/>'
-    s += T(560 + 170, 540, 'PLACA NFC + QR', 'mono', 500, 16, C['grafito-500'], tracking=0.12, anchor='middle', contornos=k)
-    s += T(96, h - 330, 'ORYZZ TAP · RESEÑAS GOOGLE', 'mono', 500, 16, C['grafito-500'], tracking=0.16, contornos=k)
+    s += T(560 + 170, 540, 'Placa NFC y QR', 'texto', 600, 20, C['grafito-500'], anchor='middle', contornos=k)
+    s += T(96, h - 330, 'Oryzz Tap · Reseñas de Google', 'texto', 600, 26, C['grafito-500'], contornos=k)
     s += T(96, h - 240, 'Tu negocio.', 'display', 700, 76, C['grafito-950'], tracking=-0.04, contornos=k)
     s += T(96, h - 160, 'A un toque.', 'display', 700, 76, C['grafito-950'], tracking=-0.04, contornos=k)
     s += T(96, h - 100, 'Acerca el teléfono y ocurre.', 'texto', 500, 26, C['grafito-600'], contornos=k)
@@ -125,7 +125,7 @@ PLANTILLA = '''<!doctype html><html lang="es"><head><meta charset="utf-8"><title
 .pieza::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,18,.70),rgba(11,13,18,.55))}
 .orb{position:absolute;inset:0}
 .txt{position:absolute;left:120px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:880px}
-.eb{font-family:var(--font-mono);font-size:16px;letter-spacing:.16em;text-transform:uppercase;color:var(--grafito-200);margin:0 0 28px}
+.eb{font-family:var(--font-texto);font-size:26px;font-weight:600;letter-spacing:0;color:var(--grafito-200);margin:0 0 28px}
 h1{font-family:var(--font-display);font-weight:700;font-size:96px;letter-spacing:-.045em;line-height:.95;margin:0 0 24px}
 p{font-size:24px;color:var(--grafito-200);margin:0 0 36px}
 a.btn{align-self:flex-start;background:var(--grad-ia-oscuro);color:var(--grafito-950);font-weight:700;font-size:18px;padding:19px 28px;border-radius:14px;text-decoration:none}
@@ -133,7 +133,7 @@ a.btn{align-self:flex-start;background:var(--grad-ia-oscuro);color:var(--grafito
 </style></head><body><div class="pieza">
 <svg class="orb" viewBox="0 0 1920 1080"><path d="ORBIT" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".35"/><circle cx="NX" cy="NY" r="12" fill="#BFF24A"/></svg>
 <img class="logo" src="../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz">
-<div class="txt"><p class="eb">Clínicas · estética · fitness</p><h1>Más clientes.<br>No más likes.</h1>
+<div class="txt"><p class="eb">Clínicas, estética y fitness</p><h1>Más clientes.<br>No más likes.</h1>
 <p>Un sistema de captación, no acciones sueltas.</p><a class="btn" href="https://cal.com/oryzz/30min">Reserva tu valoración</a></div>
 </div></body></html>'''
 

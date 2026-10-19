@@ -393,7 +393,7 @@ def build_lamina():
         items = [n for n, v in ICONS.items() if v[1] == cat]
         cells = ''.join(f'<figure>{svg_icon(n)}<figcaption>{n}</figcaption></figure>' for n in items)
         full = ' full' if cat == CAT[4] else ''
-        groups += f'<section class="grp{full}"><h3 class="t-eyebrow">{cat}<span>{len(items):02d}</span></h3><div class="cells">{cells}</div></section>'
+        groups += f'<section class="grp{full}"><h3 class="t-eyebrow">{cat}<span>{len(items)}</span></h3><div class="cells">{cells}</div></section>'
     # construcción: icono ampliado sobre retícula
     k = 'calendario'
     big = svg_icon(k)
@@ -410,7 +410,7 @@ def build_lamina():
 *{{box-sizing:border-box}} html,body{{margin:0;background:var(--grafito-950);color:#fff}}
 body{{width:1920px;height:2060px;position:relative;overflow:hidden;font-family:var(--font-texto)}}
 .wrap{{padding:120px 120px 0}}
-.t-eyebrow{{color:var(--grafito-400);margin:0}}
+.t-eyebrow{{font-size:24px;color:var(--grafito-400);margin:0}}
 header{{display:grid;grid-template-columns:1fr 700px;gap:96px;align-items:end;border-bottom:1px solid var(--grafito-700);padding-bottom:64px}}
 h1{{font-family:var(--font-display);font-weight:700;font-size:96px;letter-spacing:-.045em;line-height:.95;margin:28px 0 28px}}
 h1 em{{font-style:normal;color:var(--azul-400)}}
@@ -422,9 +422,9 @@ h1 em{{font-style:normal;color:var(--azul-400)}}
 .cons svg.ic{{color:var(--grafito-200);--oz-acento:var(--lima-500)}}
 .key{{fill:none;stroke:var(--azul-400);stroke-width:.08;stroke-dasharray:.3 .3}} .key .edge{{stroke:var(--grafito-600);stroke-dasharray:none}}
 dl{{margin:0;font-family:var(--font-mono);font-size:14px;line-height:1.3;display:grid;grid-template-columns:auto 1fr;gap:12px 20px}}
-dt{{color:var(--grafito-400);text-transform:uppercase;letter-spacing:.12em}} dd{{margin:0;color:#fff}}
+dt{{font-family:var(--font-texto);font-weight:600;font-size:18px;color:var(--grafito-400)}} dd{{margin:0;font-size:16px;color:#fff}}
 .grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 96px;margin-top:64px}}
-.grp h3{{display:flex;justify-content:space-between;border-bottom:1px solid var(--grafito-700);padding-bottom:14px;margin-bottom:8px;font-weight:500;font-size:14px}}
+.grp h3{{display:flex;justify-content:space-between;border-bottom:1px solid var(--grafito-700);padding-bottom:14px;margin-bottom:8px;font-weight:600;font-size:24px}}
 .grp h3 span{{color:var(--grafito-600)}}
 .cells{{display:grid;grid-template-columns:repeat(5,1fr)}} .grp.full{{grid-column:1/-1}} .full .cells{{grid-template-columns:repeat(10,1fr)}}
 figure{{margin:0;height:132px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border-bottom:1px solid var(--grafito-850)}}
@@ -439,9 +439,10 @@ figcaption{{font-family:var(--font-mono);font-size:14px;color:var(--grafito-400)
 .box.l{{background:#fff;border-color:#fff}} .box.l p{{color:var(--grafito-600)}} .box.l .t-eyebrow{{color:var(--grafito-500)}}
 .box.l .row svg{{color:var(--grafito-950);--oz-acento:var(--lima-600)}}
 .box.d .row svg{{color:var(--grafito-200);--oz-acento:var(--lima-500)}}
-.colophon{{position:absolute;left:120px;right:120px;bottom:56px;display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:14px;color:var(--grafito-500);letter-spacing:.08em}}
+.colophon{{position:absolute;left:120px;right:120px;bottom:56px;display:flex;justify-content:space-between;font-family:var(--font-texto);font-weight:500;font-size:18px;color:var(--grafito-500)}}
+.colophon code{{font-family:var(--font-mono);font-size:16px}}
 </style></head><body><div class="wrap">
-<header><div><p class="t-eyebrow">Oryzz · Sistema gráfico v2.0 · 05 · Elementos gráficos</p>
+<header><div><p class="t-eyebrow">Elementos gráficos de Oryzz</p>
 <h1>Iconografía<br><em>propia.</em></h1>
 <p class="lead">{total} iconos dibujados sobre la misma retícula que la órbita del logo. Trazo fino, puntas redondas y un único acento: el nodo, que marca el resultado (la cita, el lead, el cliente).</p></div>
 <div class="spec"><div class="cons">{keyl.replace('<svg class="key"', '<svg class="key"')}{big.replace('<svg ', '<svg class="ic" ', 1)}</div>
@@ -449,11 +450,11 @@ figcaption{{font-family:var(--font-mono);font-size:14px;color:var(--grafito-400)
 <dt>Nodo</dt><dd>r 1,25–2,25 · separado ≥ 1,5</dd><dt>Acento</dt><dd>.oz-acento · --oz-acento</dd><dt>Color</dt><dd>currentColor</dd></dl></div></header>
 <div class="grid">{groups}</div>
 <div class="foot">
-<div class="box"><p class="t-eyebrow">Escala · px</p><div class="ramp">{ramp}</div></div>
+<div class="box"><p class="t-eyebrow">Escala en px</p><div class="ramp">{ramp}</div></div>
 <div class="box d"><p class="t-eyebrow">Sobre oscuro · Grafito 200 + Lima 500</p><div class="row">{on_dark}</div><p>El acento es opcional. Si la pieza ya tiene otro dato en lima, los iconos van monocromos.</p></div>
 <div class="box l"><p class="t-eyebrow">Sobre claro · Grafito 950 + Lima 600</p><div class="row">{on_light}</div><p>Nunca rellenos, nunca en varios colores, nunca logos de plataformas en color.</p></div>
 </div></div>
-<div class="colophon"><span>ORYZZ · ICONOS · 24 PX · 1,75</span><span>05_Elementos_Graficos/01_Iconos</span></div>
+<div class="colophon"><span>Iconos de Oryzz: retícula de 24 px y trazo de 1,75 px</span><code>05_Elementos_Graficos/01_Iconos</code></div>
 </body></html>'''
     hp = os.path.join(OUT, 'iconos-lamina.html')
     write(hp, page)

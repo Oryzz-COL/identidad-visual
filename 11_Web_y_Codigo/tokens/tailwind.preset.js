@@ -4,7 +4,7 @@
 //   // tailwind.config.js
 //   module.exports = { presets: [require('./tailwind.preset.js')], content: ['./src/**/*.html'] }
 //   Clases: bg-grafito-950 text-azul-600 font-display text-h1 rounded-lg bg-grad-ia-oscuro
-//   Radios: xs 6 · sm 10 · md 14 · lg 20 · xl 28 · full · app (22,5 %). Eyebrow: text-eyebrow font-mono uppercase
+//   Radios: xs 6 · sm 10 · md 14 · lg 20 · xl 28 · full · app (22,5 %). Eyebrow: text-eyebrow font-texto (Manrope 600, tipo frase, sin tracking)
 //           y semánticas (dependen de tokens.css): bg-fondo text-texto border-borde text-enlace
 //
 // ── Tailwind v4 (oryzz.com/tap usa v4) ──────────────────────────────────────
@@ -54,7 +54,7 @@ module.exports = {
         sans: ["Manrope", "Arial", "Helvetica", "sans-serif"],
         mono: ["JetBrains Mono", "Consolas", "Courier New", "monospace"],
       },
-      fontSize: {"display-xl": ["6rem", {"lineHeight": "0.95", "letterSpacing": "-0.045em", "fontWeight": "700"}], "display-l": ["4.5rem", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}], "h1": ["3.5rem", {"lineHeight": "1.05", "letterSpacing": "-0.035em", "fontWeight": "700"}], "h2": ["2.5rem", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}], "h3": ["1.75rem", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}], "h4": ["1.25rem", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}], "lead": ["1.25rem", {"lineHeight": "1.55", "letterSpacing": "0em", "fontWeight": "400"}], "body": ["1rem", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}], "small": ["0.875rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "500"}], "eyebrow": ["0.75rem", {"lineHeight": "1.2", "letterSpacing": "0.16em", "fontWeight": "500"}], "dato": ["4rem", {"lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "500"}]},
+      fontSize: {"display-xl": ["6rem", {"lineHeight": "0.95", "letterSpacing": "-0.045em", "fontWeight": "700"}], "display-l": ["4.5rem", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}], "h1": ["3.5rem", {"lineHeight": "1.05", "letterSpacing": "-0.035em", "fontWeight": "700"}], "h2": ["2.5rem", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}], "h3": ["1.75rem", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}], "h4": ["1.25rem", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}], "lead": ["1.25rem", {"lineHeight": "1.55", "letterSpacing": "0em", "fontWeight": "400"}], "body": ["1rem", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}], "small": ["0.875rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "500"}], "eyebrow": ["0.875rem", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600"}], "dato": ["4rem", {"lineHeight": "1.0", "letterSpacing": "-0.03em", "fontWeight": "500"}]},
       borderRadius: {"xs": "6px", "sm": "10px", "md": "14px", "lg": "20px", "xl": "28px", "full": "999px", "app": "22.5%"},
       backgroundImage: {
         'grad-ia-oscuro': 'linear-gradient(135deg, #5C8BFF 0%, #36CFE0 100%)',

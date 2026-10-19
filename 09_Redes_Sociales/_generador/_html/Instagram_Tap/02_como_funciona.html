@@ -11,15 +11,16 @@
 .ondas { color: var(--acento); display: flex; }
 .pasos3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
 .p3 { display: flex; flex-direction: column; gap: 18px; }
-.p3 .n { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-mono); font-size: 20px; color: var(--tx3); flex: none; background: var(--bg); }
-.p3:last-child .n { background: var(--nodo); border-color: var(--nodo); color: #fff; font-weight: 700; }
+.p3 .n { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orb-fuerte); display: grid; place-items: center; flex: none; background: var(--bg); }
+.p3:last-child .n { border-color: var(--nodo); }
+.p3:last-child .nodo-paso { background: var(--nodo); width: 20px; height: 20px; }
 .p3 p { font-size: 27px; line-height: 1.35; color: var(--tx); font-weight: 600; }
 </style>
 </head>
 <body class="tap f-post marca-tap">
 <div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1080" height="1350" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M364.63 362.28A291.4 291.4 0 1 1 250.77 559.49" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M390.98 243.92A381.4 381.4 0 1 1 183.93 458.32" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/></svg>  <div class="marco">
 <header class="cab">
-  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/07_Submarca_Tap/SVG/oryzz-tap-horizontal_color-sobre-claro.svg" alt="oryzz tap"><div class="eyebrow sin-raya">3 pasos</div></header>    <main class="cuerpo arriba" data-fit-box>
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/07_Submarca_Tap/SVG/oryzz-tap-horizontal_color-sobre-claro.svg" alt="oryzz tap"><div class="eyebrow">3 pasos</div></header>    <main class="cuerpo arriba" data-fit-box>
 <div style="padding-top: 56px">
   <div class="eyebrow ">Cómo funciona</div>
   <h1 class="tit tit-m" style="margin-top:28px; max-width: 900px" data-fit="44">De cliente contento a reseña publicada en <span class="hl">30 segundos</span>.</h1>
@@ -51,7 +52,7 @@
 </div>
   </div>
   <div class="pasos3">
-<div class="p3"><span class="n">1</span><p data-fit="22">Acerca el móvil o escanea el QR</p></div><div class="p3"><span class="n">2</span><p data-fit="22">Se abre tu página de reseñas</p></div><div class="p3"><span class="n">3</span><p data-fit="22">Elige las estrellas y publica</p></div>  </div>
+<div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Acerca el móvil o escanea el QR</p></div><div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Se abre tu página de reseñas</p></div><div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Elige las estrellas y publica</p></div>  </div>
 <p class="nota" style="margin-top:34px">Funciona con iPhone y Android. Tu cliente no instala nada.</p></div>
     </main>
 <footer class="pie">

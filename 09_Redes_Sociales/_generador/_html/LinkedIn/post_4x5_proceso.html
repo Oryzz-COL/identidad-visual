@@ -12,8 +12,9 @@
 .paso:last-child { padding-bottom: 0; }
 .paso::before { content: ""; position: absolute; left: 31px; top: 60px; bottom: 0; width: 2px; background: var(--orb-fuerte); }
 .paso:last-child::before { display: none; }
-.paso .n { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--orb-fuerte); background: var(--bg); display: grid; place-items: center; font-family: var(--font-mono); font-size: 20px; color: var(--tx3); position: relative; z-index: 1; }
-.paso:last-child .n { border-color: var(--nodo); background: var(--nodo); color: var(--bg); font-weight: 700; }
+.paso .n { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--orb-fuerte); background: var(--bg); display: grid; place-items: center; position: relative; z-index: 1; }
+.paso:last-child .n { border-color: var(--nodo); }
+.paso:last-child .nodo-paso { background: var(--nodo); width: 22px; height: 22px; }
 .paso h3 { font-family: var(--font-display); font-weight: 600; font-size: 42px; letter-spacing: -.02em; line-height: 1.1; color: var(--tx); padding-top: 9px; }
 .paso p { margin-top: 12px; font-size: 27px; line-height: 1.45; color: var(--tx2); max-width: 820px; }
 </style>
@@ -21,14 +22,14 @@
 <body class="oscuro f-li marca-oryzz">
 <div class="lienzo"><div class="reticula" style="--rx: 72%; --ry: 30%"></div><svg class="capa-svg orb" width="1200" height="1500" viewBox="0 0 1200 1500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1091.97 192.57A130 130 0 1 1 1136.44 269.59" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M1020.12 163.02A200 200 0 1 1 1062.40 293.13" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/><path d="M958.02 104.68A270 270 0 1 1 977.33 288.36" fill="none" stroke-width="1.5" stroke-linecap="round" style="stroke:var(--orb)"/></svg>  <div class="marco">
 <header class="cab">
-  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"><div class="eyebrow sin-raya">3 pasos</div></header>    <main class="cuerpo arriba" data-fit-box>
+  <img class="logo" src="file:///C:/Users/juand/Desktop/02_Oryzz/Identidad_Visual/02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg" alt="oryzz"><div class="eyebrow">3 pasos</div></header>    <main class="cuerpo arriba" data-fit-box>
 <div style="padding-top: 64px">
   <div class="eyebrow ">Nuestro proceso</div>
   <h1 class="tit tit-l" style="margin-top:34px; max-width: 920px" data-fit="50">Así pasamos de la idea a <span class="hl">clientes</span> medibles.</h1>
   <div class="pasos">
-    <div class="paso"><span class="n">01</span><div><h3 data-fit="30">Valoración de 30 minutos</h3><p data-fit="22">Revisamos tu negocio, tu competencia y cómo apareces en Google y en la IA. Sales con un diagnóstico.</p></div></div>
-    <div class="paso"><span class="n">02</span><div><h3 data-fit="30">Prueba inicial de <span style="white-space:nowrap">3–7</span> días</h3><p data-fit="22">Con <span style="white-space:nowrap">50–100&nbsp;€</span> de presupuesto orientativo, validamos si hay demanda que captar.</p></div></div>
-    <div class="paso"><span class="n">03</span><div><h3 data-fit="30">Escalado de lo que funciona</h3><p data-fit="22">Solo invertimos más donde los datos lo confirman. Sin permanencia en la prueba.</p></div></div>
+    <div class="paso"><span class="n"><i class="nodo-paso"></i></span><div><h3 data-fit="30">Valoración de 30 minutos</h3><p data-fit="22">Revisamos tu negocio, tu competencia y cómo apareces en Google y en la IA. Sales con un diagnóstico.</p></div></div>
+    <div class="paso"><span class="n"><i class="nodo-paso"></i></span><div><h3 data-fit="30">Prueba inicial de <span style="white-space:nowrap">3–7</span> días</h3><p data-fit="22">Con <span style="white-space:nowrap">50–100&nbsp;€</span> de presupuesto orientativo, validamos si hay demanda que captar.</p></div></div>
+    <div class="paso"><span class="n"><i class="nodo-paso"></i></span><div><h3 data-fit="30">Escalado de lo que funciona</h3><p data-fit="22">Solo invertimos más donde los datos lo confirman. Sin permanencia en la prueba.</p></div></div>
   </div>
 <p class="nota" style="margin-top:52px">No garantizamos ventas: medimos potencial real.</p></div>
     </main>

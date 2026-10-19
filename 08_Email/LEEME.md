@@ -178,7 +178,8 @@ Configuración → Notificaciones → **Confirmación de pedido** → Editar có
 - Un solo botón por correo. Un solo fragmento azul por titular. Lima solo como nodo o como dato que mejora.
 - Nada de emojis en asuntos ni titulares; nada de «¡Lleva tu negocio al siguiente nivel!».
 - Cifras de clientes reales solo con permiso; si no, «Datos de ejemplo» (BRAND_SPEC §8.7).
-- Texto mínimo 14 px (los rótulos mono en MAYÚSCULAS, 12 px).
+- Texto mínimo 14 px, también en rótulos y etiquetas.
+- Rótulos, etiquetas, claves de detalles y pies en tipo frase (solo la primera letra en mayúscula), Manrope 600, sin tracking. Nada de MAYÚSCULAS espaciadas ni numeraciones («01 ·», «Paso 2»): las listas y los pasos se marcan con un nodo o un icono y se distinguen por su título (BRAND_SPEC §4). JetBrains Mono solo para códigos y datos técnicos (p. ej. el código de activación).
 - Logos: siempre los PNG de `assets/` (versiones sólidas). Nunca el logo escrito con texto.
 
 ---

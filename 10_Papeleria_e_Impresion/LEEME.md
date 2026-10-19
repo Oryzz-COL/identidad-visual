@@ -1,4 +1,4 @@
-# 10 · Papelería e impresión Oryzz
+# Papelería e impresión · Oryzz
 
 Piezas impresas de Oryzz y Oryzz Tap, listas para enviar a imprenta. Se generan con `00_Fuente_Maestra/build/build_papeleria.py` a partir de los logos maestros y los tokens: no se redibuja nada a mano.
 

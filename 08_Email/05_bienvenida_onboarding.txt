@@ -2,11 +2,12 @@ ASUNTO: Empezamos, {{nombre}}: tus próximos 7 días
 PREHEADER: Qué accesos necesitamos, cuándo es la llamada de arranque y quién lleva tu cuenta.
 ================================================================
 
-ORYZZ · Alta de cliente
+Oryzz · Alta de cliente
 
 Bienvenida
 
-EMPEZAMOS. ESTO ES LO QUE PASA ESTA SEMANA.
+Empezamos. Esto es lo que pasa esta semana.
+===========================================
 
 Hola, {{nombre}}. Gracias por confiar en Oryzz para {{negocio}}. Desde hoy montamos tu sistema de captación: primero los accesos, luego la llamada de arranque y, en 3–7 días, las primeras campañas listas para revisar.
 
@@ -15,14 +16,14 @@ Hola, {{nombre}}. Gracias por confiar en Oryzz para {{negocio}}. Desde hoy monta
 Tus próximos pasos
 ------------------
 
-1. [Hoy] Danos acceso a tus cuentas
-   La lista está justo debajo. Son unos 15 minutos y, si te atascas, lo hacemos contigo por videollamada.
-2. [Días 2–3] Llamada de arranque (45 min)
-   Repasamos objetivos, servicios, horarios y cómo quieres que se atiendan los mensajes. Fecha: {{fecha_arranque}}.
-3. [Días 3–7] Campañas y respuestas listas para revisar
-   Te enseñamos anuncios, textos y mensajes automáticos antes de publicar. Nada sale sin tu visto bueno.
-4. [Cada mes] Informe en euros, no en impresiones
-   Leads, citas, coste por lead y qué cambiamos. Y una llamada si quieres repasarlo.
+- [Hoy] Danos acceso a tus cuentas
+  La lista está justo debajo. Son unos 15 minutos y, si te atascas, lo hacemos contigo por videollamada.
+- [Días 2–3] Llamada de arranque (45 min)
+  Repasamos objetivos, servicios, horarios y cómo quieres que se atiendan los mensajes. Fecha: {{fecha_arranque}}.
+- [Días 3–7] Campañas y respuestas listas para revisar
+  Te enseñamos anuncios, textos y mensajes automáticos antes de publicar. Nada sale sin tu visto bueno.
+- [Cada mes] Informe en euros, no en impresiones
+  Leads, citas, coste por lead y qué cambiamos. Y una llamada si quieres repasarlo.
 
 ――――――――――――――――――――――――
 
@@ -30,10 +31,10 @@ Accesos que necesitamos
 -----------------------
 
 Meta: Añade a Oryzz como socio en Business Suite con el ID {{id_business_oryzz}}: página, Instagram y cuenta publicitaria.
-Google ads: Acepta la invitación de nuestra cuenta de administrador ({{id_mcc_oryzz}}).
-Perfil google: Añade {{email_accesos}} como administrador de tu Perfil de Empresa.
+Google Ads: Acepta la invitación de nuestra cuenta de administrador ({{id_mcc_oryzz}}).
+Perfil Google: Añade {{email_accesos}} como administrador de tu Perfil de Empresa.
 Web: Acceso a la web (o el contacto de quien la lleva) y a Analytics o Tag Manager si los tienes.
-Whatsapp: El número con el que atendéis a clientes y quién responde hoy.
+WhatsApp: El número con el que atendéis a clientes y quién responde hoy.
 
 Completar la lista de accesos: {{url_formulario_accesos}}
 

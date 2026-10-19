@@ -15,12 +15,19 @@ OUT = os.path.join(ROOT, '10_Papeleria_e_Impresion')
 D = lambda *p: os.path.join(OUT, *p)
 
 PERSONAS = [
-    ('juan-salazar', 'Juan Salazar', 'Estrategia & Ads', '{{juan@oryzz.com}}', '{{+34 600 000 000}}'),
-    ('david-morales', 'David Morales', 'Automatización & IA', '{{david@oryzz.com}}', '{{+34 600 000 000}}'),
+    ('juan-salazar', 'Juan Salazar', 'Estrategia y Ads', '{{juan@oryzz.com}}', '{{+34 600 000 000}}'),
+    ('david-morales', 'David Morales', 'Automatización e IA', '{{david@oryzz.com}}', '{{+34 600 000 000}}'),
 ]
 URL_QR_TARJETA = 'https://oryzz.com'
 URL_QR_TAP = 'https://oryzz.com/tap'          # sustituir por la URL de activación definitiva
 URL_QR_AGENDA = 'https://cal.com/oryzz/30min'
+
+
+def nodo(cx, cy, r, color, relleno=None, trazo=None):
+    """Nodo de paso: los pasos se distinguen por nodo y título, nunca por número (BRAND_SPEC §4)."""
+    sw = trazo if trazo is not None else r * 0.45
+    return (f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{r:.2f}" fill="{relleno or "none"}" '
+            f'stroke="{color}" stroke-width="{sw:.3f}"/>')
 
 
 # ============================================================ 1. TARJETAS 85 × 55
@@ -44,7 +51,7 @@ def tarjetas():
             qr = qr_group(URL_QR_TARJETA, 60.5, 27.5, 19, C['g950'], fondo=C['w'], radio=1.6)
             reverso = (fondo(W, H, bg) + iso +
                        text(7, 13.2, nombre, 13, 'display', 600, ink, track=-0.02) +
-                       text(7, 19.2, rol, 9, 'mono', 500, ink3, track=0.1, caps=True) +
+                       text(7, 19.2, rol, 9, 'texto', 600, ink3) +
                        lines(7, 36.5, [mail, tel, 'oryzz.com'], 9, 1.5, font='texto', weight=500, fill=ink) +
                        (rect(60, 27, 20, 20, 'none', 2.2, f' stroke="{C["g200"]}" stroke-width="0.25"') if not osc else '') +
                        qr)
@@ -59,11 +66,11 @@ def papeleria():
     lg, _, _ = logo('h', 'color-sobre-claro', 20, 18, w=34)
     orb = orbitas_group(213, 300, [20, 34, 48, 62], trazo=C['g100'], grosor=0.3, nodo=None)
     body = (fondo(W, H, C['w']) + orb + lg +
-            lines(190, 21, ['oryzz.com', 'cal.com/oryzz/30min', 'linkedin.com/company/oryzz'], 9, 1.55, font='mono', fill=C['g500'], anchor='end', track=0.02) +
+            lines(190, 21, ['oryzz.com', 'cal.com/oryzz/30min', 'linkedin.com/company/oryzz'], 9, 1.55, font='texto', weight=500, fill=C['g500'], anchor='end') +
             f'<line x1="20" y1="281" x2="150" y2="281" stroke="{C["g100"]}" stroke-width="0.25"/>' +
-            text(20, 287, 'Oryzz', 9, 'mono', 500, C['g950']) +
-            text(36, 287, 'Sistemas que captan clientes', 9, 'mono', 400, C['g500']) +
-            text(96, 287, '{{Razón social}} · NIF {{B00000000}}', 9, 'mono', 400, C['g500']))
+            text(20, 287, 'Oryzz', 9, 'texto', 600, C['g950']) +
+            text(32, 287, 'Sistemas que captan clientes', 9, 'texto', 500, C['g500']) +
+            text(96, 287, '{{Razón social}} · NIF {{B00000000}}', 9, 'texto', 500, C['g500']))
     exportar('oryzz_membrete_A4', D('02_Membrete_Sobre_Carpeta'), W, H, [('', body)], info='Oryzz · Membrete A4')
 
     # --- Sobre DL 220 × 110
@@ -71,9 +78,9 @@ def papeleria():
     lg, _, _ = logo('h', 'color-sobre-claro', 14, 12, w=34)
     orb = orbitas_group(224, 114, [18, 30, 42], trazo=C['g100'], grosor=0.3, nodo=None)
     frente = (fondo(W, H, C['w']) + orb + lg +
-              lines(14, 29, ['Oryzz · {{Dirección}}', '{{CP}} {{Ciudad}} · España'], 9, 1.5, font='mono', fill=C['g500'], track=0.02))
+              lines(14, 29, ['Oryzz · {{Dirección}}', '{{CP}} {{Ciudad}} · España'], 9, 1.5, font='texto', weight=500, fill=C['g500']))
     iso, _, _ = logo('i', 'color-sobre-claro', 104, 24, w=12)
-    dorso = (fondo(W, H, C['w']) + iso + text(110, 44, 'oryzz.com', 9, 'mono', 400, C['g500'], 'middle', 0.04) +
+    dorso = (fondo(W, H, C['w']) + iso + text(110, 44, 'oryzz.com', 9, 'texto', 500, C['g500'], 'middle') +
              text(110, 92, 'Más clientes. No más likes.', 9, 'display', 500, C['g600'], 'middle'))
     exportar('oryzz_sobre_DL', D('02_Membrete_Sobre_Carpeta'), W, H, [('frente', frente), ('dorso', dorso)], info='Oryzz · Sobre DL')
 
@@ -90,17 +97,17 @@ def papeleria():
     orb = orbitas_group(W + 10, 260, [40, 62, 84, 106, 128, 150], trazo=C['g700'], grosor=0.35, nodo=C['li500'], nodo_en=2, nodo_r=2.4, nodo_ang=200)
     iso, _, _ = logo('i', 'mono-blanco', 104, 250, w=12)
     flap_txt = (text(24, 310 + 30, 'Más clientes. No más likes.', 14, 'display', 600, C['w'], track=-0.02) +
-                text(24, 310 + 40, 'cal.com/oryzz/30min', 9, 'mono', 400, C['g400'], track=0.04))
+                text(24, 310 + 40, 'cal.com/oryzz/30min', 9, 'texto', 500, C['g400']))
     exterior = (rect(-3, -3, W + 6, 313, C['g950']) + rect(-3, 310, 226, 103, C['g950']) + orb + lg +
                 text(P0 + 24, 262, 'Sistemas que', 30, 'display', 700, C['w'], track=-0.035) +
                 text(P0 + 24, 275, 'captan clientes.', 30, 'display', 700, C['az400'], track=-0.035) +
-                text(P0 + 24, 292, 'oryzz.com', 9, 'mono', 400, C['g400'], track=0.04) +
-                iso + text(110, 272, 'oryzz.com', 9, 'mono', 400, C['g400'], 'middle', 0.04) +
+                text(P0 + 24, 292, 'oryzz.com', 9, 'texto', 500, C['g400']) +
+                iso + text(110, 272, 'oryzz.com', 9, 'texto', 500, C['g400'], 'middle') +
                 f'<g transform="rotate(180 110 360)">{flap_txt}</g>' +
                 rect(223, 310, W - 220, 103, C['w']))
     interior = (rect(-3, -3, W + 6, 313, C['g50']) + rect(P0 - 3, 310, W - P0 + 6, 103, C['g50']) +
                 logo('i', 'color-sobre-claro', 20, 20, w=10)[0] +
-                text(20, 296, 'oryzz.com', 9, 'mono', 400, C['g500'], track=0.04) +
+                text(20, 296, 'oryzz.com', 9, 'texto', 500, C['g500']) +
                 rect(-3, 310, P0, 103, C['w']))
     exportar('oryzz_carpeta_A4', D('02_Membrete_Sobre_Carpeta'), W, H, [('exterior', exterior), ('interior', interior)],
              troquel=troquel, info='Oryzz · Carpeta A4 con bolsillo (pliego abierto, troquel visto desde el exterior)', preview_dpi=60)
@@ -131,13 +138,13 @@ def pegatinas():
     lg, _, _ = logo('t', 'color-sobre-claro', 6, 6, w=32)
     qr = qr_group(URL_QR_TAP, 76, 30, 18, C['g950'])
     body = (fondo(W, H, C['w']) + lg +
-            text(94, 9.6, 'Pedido {{#0000}}', 9, 'mono', 500, C['g500'], 'end', 0.04) +
+            text(94, 9.6, 'Pedido {{#0000}}', 9, 'mono', 500, C['g500'], 'end') +
             text(6, 26, 'Tu negocio.', 14, 'display', 700, C['g950'], track=-0.03) +
             text(6, 32, 'A un toque.', 14, 'display', 700, C['az500'], track=-0.03) +
             f'<line x1="6" y1="37" x2="70" y2="37" stroke="{C["g100"]}" stroke-width="0.25"/>' +
-            text(6, 42.5, 'PARA', 9, 'mono', 500, C['g500'], track=0.1) + text(20, 42.5, '{{Nombre del negocio}}', 9, 'texto', 600, C['g950']) +
-            text(6, 47.5, 'CONTIENE', 9, 'mono', 500, C['g500'], track=0.1) + text(26, 47.5, '{{1 × Placa Reseñas Google}}', 9, 'texto', 500, C['g950']) +
-            text(6, 54, 'shop.oryzz.com · pedidos@oryzz.com', 9, 'mono', 400, C['g500'], track=0.02) +
+            text(6, 42.5, 'Para', 9, 'texto', 600, C['g500']) + text(16, 42.5, '{{Nombre del negocio}}', 9, 'texto', 600, C['g950']) +
+            text(6, 47.5, 'Contiene', 9, 'texto', 600, C['g500']) + text(21, 47.5, '{{1 × Placa Reseñas Google}}', 9, 'texto', 500, C['g950']) +
+            text(6, 54, 'shop.oryzz.com · pedidos@oryzz.com', 9, 'texto', 500, C['g500']) +
             qr + text(85, 52, 'Actívala aquí', 9, 'texto', 500, C['g600'], 'middle'))
     exportar('oryzz-tap_etiqueta-caja-envio_100x60', D('03_Pegatinas_y_Etiquetas'), W, H, [('', body)],
              troquel=f'<rect x="0" y="0" width="{W}" height="{H}" rx="3"/>', info='Oryzz Tap · Etiqueta de caja 100 × 60 mm')
@@ -147,16 +154,16 @@ def pegatinas():
 def tarjeta_tap():
     W, H = 105, 148
     lg, _, _ = logo('t', 'color-sobre-claro', 10, 11, w=36)
-    pasos = [('01', 'Escanea el QR', ['o entra en oryzz.com/tap desde tu teléfono.']),
-             ('02', 'Escribe tu código', ['Está en el reverso de la placa:', '{{XXXX-XXXX}}']),
-             ('03', 'Elige a dónde lleva', ['Tu reseña de Google, tu WhatsApp', 'o tu perfil Oryzz Pro.']),
-             ('04', 'Colócala y pruébala', ['Déjala a la vista y acerca', 'tu teléfono. Ya está.'])]
+    pasos = [('Escanea el QR', ['o entra en oryzz.com/tap desde tu teléfono.']),
+             ('Escribe tu código', ['Está en el reverso de la placa:', '{{XXXX-XXXX}}']),
+             ('Elige a dónde lleva', ['Tu reseña de Google, tu WhatsApp', 'o tu perfil Oryzz Pro.']),
+             ('Colócala y pruébala', ['Déjala a la vista y acerca', 'tu teléfono. Ya está.'])]
     y0 = 57
     st = ''
-    for i, (n, t, d) in enumerate(pasos):
+    for i, (t, d) in enumerate(pasos):
         y = y0 + i * 16.5
         st += f'<line x1="10" y1="{y - 5}" x2="95" y2="{y - 5}" stroke="{C["g200"]}" stroke-width="0.25"/>'
-        st += text(10, y, n, 9, 'mono', 500, C['az600'], track=0.04)
+        st += nodo(12.5, y - 1.3, 1.3, C['az600'], relleno=C['az600'] if i == len(pasos) - 1 else None)
         st += text(20, y, t, 10.5, 'display', 600, C['g950'], track=-0.01)
         st += lines(20, y + 4.6, d, 9, 1.4, font='texto', fill=C['g600'])
     qr = qr_group(URL_QR_TAP, 71, 118, 24, C['g950'], fondo=C['w'], radio=1.6)
@@ -165,7 +172,7 @@ def tarjeta_tap():
               text(10, 39.5, 'Actívala en 2 minutos.', 17, 'display', 700, C['az500'], track=-0.035) +
               st + qr +
               lines(10, 128, ['¿Dudas? Escríbenos:', 'pedidos@oryzz.com'], 9, 1.45, font='texto', fill=C['g600']) +
-              text(10, 139, 'oryzz.com/tap', 9, 'mono', 500, C['g950'], track=0.02))
+              text(10, 139, 'oryzz.com/tap', 9, 'texto', 600, C['g950']))
     orb = orbitas_group(122, 150, [18, 32, 46, 60], trazo=C['g700'], grosor=0.3, nodo=C['li500'], nodo_en=2, nodo_r=1.4, nodo_ang=205)
     tips = [('Cerca del pago', 'Colócala junto a la caja o el mostrador: es donde tu cliente ya tiene el teléfono en la mano.'),
             ('Invita a acercarlo', '«¿Nos dejas tu opinión? Acerca el teléfono aquí.» Una frase basta.'),
@@ -183,11 +190,11 @@ def tarjeta_tap():
         rows.append(cur)
         tt += lines(10, y + 5, rows, 9, 1.45, font='texto', fill=C['g200'])
     dorso = (fondo(W, H, C['g950']) + orb +
-             text(10, 20, 'Consejos', 9, 'mono', 500, C['g400'], track=0.16, caps=True) +
+             text(10, 20, 'Consejos', 9, 'texto', 600, C['g400']) +
              text(10, 30, 'Para que la usen.', 15, 'display', 700, C['w'], track=-0.03) + tt +
              text(10, 124, 'Conecta lo que eres.', 11, 'display', 600, C['w'], track=-0.02) +
              text(10, 129.5, 'Acerca lo que sigue.', 11, 'display', 600, C['az400'], track=-0.02) +
-             text(10, 139, '@oryzztap · shop.oryzz.com', 9, 'mono', 400, C['g400'], track=0.02))
+             text(10, 139, '@oryzztap · shop.oryzz.com', 9, 'texto', 500, C['g400']))
     exportar('oryzz-tap_tarjeta-producto_A6', D('04_Tarjeta_Producto_Tap'), W, H, [('frente', frente), ('dorso', dorso)],
              info='Oryzz Tap · Tarjeta de producto A6')
 
@@ -198,24 +205,24 @@ def gran_formato():
     W, H = 850, 2000
     lg, _, _ = logo('h', 'color-sobre-oscuro', 90, 120, w=380)
     orb = orbitas_group(900, 980, [120, 200, 280, 360, 440, 520], trazo=C['g700'], grosor=1.2, nodo=C['li500'], nodo_en=2, nodo_r=9, nodo_ang=175)
-    srv = [('01', 'Meta, Google y TikTok Ads'), ('02', 'Automatización con IA'), ('03', 'SEO local y reseñas'), ('04', 'GEO · ChatGPT, Gemini y Perplexity')]
+    srv = ['Meta, Google y TikTok Ads', 'Automatización con IA', 'SEO local y reseñas', 'GEO · ChatGPT, Gemini y Perplexity']
     ss = ''
-    for i, (n, t) in enumerate(srv):
+    for i, t in enumerate(srv):
         y = 1130 + i * 70
         ss += f'<line x1="90" y1="{y - 45}" x2="760" y2="{y - 45}" stroke="{C["g700"]}" stroke-width="1"/>'
-        ss += text(90, y, n, 60, 'mono', 400, C['g400'], track=0.04) + text(190, y, t, 90, 'display', 600, C['w'], track=-0.02)
+        ss += nodo(102, y - 10, 7, C['g400'], trazo=2.2) + text(130, y, t, 90, 'display', 600, C['w'], track=-0.02)
     ss += f'<line x1="90" y1="{1130 + 4 * 70 - 45}" x2="760" y2="{1130 + 4 * 70 - 45}" stroke="{C["g700"]}" stroke-width="1"/>'
     qr = qr_group(URL_QR_AGENDA, 560, 1520, 200, C['g950'], fondo=C['w'], radio=14)
     body = (fondo(W, H, C['g950']) + orb + lg +
-            text(90, 470, 'Captación de clientes con IA para pymes', 58, 'mono', 500, C['g400'], track=0.12, caps=True) +
+            text(90, 470, 'Captación de clientes con IA para pymes', 64, 'texto', 600, C['g400']) +
             text(90, 640, 'Más clientes.', 330, 'display', 700, C['w'], track=-0.045) +
             text(90, 755, 'No más likes.', 330, 'display', 700, C['az400'], track=-0.045) +
             lines(90, 860, ['Un sistema de captación que gira solo:', 'anuncios, IA que responde al momento', 'y un informe en citas y en euros.'], 104, 1.35, font='texto', fill=C['g200']) +
             ss +
             text(90, 1560, '30 minutos.', 190, 'display', 700, C['w'], track=-0.035) +
             lines(90, 1620, ['Sales con un diagnóstico,', 'no con un presupuesto.'], 96, 1.35, font='texto', fill=C['g200']) +
-            text(90, 1790, 'cal.com/oryzz/30min', 80, 'mono', 500, C['w'], track=0.02) +
-            text(90, 1840, 'oryzz.com · @oryzzai', 64, 'mono', 400, C['g400'], track=0.02) + qr +
+            text(90, 1790, 'cal.com/oryzz/30min', 84, 'texto', 600, C['w']) +
+            text(90, 1840, 'oryzz.com · @oryzzai', 66, 'texto', 500, C['g400']) + qr +
             f'<rect x="-3" y="1900" width="{W + 6}" height="103" fill="{C["g950"]}"/>')
     exportar('oryzz_rollup_85x200cm', D('05_Rollup_y_Cartel'), W, H, [('', body)], info='Oryzz · Roll-up 850 × 2000 mm (100 mm inferiores ocultos)', preview_dpi=12)
 
@@ -232,25 +239,25 @@ def gran_formato():
              f'<g fill="none" stroke="{C["g600"]}" stroke-width="0.7" stroke-linecap="round"><path d="M34.5 55.5a8 8 0 0 1 11 0"/><path d="M31.5 52.5a12 12 0 0 1 17 0"/></g>'
              f'<circle cx="40" cy="59.2" r="1.3" fill="{C["g400"]}"/>'
              + qr_group(URL_QR_TAP, 25, 66, 30, C['g950'], fondo=C['w'], radio=2.4) +
-             text(40, 104.6, 'RESEÑAS GOOGLE', 7.9, 'mono', 400, C['g500'], 'middle', 0.1) + '</g>')
-    pasos = [('01', 'Acerca el teléfono', ['El chip NFC abre tu enlace', 'al instante.']),
-             ('02', 'Se abre tu página', ['Reseña, WhatsApp o perfil,', 'sin pasos de más.']),
-             ('03', 'Lo cambias cuando quieras', ['El destino se edita', 'sin reimprimir nada.'])]
+             text(40, 104.6, 'Reseñas Google', 8.4, 'texto', 600, C['g500'], 'middle') + '</g>')
+    pasos = [('Acerca el teléfono', ['El chip NFC abre tu enlace', 'al instante.']),
+             ('Se abre tu página', ['Reseña, WhatsApp o perfil,', 'sin pasos de más.']),
+             ('Lo cambias cuando quieras', ['El destino se edita', 'sin reimprimir nada.'])]
     pp = ''
-    for i, (n, t, d) in enumerate(pasos):
+    for i, (t, d) in enumerate(pasos):
         y = 218 + i * 44
         pp += f'<line x1="24" y1="{y - 9}" x2="146" y2="{y - 9}" stroke="{C["g950"]}" stroke-width="0.5"/>'
-        pp += text(24, y, n, 12, 'mono', 500, C['az600'], track=0.04) + text(38, y, t, 17, 'display', 600, C['g950'], track=-0.015)
+        pp += nodo(27.5, y - 2.1, 2.1, C['az600'], relleno=C['az600'] if i == len(pasos) - 1 else None) + text(38, y, t, 17, 'display', 600, C['g950'], track=-0.015)
         pp += lines(38, y + 8.5, d, 13, 1.4, font='texto', fill=C['g600'])
     body = (fondo(W, H, C['g50']) + lg +
-            text(24, 70, 'Placas y stands NFC + QR', 12, 'mono', 500, C['g500'], track=0.16, caps=True) +
+            text(24, 70, 'Placas y stands NFC + QR', 13, 'texto', 600, C['g500']) +
             text(24, 108, 'Tu negocio.', 96, 'display', 700, C['g950'], track=-0.045) +
             text(24, 142, 'A un toque.', 96, 'display', 700, C['az500'], track=-0.045) +
             lines(24, 164, ['Tus clientes acercan el teléfono y ocurre:', 'dejan una reseña, te escriben o te siguen.'], 15, 1.4, font='texto', fill=C['g600']) +
             stand + pp +
             f'<line x1="24" y1="378" x2="273" y2="378" stroke="{C["g200"]}" stroke-width="0.35"/>' +
             text(24, 393, 'Conecta lo que eres. Acerca lo que sigue.', 17, 'display', 600, C['g950'], track=-0.02) +
-            text(24, 403, 'shop.oryzz.com · pedidos@oryzz.com · @oryzztap', 11, 'mono', 400, C['g500'], track=0.02) +
+            text(24, 403, 'shop.oryzz.com · pedidos@oryzz.com · @oryzztap', 11, 'texto', 500, C['g500']) +
             rect(207, 386, 66, 17, C['az600'], 8.5) + text(240, 396.8, 'Pídela en la tienda', 12, 'texto', 700, C['w'], 'middle'))
     exportar('oryzz-tap_cartel_A3', D('05_Rollup_y_Cartel'), W, H, [('', body)], info='Oryzz Tap · Cartel A3', preview_dpi=60)
 
@@ -259,7 +266,7 @@ def gran_formato():
 def merch():
     W, H = 420, 297
     out = [fondo(W, H, C['g50'])]
-    out.append(text(24, 30, 'Merchandising · aplicación del logo', 9, 'mono', 500, C['g500'], track=0.16, caps=True))
+    out.append(text(24, 30, 'Merchandising · aplicación del logo', 10, 'texto', 600, C['g500']))
     out.append(text(24, 46, 'Una tinta cuando se borda. El gradiente, solo en impresión a color.', 16, 'display', 700, C['g950'], track=-0.03))
     # --- camiseta grafito
     tx, ty = 24, 70

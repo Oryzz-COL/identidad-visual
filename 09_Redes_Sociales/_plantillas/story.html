@@ -12,7 +12,7 @@
 .cifra-s { font-size: {{ tam_cifra|default(330) }}px; white-space: nowrap; margin-top: 50px; display: flex; align-items: flex-start; overflow: hidden; }
 .cifra-s .unidad { font-size: .55em; margin-top: .08em; margin-left: .06em; }
 .guia-capa { position: absolute; left: 0; right: 0; background: rgba(229,72,77,.18); border: 3px dashed #E5484D; display: flex; align-items: center; justify-content: center;
-  font: 700 26px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: #E5484D; text-align: center; z-index: 50; }
+  font: 700 30px/1.3 var(--font-texto); letter-spacing: 0; color: #E5484D; text-align: center; z-index: 50; }
 {% endblock %}
 {% block fondo %}
 {% if tipo == 'dato' %}{{ orbitas(W, H, W + 60, 1440, [140, 220, 300], hueco=46, giro=-172, paso=11, nodo=1)|safe }}
@@ -39,6 +39,6 @@
 </div>
 {% endblock %}
 {% block guia %}
-<div class="guia-capa" style="top:0;height:210px">Zona de interfaz · perfil y barra de progreso<br>no poner texto (0–210 px)</div>
-<div class="guia-capa" style="bottom:0;height:300px">Zona de respuesta y enlaces<br>no poner texto (1620–1920 px)</div>
+<div class="guia-capa" style="top:0;height:210px">Zona de interfaz: perfil y barra de progreso<br>no pongas texto aquí (0–210 px)</div>
+<div class="guia-capa" style="bottom:0;height:300px">Zona de respuesta y enlaces<br>no pongas texto aquí (1620–1920 px)</div>
 {% endblock %}

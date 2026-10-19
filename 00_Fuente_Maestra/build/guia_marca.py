@@ -160,9 +160,9 @@ def pg(body, tema='oscuro', cls='', fondo='', pie=True, toc=None, nivel=2):
     foot = ''
     if pie:
         iso = 'oryzz-isotipo_mono-blanco' if tema == 'oscuro' else 'oryzz-isotipo_mono-grafito'
-        cap = f'{CAP["n"]} · {CAP["t"]}' if CAP['n'] else 'Oryzz · Guía de marca'
+        cap = CAP['t'] if CAP['t'] else 'Oryzz · Guía de marca'
         foot = (f'<footer><img class="fiso" src="{uri("02_Logos/04_Isotipo/SVG_tamano_pequeno/" + iso.replace("isotipo", "isotipo-small") + ".svg")}">'
-                f'<span>Guía de marca {VERSION}</span><span class="fcap">{esc(cap)}</span><span class="fnum">{n:03d}</span></footer>')
+                f'<span>Guía de marca {VERSION}</span><span class="fcap">{esc(cap)}</span><span class="fnum">{n}</span></footer>')
     PAGES.append(f'<section class="page {tema} {cls}">{fondo}<div class="in">{body}</div>{foot}</section>')
     return n
 
@@ -176,10 +176,9 @@ def capitulo(n, titulo, intro, contenidos, tema='oscuro', fondo=None):
     CAP['n'], CAP['t'] = n, titulo
     items = ''.join(f'<li><span>{esc(c)}</span></li>' for c in contenidos)
     fondo = fondo if fondo is not None else orbitas_fondo(1560, 640, [180, 300, 430, 570, 720], tema, nodo_ang=-120)
-    body = (f'<div class="cap-n">{n}</div>'
-            f'<div class="cap-b"><div class="eyebrow">Capítulo {n}</div><h1 class="cap-t">{titulo}</h1>'
+    body = (f'<div class="cap-b"><h1 class="cap-t">{titulo}</h1>'
             f'<p class="lead">{intro}</p><ul class="cap-l">{items}</ul></div>')
-    return pg(body, tema, 'opener', fondo, toc=f'{n} · {titulo}', nivel=1)
+    return pg(body, tema, 'opener', fondo, toc=titulo, nivel=1)
 
 
 # ----------------------------------------------------------------- CSS
@@ -198,13 +197,13 @@ body {{ font-family: var(--font-texto); -webkit-font-smoothing: antialiased; tex
 .bgimg {{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }}
 .in {{ position: absolute; inset: 96px 120px 120px 120px; display: flex; flex-direction: column; }}
 footer {{ position: absolute; left: 120px; right: 120px; bottom: 44px; display: flex; align-items: center; gap: 18px;
-  font-family: var(--font-mono); font-size: 17px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); }}
+  font-family: var(--font-texto); font-weight: 500; font-size: 20px; color: var(--tx3); }}
 footer .fiso {{ width: 22px; height: 22px; opacity: .8; }}
 footer .fcap {{ margin-left: auto; }}
 footer .fnum {{ min-width: 64px; text-align: right; color: var(--tx2); }}
 
-.eyebrow {{ font-family: var(--font-mono); font-weight: 500; font-size: 20px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); }}
-.eyebrow b {{ color: var(--az); font-weight: 500; }}
+.eyebrow {{ font-family: var(--font-texto); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--tx3); }}
+.eyebrow b {{ color: var(--az); font-weight: 600; }}
 .hd {{ max-width: 1240px; }}
 .hd .t {{ font-family: var(--font-display); font-weight: 700; font-size: 66px; line-height: 1.04; letter-spacing: -.035em; margin-top: 22px; }}
 .hd .lead {{ margin-top: 26px; max-width: 1080px; }}
@@ -222,26 +221,26 @@ h4 {{ font-family: var(--font-display); font-weight: 600; font-size: 27px; line-
 .mt1{{margin-top:16px}} .mt2{{margin-top:32px}} .mt3{{margin-top:48px}} .mt4{{margin-top:64px}} .mta{{margin-top:auto}}
 .card {{ background: var(--sup); border: 1px solid var(--borde); border-radius: 14px; padding: 32px 34px; }}
 .rule {{ border-top: 1px solid var(--borde); padding-top: 22px; }}
-.kick {{ font-family: var(--font-mono); font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: var(--az); margin-bottom: 12px; }}
+.kick {{ font-family: var(--font-texto); font-weight: 600; font-size: 24px; line-height: 1.3; color: var(--az); margin-bottom: 12px; }}
 .kick.g3 {{ color: var(--tx3); }}
 .nodo {{ display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--nodo); vertical-align: middle; }}
 .fig {{ border-radius: 14px; overflow: hidden; border: 1px solid var(--borde); background: var(--sup); }}
 .fig img {{ display: block; width: 100%; height: 100%; object-fit: cover; }}
 .fig.contain img {{ object-fit: contain; }}
-.cap {{ font-family: var(--font-mono); font-size: 17px; letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); margin-top: 14px; }}
+.cap {{ font-family: var(--font-texto); font-weight: 500; font-size: 21px; color: var(--tx3); margin-top: 14px; }}
 ul.l {{ list-style: none; }}
 ul.l li {{ position: relative; padding-left: 30px; margin-top: 10px; }}
 ul.l li::before {{ content: ''; position: absolute; left: 2px; top: 17px; width: 12px; height: 2px; background: var(--tx3); }}
 ol.n {{ list-style: none; counter-reset: n; }}
-ol.n li {{ counter-increment: n; position: relative; padding-left: 64px; margin-top: 16px; }}
-ol.n li::before {{ content: counter(n, decimal-leading-zero); position: absolute; left: 0; top: 4px; font-family: var(--font-mono); font-size: 20px; letter-spacing: .1em; color: var(--az); }}
+ol.n li {{ position: relative; padding-left: 44px; margin-top: 16px; }}
+ol.n li::before {{ content: ''; position: absolute; left: 4px; top: 13px; width: 12px; height: 12px; border: 2px solid var(--az); border-radius: 50%; }}
 .mk {{ width: 28px; height: 28px; flex: none; }}
 .yes, .nope {{ display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--borde); font-size: 25px; line-height: 1.45; color: var(--tx2); }}
 .yes .mk {{ color: var(--tx); margin-top: 3px; }}
 .nope .mk {{ color: var(--tx3); margin-top: 3px; }}
 .nope {{ color: var(--tx3); }}
 table.t {{ width: 100%; border-collapse: collapse; }}
-table.t th {{ text-align: left; font-family: var(--font-mono); font-weight: 500; font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: var(--tx3); padding: 0 20px 14px 0; border-bottom: 1px solid var(--borde); }}
+table.t th {{ text-align: left; font-family: var(--font-texto); font-weight: 600; font-size: 21px; color: var(--tx3); padding: 0 20px 14px 0; border-bottom: 1px solid var(--borde); }}
 table.t td {{ font-size: 23px; line-height: 1.4; color: var(--tx2); padding: 15px 20px 15px 0; border-bottom: 1px solid var(--borde); vertical-align: top; }}
 table.t td:first-child {{ color: var(--tx); font-weight: 600; }}
 table.t td.m {{ font-family: var(--font-mono); font-size: 20px; }}
@@ -252,19 +251,19 @@ table.t.compact td {{ padding-top: 7px; padding-bottom: 7px; font-size: 20px; }}
 .cover .in {{ inset: 96px 120px 96px 120px; }}
 .opener .in {{ flex-direction: row; align-items: stretch; }}
 .cap-n {{ font-family: var(--font-display); font-weight: 500; font-size: 300px; line-height: .8; letter-spacing: -.06em; color: var(--tx); width: 520px; flex: none; }}
-.cap-b {{ display: flex; flex-direction: column; justify-content: flex-end; max-width: 860px; padding-bottom: 8px; }}
+.cap-b {{ display: flex; flex-direction: column; justify-content: flex-end; max-width: 980px; padding-bottom: 8px; }}
 .cap-t {{ font-family: var(--font-display); font-weight: 700; font-size: 112px; line-height: .98; letter-spacing: -.045em; margin: 22px 0 30px; }}
 .cap-l {{ list-style: none; margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; border-top: 1px solid var(--borde); }}
-.cap-l li {{ font-family: var(--font-mono); font-size: 19px; letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); padding: 14px 0; border-bottom: 1px solid var(--borde); }}
+.cap-l li {{ font-family: var(--font-texto); font-weight: 500; font-size: 22px; color: var(--tx3); padding: 14px 0; border-bottom: 1px solid var(--borde); }}
 
 /* swatches */
 .sw {{ border-radius: 14px; padding: 26px 28px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--borde); }}
 .sw .nm {{ font-family: var(--font-display); font-weight: 600; font-size: 30px; letter-spacing: -.02em; }}
 .sw .dt {{ font-family: var(--font-mono); font-size: 17px; letter-spacing: .02em; line-height: 1.65; white-space: nowrap; }}
-.chip {{ display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--borde); font-family: var(--font-mono); font-size: 17px; letter-spacing: .12em; text-transform: uppercase; color: var(--tx2); }}
+.chip {{ display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--borde); font-family: var(--font-texto); font-weight: 600; font-size: 20px; color: var(--tx2); }}
 .btn {{ display: inline-flex; align-items: center; gap: 14px; height: 72px; padding: 0 36px; border-radius: 14px; font-weight: 700; font-size: 25px; }}
 .tile {{ border-radius: 14px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }}
-.tile .lbl {{ position: absolute; left: 20px; bottom: 16px; font-family: var(--font-mono); font-size: 16px; letter-spacing: .1em; text-transform: uppercase; }}
+.tile .lbl {{ position: absolute; left: 20px; bottom: 16px; font-family: var(--font-texto); font-weight: 600; font-size: 20px; }}
 .ico {{ display: block; }}
 """
 
@@ -289,9 +288,9 @@ def como_usar():
                 'Este documento es la referencia visual y verbal de Oryzz. Si algo no aparece aquí, se decide a favor de: <strong>menos elementos, más aire, un solo acento.</strong>')
     body += f"""
     <div class="g mta">
-      <div class="s4 rule"><div class="kick">01 · Lee</div><h4>Capítulos 01–09</h4><p class="mt1">La marca, el logo, el color, la tipografía, el sistema gráfico, la fotografía, el motion y la voz. Las reglas, con su porqué.</p></div>
-      <div class="s4 rule"><div class="kick">02 · Produce</div><h4>Capítulos 10–11</h4><p class="mt1">Cómo se aplica en web, redes, email, presentaciones, documentos, papelería y Oryzz Tap. Cada pieza remite a su plantilla.</p></div>
-      <div class="s4 rule"><div class="kick">03 · Comprueba</div><h4>Capítulos 12–13</h4><p class="mt1">Checklist antes de publicar, plan de migración y el mapa de archivos del kit: dónde está cada cosa.</p></div>
+      <div class="s4 rule"><div class="kick">Lee</div><h4>De la marca a la voz</h4><p class="mt1">La marca, el logo, el color, la tipografía, el sistema gráfico, la fotografía, el motion y la voz. Las reglas, con su porqué.</p></div>
+      <div class="s4 rule"><div class="kick">Produce</div><h4>Aplicaciones y Oryzz Tap</h4><p class="mt1">Cómo se aplica en web, redes, email, presentaciones, documentos, papelería y Oryzz Tap. Cada pieza remite a su plantilla.</p></div>
+      <div class="s4 rule"><div class="kick">Comprueba</div><h4>Checklists y archivos del kit</h4><p class="mt1">Checklist antes de publicar, plan de migración y el mapa de archivos del kit: dónde está cada cosa.</p></div>
     </div>
     <div class="card mt3" style="display:flex;gap:28px;align-items:center">
       {icono('documento', 44, 'var(--tx2)')}
@@ -313,8 +312,8 @@ def indice(paginas):
     for n, t in INDICE:
         p = paginas.get(n, 0)
         filas += (f'<div style="display:flex;align-items:baseline;gap:28px;padding:11px 0;border-bottom:1px solid var(--borde)">'
-                  f'<span class="eyebrow" style="width:56px"><b>{n}</b></span><span style="font-family:var(--font-display);font-weight:600;font-size:32px;letter-spacing:-.02em">{t}</span>'
-                  f'<span class="eyebrow" style="margin-left:auto">{p:03d}</span></div>')
+                  f'<span style="font-family:var(--font-display);font-weight:600;font-size:32px;letter-spacing:-.02em">{t}</span>'
+                  f'<span class="eyebrow" style="margin-left:auto">{p}</span></div>')
     body = f"""
     <div class="g grow">
       <div class="s4" style="display:flex;flex-direction:column">
@@ -346,7 +345,7 @@ def resumen_sistema():
         <div class="card" style="display:flex;gap:40px;align-items:flex-end">
           <div><div class="kick g3">Tipografía</div><div style="font-family:var(--font-display);font-weight:700;font-size:54px;letter-spacing:-.04em;line-height:1">Space Grotesk</div></div>
           <div><div style="font-family:var(--font-texto);font-size:34px;color:var(--tx2)">Manrope</div></div>
-          <div><div style="font-family:var(--font-mono);font-size:26px;color:var(--tx3);letter-spacing:.06em">JetBrains Mono</div></div>
+          <div><div style="font-family:var(--font-mono);font-size:26px;color:var(--tx3)">JetBrains Mono</div></div>
         </div>
         <div class="card" style="flex:1;padding:26px 34px"><div class="kick g3">Cinco reglas de oro</div>
           <ol class="n" style="columns:2;column-gap:40px">
@@ -852,7 +851,7 @@ def cap_tipo():
 
     fam = [('Space Grotesk', 'display', 'Display', 'Titulares, cifras grandes y el logo. 500 / 600 / 700, tracking negativo.', 'Más clientes.', 700, '-.045em'),
            ('Manrope', 'texto', 'Texto', 'Párrafos, interfaz y documentos. 400 / 500 / 600 / 700.', 'Validamos con datos si tu negocio puede captar.', 400, '0'),
-           ('JetBrains Mono', 'mono', 'Datos', 'Eyebrows en mayúsculas, métricas, códigos y notas técnicas.', 'CPL 11,40 € · 61 CITAS', 500, '.06em')]
+           ('JetBrains Mono', 'mono', 'Datos', 'Solo dato técnico: cifras tabulares, códigos y URL. Nunca etiquetas ni mayúsculas.', 'CPL 11,40 € · CTR 2,8 %', 500, '0')]
     cols = ''
     for n, v, rol, d, ej, w, tr in fam:
         cols += (f'<div class="s4" style="display:flex;flex-direction:column"><div class="kick">{rol}</div>'
@@ -881,11 +880,11 @@ def cap_tipo():
     </div>
     <div class="s6" style="display:flex;flex-direction:column">
       <div class="kick">JetBrains Mono · datos</div>
-      <div style="font-family:var(--font-mono);font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)">01 · Diagnóstico — 30 min</div>
+      <div style="font-family:var(--font-mono);font-size:30px;color:var(--tx3)">Ref. OZ-2026-0142</div>
       <div style="font-family:var(--font-mono);font-size:44px;color:var(--tx);margin-top:24px">CPL 11,40 €</div>
       <div style="font-family:var(--font-mono);font-size:44px;color:var(--tx)">CTR 2,8 %</div>
       <div style="font-family:var(--font-mono);font-size:30px;color:var(--tx2);margin-top:18px">cal.com/oryzz/30min</div>
-      <p class="mta" style="font-size:22px">Eyebrow: 12 px, MAYÚSCULAS, tracking +0,16 em. Es la única excepción al mínimo de 14 px. Cifras tabulares en tablas.</p>
+      <p class="mta" style="font-size:22px">Nunca para etiquetas: las etiquetas van en Manrope 600, en tipo frase y sin tracking. Cifras tabulares en tablas.</p>
     </div></div>"""
     pg(body, 'oscuro', toc='Manrope y JetBrains Mono')
 
@@ -893,7 +892,9 @@ def cap_tipo():
     for k, v in TOK['type-scale-px'].items():
         fam = {'display': 'display', 'texto': 'texto', 'mono': 'mono'}[v['font']]
         sz = min(v['size'], 96)
-        txt = 'Más clientes.' if v['font'] == 'display' else ('Validamos con datos antes de que gastes.' if v['font'] == 'texto' else '01 · Diagnóstico')
+        txt = 'Más clientes.' if v['font'] == 'display' else ('Validamos con datos antes de que gastes.' if v['font'] == 'texto' else 'cal.com/oryzz/30min')
+        if k == 'eyebrow':
+            txt = 'Qué no necesita tu cliente'
         if k == 'dato':
             txt = '61 citas'
         style = f"font-family:var(--font-{fam});font-weight:{v['weight']};font-size:{sz}px;letter-spacing:{v['tracking']};line-height:1.05;{'text-transform:uppercase;' if v.get('case') == 'upper' else ''}white-space:nowrap"
@@ -914,7 +915,7 @@ def cap_tipo():
         <div class="mta" style="display:flex;gap:28px;align-items:flex-end"><span class="btn" style="background:var(--cta-bg);color:var(--cta-tx)">Agendar 30 minutos →</span><span class="mono" style="color:var(--tx3);font-size:20px">cal.com/oryzz/30min</span></div>
       </div>
       <div class="s5"><ol class="n">
-        <li style="margin-top:0"><strong>Eyebrow</strong> en mono: sitúa (sección, dato, fecha).</li>
+        <li style="margin-top:0"><strong>Etiqueta</strong> en tipo frase (Manrope 600): sitúa (sección, dato, fecha).</li>
         <li><strong>Titular</strong> en Space Grotesk: 2–3 líneas, un solo fragmento en azul.</li>
         <li><strong>Bajada</strong> en Manrope, Grafito 200 / 600: una idea que amplía el titular.</li>
         <li><strong>Un CTA</strong> y, como mucho, una URL en mono.</li>
@@ -933,7 +934,7 @@ def cap_tipo():
       </div>
       <div class="s6"><table class="t"><tr><th>Soporte</th><th>Mínimo</th><th>Lectura</th></tr>
         <tr><td>Pantalla (web, app)</td><td class="m">14 px</td><td class="m">16 px</td></tr>
-        <tr><td>Eyebrow mono</td><td class="m">12 px</td><td class="m">—</td></tr>
+        <tr><td>Etiqueta (eyebrow)</td><td class="m">14 px</td><td class="m">—</td></tr>
         <tr><td>Impreso</td><td class="m">9 pt</td><td class="m">9,5–11 pt</td></tr>
         <tr><td>Slides 1920×1080</td><td class="m">24 px</td><td class="m">≥ 36 px</td></tr>
         <tr><td>Redes 1080 px</td><td class="m">24 px</td><td class="m">32 px</td></tr>
@@ -982,10 +983,10 @@ def cap_sistema():
     D = E + '04_Diagramas/SVG_contornos/'
     body = head('Diagramas', 'El método, <span class="az">dibujado</span>')
     body += f"""<div class="g mt3" style="row-gap:20px">
-      <div class="s8"><div class="fig" style="height:520px"><img src="{uri(D + 'oryzz-diagrama-01_canales-sistema-cliente_oscuro_contornos.svg')}"></div><div class="cap">01 · Canales → sistema → cliente</div></div>
+      <div class="s8"><div class="fig" style="height:520px"><img src="{uri(D + 'oryzz-diagrama-01_canales-sistema-cliente_oscuro_contornos.svg')}"></div><div class="cap">Canales → sistema → cliente</div></div>
       <div class="s4" style="display:flex;flex-direction:column;gap:20px">
-        <div><div class="fig" style="height:220px"><img src="{uri(D + 'oryzz-diagrama-03_valoracion-30min_oscuro_contornos.svg')}"></div><div class="cap">03 · Valoración de 30 min</div></div>
-        <div><div class="fig" style="height:220px"><img src="{uri(D + 'oryzz-diagrama-06_geo-ia_oscuro_contornos.svg')}"></div><div class="cap">06 · GEO</div></div>
+        <div><div class="fig" style="height:220px"><img src="{uri(D + 'oryzz-diagrama-03_valoracion-30min_oscuro_contornos.svg')}"></div><div class="cap">Valoración de 30 min</div></div>
+        <div><div class="fig" style="height:220px"><img src="{uri(D + 'oryzz-diagrama-06_geo-ia_oscuro_contornos.svg')}"></div><div class="cap">GEO</div></div>
       </div>
     </div><p class="mt2" style="font-size:21px">Seis diagramas en oscuro y claro (canales, embudo-órbita, valoración, prueba inicial, flujo Tap, GEO). Las cifras son de ejemplo y lo dicen. Usa <code>SVG_contornos</code> para incrustar sin depender de fuentes.</p>"""
     pg(body, 'oscuro', toc='Diagramas')
@@ -998,7 +999,7 @@ def cap_sistema():
     <div class="g mt2">
       <div class="s6"><img src="{uri(K + 'graficos/oryzz-grafico-barras_oscuro_contornos.svg')}" style="width:100%;display:block;max-height:300px;object-fit:contain;object-position:left"></div>
       <div class="s6"><div style="display:flex;flex-wrap:wrap;gap:14px">{''.join(f'<img src="{uri(K + "chips/oryzz-chip_" + c + "_oscuro_contornos.svg")}" style="height:52px">' for c in ('en-marcha', 'nuevo-lead', 'ejemplo', 'pausado', 'meta-ads', 'google-ads', 'geo'))}</div>
-      <p class="mt2" style="font-size:22px">Superficie Grafito 850, borde 1 px Grafito 700, radio 14 px. Eyebrow mono, cifra Space Grotesk 500, delta en lima. Chip «Ejemplo» cuando el dato no es real.</p></div>
+      <p class="mt2" style="font-size:22px">Superficie Grafito 850, borde 1 px Grafito 700, radio 14 px. Etiqueta en Manrope 600 y tipo frase, cifra Space Grotesk 500, delta en lima. Chip «Ejemplo» cuando el dato no es real.</p></div>
     </div>"""
     pg(body, 'oscuro', toc='Tarjetas dato')
 
@@ -1026,8 +1027,8 @@ def cap_sistema():
 
     body = head('Componentes UI', 'La web, <span class="az">en piezas</span>')
     body += f"""<div class="g mt3 grow">
-      <div class="s8"><div class="fig" style="height:700px"><img src="{prep('11_Web_y_Codigo/componentes/componentes_preview.png', 1440, crop=(1440, 1000), name='componentes_top')}" style="object-position:top"></div></div>
-      <div class="s4"><ul class="l"><li>Botones primario y secundario en los dos temas.</li><li>Tarjetas, chips, eyebrows y formularios con el contraste corregido.</li><li>Tokens en CSS, SCSS, JSON y Tailwind v4.</li></ul>
+      <div class="s8"><div class="fig" style="height:680px"><img src="{prep('11_Web_y_Codigo/componentes/componentes_preview.png', 1440, crop=(1440, 1000), name='componentes_top')}" style="object-position:top"></div></div>
+      <div class="s4"><ul class="l"><li>Botones primario y secundario en los dos temas.</li><li>Tarjetas, chips, etiquetas y formularios con el contraste corregido.</li><li>Tokens en CSS, SCSS, JSON y Tailwind v4.</li></ul>
       <p class="mt2" style="font-size:22px"><code>11_Web_y_Codigo/componentes/componentes.html</code> y <code>oryzz-ui.css</code>.</p></div>
     </div>"""
     pg(body, 'oscuro', toc='Componentes UI')
@@ -1071,7 +1072,7 @@ def cap_foto():
     body += f"""<div class="g mt3 grow">
       <div class="s6"><ol class="n">
         <li style="margin-top:0;font-size:23px"><strong>Velo Grafito 950 al 55–70 %</strong>: más denso del lado del texto. Un solo color en opacidad, no un degradado de colores.</li>
-        <li style="font-size:23px"><strong>Texto</strong> blanco (titular) y Grafito 200 (bajada). Eyebrow en mono.</li>
+        <li style="font-size:23px"><strong>Texto</strong> blanco (titular) y Grafito 200 (bajada). Etiqueta en Manrope 600, tipo frase.</li>
         <li style="font-size:23px"><strong>Órbita</strong> blanca al 30–40 %, trazo 2 px, que abraza al sujeto sin tocar cara ni manos, con un nodo lima.</li>
         <li style="font-size:23px"><strong>Logo</strong> <code>color-sobre-oscuro</code> solo con velo; si no, <code>mono-blanco</code>.</li>
         <li style="font-size:23px"><strong>CTA</strong> primario oscuro (gradiente + texto grafito).</li>
@@ -1115,15 +1116,16 @@ def cap_motion():
     pg(body, 'oscuro', toc='Principios de motion')
 
     body = head('Vídeo y edición', 'Reels, anuncios <span class="az">y presentaciones en vídeo</span>', 'Las mismas reglas del sistema, llevadas a la línea de tiempo.')
-    body += f"""<div class="g mt3">
+    body += f"""<div class="g mt2">
       <div class="s4 rule"><div class="kick">Apertura y cierre</div><p>Intro oficial del logo (≤ 3 s) solo al principio o al final. En reels de menos de 20 s, solo al cierre.</p></div>
-      <div class="s4 rule"><div class="kick">Rótulos</div><p>Eyebrow en mono + titular en Space Grotesk, alineados a la izquierda dentro de la zona segura. Un fragmento en azul.</p></div>
-      <div class="s4 rule"><div class="kick">Subtítulos</div><p>Manrope Bold, blanco sobre caja Grafito 950 al 70 %, máximo 2 líneas, ≥ 48 px en 1080×1920.</p></div>
+      <div class="s4 rule"><div class="kick">Rótulos</div><p>Etiqueta en tipo frase (Manrope 600) + titular en Space Grotesk, alineados a la izquierda dentro de la zona segura. Un fragmento en azul.</p></div>
+      <div class="s4 rule"><div class="kick">Subtítulos</div><p>Sin caja: Manrope Bold blanco con sombra difusa Grafito 950 (contorno o velo, solo si el fondo lo exige). Destacado en Azul 400. Máx. 2 líneas, ≥ 48 px.</p></div>
       <div class="s4 rule"><div class="kick">Cortes</div><p>Cortes secos o fundidos de 160–280 ms. Nada de transiciones de plantilla (cubos, zoom-blur, destellos).</p></div>
       <div class="s4 rule"><div class="kick">Color</div><p>Graduación fría y neutra (como la fotografía). Ningún LUT cálido ni teal-orange.</p></div>
       <div class="s4 rule"><div class="kick">Datos en pantalla</div><p>Tarjetas dato de <code>05_Componentes_Dato</code>, con «Ejemplo» si no son reales. Un solo lima.</p></div>
     </div>
-    <p class="mt3" style="font-size:22px">Zonas seguras para 9:16: <code>09_Redes_Sociales/Stories/_guia_zonas_seguras.png</code> y <code>Otros/_guias/reel_tiktok_portada_GUIA_zonas_seguras.png</code>.</p>"""
+    <p class="mt2" style="font-size:22px">Zonas seguras para 9:16: <code>09_Redes_Sociales/Stories/_guia_zonas_seguras.png</code> y <code>Otros/_guias/reel_tiktok_portada_GUIA_zonas_seguras.png</code>.</p>
+    <p style="font-size:22px;margin-top:6px">Dirección completa de edición (hooks, subtítulos, animaciones de datos, sonido y control de calidad): skill <code>editor-oryzz</code> del repo <code>Oryzz-COL/Editor</code>.</p>"""
     pg(body, 'oscuro', toc='Vídeo y edición')
 
 
@@ -1209,9 +1211,9 @@ def cap_aplicaciones():
         <li style="margin-top:0">Enlaza <code>tokens.css</code> antes de los estilos y marca el tema: <code>data-tema="oscuro"</code> (Oryzz) o <code>"claro"</code> (Tap).</li>
         <li>Logo y favicon siempre desde <code>02_Logos</code> (SVG). Nunca texto vivo.</li>
         <li>Botón principal: gradiente + texto grafito, sin sombra. Un CTA por bloque.</li>
-        <li>Texto mínimo 14 px; eyebrows en JetBrains Mono.</li>
+        <li>Texto mínimo 14 px; etiquetas en Manrope 600, tipo frase.</li>
         <li>Iconos monocromos del set propio; fuera halos animados.</li></ol>
-        <p class="mt2" style="font-size:21px">Plan completo de migración en el capítulo 12 y en <code>12_Auditoria_y_Mejoras</code>.</p></div>
+        <p class="mt2" style="font-size:21px">Plan completo de migración en el capítulo «Checklists» y en <code>12_Auditoria_y_Mejoras</code>.</p></div>
     </div>"""
     pg(body, 'oscuro', toc='Web')
 
@@ -1262,7 +1264,7 @@ def cap_aplicaciones():
     tiles = ''.join(f'<div class="s4"><div class="fig" style="aspect-ratio:16/9"><img src="{prep(P + d + "/" + s + ".png", 760, fmt="jpg", name=d + s)}"></div></div>' for d, s in sl)
     body = f"""<div style="display:flex;align-items:baseline"><div class="eyebrow">Presentaciones · PowerPoint</div><div class="eyebrow" style="margin-left:auto">06_Presentaciones</div></div>
     <div class="g mt2" style="row-gap:20px">{tiles}</div>
-    <div class="g mt3"><div class="s4 rule"><div class="kick g3">Plantillas</div><p style="font-size:22px">Oscura y clara: 28 diseños en el patrón y 25 diapositivas de ejemplo cada una.</p></div>
+    <div class="g mt2"><div class="s4 rule"><div class="kick g3">Plantillas</div><p style="font-size:22px">Oscura y clara: 28 diseños en el patrón y 25 diapositivas de ejemplo cada una.</p></div>
     <div class="s4 rule"><div class="kick g3">Deck comercial</div><p style="font-size:22px">15 diapositivas para una clínica ficticia. Precios y plazos de ejemplo: revísalos.</p></div>
     <div class="s4 rule"><div class="kick g3">Oryzz Tap</div><p style="font-size:22px">11 diapositivas con placa y stand dibujados como planos.</p></div></div>"""
     pg(body, 'oscuro', toc='Presentaciones')
@@ -1348,7 +1350,7 @@ def cap_check():
              ('Color', 'Nada de violeta, magenta, neón ni gradientes de tres colores.'),
              ('Luz', 'Sin manchas difusas, esferas brillantes, auroras ni glassmorphism. Máximo un halo ≤ 20 %.'),
              ('Iconos', 'Del set propio, monocromos. Sin emojis, cohetes, bombillas, cerebros ni robots.'),
-             ('Texto', 'Copy real, sin lorem ipsum. Tuteo, frases cortas, sin palabras prohibidas.'),
+             ('Texto', 'Copy real, sin lorem ipsum. Tuteo, frases cortas, sin palabras prohibidas. Etiquetas en tipo frase, sin numeraciones.'),
              ('Datos', 'Cifras con unidad y fuente; si no son reales, «Ejemplo» o {{dato}}.'),
              ('Composición', 'Asimétrica, alineada a la retícula, con aire. No todo centrado ni en tarjetas iguales.'),
              ('Tamaños', '≥ 14 px pantalla · ≥ 9 pt impreso · ≥ 36 px lectura en slides.'),
@@ -1363,7 +1365,7 @@ def cap_check():
              ('Fase 2', 'Semanas 2–3', 'Migración del sistema', ['tokens.css y fuentes en ambas webs.', '91 HEX sueltos de Tap → tokens.', 'Iconos monocromos; fuera halos y bucles.']),
              ('Fase 3', 'Semanas 3–4', 'Contenido y metadatos', ['og-images, JSON-LD con logo cuadrado.', 'CTA único, «Primeros datos en 3–7 días».', 'Composición asimétrica.']),
              ('Fase 4', 'Semanas 4–6', 'Fuera de la web', ['Documentos, redes y email con el kit v2.', 'Retirar la plantilla navy/Montserrat.', 'Reimprimir placas y stands Tap.'])]
-    cols = ''.join(f'<div class="card" style="display:flex;flex-direction:column"><div class="kick">{a} · {b}</div><h4>{c}</h4><ul class="l mt1">{"".join(f"<li style=font-size:21px>{x}</li>" for x in xs)}</ul></div>' for a, b, c, xs in fases)
+    cols = ''.join(f'<div class="card" style="display:flex;flex-direction:column"><div class="kick">{b}</div><h4>{c}</h4><ul class="l mt1">{"".join(f"<li style=font-size:21px>{x}</li>" for x in xs)}</ul></div>' for a, b, c, xs in fases)
     body = head('Plan de migración', 'De la v1 a la v2 <span class="az">en 4–6 semanas</span>', 'Resumen de la auditoría de marca (nota de partida 4,3/10). Checklist detallado por canal en <code>12_Auditoria_y_Mejoras/Auditoria_de_Marca.md</code>.')
     body += f'<div class="mt3" style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px">{cols}</div>'
     pg(body, 'claro', toc='Plan de migración')
@@ -1446,7 +1448,7 @@ def construir():
     i = PAGES.index('__INDICE__')
     CAP['n'] = ''
     PAGES[i] = (f'<section class="page oscuro"><div class="in">{indice(starts)}</div>'
-                f'<footer><img class="fiso" src="{uri("02_Logos/04_Isotipo/SVG_tamano_pequeno/oryzz-isotipo-small_mono-blanco.svg")}"><span>Guía de marca {VERSION}</span><span class="fcap">Oryzz · Guía de marca</span><span class="fnum">{i + 1:03d}</span></footer></section>')
+                f'<footer><img class="fiso" src="{uri("02_Logos/04_Isotipo/SVG_tamano_pequeno/oryzz-isotipo-small_mono-blanco.svg")}"><span>Guía de marca {VERSION}</span><span class="fcap">Oryzz · Guía de marca</span><span class="fnum">{i + 1}</span></footer></section>')
     brand = (MAESTRA / 'brand.css').resolve().as_uri()
     doc = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Oryzz · Guía de marca {VERSION}</title>'
            f'<link rel="stylesheet" href="{brand}"><style>{CSS}</style></head><body>{"".join(PAGES)}{SCRIPT}</body></html>')

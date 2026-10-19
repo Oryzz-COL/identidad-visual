@@ -188,7 +188,6 @@ def write_scss():
   @if $f == "display" { font-family: $font-display; } @else if $f == "mono" { font-family: $font-mono; } @else { font-family: $font-texto; }
   font-size: map.get($t, size); line-height: map.get($t, line);
   letter-spacing: map.get($t, tracking); font-weight: map.get($t, weight);
-  @if $paso == "eyebrow" { text-transform: uppercase; }
 }
 ''')
     open(os.path.join(OUT, 'tokens.scss'), 'w', encoding='utf8').write('\n'.join(L))
@@ -209,7 +208,7 @@ def write_tailwind():
 //   // tailwind.config.js
 //   module.exports = {{ presets: [require('./tailwind.preset.js')], content: ['./src/**/*.html'] }}
 //   Clases: bg-grafito-950 text-azul-600 font-display text-h1 rounded-lg bg-grad-ia-oscuro
-//   Radios: xs 6 · sm 10 · md 14 · lg 20 · xl 28 · full · app (22,5 %). Eyebrow: text-eyebrow font-mono uppercase
+//   Radios: xs 6 · sm 10 · md 14 · lg 20 · xl 28 · full · app (22,5 %). Eyebrow: text-eyebrow font-texto (Manrope 600, tipo frase, sin tracking)
 //           y semánticas (dependen de tokens.css): bg-fondo text-texto border-borde text-enlace
 //
 // ── Tailwind v4 (oryzz.com/tap usa v4) ──────────────────────────────────────
@@ -250,7 +249,7 @@ module.exports = {{
 """
     open(os.path.join(OUT, 'tailwind.preset.js'), 'w', encoding='utf8').write(js)
 
-    th = [f'/* {HEAD}', ' * Tailwind v4: @import "tailwindcss"; @import "./tailwind-v4.css";', ' * Genera bg-grafito-950, text-azul-600, font-display, text-h1, rounded-lg, bg-fondo… (eyebrow: text-eyebrow font-mono uppercase) */', '@theme {',
+    th = [f'/* {HEAD}', ' * Tailwind v4: @import "tailwindcss"; @import "./tailwind-v4.css";', ' * Genera bg-grafito-950, text-azul-600, font-display, text-h1, rounded-lg, bg-fondo… (eyebrow: text-eyebrow font-texto, Manrope 600 en tipo frase) */', '@theme {',
           '  --color-*: initial;  /* borra la paleta por defecto de Tailwind: solo colores de marca */',
           '  --color-white: #FFFFFF;', '  --color-transparent: transparent;', '  --color-current: currentColor;']
     for g, scale in C.items():

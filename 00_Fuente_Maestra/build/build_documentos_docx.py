@@ -35,7 +35,7 @@ def propuesta():
                 [('Preparado para', '{{Cliente · Ciudad}}'), ('Fecha', '{{dd mmm aaaa}}'), ('Versión', 'v1.0'), ('Contacto', 'Juan Salazar\n{{juan@oryzz.com}}')])
     running_header(s, 'Propuesta · {{Cliente}}', 'oryzz.com · Propuesta válida 30 días')
 
-    eyebrow(doc, 'Contexto', '01')
+    eyebrow(doc, 'Contexto')
     h(doc, '{{Titular de contexto: una idea, máximo 2 líneas.}}')
     P(doc, '{{Quién es el cliente, cuánto tiempo lleva, tamaño del equipo y cómo llegan hoy sus clientes.}}', 'Entradilla')
     P(doc, '{{Lo que nos contó en la reunión: qué funciona, qué no, qué ha probado ya.}}')
@@ -53,7 +53,7 @@ def propuesta():
                 ('Coste por cliente', '≤ {{00}}', '€', 'objetivo de referencia, no garantía')])
     page_break(doc)
 
-    eyebrow(doc, 'Diagnóstico', '02')
+    eyebrow(doc, 'Diagnóstico')
     h(doc, 'El problema no es que no te vean. Es que no te [[contactan]].')
     P(doc, 'Revisamos tu presencia digital el {{fecha}}. Resumen por canal; el detalle está en el informe de diagnóstico.', 'Entradilla')
     tabla(doc, ['Canal', 'Qué encontramos', 'Estado'], [
@@ -68,7 +68,7 @@ def propuesta():
     nota(doc, 'Conclusión', '{{Dos frases: qué tiene el negocio a favor y qué falta para captar.}}')
     page_break(doc)
 
-    eyebrow(doc, 'Estrategia', '03')
+    eyebrow(doc, 'Estrategia')
     h(doc, 'Un sistema de captación, no acciones sueltas.')
     P(doc, 'Tres piezas conectadas: la demanda entra por anuncios y Google, un asistente la atiende al momento y tu equipo solo recibe citas confirmadas.', 'Entradilla')
     t = maqueta(doc, 3)
@@ -82,7 +82,7 @@ def propuesta():
     P(doc, 'Lo que no haremos: {{acciones que quedan fuera del plan y por qué}}.', 'Nota')
     page_break(doc)
 
-    eyebrow(doc, 'Plan 30-60-90', '04')
+    eyebrow(doc, 'Plan 30-60-90')
     h(doc, 'Primero validamos. Después escalamos lo que funciona.')
     t = maqueta(doc, 3)
     for i, (d, tit, items) in enumerate([('Días 1–30', 'Montar y validar', ['Medición: píxel, etiqueta de Google y conversiones.', 'Landing de {{servicio}}.', 'Asistente de WhatsApp revisado por tu equipo.', 'Campañas de prueba con presupuesto contenido.']),
@@ -101,7 +101,7 @@ def propuesta():
     ], [45, 95, 30], right_cols=(2,))
     page_break(doc)
 
-    eyebrow(doc, 'Inversión', '05')
+    eyebrow(doc, 'Inversión')
     h(doc, 'Honorarios claros. Los anuncios, aparte.')
     P(doc, 'Separamos lo que cobra Oryzz de lo que se invierte en anuncios. El presupuesto de anuncios lo pagas directamente a Meta y Google: nunca pasa por nosotros.', 'Entradilla')
     h(doc, 'Honorarios Oryzz', 2)
@@ -117,14 +117,14 @@ def propuesta():
     P(doc, 'Recomendado para validar: **{{000–000 €}} al mes**, repartido entre {{Google Ads (≈ 60 %) y Meta Ads (≈ 40 %)}}. Se paga directamente a las plataformas. Oryzz no aplica comisión sobre la inversión en anuncios.')
     page_break(doc)
 
-    eyebrow(doc, 'Próximos pasos', '06')
+    eyebrow(doc, 'Próximos pasos')
     h(doc, 'Si encaja, empezamos la semana que viene.')
     bullets(doc, ['**Confirmación.** Respondes a este documento o lo firmas abajo.',
                   '**Brief de arranque (45 min).** Servicios, precios orientativos, horarios y tono.',
                   '**Accesos.** Meta, Google Ads, Google Business Profile y web.',
                   '**Día 14.** Sistema en marcha.', '**Día 30.** Reunión de validación con datos reales.'], numbered=True)
     nota(doc, 'Si no encajamos, te lo decimos', 'Si a los 30 días los datos dicen que tu caso no puede captar al coste objetivo, te lo diremos y te recomendaremos parar la inversión en anuncios.')
-    eyebrow(doc, 'Condiciones', '07')
+    eyebrow(doc, 'Condiciones')
     h(doc, 'Sin permanencia', 3)
     P(doc, 'Servicio mensual sin compromiso de duración. Puedes cancelar con 30 días de preaviso por escrito. Las cuentas publicitarias, los píxeles y los datos son siempre tuyos.')
     h(doc, 'Sin resultados garantizados', 3)
@@ -144,7 +144,7 @@ def diagnostico():
                 'Revisión de Meta, Google, SEO local, reseñas y visibilidad en asistentes de IA, con prioridades ordenadas por impacto.',
                 [('Preparado para', '{{Cliente · Ciudad}}'), ('Fecha', '{{dd mmm aaaa}}'), ('Revisión', '{{fechas}}'), ('Responsable', 'Juan Salazar\nEstrategia & Ads')])
     running_header(s, 'Diagnóstico digital · {{Cliente}}', 'oryzz.com · Confidencial')
-    eyebrow(doc, 'Resumen', '01')
+    eyebrow(doc, 'Resumen')
     h(doc, '{{Titular: el cuello de botella en una frase.}}')
     P(doc, '{{Tres frases: qué tiene a favor el negocio, dónde se pierde la oportunidad y qué haríamos primero.}}', 'Entradilla')
     P(doc, 'Revisamos cada canal con el mismo criterio: **¿acerca este canal un cliente nuevo, y podemos medirlo?** Cada canal recibe una puntuación de 0 a 10 y un estado: ● Crítico · ● Mejorable · ● Correcto.')
@@ -156,10 +156,9 @@ def diagnostico():
     guia(doc, 'semáforo sobrio: solo el punto ● va en color (Rojo #E5484D, Ámbar #F2A33A, Verde #1F9D55); el texto queda en grafito.')
     datos(doc, [('Respuesta media', '{{00}}', 'h', 'a mensajes (muestra de {{00}})'), ('Formulario', '{{0}}', 'campos', 'para pedir cita'), ('Valoración Google', '{{4,8}}', '/ 5', '{{000}} reseñas')])
     page_break(doc)
-    eyebrow(doc, 'Hallazgos por canal', '02')
+    eyebrow(doc, 'Hallazgos por canal')
     h(doc, '{{Titular de la sección de hallazgos.}}')
     for n, canal in enumerate(['Meta Ads', 'Google Ads', 'SEO local', 'Reseñas', 'Web y conversión', 'GEO'], start=1):
-        p = eyebrow(doc, f'Canal {n:02d}')
         h(doc, f'{canal}  ·  ● {{{{Estado}}}}  ·  {{{{0}}}}/10', 2)
         h(doc, 'Qué encontramos', 3)
         bullets(doc, ['{{Hallazgo con cifra y fuente}}', '{{Hallazgo con cifra y fuente}}', '{{Hallazgo con cifra y fuente}}'])
@@ -171,13 +170,13 @@ def diagnostico():
                 ['«{{Mejor clínica de … en …}}»', 'No aparece', 'Mención', 'No aparece'],
                 ['«{{Pregunta 2}}»', 'No aparece', 'No aparece', 'Mención']], [80, 30, 30, 30])
     page_break(doc)
-    eyebrow(doc, 'Prioridades', '03')
+    eyebrow(doc, 'Prioridades')
     h(doc, 'Qué haríamos primero, y por qué.')
     P(doc, 'Ordenado por impacto en clientes nuevos y por el esfuerzo que requiere.', 'Entradilla')
-    tabla(doc, ['#', 'Acción', 'Impacto', 'Esfuerzo', 'Plazo'], [
-        ['01', '**{{Acción}}** | {{Por qué}}', 'Alto', 'Bajo', 'Semana 1'], ['02', '**{{Acción}}** | {{Por qué}}', 'Alto', 'Medio', 'Semana 2'],
-        ['03', '**{{Acción}}** | {{Por qué}}', 'Alto', 'Medio', 'Semana 2–3'], ['04', '**{{Acción}}**', 'Medio', 'Bajo', 'Semana 3'],
-        ['05', '**{{Acción}}**', 'Medio', 'Medio', 'Mes 2']], [12, 88, 22, 22, 26], right_cols=(4,))
+    tabla(doc, ['Acción', 'Impacto', 'Esfuerzo', 'Plazo'], [
+        ['**{{Acción}}** | {{Por qué}}', 'Alto', 'Bajo', 'Semana 1'], ['**{{Acción}}** | {{Por qué}}', 'Alto', 'Medio', 'Semana 2'],
+        ['**{{Acción}}** | {{Por qué}}', 'Alto', 'Medio', 'Semana 2–3'], ['**{{Acción}}**', 'Medio', 'Bajo', 'Semana 3'],
+        ['**{{Acción}}**', 'Medio', 'Medio', 'Mes 2']], [100, 22, 22, 26], right_cols=(3,))
     h(doc, 'Metodología', 3)
     P(doc, 'Revisión manual de cuentas con acceso de lectura (últimos 90 días), PageSpeed Insights, cuadrícula de posiciones en Google Maps y consultas a asistentes de IA desde sesión sin historial. Los datos son una foto del periodo indicado.', 'Nota')
     nota(doc, 'Siguiente paso', '30 minutos para repasar el informe. Sales con un plan, no con un presupuesto cerrado. **cal.com/oryzz/30min**')
@@ -192,7 +191,7 @@ def mensual():
                 'Qué ha pasado este mes en la captación de {{Cliente}}, qué ha funcionado, qué hemos cambiado y qué haremos el mes que viene.',
                 [('Cliente', '{{Cliente · Ciudad}}'), ('Periodo', '{{1–31 mmm}}'), ('Entrega', '{{dd mmm aaaa}}'), ('Equipo', 'Juan Salazar · Ads\nDavid Morales · Automatización')])
     running_header(s, 'Informe mensual · {{Mes aaaa}} · {{Cliente}}')
-    eyebrow(doc, 'Resumen del mes', '01')
+    eyebrow(doc, 'Resumen del mes')
     h(doc, '{{Titular: el resultado del mes en una frase.}}')
     datos(doc, [('Citas', '{{00}}', '', '{{±0 %}} vs mes anterior'), ('€ por cita', '{{0,00}}', '€', '{{±0 %}} vs mes anterior'), ('Solicitudes', '{{000}}', '', '{{00 %}} acaban en cita'), ('Asistencia', '{{00}}', '%', '{{00 de 00}} acudieron')])
     h(doc, 'Citas agendadas por mes', 3)
@@ -203,7 +202,7 @@ def mensual():
     h(doc, 'Lectura', 3)
     P(doc, '{{Dos o tres frases que expliquen el porqué de los números, no solo el qué.}}')
     page_break(doc)
-    eyebrow(doc, 'Resultados por canal', '02')
+    eyebrow(doc, 'Resultados por canal')
     h(doc, '{{Titular: qué canal hace qué.}}')
     tabla(doc, ['Canal', 'Inversión', 'Solicitudes', 'Citas', '€ / cita', 'vs mes ant.'], [
         ['**Meta Ads** | Instagram y Facebook', '{{000,00 €}}', '{{00}}', '{{00}}', '{{00,00 €}}', '{{−0 %}}'],
@@ -220,15 +219,15 @@ def mensual():
     P(doc, '')
     guia(doc, 'barras horizontales en un solo tono (Azul IA). Línea de 2 pt en Azul IA y objetivo en discontinua Grafito 500. Nunca dos ejes Y.')
     page_break(doc)
-    eyebrow(doc, 'Aprendizajes y cambios', '03')
+    eyebrow(doc, 'Aprendizajes y cambios')
     h(doc, 'Lo que funcionó, lo que cambiamos y lo que viene.')
     t = maqueta(doc, 2)
     for i, (ey, items) in enumerate([('Qué funcionó', ['{{Aprendizaje 1}}', '{{Aprendizaje 2}}', '{{Aprendizaje 3}}']), ('Qué cambiamos', ['{{Cambio 1}}', '{{Cambio 2}}', '{{Cambio 3}}'])]):
         c = t.rows[0].cells[i]; c.paragraphs[0].style = doc.styles['Eyebrow']; add_text(c.paragraphs[0], ey)
         for k, it in enumerate(items, 1):
-            P(c, f'{k:02d}  {it}', 'Heading 3'); P(c, '{{Qué pasó, con cifra.}}')
+            P(c, it, 'Heading 3'); P(c, '{{Qué pasó, con cifra.}}')
     P(doc, '')
-    eyebrow(doc, 'Siguiente mes', '04')
+    eyebrow(doc, 'Siguiente mes')
     tabla(doc, ['Acción', 'Responsable', 'Fecha'], [['{{Acción}}', '{{Oryzz / Cliente}}', '{{dd mmm}}'], ['{{Acción}}', '{{Oryzz}}', '{{dd mmm}}'], ['{{Acción}}', '{{Cliente + Oryzz}}', '{{dd mmm}}']], [100, 45, 25], right_cols=(2,))
     datos(doc, [('Presupuesto anuncios', '{{1.280}}', '€', 'Propuesto para {{mes}}. Pendiente de tu aprobación.')])
     return save(doc, os.path.join(OUT, '03_Informe_Mensual', 'Oryzz_Informe-Mensual_PLANTILLA.docx'))
@@ -240,8 +239,8 @@ def caso():
     s = doc.sections[0]
     running_header(s, 'Caso de estudio · {{Cliente}}', 'oryzz.com · Caso con datos de {{ejemplo / cliente real aprobado}}')
     p = eyebrow(doc, 'Caso de estudio · {{Sector}} · {{Ciudad}}')
-    p = P(doc, 'EJEMPLO', 'Aviso legal')
-    guia(doc, 'mientras las cifras no estén aprobadas por el cliente, mantén la etiqueta «EJEMPLO» y el pie «datos de ejemplo».')
+    p = P(doc, 'Ejemplo', 'Aviso legal')
+    guia(doc, 'mientras las cifras no estén aprobadas por el cliente, mantén la etiqueta «Ejemplo» y el pie «datos de ejemplo».')
     h(doc, 'De {{11 horas}} a [[{{4 minutos}}]] para {{responder a una clase de prueba}}.')
     P(doc, '{{Una frase: qué negocio, qué problema y qué sistema montamos.}}', 'Entradilla')
     datos(doc, [('{{Métrica 1}}', '{{00 → 00}}', '', '{{en 90 días}}'), ('{{Métrica 2}}', '{{38}}', '€', '{{frente a 95 € al inicio}}'), ('{{Métrica 3}}', '+{{23}}', '/mes', '{{detalle}}')])
@@ -255,9 +254,9 @@ def caso():
     P(c, '{{Situación antes: cifras de partida y qué se había probado.}}')
     P(c, 'Qué hicimos', 'Heading 2')
     for it in ['**{{Pieza 1}}:** {{qué y por qué}}', '**{{Pieza 2}}:** {{qué y por qué}}', '**{{Pieza 3}}:** {{qué y por qué}}']:
-        P(c, it, 'List Number')
+        P(c, it, 'List Bullet')
     page_break(doc)
-    eyebrow(doc, 'Resultados', '02')
+    eyebrow(doc, 'Resultados')
     h(doc, '{{Titular del resultado.}}')
     tabla(doc, ['Métrica', 'Antes', 'Después', 'Cambio'], [['{{Métrica}}', '{{0}}', '{{0}}', '{{±0 %}}']] * 5, [80, 30, 30, 30], right_cols=(1, 2, 3))
     P(doc, 'Fuente de cada cifra: {{CRM, Meta Ads Manager, Google Ads}} · Periodo: {{fechas exactas}}.', 'Nota')
@@ -288,7 +287,7 @@ def _fiscal(tipo, numero, metas, filas, totales, notas, cliente_lbl, archivo):
         from docx.enum.text import WD_TAB_ALIGNMENT
         _tab.add_tab_stop(Mm(68), WD_TAB_ALIGNMENT.RIGHT)
         r = p.add_run(k)
-        _set_fonts(r._r.get_or_add_rPr(), MONO); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
+        _set_fonts(r._r.get_or_add_rPr(), TEXTO_SEMI); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
         p.add_run('\t'); add_text(p, v)
     P(doc, '')
     t = maqueta(doc, 2)
@@ -297,7 +296,7 @@ def _fiscal(tipo, numero, metas, filas, totales, notas, cliente_lbl, archivo):
         c = t.rows[0].cells[i]; c.paragraphs[0].style = doc.styles['Eyebrow']; add_text(c.paragraphs[0], ey)
         P(c, txt)
     P(doc, '')
-    tabla(doc, ['#', 'Concepto', 'Cant.', 'Precio', 'Importe'], filas, [10, 94, 16, 25, 25], right_cols=(2, 3, 4))
+    tabla(doc, ['Concepto', 'Cant.', 'Precio', 'Importe'], filas, [104, 16, 25, 25], right_cols=(1, 2, 3))
     t = maqueta(doc, 2, [80, 90])
     c = t.rows[0].cells[0]; c.paragraphs[0].style = doc.styles['Eyebrow']; add_text(c.paragraphs[0], notas[0]); P(c, notas[1], 'Nota')
     c = t.rows[0].cells[1]
@@ -317,10 +316,10 @@ def _fiscal(tipo, numero, metas, filas, totales, notas, cliente_lbl, archivo):
 def presupuesto():
     doc = _fiscal('Presupuesto', '{{PRE-2026-000}}',
                   [('Fecha', '{{dd/mm/aaaa}}'), ('Válido hasta', '{{dd/mm/aaaa}}'), ('Referencia', '{{Propuesta v1.0}}'), ('Contacto', '{{juan@oryzz.com}}')],
-                  [['01', '**Puesta en marcha del sistema** | Pago único', '1', '{{000,00 €}}', '{{000,00 €}}'],
-                   ['02', '**Gestión de campañas Meta Ads y Google Ads** | Cuota mensual', '1', '{{000,00 €}}', '{{000,00 €}}'],
-                   ['03', '**Automatización e IA** | Cuota mensual', '1', '{{000,00 €}}', '{{000,00 €}}'],
-                   ['04', '**Informe mensual y reunión de seguimiento**', '1', '0,00 €', 'Incluido']],
+                  [['**Puesta en marcha del sistema** | Pago único', '1', '{{000,00 €}}', '{{000,00 €}}'],
+                   ['**Gestión de campañas Meta Ads y Google Ads** | Cuota mensual', '1', '{{000,00 €}}', '{{000,00 €}}'],
+                   ['**Automatización e IA** | Cuota mensual', '1', '{{000,00 €}}', '{{000,00 €}}'],
+                   ['**Informe mensual y reunión de seguimiento**', '1', '0,00 €', 'Incluido']],
                   [('Base imponible', '{{0.000,00 €}}'), ('IVA (21 %)', '{{000,00 €}}'), ('Total', '{{0.000,00 €}}')],
                   ('No incluido', 'Presupuesto de anuncios ({{000–000 €}}/mes), que se paga directamente a Meta y Google. Oryzz no aplica comisión sobre la inversión en anuncios.'),
                   'Cliente', None)
@@ -335,9 +334,9 @@ def presupuesto():
 def factura():
     doc = _fiscal('Factura', '{{2026-0000}}',
                   [('Emisión', '{{dd/mm/aaaa}}'), ('Vencimiento', '{{dd/mm/aaaa}}'), ('Periodo', '{{Mes aaaa}}'), ('Presupuesto', '{{PRE-2026-000}}')],
-                  [['01', '**Gestión de campañas Meta Ads y Google Ads** | Cuota mensual · {{mes aaaa}}', '1', '{{000,00 €}}', '{{000,00 €}}'],
-                   ['02', '**Automatización e IA** | Cuota mensual · {{mes aaaa}}', '1', '{{000,00 €}}', '{{000,00 €}}'],
-                   ['03', '**Informe mensual y reunión de seguimiento**', '1', '0,00 €', 'Incluido']],
+                  [['**Gestión de campañas Meta Ads y Google Ads** | Cuota mensual · {{mes aaaa}}', '1', '{{000,00 €}}', '{{000,00 €}}'],
+                   ['**Automatización e IA** | Cuota mensual · {{mes aaaa}}', '1', '{{000,00 €}}', '{{000,00 €}}'],
+                   ['**Informe mensual y reunión de seguimiento**', '1', '0,00 €', 'Incluido']],
                   [('Base imponible', '{{000,00 €}}'), ('IVA (21 %)', '{{000,00 €}}'), ('Retención IRPF (solo si aplica)', '{{0,00 €}}'), ('Total a pagar', '{{000,00 €}}')],
                   ('Nota', 'La inversión en anuncios la facturan directamente Meta Platforms Ireland Ltd. y Google Ireland Ltd. y no forma parte de esta factura.'),
                   'Facturar a', None)
@@ -401,10 +400,12 @@ def brief():
                 [('Negocio', '{{Nombre del negocio}}'), ('Fecha', '{{dd/mm/aaaa}}'), ('Rellena', '{{Nombre}}'), ('Devolver a', '{{juan@oryzz.com}}')], oscura=False)
     running_header(s, 'Brief de cliente · Onboarding', 'oryzz.com · Confidencial')
 
-    def preg(n, q, ayuda=None, lineas=2, ops=None):
-        p = P(doc, f'{n}   **{q}**'); p.paragraph_format.space_before = Pt(8); p.paragraph_format.space_after = Pt(1)
+    def preg(q, ayuda=None, lineas=2, ops=None):
+        # Sin número de pregunta (BRAND_SPEC §4): un nodo azul en la sangría francesa.
+        p = P(doc, f'●\t**{q}**'); p.paragraph_format.space_before = Pt(8); p.paragraph_format.space_after = Pt(1)
         p.paragraph_format.keep_with_next = True
-        p.runs[0].font.color.rgb = RGBColor.from_string(AZ600); _set_fonts(p.runs[0]._r.get_or_add_rPr(), MONO); p.runs[0].font.size = Pt(9)
+        p.paragraph_format.left_indent = Mm(9); p.paragraph_format.first_line_indent = -Mm(9)
+        p.runs[0].font.color.rgb = RGBColor.from_string(AZ600); p.runs[0].font.size = Pt(7)
         if ayuda:
             a = P(doc, ayuda, 'Nota'); a.paragraph_format.left_indent = Mm(9); a.paragraph_format.keep_with_next = True
         if ops:
@@ -413,25 +414,25 @@ def brief():
             P(doc, '', 'Línea de respuesta')
 
     secciones = [
-        ('Tu negocio', '01', [('1.1', 'Nombre comercial y razón social', None, 1, None), ('1.2', 'Dirección del local o locales', None, 2, None),
-                              ('1.3', 'Web y redes sociales', 'Enlaces completos.', 2, None),
-                              ('1.4', 'Sector', None, 0, ['Clínica / salud', 'Estética', 'Fitness', 'Hostelería', 'Servicios profesionales', 'Otro']),
-                              ('1.5', 'Horario de atención', '¿Quién atiende teléfono y WhatsApp, y cuándo?', 1, None),
-                              ('1.6', 'Capacidad libre', '¿Cuántos clientes nuevos al mes podrías atender sin contratar a nadie?', 1, None)]),
-        ('Clientes y oferta', '02', [('2.1', 'Servicios que quieres vender más', 'Máximo tres, por orden de prioridad, con precio o precio «desde».', 3, None),
-                                     ('2.2', 'Valor medio de un cliente nuevo', 'Primera compra y, si lo sabes, lo que gasta en un año.', 1, None),
-                                     ('2.3', '¿Quién es tu cliente ideal?', 'Edad, zona, qué le preocupa, por qué te elige.', 2, None),
-                                     ('2.4', 'Tres competidores que conozcas', None, 1, None)]),
-        ('Captación actual', '03', [('3.1', '¿De dónde llegan hoy tus clientes nuevos?', 'Porcentaje aproximado: recomendación · Google · Instagram/Facebook · otros.', 2, None),
-                                    ('3.2', '¿Has hecho publicidad antes?', None, 0, ['Meta Ads', 'Google Ads', 'TikTok Ads', 'Otra agencia', 'Nunca']),
-                                    ('3.3', '¿Qué funcionó y qué no?', None, 2, None),
-                                    ('3.4', '¿Cuántas solicitudes recibes al mes y cuántas se convierten en cliente?', None, 1, None)]),
-        ('Objetivos y presupuesto', '04', [('4.1', '¿Qué resultado haría que esto mereciera la pena en 90 días?', 'En clientes, citas o euros; no en seguidores.', 2, None),
-                                           ('4.2', 'Presupuesto mensual para anuncios', 'Se paga aparte, directamente a Meta y Google.', 0, ['< 500 €', '500–1.000 €', '1.000–2.500 €', '> 2.500 €']),
-                                           ('4.3', '¿Hay temporadas fuertes o flojas?', None, 1, None)]),
+        ('Tu negocio', [('Nombre comercial y razón social', None, 1, None), ('Dirección del local o locales', None, 2, None),
+                              ('Web y redes sociales', 'Enlaces completos.', 2, None),
+                              ('Sector', None, 0, ['Clínica / salud', 'Estética', 'Fitness', 'Hostelería', 'Servicios profesionales', 'Otro']),
+                              ('Horario de atención', '¿Quién atiende teléfono y WhatsApp, y cuándo?', 1, None),
+                              ('Capacidad libre', '¿Cuántos clientes nuevos al mes podrías atender sin contratar a nadie?', 1, None)]),
+        ('Clientes y oferta', [('Servicios que quieres vender más', 'Máximo tres, por orden de prioridad, con precio o precio «desde».', 3, None),
+                                     ('Valor medio de un cliente nuevo', 'Primera compra y, si lo sabes, lo que gasta en un año.', 1, None),
+                                     ('¿Quién es tu cliente ideal?', 'Edad, zona, qué le preocupa, por qué te elige.', 2, None),
+                                     ('Tres competidores que conozcas', None, 1, None)]),
+        ('Captación actual', [('¿De dónde llegan hoy tus clientes nuevos?', 'Porcentaje aproximado: recomendación · Google · Instagram/Facebook · otros.', 2, None),
+                                    ('¿Has hecho publicidad antes?', None, 0, ['Meta Ads', 'Google Ads', 'TikTok Ads', 'Otra agencia', 'Nunca']),
+                                    ('¿Qué funcionó y qué no?', None, 2, None),
+                                    ('¿Cuántas solicitudes recibes al mes y cuántas se convierten en cliente?', None, 1, None)]),
+        ('Objetivos y presupuesto', [('¿Qué resultado haría que esto mereciera la pena en 90 días?', 'En clientes, citas o euros; no en seguidores.', 2, None),
+                                           ('Presupuesto mensual para anuncios', 'Se paga aparte, directamente a Meta y Google.', 0, ['< 500 €', '500–1.000 €', '1.000–2.500 €', '> 2.500 €']),
+                                           ('¿Hay temporadas fuertes o flojas?', None, 1, None)]),
     ]
-    for i, (tit, n, qs) in enumerate(secciones):
-        eyebrow(doc, tit, n)
+    for i, (tit, qs) in enumerate(secciones):
+        eyebrow(doc, tit)
         if i == 0:
             h(doc, 'Empecemos por lo básico.')
         for q in qs:
@@ -440,7 +441,7 @@ def brief():
             page_break(doc)
         else:
             P(doc, '')
-    eyebrow(doc, 'Accesos', '05')
+    eyebrow(doc, 'Accesos')
     h(doc, 'Las cuentas siempre son tuyas. Nosotros entramos como colaboradores.')
     tabla(doc, ['Plataforma', 'Qué necesitamos', 'Lo tengo', 'Ayuda'], [
         ['**Meta Business Suite**', 'Acceso de socio a la página, Instagram y cuenta publicitaria', '☐', '☐'],
@@ -449,11 +450,11 @@ def brief():
         ['**Web**', 'Usuario de editor o contacto de quien la mantiene', '☐', '☐'],
         ['**WhatsApp Business**', 'Número que usarás para el asistente', '☐', '☐'],
         ['**Agenda / CRM**', 'Herramienta de citas que usáis hoy', '☐', '☐']], [45, 85, 20, 20])
-    eyebrow(doc, 'Tono y marca', '06')
-    preg('6.1', '¿Cómo habláis con los clientes?', None, 0, ['De tú', 'De usted', 'Depende'])
-    preg('6.2', 'Cosas que nunca diríais en un anuncio', None, 2)
-    preg('6.3', 'Material disponible', None, 0, ['Logo', 'Fotos del local', 'Fotos del equipo', 'Vídeos', 'Reseñas destacadas'])
-    preg('6.4', '¿Algo más que debamos saber?', None, 2)
+    eyebrow(doc, 'Tono y marca')
+    preg('¿Cómo habláis con los clientes?', None, 0, ['De tú', 'De usted', 'Depende'])
+    preg('Cosas que nunca diríais en un anuncio', None, 2)
+    preg('Material disponible', None, 0, ['Logo', 'Fotos del local', 'Fotos del equipo', 'Vídeos', 'Reseñas destacadas'])
+    preg('¿Algo más que debamos saber?', None, 2)
     return save(doc, os.path.join(OUT, '07_Brief_Onboarding', 'Oryzz_Brief-Onboarding_PLANTILLA.docx'))
 
 
@@ -465,7 +466,7 @@ def onepager_servicios():
     anchor_image(p.add_run(), res('fondo-onepager-oscuro.png'), 210, 297)
     p.add_run().add_picture(res('logo-horizontal-oscuro.png'), width=Mm(32))
     from oryzz_docx import _tab_right
-    _tab_right(p); r = p.add_run('\toryzz.com'); _set_fonts(r._r.get_or_add_rPr(), MONO); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G400)
+    _tab_right(p); r = p.add_run('\toryzz.com'); _set_fonts(r._r.get_or_add_rPr(), TEXTO_SEMI); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G400)
     e = eyebrow(doc, 'Captación de clientes con IA para pymes'); e.paragraph_format.space_before = Pt(64)
     for r in e.runs: r.font.color.rgb = RGBColor.from_string(G400)
     t = P(doc, 'Más clientes.\n[[No más likes.]]', 'Title', color='FFFFFF'); t.paragraph_format.space_after = Pt(10)
@@ -476,7 +477,7 @@ def onepager_servicios():
     for r in e.runs: r.font.color.rgb = RGBColor.from_string(G400)
     tb = doc.add_table(rows=4, cols=3); tb.style = doc.styles['Tabla Oryzz']
     from oryzz_docx import _tbl_look, _widths
-    _tbl_look(tb, False, False); _widths(tb, [20, 60, 90])
+    _tbl_look(tb, False, False); _widths(tb, [7, 63, 100])
     tblpr = tb._tbl.tblPr
     tblpr.append(parse_xml(f'<w:tblBorders {nsdecls("w")}><w:top w:val="single" w:sz="4" w:color="{G700}"/><w:bottom w:val="single" w:sz="4" w:color="{G700}"/><w:insideH w:val="single" w:sz="4" w:color="{G700}"/></w:tblBorders>'))
     for i, (tit, txt) in enumerate([('Meta, Google y TikTok Ads', 'Campañas optimizadas a mensajes, llamadas y formularios. Creatividades con tu negocio real.'),
@@ -485,7 +486,7 @@ def onepager_servicios():
                                     ('GEO', 'Posicionamiento en ChatGPT, Gemini y Perplexity para cuando tu cliente pregunta a una IA.')]):
         a, b, c = tb.rows[i].cells
         for cc in (a, b, c): cc.paragraphs[0].style = doc.styles['Texto de tabla']
-        add_text(a.paragraphs[0], f'{i + 1:02d}', color=G400, font=MONO, size=9)
+        add_text(a.paragraphs[0], '●', color=AZ400, size=8)  # nodo, sin número
         add_text(b.paragraphs[0], tit, color='FFFFFF', font=DISPLAY, bold=True, size=11.5)
         add_text(c.paragraphs[0], txt, color=G200)
     P(doc, '')
@@ -505,7 +506,7 @@ def onepager_tap():
     anchor_image(p.add_run(), res('tap-stand.png'), 80, 110, 116, 42, behind=False)
     p.add_run().add_picture(res('logo-tap-claro.png'), width=Mm(44))
     from oryzz_docx import _tab_right
-    _tab_right(p); r = p.add_run('\toryzz.com/tap'); _set_fonts(r._r.get_or_add_rPr(), MONO); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
+    _tab_right(p); r = p.add_run('\toryzz.com/tap'); _set_fonts(r._r.get_or_add_rPr(), TEXTO_SEMI); r.font.size = Pt(9); r.font.color.rgb = RGBColor.from_string(G500)
     e = eyebrow(doc, 'Placas y stands NFC + QR'); e.paragraph_format.space_before = Pt(60)
     t = P(doc, 'Tu negocio.\n[[A un toque.]]', 'Title'); t.paragraph_format.right_indent = Mm(80)
     P(doc, 'Tus clientes acercan el teléfono y ocurre: dejan una reseña en Google, te escriben por WhatsApp o te siguen. Sin apps, sin buscarte.', 'Subtitle').paragraph_format.right_indent = Mm(82)
@@ -516,7 +517,7 @@ def onepager_tap():
                                     ('Se abre tu página', 'Directo a dejar la reseña, a tu WhatsApp o a tu perfil.'),
                                     ('Lo cambias cuando quieras', 'El destino de la placa se edita sin reimprimir nada.')]):
         c = tt.rows[0].cells[i]
-        c.paragraphs[0].style = doc.styles['Pie Oryzz']; add_text(c.paragraphs[0], f'{i + 1:02d}', color=AZ600)
+        c.paragraphs[0].style = doc.styles['Pie Oryzz']  # el filete superior marca el paso; sin número (BRAND_SPEC §4)
         _pborder(c.paragraphs[0]._p.get_or_add_pPr(), 'top', 8, G950, 6)
         P(c, tit, 'Heading 3'); P(c, txt, color=G600)
     P(doc, '')
@@ -550,6 +551,10 @@ CLAUSULAS = [
 ]
 
 
+ORDINALES = ['Primera', 'Segunda', 'Tercera', 'Cuarta', 'Quinta', 'Sexta', 'Séptima', 'Octava', 'Novena', 'Décima',
+             'Undécima', 'Duodécima', 'Decimotercera', 'Decimocuarta', 'Decimoquinta']
+
+
 def contrato():
     doc = new_doc()
     s = portada(doc, 'Contrato de prestación de servicios', 'Servicios de captación de clientes y automatización.',
@@ -557,13 +562,13 @@ def contrato():
                 [('Cliente', '{{Razón social del cliente}}'), ('Fecha', '{{dd/mm/aaaa}}'), ('Referencia', '{{CT-2026-000}}'), ('Prestador', '{{Razón social}} (Oryzz)')],
                 oscura=False, etiqueta='Texto a revisar por asesor legal')
     running_header(s, 'Contrato de servicios · Maqueta', 'oryzz.com · Borrador · Texto a revisar por asesor legal')
-    P(doc, 'BORRADOR · Todas las cláusulas están pendientes de revisión jurídica. No firmar sin validación.', 'Aviso legal')
+    P(doc, 'Borrador · Todas las cláusulas están pendientes de revisión jurídica. No firmar sin validación.', 'Aviso legal')
     eyebrow(doc, 'Reunidos')
     P(doc, 'De una parte, **{{Razón social}}**, con NIF {{B00000000}} y domicilio en {{Dirección fiscal}}, representada por {{Nombre y cargo}} (en adelante, «Oryzz»).')
     P(doc, 'De otra parte, **{{Razón social del cliente}}**, con NIF {{00000000X}} y domicilio en {{Dirección fiscal}}, representada por {{Nombre y cargo}} (en adelante, «el Cliente»).')
     P(doc, 'Ambas partes se reconocen capacidad para contratar y acuerdan las siguientes cláusulas.')
     for i, (tit, txt) in enumerate(CLAUSULAS, 1):
-        p = h(doc, f'{i:02d}   {tit}', 2)
+        p = h(doc, f'{ORDINALES[i - 1]}. {tit}', 2)
         P(doc, 'Texto a revisar por asesor legal', 'Aviso legal')
         P(doc, txt)
     h(doc, 'Anexos', 3)

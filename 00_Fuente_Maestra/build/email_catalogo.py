@@ -32,10 +32,16 @@ def _wrap(c, text, font, size, width):
     return lines
 
 
-def _eb(c, x, y, text, col=G500, node=LIMA6):
-    c.setFillColor(node); c.circle(x + 3, y + 3.2, 3, stroke=0, fill=1)
-    c.setFillColor(col); c.setFont('JB', 9)
-    c.drawString(x + 14, y, ' '.join(text.upper()) if False else text.upper())
+def _eb(c, x, y, text, col=G500, node=LIMA6, size=12):
+    """Etiqueta en tipo frase (Manrope 600, sin mayúsculas ni tracking) con nodo delante (BRAND_SPEC §4)."""
+    c.setFillColor(node); c.circle(x + 3, y + size * 0.33, 3, stroke=0, fill=1)
+    c.setFillColor(col); c.setFont('MRS', size)
+    c.drawString(x + 14, y, text)
+
+
+def _rotulo(c, x, y, text, col=G500, size=11):
+    """Rótulo de campo en tipo frase, Manrope 600."""
+    c.setFont('MRS', size); c.setFillColor(col); c.drawString(x, y, text)
 
 
 def _img(c, path, x, ytop, w):
@@ -67,21 +73,21 @@ def construir(out, meta, root):
     c.setFillColor(LIMA); c.circle(W - 40 - 300 * 0.5736 - 0, 120 + 300 * 0.8192, 7, stroke=0, fill=1)
     logo = out / 'assets' / 'oryzz-logo_sobre-oscuro.png'
     c.drawImage(ImageReader(str(logo)), 96, H - 150, 224 * 0.75, 55.5 * 0.75, mask='auto')
-    _eb(c, 96, H - 330, '08 · Email · v2.0 · septiembre 2026', col=G400, node=LIMA)
+    _eb(c, 96, H - 330, 'Sistema de email · v2.0 · septiembre 2026', col=G400, node=LIMA, size=14)
     c.setFillColor('#FFFFFF'); c.setFont('SG', 64)
     c.drawString(92, H - 410, 'Sistema de email')
     c.setFont('MR', 20); c.setFillColor(G200)
     c.drawString(96, H - 452, 'Plantillas HTML, firmas y previsualizaciones en escritorio, móvil y modo oscuro.')
     # índice
     y = H - 540
-    c.setFont('JB', 10); c.setFillColor(G400); c.drawString(96, y, 'ÍNDICE'); y -= 26
+    _rotulo(c, 96, y, 'Índice', col=G400, size=13); y -= 26
     for i, n in enumerate(nombres, 1):
         m = meta.get(n, {})
-        c.setFont('JB', 11); c.setFillColor('#9FB8FF'); c.drawString(96, y, '%02d' % (i + 2))
+        c.setFillColor('#5C8BFF'); c.circle(100, y + 4, 2.5, stroke=0, fill=1)
         c.setFont('MRS', 13); c.setFillColor('#FFFFFF'); c.drawString(130, y, n + '.html')
         c.setFont('MR', 12); c.setFillColor(G400); c.drawString(420, y, (m.get('descripcion') or '')[:95])
         y -= 22
-    c.setFont('JB', 11); c.setFillColor('#9FB8FF'); c.drawString(96, y, '%02d' % (len(nombres) + 3))
+    c.setFillColor('#5C8BFF'); c.circle(100, y + 4, 2.5, stroke=0, fill=1)
     c.setFont('MRS', 13); c.setFillColor('#FFFFFF'); c.drawString(130, y, 'firmas/')
     c.setFont('MR', 12); c.setFillColor(G400); c.drawString(420, y, 'Juan Salazar, David Morales y Oryzz Tap · completa y compacta')
     c.setFont('MR', 11); c.setFillColor(G500)
@@ -92,7 +98,7 @@ def construir(out, meta, root):
     W, H = 1280, 900
     c.setPageSize((W, H))
     c.setFillColor(G50); c.rect(0, 0, W, H, stroke=0, fill=1)
-    _eb(c, 96, H - 110, 'Cómo está hecho')
+    _eb(c, 96, H - 110, 'Cómo está hecho', size=14)
     c.setFillColor(G950); c.setFont('SG', 40); c.drawString(94, H - 170, 'Un sistema, tres tipos de correo.')
     cols = [
         ('Marca', 'Newsletter, confirmaciones, bienvenida, informe y propuesta. Cabecera Grafito 950 con logo sólido, '
@@ -115,7 +121,7 @@ def construir(out, meta, root):
              'Modo oscuro: Apple Mail, iOS, Outlook.com (clases o-t1, o-bd…)', 'Fuentes web con alternativa Arial · texto mínimo 14 px',
              'Preheader oculto · alt en todas las imágenes · versión .txt', 'Enlace de baja {{baja_url}} en correos comerciales']
     y = H - 540
-    c.setFont('JB', 10); c.setFillColor(G500); c.drawString(96, y, 'ESPECIFICACIONES'); y -= 28
+    _rotulo(c, 96, y, 'Especificaciones', size=13); y -= 28
     for i, s_ in enumerate(specs):
         cx = 96 + (i % 2) * 560
         cy = y - (i // 2) * 30
@@ -141,33 +147,33 @@ def construir(out, meta, root):
         c.setPageSize((W, H))
         c.setFillColor(G50); c.rect(0, 0, W, H, stroke=0, fill=1)
         # columna info
-        _eb(c, 60, H - 70, '%02d · %s' % (i + 2, m.get('tipo', '')))
+        _eb(c, 60, H - 70, m.get('tipo', ''), size=13)
         c.setFillColor(G950); c.setFont('SG', 26)
         yy = H - 108
         for ln in _wrap(c, n.split('_', 1)[1].replace('_', ' ').capitalize(), 'SG', 26, 280):
             c.drawString(60, yy, ln); yy -= 30
         c.setFont('JB', 10); c.setFillColor(G500); c.drawString(60, yy - 4, n + '.html'); yy -= 34
-        for lab, val in [('ASUNTO', m.get('asunto', '')), ('PREHEADER', m.get('preheader') or '— (correo 1 a 1)'),
-                         ('USO', m.get('descripcion', ''))]:
-            c.setFont('JB', 9); c.setFillColor(G500); c.drawString(60, yy, lab); yy -= 17
+        for lab, val in [('Asunto', m.get('asunto', '')), ('Preheader', m.get('preheader') or '— (correo 1 a 1)'),
+                         ('Uso', m.get('descripcion', ''))]:
+            _rotulo(c, 60, yy, lab); yy -= 17
             c.setFont('MR', 12.5); c.setFillColor(G950)
             for ln in _wrap(c, val, 'MR', 12.5, 280):
                 c.drawString(60, yy, ln); yy -= 17
             yy -= 14
         mk = m.get('marcadores') or []
         if mk:
-            c.setFont('JB', 9); c.setFillColor(G500); c.drawString(60, yy, 'MARCADORES'); yy -= 16
+            _rotulo(c, 60, yy, 'Marcadores'); yy -= 16
             c.setFont('JB', 9.5); c.setFillColor(G600)
             for ln in _wrap(c, '  '.join('{{%s}}' % k for k in mk), 'JB', 9.5, 280):
                 c.drawString(60, yy, ln); yy -= 14
         # imágenes
         x = 60 + 280 + 40
         ytop = H - 70
-        for lab, path, w in [('ESCRITORIO · 600 PX', d, 664 * PT), ('MÓVIL · 375 PX', mo, 375 * PT * 0.9),
-                             ('MODO OSCURO · APPLE MAIL', dk, 664 * PT * 0.6)]:
+        for lab, path, w in [('Escritorio · 600 px', d, 664 * PT), ('Móvil · 375 px', mo, 375 * PT * 0.9),
+                             ('Modo oscuro · Apple Mail', dk, 664 * PT * 0.6)]:
             if not path.exists():
                 continue
-            c.setFont('JB', 9); c.setFillColor(G500); c.drawString(x, ytop + 12, lab)
+            _rotulo(c, x, ytop + 12, lab)
             _img(c, path, x, ytop, w)
             x += w + 36
         c.showPage()
@@ -180,7 +186,7 @@ def construir(out, meta, root):
         W, H = 920 * PT + 120, ih + 150
         c.setPageSize((W, H))
         c.setFillColor(G50); c.rect(0, 0, W, H, stroke=0, fill=1)
-        _eb(c, 60, H - 60, '%02d · Firmas' % (len(nombres) + 3))
+        _eb(c, 60, H - 60, 'Firmas', size=13)
         c.setFillColor(G950); c.setFont('SG', 26); c.drawString(60, H - 96, 'Firmas de correo')
         _img(c, fp, 60, H - 120, 920 * PT)
         c.showPage()

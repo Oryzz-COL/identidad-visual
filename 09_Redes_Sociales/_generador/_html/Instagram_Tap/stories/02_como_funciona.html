@@ -11,8 +11,9 @@
 .ondas { color: var(--acento); display: flex; }
 .pasos3 { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 90px; }
 .p3 { display: flex; align-items: center; gap: 18px; }
-.p3 .n { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-mono); font-size: 20px; color: var(--tx3); flex: none; background: var(--bg); }
-.p3:last-child .n { background: var(--nodo); border-color: var(--nodo); color: #fff; font-weight: 700; }
+.p3 .n { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--orb-fuerte); display: grid; place-items: center; flex: none; background: var(--bg); }
+.p3:last-child .n { border-color: var(--nodo); }
+.p3:last-child .nodo-paso { background: var(--nodo); width: 20px; height: 20px; }
 .p3 p { font-size: 32px; line-height: 1.35; color: var(--tx); font-weight: 600; }
 </style>
 </head>
@@ -51,7 +52,7 @@
 </div>
   </div>
   <div class="pasos3">
-<div class="p3"><span class="n">1</span><p data-fit="22">Acerca el móvil o escanea el QR</p></div><div class="p3"><span class="n">2</span><p data-fit="22">Se abre tu página de reseñas</p></div><div class="p3"><span class="n">3</span><p data-fit="22">Elige las estrellas y publica</p></div>  </div>
+<div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Acerca el móvil o escanea el QR</p></div><div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Se abre tu página de reseñas</p></div><div class="p3"><span class="n"><i class="nodo-paso"></i></span><p data-fit="22">Elige las estrellas y publica</p></div>  </div>
 </div>
     </main>
 <footer class="pie">

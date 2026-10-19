@@ -103,6 +103,7 @@ def lamina(meta):
               '10': ('Si no encajamos,<br>te lo <em>decimos</em>.', 'Valoración 30 min'),
               '11': ('Propuesta de<br><em>captación</em>', 'Documento · 2026'),
               '12': ('Informe<br>mensual', 'Clínica dental · Ejemplo')}
+    RECETA = {'orbita': 'Órbita', 'rutas': 'Rutas', 'reticula': 'Retícula', 'nodos': 'Nodos'}
     cards = ''
     for m in meta:
         pw, ph = m['px']; zx, zy, zw, zh = m['zona_texto_pct']
@@ -111,13 +112,13 @@ def lamina(meta):
         cards += (f'<figure class="f{m["formato"]}{" r2" if m["id"] == "04" else ""} {"d" if dark else "l"}"><div class="art" style="aspect-ratio:{pw}/{ph}">'
                   f'<img src="PNG/{m["archivo"]}.png">'
                   f'<div class="z" style="left:{zx}%;top:{zy}%;width:{zw}%;height:{zh}%"><span class="eb">{e}</span><b>{t}</b></div></div>'
-                  f'<figcaption><span>{m["id"]}</span>{m["receta"]} · {m["tema"]} · {m["formato"].replace("x", ":")}</figcaption></figure>')
+                  f'<figcaption><span>fondo-{m["id"]}</span>{RECETA[m["receta"]]} · {m["tema"]} · {m["formato"].replace("x", ":")}</figcaption></figure>')
     page = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Fondos Oryzz</title>
 <link rel="stylesheet" href="../../00_Fuente_Maestra/brand.css"><style>
 @page{{size:1920px 2000px;margin:0}} *{{box-sizing:border-box}}
 html,body{{margin:0;background:var(--grafito-900);color:#fff;font-family:var(--font-texto)}}
 body{{width:1920px;height:2000px;padding:112px 120px;overflow:hidden}}
-.t-eyebrow{{color:var(--grafito-400)}}
+.t-eyebrow{{font-size:24px;color:var(--grafito-400);margin:0}}
 h1{{font-family:var(--font-display);font-size:72px;letter-spacing:-.04em;line-height:1;margin:20px 0 16px}}
 p.lead{{color:var(--grafito-200);font-size:20px;max-width:980px;margin:0 0 56px;line-height:1.5}}
 .grid{{display:grid;grid-template-columns:repeat(24,1fr);gap:48px 32px;align-items:end}}
@@ -126,19 +127,19 @@ figure{{margin:0}} figure.f16x9{{grid-column:span 8}} figure.f4x5{{grid-column:s
 .art img{{position:absolute;inset:0;width:100%;height:100%}}
 .z{{position:absolute;outline:1px dashed rgba(92,139,255,.7);display:flex;flex-direction:column;gap:8px;padding:6% 5%;justify-content:flex-start}}
 .z b{{font-family:var(--font-display);font-weight:700;letter-spacing:-.035em;line-height:1.02;font-size:4.6cqw}}
-.z .eb{{font-family:var(--font-mono);font-size:max(11px,1.5cqw);letter-spacing:.16em;text-transform:uppercase}}
+.z .eb{{font-family:var(--font-texto);font-weight:600;font-size:max(12px,1.9cqw);letter-spacing:0}}
 .d .z b{{color:#fff}} .d .z b em{{font-style:normal;color:var(--azul-400)}} .d .eb{{color:var(--grafito-400)}}
 .l .z b{{color:var(--grafito-950)}} .l .z b em{{font-style:normal;color:var(--azul-500)}} .l .eb{{color:var(--grafito-500)}}
 .f9x16 .z b,.fA4 .z b{{font-size:9cqw}} .f4x5 .z b{{font-size:7.5cqw}}
-figcaption{{font-family:var(--font-mono);font-size:14px;color:var(--grafito-400);margin-top:14px;letter-spacing:.04em}}
-figcaption span{{color:#fff;margin-right:10px}}
-.note{{position:absolute;left:120px;bottom:72px;font-family:var(--font-mono);font-size:14px;color:var(--grafito-500);letter-spacing:.06em}}
+figcaption{{font-family:var(--font-texto);font-weight:500;font-size:16px;color:var(--grafito-400);margin-top:14px;white-space:nowrap}}
+figcaption span{{font-family:var(--font-mono);font-size:14px;color:#fff;margin-right:10px}}
+.note{{position:absolute;left:120px;bottom:72px;font-family:var(--font-texto);font-weight:500;font-size:20px;color:var(--grafito-500)}}
 </style></head><body>
-<p class="t-eyebrow">Oryzz · 05 · Elementos gráficos · 03 Fondos</p>
+<p class="t-eyebrow">Elementos gráficos de Oryzz</p>
 <h1>Fondos de marca</h1>
 <p class="lead">Doce fondos listos en 16:9, 4:5, 9:16 y A4. La línea discontinua marca la zona de texto recomendada (en fondos.json). El nodo lima queda siempre fuera de ella y es el único acento de la pieza.</p>
 <div class="grid">{cards}</div>
-<div class="note">LÍNEA DISCONTINUA = ZONA DE TEXTO · NO SE EXPORTA CON EL FONDO</div>
+<div class="note">La línea discontinua marca la zona de texto y no se exporta con el fondo.</div>
 </body></html>'''
     hp = os.path.join(OUT, 'fondos-lamina.html'); write(hp, page)
     html_to_png(hp, os.path.join(OUT, 'fondos-lamina.png'), 1920, 2000)

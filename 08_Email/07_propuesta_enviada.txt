@@ -2,11 +2,12 @@ ASUNTO: Tu propuesta de captación para {{negocio}}
 PREHEADER: Qué haríamos, en cuánto tiempo y cuánto cuesta. En una página y sin letra pequeña.
 ================================================================
 
-ORYZZ · Propuesta
+Oryzz · Propuesta
 
 Propuesta · válida hasta el {{fecha_validez}}
 
-TU PLAN PARA CONSEGUIR MÁS CITAS, EN UNA PÁGINA.
+Tu plan para conseguir más citas, en una página.
+================================================
 
 Hola, {{nombre}}. Gracias por la llamada del {{fecha_llamada}}. Como quedamos, aquí tienes la propuesta para {{negocio}}. Te resumo lo importante:
 

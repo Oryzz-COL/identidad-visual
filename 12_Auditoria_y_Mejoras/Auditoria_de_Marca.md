@@ -4,7 +4,7 @@
 
 Fuente del PDF `Oryzz_Auditoria_de_Marca.pdf`. Evidencias en `evidencias/`. Generado con `00_Fuente_Maestra/build/auditoria_pdf.py` desde `auditoria_datos.py`.
 
-## 1. Resumen ejecutivo
+## Resumen ejecutivo
 
 Nota global: **4,3 / 10**.
 
@@ -22,14 +22,14 @@ Nota global: **4,3 / 10**.
 | 125 | valores HEX sueltos (34 en la home + 91 en Tap) |
 | ~30 % | de los textos por debajo de 14 px |
 
-## 2. Puntuación por área
+## Puntuación por área
 
 | Área | Nota | Por qué |
 |---|---|---|
 | Idea y plataforma | 7/10 | Claim claro, sin humo, orientado a clientes y euros. Concepto órbita/nodo aprovechable. |
 | Logo | 3/10 | Texto vivo, redibujos, versión con estrellas en Tap, nodo que se empasta. |
 | Color | 5/10 | La paleta de oryzz.com es buena; se rompe en Tap y en documentos, y hay 91 HEX sueltos en Tap. |
-| Tipografía | 4/10 | Cinco familias en uso para dos funciones; eyebrow sin la mono de sistema. |
+| Tipografía | 4/10 | Cinco familias en uso para dos funciones; eyebrows en mayúsculas espaciadas. |
 | Accesibilidad | 3/10 | CTA a 1,88:1, grises a 3,1:1, ~30 % del texto < 14 px. |
 | Iconografía y recursos | 3/10 | Iconos multicolor de terceros, halos animados, sombras de color. |
 | Voz y copy | 6/10 | Tono directo y honesto; se contradice en «Resultados en 3–7 días» y en la barra promocional de Tap. |
@@ -38,7 +38,7 @@ Nota global: **4,3 / 10**.
 | Código y mantenibilidad | 5/10 | 88 estilos en línea, fuentes duplicadas y código de /tap desincronizado. |
 | **Media** | **4,3** | |
 
-## 3. Hallazgos priorizados
+## Hallazgos priorizados
 
 | ID | Prioridad | Área | Hallazgo |
 |---|---|---|---|
@@ -55,7 +55,7 @@ Nota global: **4,3 / 10**.
 | M2 | Medio | Voz | Emojis y tono promocional en la barra de Tap |
 | M3 | Medio | Tipografía | Frases enteras en gradiente y titulares genéricos |
 | M4 | Medio | Composición | Todo centrado, todo en rejillas iguales |
-| M5 | Medio | Tipografía | Eyebrow sin la mono de sistema |
+| M5 | Medio | Tipografía | Eyebrows en mayúsculas espaciadas |
 | M6 | Medio | Voz | Promesas y CTA que se contradicen |
 | M7 | Medio | SEO y metadatos | og-image, favicon y metadatos con la marca antigua |
 | M8 | Medio | Confianza | Correo gmail como contacto de marca |
@@ -165,7 +165,7 @@ Nota global: **4,3 / 10**.
 
 **Corrección**
 
-- `--text-small:0.875rem` (14 px) como suelo. El eyebrow en JetBrains Mono 12 px es la única excepción y siempre en mayúsculas.
+- `--text-small:0.875rem` (14 px) como suelo, sin excepciones: las etiquetas también van a 14 px, en Manrope 600 y tipo frase.
 
 ### A3 · Siete formas de escribir el nombre
 
@@ -309,7 +309,7 @@ Nota global: **4,3 / 10**.
 
 - Retícula 12 col: titulares alineados a la izquierda en 5–7 columnas, contenido desplazado. Servicios como lista con ruta y nodos (§5.2) en lugar de 6 tarjetas.
 
-### M5 · Eyebrow sin la mono de sistema
+### M5 · Eyebrows en mayúsculas espaciadas
 
 **Prioridad:** Medio · **Área:** Tipografía
 
@@ -318,11 +318,11 @@ Nota global: **4,3 / 10**.
 
 - `.eyebrow{font-family:"Space Grotesk";font-size:12.5px;letter-spacing:.22em}`. JetBrains Mono no se carga en ninguna de las dos webs (fuentes cargadas: Manrope 400–600, Space Grotesk 500–700 · Tap: Outfit, Syne).
 
-**Impacto.** Se pierde el registro «sistema / dato» que distingue a Oryzz sin recurrir a iconos de IA.
+**Impacto.** Las etiquetas en mayúsculas con tracking amplio son el sello más reconocible de una plantilla hecha con IA, justo lo que Oryzz no puede parecer.
 
 **Corrección**
 
-- `.ox-eyebrow`: JetBrains Mono 500, 12 px, +0,16 em, mayúsculas. Cargar `JetBrainsMono-Medium.woff2` (39 KB).
+- `.ox-eyebrow`: Manrope 600, 14 px, tipo frase, sin tracking extra (BRAND_SPEC §4). JetBrains Mono solo para dato técnico (`JetBrainsMono-Medium.woff2`, 39 KB, si hace falta).
 
 ### M6 · Promesas y CTA que se contradicen
 
@@ -482,35 +482,35 @@ Nota global: **4,3 / 10**.
 
 - Mostrar solo con enlace a la fuente (perfil de Google) o retirar.
 
-## 4. Plan de migración por fases
+## Plan de migración por fases
 
-### Fase 0 · Gobernanza (Semana 0–1)
+### Gobernanza (Semana 0–1)
 
 - Localizar el repositorio real de /tap y versionarlo.
 - Nombrar responsable de marca y aprobar `tokens.json` v2 como única fuente.
 - Decidir correo de dominio (`hola@oryzz.com`).
 
-### Fase 1 · Correcciones críticas (Semana 1)
+### Correcciones críticas (Semana 1)
 
 - CTA: texto Grafito 950 sobre gradiente (oscuro) · Azul 600 + blanco (claro).
 - Grises: `#5A6172` fuera de todo texto sobre oscuro.
 - «OryzzTAP» → «Oryzz Tap». Logos y favicon → SVG v2.
 - Tap: quitar emojis y marquesina.
 
-### Fase 2 · Migración del sistema (Semanas 2–3)
+### Migración del sistema (Semanas 2–3)
 
 - `tokens.css` + `fonts/` en ambas webs; Tap a Space Grotesk + Manrope.
 - 91 HEX de Tap → tokens; `bg-canvas` → Grafito 50.
 - Iconografía monocroma; fuera halos, glow y bucles.
-- Texto mínimo 14 px; eyebrow en JetBrains Mono.
+- Texto mínimo 14 px; etiquetas en Manrope 600, tipo frase.
 
-### Fase 3 · Contenido y metadatos (Semanas 3–4)
+### Contenido y metadatos (Semanas 3–4)
 
 - og-images nuevas, logo cuadrado en JSON-LD, `apple-touch-icon`, `theme-color`.
 - CTA único, «Primeros datos en 3–7 días».
 - Composición asimétrica en hero, servicios y FAQ.
 
-### Fase 4 · Fuera de la web (Semanas 4–6)
+### Fuera de la web (Semanas 4–6)
 
 - Documentos: plantillas de `07_Documentos`; retirar skill navy/Montserrat.
 - Redes: avatares `02_Logos/05`, plantillas `09_Redes_Sociales`.
@@ -519,13 +519,13 @@ Nota global: **4,3 / 10**.
 
 | Fase | oryzz.com | oryzz.com/tap | Documentos | Redes | Email |
 |---|---|---|---|---|---|
-| Fase 0 | Congelar cambios de diseño | Recuperar repo real · un solo origen | Inventario de plantillas en uso | Inventario de perfiles y avatares | Decidir hola@oryzz.com |
-| Fase 1 | CTA, grises, nombre, logo SVG, favicon | CTA Azul 600, logo tap v2, sin emojis | — | Avatar v2 en @oryzzai y @oryzztap | Firma con logo sólido PNG |
-| Fase 2 | tokens.css, fuentes, iconos, sin aura | tailwind-v4.css, Space Grotesk/Manrope, 91 HEX → tokens | Plantillas 07 en PDF/Docs | Plantillas 09 para posts y stories | Plantilla transaccional (pedidos Tap) |
-| Fase 3 | og-image, JSON-LD, composición, CTA único | og-image 1200×630, theme-color, cookies claro | Propuesta + informe con datos «Ejemplo» | Portadas destacadas y banner LinkedIn | Newsletter / secuencia de bienvenida |
-| Fase 4 | Revisión WCAG completa | Artes de placas y stands v2 | Retirar skill antigua | Auditoría de la parrilla | Revisión de dominios y DMARC |
+| Gobernanza | Congelar cambios de diseño | Recuperar repo real · un solo origen | Inventario de plantillas en uso | Inventario de perfiles y avatares | Decidir hola@oryzz.com |
+| Correcciones críticas | CTA, grises, nombre, logo SVG, favicon | CTA Azul 600, logo tap v2, sin emojis | — | Avatar v2 en @oryzzai y @oryzztap | Firma con logo sólido PNG |
+| Migración del sistema | tokens.css, fuentes, iconos, sin aura | tailwind-v4.css, Space Grotesk/Manrope, 91 HEX → tokens | Plantillas 07 en PDF/Docs | Plantillas 09 para posts y stories | Plantilla transaccional (pedidos Tap) |
+| Contenido y metadatos | og-image, JSON-LD, composición, CTA único | og-image 1200×630, theme-color, cookies claro | Propuesta + informe con datos «Ejemplo» | Portadas destacadas y banner LinkedIn | Newsletter / secuencia de bienvenida |
+| Fuera de la web | Revisión WCAG completa | Artes de placas y stands v2 | Retirar skill antigua | Auditoría de la parrilla | Revisión de dominios y DMARC |
 
-## 5. Checklist de migración
+## Checklist de migración
 
 ### Gobernanza
 
@@ -543,8 +543,8 @@ Nota global: **4,3 / 10**.
 - [ ] «OryzzTAP» → «Oryzz Tap» (5 apariciones)
 - [ ] Iconos monocromos; fuera `kgMeta`, `kgGem`, `kgIg` y el rojo `#FF7B7B`
 - [ ] `.aura`, `livePulse`, `orbSpin` en hover y glow eliminados
-- [ ] Texto ≥ 14 px (salvo eyebrow mono 12 px)
-- [ ] Eyebrow en JetBrains Mono
+- [ ] Texto ≥ 14 px, también en etiquetas
+- [ ] Etiquetas en Manrope 600, tipo frase, sin mayúsculas espaciadas
 - [ ] og-image nueva y `"logo"` cuadrado en JSON-LD
 - [ ] CTA único «Agendar valoración»; «Primeros datos en 3–7 días»
 - [ ] `fonts/` sustituida (sin duplicados)

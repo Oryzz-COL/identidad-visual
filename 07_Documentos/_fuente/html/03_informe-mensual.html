@@ -13,11 +13,11 @@
   .fig .tit { font-family: var(--font-display); font-weight: 600; font-size: 11pt; letter-spacing: -.01em; margin: 0 0 1mm; }
   .fig .sub { font-size: 9pt; color: var(--grafito-500); margin: 0 0 3mm; }
   svg text { font-family: 'JetBrains Mono', Consolas, monospace; }
+  svg .lab text { font-family: var(--font-texto); font-weight: 600; }  /* rótulos de categoría: Manrope; la mono queda para ejes y cifras */
   .ley { display: flex; gap: 5mm; font-size: 9pt; color: var(--grafito-600); margin: 0 0 2mm; }
   .ley i { display: inline-block; width: 5mm; height: 0; border-top: 0.5mm solid var(--azul-500); vertical-align: middle; margin-right: 1.5mm; }
   .ley i.obj { border-top: 0.35mm dashed var(--grafito-500); }
   .col-cambios h3 { display: flex; gap: 2.5mm; align-items: baseline; }
-  .col-cambios h3 .mono { font-size: 9pt; color: var(--azul-600); font-weight: 500; }
 </style>
 </head>
 <body data-doc="Informe mensual · Agosto 2026 · Centro Estético Lumen" data-pie="oryzz.com · Datos de ejemplo">
@@ -41,7 +41,7 @@
 
 <!-- 01 RESUMEN -->
 <section class="page">
-  <p class="eyebrow"><span class="n">01</span>Resumen del mes</p>
+  <p class="eyebrow">Resumen del mes</p>
   <div class="g"><div class="s5"><h1>Mejor mes desde que empezamos: más citas y más baratas.</h1></div></div>
 
   <div class="kpis mt4">
@@ -92,14 +92,14 @@
 
 <!-- 02 POR CANAL -->
 <section class="page">
-  <p class="eyebrow"><span class="n">02</span>Resultados por canal</p>
+  <p class="eyebrow">Resultados por canal</p>
   <div class="g"><div class="s4"><h1>Meta trae volumen. Google trae las citas más baratas.</h1></div></div>
 
   <table class="t mt4">
     <tr><th>Canal</th><th class="r">Inversión</th><th class="r">Solicitudes</th><th class="r">Citas</th><th class="r">Coste / cita</th><th class="r">vs julio</th></tr>
     <tr><td><strong>Meta Ads</strong><span class="det">Instagram y Facebook · mensajes a WhatsApp</span></td><td class="r">790,00 €</td><td class="r">88</td><td class="r">34</td><td class="r">23,24 €</td><td class="r mono">−6 %</td></tr>
     <tr><td><strong>Google Ads</strong><span class="det">Búsqueda · «depilación láser Sevilla» y similares</span></td><td class="r">387,60 €</td><td class="r">36</td><td class="r">19</td><td class="r">20,40 €</td><td class="r mono">−14 %</td></tr>
-    <tr><td><strong>Google Maps</strong><span class="det">Perfil de empresa · llamadas y rutas</span></td><td class="r">—</td><td class="r">13</td><td class="r">8</td><td class="r">—</td><td class="r mono">+2 citas</td></tr>
+    <tr><td><strong>Google Maps</strong><span class="det">Perfil de empresa · llamadas y rutas</span></td><td class="r">—</td><td class="r">13</td><td class="r">8</td><td class="r">—</td><td class="r num">+2 citas</td></tr>
     <tr><td><strong>Otros</strong><span class="det">Web directa y recomendación registrada</span></td><td class="r">—</td><td class="r">5</td><td class="r">3</td><td class="r">—</td><td class="r mono">=</td></tr>
     <tr class="total"><td>Total</td><td class="r">1.177,60 €</td><td class="r">142</td><td class="r">64</td><td class="r">18,40 €*</td><td class="r"></td></tr>
   </table>
@@ -110,7 +110,7 @@
       <p class="tit">Citas por canal</p>
       <p class="sub">Agosto 2026 · 64 citas</p>
       <svg viewBox="0 0 82 42" width="82mm" height="42mm" role="img" aria-label="Citas por canal: Meta Ads 34, Google Ads 19, Google Maps 8, Otros 3">
-        <g font-size="3.1" fill="#3A4152">
+        <g font-size="3.1" fill="#3A4152" class="lab">
           <text x="0" y="6.8">Meta Ads</text><text x="0" y="16.8">Google Ads</text><text x="0" y="26.8">Google Maps</text><text x="0" y="36.8">Otros</text>
         </g>
         <line x1="24" y1="1" x2="24" y2="41" stroke="#0B0D12" stroke-width="0.3"/>
@@ -149,40 +149,40 @@
 
 <!-- 03 QUÉ FUNCIONÓ / QUÉ CAMBIAMOS / SIGUIENTE MES -->
 <section class="page">
-  <p class="eyebrow"><span class="n">03</span>Aprendizajes y cambios</p>
+  <p class="eyebrow">Aprendizajes y cambios</p>
   <div class="g"><div class="s4"><h1>Lo que funcionó, lo que cambiamos y lo que viene.</h1></div></div>
 
   <div class="g mt4 col-cambios">
     <div class="s3">
       <p class="eyebrow">Qué funcionó</p>
-      <h3 class="mt0"><span class="mono">01</span>Vídeo de la profesional explicando la sesión</h3>
+      <h3 class="mt0">Vídeo de la profesional explicando la sesión</h3>
       <p>El anuncio grabado en cabina, 22 segundos y sin música, trajo el 41 % de las solicitudes de Meta con el coste por mensaje más bajo del mes (4,10 €).</p>
-      <h3><span class="mono">02</span>Precio visible desde el primer mensaje</h3>
+      <h3>Precio visible desde el primer mensaje</h3>
       <p>Decir «desde 39 € la sesión» en el asistente redujo las conversaciones que se quedaban en «¿precio?» y subió la conversión de solicitud a cita del 38 % al 45 %.</p>
-      <h3><span class="mono">03</span>Doble recordatorio</h3>
+      <h3>Doble recordatorio</h3>
       <p>Recordatorio a 24 h y a 2 h: 5 ausencias menos que en julio.</p>
     </div>
     <div class="s3">
       <p class="eyebrow">Qué cambiamos</p>
-      <h3 class="mt0"><span class="mono">01</span>Pausamos la campaña de «tratamiento facial»</h3>
+      <h3 class="mt0">Pausamos la campaña de «tratamiento facial»</h3>
       <p>31 € por cita, por encima del objetivo durante tres semanas. Su presupuesto pasó a láser.</p>
-      <h3><span class="mono">02</span>Añadimos 42 palabras negativas en Google</h3>
+      <h3>Añadimos 42 palabras negativas en Google</h3>
       <p>Búsquedas como «curso depilación láser» o «máquina láser precio» se llevaban el 12 % del gasto.</p>
-      <h3><span class="mono">03</span>Nuevo horario del asistente</h3>
+      <h3>Nuevo horario del asistente</h3>
       <p>Los sábados por la tarde el asistente ofrece huecos del lunes en lugar de «te llamamos».</p>
     </div>
   </div>
 
   <hr class="mt8">
-  <p class="eyebrow"><span class="n">04</span>Siguiente mes · septiembre</p>
+  <p class="eyebrow">Siguiente mes · septiembre</p>
   <div class="g">
     <div class="s4">
       <table class="t compacta mb0">
         <tr><th>Acción</th><th style="width:28%">Responsable</th><th class="r" style="width:20%">Fecha</th></tr>
-        <tr><td>2 vídeos nuevos en cabina (láser y presoterapia)</td><td>Lumen graba · Oryzz edita</td><td class="r mono">10 sep</td></tr>
-        <tr><td>Campaña de recaptación a 96 solicitudes sin cita</td><td>Oryzz</td><td class="r mono">12 sep</td></tr>
-        <tr><td>Petición de reseña automática tras la 2.ª sesión</td><td>Oryzz</td><td class="r mono">15 sep</td></tr>
-        <tr><td>Revisión de precios «desde» con el centro</td><td>Lumen + Oryzz</td><td class="r mono">19 sep</td></tr>
+        <tr><td>2 vídeos nuevos en cabina (láser y presoterapia)</td><td>Lumen graba · Oryzz edita</td><td class="r num">10 sep</td></tr>
+        <tr><td>Campaña de recaptación a 96 solicitudes sin cita</td><td>Oryzz</td><td class="r num">12 sep</td></tr>
+        <tr><td>Petición de reseña automática tras la 2.ª sesión</td><td>Oryzz</td><td class="r num">15 sep</td></tr>
+        <tr><td>Revisión de precios «desde» con el centro</td><td>Lumen + Oryzz</td><td class="r num">19 sep</td></tr>
       </table>
     </div>
     <div class="s2 dato">

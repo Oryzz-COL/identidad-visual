@@ -1,12 +1,12 @@
-# 04 · Tipografía Oryzz
+# Tipografía Oryzz
 
 Tres familias libres, cada una con un papel:
 
 | Familia | Papel | Pesos en uso | Dónde |
 |---|---|---|---|
-| **Space Grotesk** | Display: titulares, cifras grandes y el logo | 500 · 600 · 700 (300 y 400 solo en cifras muy grandes) | Web, slides, redes, portadas |
-| **Manrope** | Texto: párrafos, interfaz y documentos | 400 · 500 · 600 · 700 (800 solo en botones grandes) | Todo lo que se lee |
-| **JetBrains Mono** | Datos: eyebrows en MAYÚSCULAS, métricas, códigos y URLs | 400 · 500 (700 solo para destacar un dato en una tabla) | Etiquetas, tablas, KPI |
+| **Space Grotesk** | Display: titulares, cifras grandes y el logo | 500 · 600 · 700 | Web, slides, redes, portadas |
+| **Manrope** | Texto: párrafos, interfaz y documentos | 400 · 500 · 600 · 700 | Todo lo que se lee, etiquetas incluidas |
+| **JetBrains Mono** | Solo dato técnico: cifras tabulares, códigos, URL técnicas y valores HEX. Nunca etiquetas ni mayúsculas | 400 · 500 (700 solo para destacar un dato en una tabla) | Tablas, códigos, ejes de gráficos |
 
 Espécimen completo, con la escala y los pares de ejemplo: **`Oryzz_Especimen_Tipografico.pdf`** (8 páginas).
 
@@ -14,7 +14,7 @@ Espécimen completo, con la escala y los pares de ejemplo: **`Oryzz_Especimen_Ti
 
 | Carpeta / archivo | Contenido |
 |---|---|
-| `TTF_estaticas/` | 13 TTF: Space Grotesk (Light, Regular, Medium, SemiBold, Bold), Manrope (Regular, Medium, SemiBold, Bold, ExtraBold), JetBrains Mono (Regular, Medium, Bold) |
+| `TTF_estaticas/` | 13 TTF: Space Grotesk (Light, Regular, Medium, SemiBold, Bold), Manrope (Regular, Medium, SemiBold, Bold, ExtraBold), JetBrains Mono (Regular, Medium, Bold). Space Grotesk Light y Regular y Manrope ExtraBold vienen con la familia, pero no forman parte del sistema (BRAND_SPEC §4) |
 | `Variables/` | Las tres familias en fuente variable (`*-VF.ttf`), para diseño y web |
 | `Licencias/` | Texto de la SIL Open Font License 1.1 de cada familia |
 | `Oryzz_Especimen_Tipografico.pdf` | Espécimen 16:9 |
@@ -41,14 +41,15 @@ Las tres familias están en [fonts.google.com](https://fonts.google.com): Space 
 | **Google Docs y Slides** | Menú de fuentes › **Más fuentes** › busca y añade las tres. Las fuentes incrustadas de un .docx o .pptx no viajan a Google: aplica las de Google tras importar. |
 | **Canva** | Canva Pro › **Brand Kit** › Fuentes › Subir las TTF de `TTF_estaticas/`. Asigna Space Grotesk a «Título», Manrope a «Cuerpo». |
 | **Figma** | Con las fuentes instaladas en el equipo (o el instalador de fuentes de Figma) aparecen en el selector. También están en el catálogo de Google Fonts de Figma. |
-| **Editores de vídeo** (CapCut, Premiere, DaVinci, After Effects) | Instala las TTF en el sistema y reinicia el editor. Rótulos: eyebrow en JetBrains Mono + titular en Space Grotesk. Subtítulos: Manrope Bold. |
+| **Editores de vídeo** (CapCut, Premiere, DaVinci, After Effects) | Instala las TTF en el sistema y reinicia el editor. Rótulos: etiqueta en Manrope 600 (tipo frase) + titular en Space Grotesk. Subtítulos: Manrope Bold blanco, sin caja, con sombra Grafito 950 (BRAND_SPEC §5.8). Dirección completa: skill `editor-oryzz` (repo `Oryzz-COL/Editor`). |
 | **Web** | Usa `11_Web_y_Codigo/fonts/` con `@font-face` (WOFF2) o Google Fonts con `display=swap`. Alternativas de la pila: `Arial, Helvetica, sans-serif` y `Consolas, 'Courier New', monospace`. |
 
 ## Reglas rápidas
 
 - Titulares: Space Grotesk 700, tracking negativo (−0,045 em a 96 px, −0,035 em a 56 px, −0,02 em a 28 px), 2–3 líneas como máximo, un solo fragmento en azul.
 - Cuerpo: Manrope 400, 16 px en web (interlineado 1,6), 9,5 pt en A4, ≥ 36 px en slides 1920×1080.
-- Eyebrow: JetBrains Mono 500, 12 px en web y 20 px en slides, MAYÚSCULAS, +0,16 em. Es la única excepción al mínimo de 14 px.
+- Etiquetas (eyebrow): Manrope 600, tipo frase, sin tracking extra; 14 px en web y ≥ 24 px en slides. Sin números de sección. Sin excepciones al mínimo de 14 px.
+- JetBrains Mono: solo dato técnico (cifras tabulares, códigos, URL técnicas). Nunca etiquetas.
 - Tamaños mínimos: 14 px en pantalla · 9 pt impreso · 24 px en slides (36 px para leer).
 - Nunca frases enteras en gradiente ni en MAYÚSCULAS.
 

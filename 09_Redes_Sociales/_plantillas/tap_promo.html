@@ -7,7 +7,7 @@
 {% block estilo %}
 .precio { display: flex; align-items: flex-end; gap: 18px; margin-top: 20px; white-space: nowrap; }
 .precio .cifra { font-size: {{ 190 if not story else 210 }}px; letter-spacing: -.05em; }
-.precio .mon { font-family: var(--font-mono); font-size: 30px; letter-spacing: .12em; color: var(--tx2); padding-bottom: 22px; }
+.precio .mon { font-family: var(--font-texto); font-weight: 600; font-size: 34px; letter-spacing: 0; color: var(--tx2); padding-bottom: 22px; }
 .antes { margin-top: 14px; font-family: var(--font-display); font-size: 40px; font-weight: 500; letter-spacing: -.02em; }
 .inc { list-style: none; margin-top: {{ 44 if not story else 40 }}px; max-width: {{ 470 if not story else 900 }}px; }
 .inc li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; font-size: {{ 27 if not story else 30 }}px; font-weight: 600; padding: {{ 14 if not story else 12 }}px 0; color: var(--tx); border-top: 1px solid var(--borde); }

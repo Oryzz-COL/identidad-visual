@@ -8,7 +8,8 @@
 <style>
   .preg { margin-bottom: 6mm; break-inside: avoid; }
   .preg .q { font-weight: 700; font-size: 9.5pt; margin: 0 0 0.8mm; display: flex; gap: 2.5mm; }
-  .preg .q .mono { color: var(--azul-600); font-weight: 500; font-size: 9pt; flex: none; width: 7mm; }
+  .preg .q .nodo { flex: none; width: 7mm; position: relative; }
+  .preg .q .nodo::before { content: ''; position: absolute; left: 0.4mm; top: 1.55mm; width: 1.6mm; height: 1.6mm; border-radius: 50%; border: 0.3mm solid var(--azul-600); }
   .preg .ayuda { font-size: 9pt; color: var(--grafito-500); margin: 0 0 2mm 9.5mm; }
   .preg .caja { margin-left: 9.5mm; border: 0.25mm solid var(--grafito-200); border-radius: 2mm; }
   .preg .lineas { margin-left: 9.5mm; }
@@ -19,7 +20,6 @@
   table.t td.caja-t { height: 9mm; }
   .intro-pasos { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 5mm; }
   .intro-pasos div { border-top: 0.5mm solid var(--grafito-950); padding-top: 3mm; }
-  .intro-pasos .mono { font-size: 9pt; color: var(--azul-600); }
 </style>
 </head>
 <body data-doc="Brief de cliente · Onboarding" data-pie="oryzz.com · Confidencial">
@@ -41,44 +41,44 @@
 </section>
 
 <section class="page">
-  <p class="eyebrow"><span class="n">01</span>Tu negocio</p>
+  <p class="eyebrow">Tu negocio</p>
   <h1 style="max-width:120mm">Empecemos por lo básico.</h1>
   <div class="intro-pasos mb8">
-    <div><p class="mono mb0">01 · Hoy</p><p class="pequeno mb0">Rellenas este brief y nos lo envías.</p></div>
-    <div><p class="mono mb0">02 · Reunión de 45 min</p><p class="pequeno mb0">Repasamos respuestas y dudas.</p></div>
-    <div><p class="mono mb0">03 · Día 14</p><p class="pequeno mb0">Sistema en marcha.</p></div>
+    <div><p class="mb0" style="font-weight:600">Hoy</p><p class="pequeno mb0">Rellenas este brief y nos lo envías.</p></div>
+    <div><p class="mb0" style="font-weight:600">Reunión de 45 min</p><p class="pequeno mb0">Repasamos respuestas y dudas.</p></div>
+    <div><p class="mb0" style="font-weight:600">Día 14</p><p class="pequeno mb0">Sistema en marcha.</p></div>
   </div>
   <div class="g">
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">1.1</span>Nombre comercial y razón social</p><div class="lineas"><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">1.2</span>Dirección del local o locales</p><div class="lineas"><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">1.3</span>Web y redes sociales</p><p class="ayuda">Enlaces completos.</p><div class="lineas"><i></i><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Nombre comercial y razón social</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Dirección del local o locales</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Web y redes sociales</p><p class="ayuda">Enlaces completos.</p><div class="lineas"><i></i><i></i><i></i></div></div>
     </div>
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">1.4</span>Sector</p><div class="ops"><span>Clínica / salud</span><span>Estética</span><span>Fitness</span><span>Hostelería</span><span>Servicios profesionales</span><span>Otro</span></div></div>
-      <div class="preg"><p class="q"><span class="mono">1.5</span>Horario de atención</p><p class="ayuda">¿Quién atiende teléfono y WhatsApp, y cuándo?</p><div class="lineas"><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">1.6</span>Capacidad libre</p><p class="ayuda">¿Cuántos clientes nuevos al mes podrías atender sin contratar a nadie?</p><div class="lineas"><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Sector</p><div class="ops"><span>Clínica / salud</span><span>Estética</span><span>Fitness</span><span>Hostelería</span><span>Servicios profesionales</span><span>Otro</span></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Horario de atención</p><p class="ayuda">¿Quién atiende teléfono y WhatsApp, y cuándo?</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Capacidad libre</p><p class="ayuda">¿Cuántos clientes nuevos al mes podrías atender sin contratar a nadie?</p><div class="lineas"><i></i></div></div>
     </div>
   </div>
 
-  <p class="eyebrow mt8"><span class="n">02</span>Clientes y oferta</p>
+  <p class="eyebrow mt8">Clientes y oferta</p>
   <div class="g">
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">2.1</span>Servicios que quieres vender más</p><p class="ayuda">Máximo tres, por orden de prioridad, con precio o precio «desde».</p><div class="lineas"><i></i><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">2.2</span>Valor medio de un cliente nuevo</p><p class="ayuda">Primera compra y, si lo sabes, lo que gasta en un año.</p><div class="lineas"><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Servicios que quieres vender más</p><p class="ayuda">Máximo tres, por orden de prioridad, con precio o precio «desde».</p><div class="lineas"><i></i><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Valor medio de un cliente nuevo</p><p class="ayuda">Primera compra y, si lo sabes, lo que gasta en un año.</p><div class="lineas"><i></i></div></div>
     </div>
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">2.3</span>¿Quién es tu cliente ideal?</p><p class="ayuda">Edad, zona, qué le preocupa, por qué te elige.</p><div class="lineas"><i></i><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">2.4</span>Tres competidores que conozcas</p><div class="lineas"><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Quién es tu cliente ideal?</p><p class="ayuda">Edad, zona, qué le preocupa, por qué te elige.</p><div class="lineas"><i></i><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Tres competidores que conozcas</p><div class="lineas"><i></i></div></div>
     </div>
   </div>
 </section>
 
 <section class="page">
-  <p class="eyebrow"><span class="n">03</span>Captación actual</p>
+  <p class="eyebrow">Captación actual</p>
   <div class="g">
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">3.1</span>¿De dónde llegan hoy tus clientes nuevos?</p><p class="ayuda">Porcentaje aproximado.</p>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿De dónde llegan hoy tus clientes nuevos?</p><p class="ayuda">Porcentaje aproximado.</p>
         <table class="t compacta" style="margin-left:9.5mm;width:calc(100% - 9.5mm)">
           <tr><th>Origen</th><th class="r" style="width:28%">%</th></tr>
           <tr><td>Recomendación</td><td class="caja-t"></td></tr>
@@ -89,26 +89,26 @@
       </div>
     </div>
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">3.2</span>¿Has hecho publicidad antes?</p><div class="ops"><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>Otra agencia</span><span>Nunca</span></div></div>
-      <div class="preg"><p class="q"><span class="mono">3.3</span>¿Qué funcionó y qué no?</p><div class="lineas"><i></i><i></i><i></i></div></div>
-      <div class="preg"><p class="q"><span class="mono">3.4</span>¿Cuántas solicitudes recibes al mes y cuántas se convierten en cliente?</p><div class="lineas"><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Has hecho publicidad antes?</p><div class="ops"><span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span><span>Otra agencia</span><span>Nunca</span></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Qué funcionó y qué no?</p><div class="lineas"><i></i><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Cuántas solicitudes recibes al mes y cuántas se convierten en cliente?</p><div class="lineas"><i></i></div></div>
     </div>
   </div>
 
-  <p class="eyebrow mt4"><span class="n">04</span>Objetivos y presupuesto</p>
+  <p class="eyebrow mt4">Objetivos y presupuesto</p>
   <div class="g">
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">4.1</span>¿Qué resultado haría que esto mereciera la pena en 90 días?</p><p class="ayuda">En clientes, citas o euros; no en seguidores.</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Qué resultado haría que esto mereciera la pena en 90 días?</p><p class="ayuda">En clientes, citas o euros; no en seguidores.</p><div class="lineas"><i></i><i></i></div></div>
     </div>
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">4.2</span>Presupuesto mensual para anuncios</p><p class="ayuda">Se paga aparte, directamente a Meta y Google.</p><div class="ops"><span>&lt; 500 €</span><span>500–1.000 €</span><span>1.000–2.500 €</span><span>&gt; 2.500 €</span></div></div>
-      <div class="preg"><p class="q"><span class="mono">4.3</span>¿Hay temporadas fuertes o flojas?</p><div class="lineas"><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Presupuesto mensual para anuncios</p><p class="ayuda">Se paga aparte, directamente a Meta y Google.</p><div class="ops"><span>&lt; 500 €</span><span>500–1.000 €</span><span>1.000–2.500 €</span><span>&gt; 2.500 €</span></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Hay temporadas fuertes o flojas?</p><div class="lineas"><i></i></div></div>
     </div>
   </div>
 </section>
 
 <section class="page">
-  <p class="eyebrow"><span class="n">05</span>Accesos</p>
+  <p class="eyebrow">Accesos</p>
   <h1 style="max-width:130mm">Las cuentas siempre son tuyas. Nosotros entramos como colaboradores.</h1>
   <table class="t">
     <tr><th>Plataforma</th><th>Qué necesitamos</th><th style="width:16%">Lo tengo</th><th style="width:16%">Ayuda</th></tr>
@@ -120,15 +120,15 @@
     <tr><td><strong>Agenda / CRM</strong></td><td>Herramienta de citas que usáis hoy</td><td><div class="ops" style="margin:0"><span></span></div></td><td><div class="ops" style="margin:0"><span></span></div></td></tr>
   </table>
 
-  <p class="eyebrow mt8"><span class="n">06</span>Tono y marca</p>
+  <p class="eyebrow mt8">Tono y marca</p>
   <div class="g">
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">6.1</span>¿Cómo habláis con los clientes?</p><div class="ops"><span>De tú</span><span>De usted</span><span>Depende</span></div></div>
-      <div class="preg"><p class="q"><span class="mono">6.2</span>Cosas que nunca diríais en un anuncio</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Cómo habláis con los clientes?</p><div class="ops"><span>De tú</span><span>De usted</span><span>Depende</span></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Cosas que nunca diríais en un anuncio</p><div class="lineas"><i></i><i></i></div></div>
     </div>
     <div class="s3">
-      <div class="preg"><p class="q"><span class="mono">6.3</span>Material disponible</p><div class="ops"><span>Logo</span><span>Fotos del local</span><span>Fotos del equipo</span><span>Vídeos</span><span>Reseñas destacadas</span></div></div>
-      <div class="preg"><p class="q"><span class="mono">6.4</span>¿Algo más que debamos saber?</p><div class="lineas"><i></i><i></i></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>Material disponible</p><div class="ops"><span>Logo</span><span>Fotos del local</span><span>Fotos del equipo</span><span>Vídeos</span><span>Reseñas destacadas</span></div></div>
+      <div class="preg"><p class="q"><span class="nodo"></span>¿Algo más que debamos saber?</p><div class="lineas"><i></i><i></i></div></div>
     </div>
   </div>
 

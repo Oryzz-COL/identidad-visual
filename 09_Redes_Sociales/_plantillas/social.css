@@ -60,17 +60,18 @@ body { font-family: var(--font-texto); color: var(--tx); -webkit-font-smoothing:
 .cab .logo { height: 44px; width: auto; display: block; }
 .cab .logo.tap { height: 44px; }
 .pie { flex: none; display: flex; align-items: center; justify-content: space-between; padding-top: 26px; border-top: 1px solid var(--borde);
-  font-family: var(--font-mono); font-size: 22px; letter-spacing: .06em; color: var(--tx3); }
+  font-family: var(--font-texto); font-weight: 500; font-size: 24px; letter-spacing: 0; color: var(--tx3); }
 .pie .der { display: flex; align-items: center; gap: 14px; }
 .pie.sin-linea { border-top: 0; padding-top: 0; }
 
-/* ---------- Tipografía ---------- */
-.eyebrow { font-family: var(--font-mono); font-weight: 500; font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3);
-  display: inline-flex; align-items: center; gap: 16px; line-height: 1.2; }
-.eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; opacity: .7; flex: none; }
-.eyebrow.sin-raya::before { display: none; }
-.contador { font-family: var(--font-mono); font-size: 22px; letter-spacing: .12em; color: var(--tx3); }
-.contador b { color: var(--tx); font-weight: 500; }
+/* ---------- Tipografía ----------
+   Etiquetas (eyebrow, chips, rótulos, pies): tipo frase, Manrope 600, sin tracking ni mayúsculas
+   (BRAND_SPEC §4). JetBrains Mono solo para dato técnico (URL, códigos, cifras tabulares). */
+.eyebrow { font-family: var(--font-texto); font-weight: 600; font-size: 28px; letter-spacing: 0; color: var(--tx3);
+  display: inline-flex; align-items: center; gap: 16px; line-height: 1.25; }
+.etq { font-family: var(--font-texto); font-weight: 600; letter-spacing: 0; }
+.contador { font-family: var(--font-texto); font-weight: 500; font-size: 24px; letter-spacing: 0; color: var(--tx3); font-variant-numeric: tabular-nums; }
+.contador b { color: var(--tx); font-weight: 600; }
 .tit { font-family: var(--font-display); font-weight: 700; color: var(--tx); text-wrap: balance; }
 .tit-xxl { font-size: 150px; line-height: .93; letter-spacing: -.05em; }
 .tit-xl { font-size: 118px; line-height: .96; letter-spacing: -.047em; }
@@ -84,8 +85,8 @@ body { font-family: var(--font-texto); color: var(--tx); -webkit-font-smoothing:
 .texto { font-size: 34px; line-height: 1.45; color: var(--tx2); font-weight: 400; text-wrap: pretty; }
 .texto-s { font-size: 28px; line-height: 1.5; color: var(--tx2); text-wrap: pretty; }
 .texto b, .texto-s b { color: var(--tx); font-weight: 600; }
-.mono { font-family: var(--font-mono); letter-spacing: .08em; }
-.nota { font-family: var(--font-mono); font-size: 20px; letter-spacing: .04em; line-height: 1.45; color: var(--tx3); }
+.mono { font-family: var(--font-mono); letter-spacing: 0; }   /* solo dato técnico */
+.nota { font-family: var(--font-texto); font-weight: 500; font-size: 22px; letter-spacing: 0; line-height: 1.45; color: var(--tx3); }
 .cifra { font-family: var(--font-display); font-weight: 500; letter-spacing: -.055em; line-height: .86; color: var(--tx); }
 s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: var(--tx4); color: var(--tx3); }
 
@@ -94,15 +95,16 @@ s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; tex
 .boton { display: inline-flex; align-items: center; gap: 18px; height: 96px; padding: 0 44px 0 48px; border-radius: 999px;
   background: var(--cta-bg); color: var(--cta-tx); font-family: var(--font-texto); font-weight: 700; font-size: 32px; letter-spacing: -.005em; white-space: nowrap; }
 .boton svg { flex: none; }
-.url { font-family: var(--font-mono); font-size: 24px; letter-spacing: .06em; color: var(--tx3); }
-.etiqueta { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--orb-fuerte);
-  font-family: var(--font-mono); font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); white-space: nowrap; }
+.url { font-family: var(--font-mono); font-size: 24px; letter-spacing: 0; color: var(--tx3); }
+.etiqueta { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 999px; border: 1.5px solid var(--orb-fuerte);
+  font-family: var(--font-texto); font-weight: 600; font-size: 22px; letter-spacing: 0; color: var(--tx3); white-space: nowrap; }
 .etiqueta.ejemplo { border-style: dashed; }
 .etiqueta .punto { width: 10px; height: 10px; border-radius: 50%; background: var(--nodo); }
 .chips { display: flex; flex-wrap: wrap; gap: 12px; }
 .chip { height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid var(--borde); background: var(--sup);
   display: inline-flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 600; color: var(--tx2); }
 .nodo-dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(--nodo); flex: none; }
+.nodo-paso { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--tx3); }
 .sep { height: 1px; background: var(--borde); }
 
 /* Lista con iconos (checklist, antes/después) */
@@ -111,29 +113,29 @@ s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; tex
   font-size: 32px; line-height: 1.35; color: var(--tx2); font-weight: 500; }
 .lista li:last-child { border-bottom: 1px solid var(--borde); }
 .lista .ic { width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; color: var(--tx); margin-top: -6px; }
-.lista .num { font-family: var(--font-mono); font-size: 22px; color: var(--tx3); padding-top: 8px; letter-spacing: .08em; }
+.lista .num { font-family: var(--font-texto); font-weight: 600; font-size: 24px; color: var(--tx3); padding-top: 8px; }
 
 /* Zona reservada para stickers de Instagram (pregunta, encuesta, enlace) */
 .zona-sticker { border-radius: 28px; display: grid; place-items: center; position: relative; }
-.zona-sticker .pista { display: flex; align-items: center; gap: 14px; font-family: var(--font-mono); font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); }
+.zona-sticker .pista { display: flex; align-items: center; gap: 14px; font-family: var(--font-texto); font-weight: 600; font-size: 28px; letter-spacing: 0; color: var(--tx3); }
 .guia .zona-sticker { outline: 3px dashed #E5484D; outline-offset: -3px; }
 
 /* Marco para foto (cuando no hay foto) */
 .marco-foto { position: relative; overflow: hidden; border-radius: 24px; background:
   repeating-linear-gradient(135deg, transparent 0 22px, var(--grid) 22px 23px), var(--sup);
   border: 2px dashed var(--orb-fuerte); display: grid; place-items: center; }
-.marco-foto .rotulo { text-align: center; font-family: var(--font-mono); font-size: 20px; letter-spacing: .14em; text-transform: uppercase; color: var(--tx3); line-height: 1.7; }
+.marco-foto .rotulo { text-align: center; font-family: var(--font-texto); font-weight: 600; font-size: 24px; letter-spacing: 0; color: var(--tx3); line-height: 1.5; }
 .marco-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .marco-foto.con-foto { border: 0; }
 .marco-foto.con-foto::after { content: ""; position: absolute; inset: 0; background: rgba(11,13,18,var(--velo, 0)); }
 
 /* Aviso visible si el texto no cabe ni reduciendo el cuerpo (el generador lo marca) */
-.desborde::after { content: "TEXTO DEMASIADO LARGO · RECORTA EL COPY"; position: fixed; left: 0; right: 0; top: 0; z-index: 99;
-  background: #E5484D; color: #fff; font: 700 28px/1 var(--font-mono); padding: 18px; text-align: center; letter-spacing: .1em; }
+.desborde::after { content: "Texto demasiado largo · recorta el copy"; position: fixed; left: 0; right: 0; top: 0; z-index: 99;
+  background: #E5484D; color: #fff; font: 700 28px/1 var(--font-texto); padding: 18px; text-align: center; letter-spacing: 0; }
 
-/* Texto SVG */
-.svg-mono { font-family: var(--font-mono); font-size: 20px; letter-spacing: .14em; fill: var(--tx3); text-transform: uppercase; }
-.svg-mono-on { fill: var(--tx); }
+/* Texto SVG (rótulos de rutas y diagramas: tipo frase, Manrope 600) */
+.svg-etq { font-family: var(--font-texto); font-weight: 600; font-size: 24px; letter-spacing: 0; fill: var(--tx3); }
+.svg-etq-on { fill: var(--tx); }
 
 /* ---------- Producto Oryzz Tap (ilustración vectorial, sin foto) ---------- */
 .placa { width: 100em; height: 100em; position: relative; flex: none; }
@@ -143,7 +145,7 @@ s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; tex
   background: #FFFFFF; color: #0B0D12; box-shadow: inset 0 0 0 .25em rgba(11,13,18,.06); }
 .placa-negro::before { background: #000; }
 .placa-negro .placa-cara { background: #171B25; color: #FFFFFF; box-shadow: inset 0 0 0 .25em rgba(255,255,255,.08); }
-.p-sup { display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono); font-size: 3.6em; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+.p-sup { display: flex; align-items: center; justify-content: space-between; font-family: var(--font-texto); font-weight: 600; font-size: 4.4em; letter-spacing: 0; opacity: .8; }
 .p-sup svg { width: 2.1em; height: 2.1em; }
 .p-tit { font-family: var(--font-display); font-weight: 700; font-size: 8.4em; letter-spacing: -.035em; line-height: 1; margin-top: .55em; }
 .p-inf { margin-top: auto; display: flex; gap: 6em; align-items: flex-end; }
@@ -177,7 +179,7 @@ s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; tex
 .chat-intro { font-size: 25px; color: var(--tx3); margin-bottom: 6px; }
 .chat-op { display: grid; grid-template-columns: 44px 1fr auto; gap: 18px; align-items: center; padding: 18px 20px; border-radius: 16px; border: 1px solid var(--borde); }
 .chat-op.on { border-color: var(--acento); background: color-mix(in srgb, var(--acento) 8%, transparent); }
-.chat-n { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-mono); font-size: 18px; color: var(--tx3); }
+.chat-n { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--orb-fuerte); display: grid; place-items: center; font-family: var(--font-texto); font-weight: 600; font-size: 20px; color: var(--tx3); }
 .chat-op.on .chat-n { border-color: var(--acento); color: var(--acento); }
 .chat-nom { font-family: var(--font-display); font-weight: 600; font-size: 29px; letter-spacing: -.015em; color: var(--tx); }
 .chat-det { font-size: 22px; color: var(--tx3); margin-top: 4px; }
@@ -195,7 +197,7 @@ s, .tachado { text-decoration: line-through; text-decoration-thickness: 3px; tex
 .mv-av.g { width: calc(var(--u) * 26); height: calc(var(--u) * 26); font-size: calc(var(--u) * 11); }
 .mv-nom { font-family: var(--font-display); font-weight: 700; font-size: calc(var(--u) * 7.4); line-height: 1.1; letter-spacing: -.02em; }
 .mv-det { font-size: calc(var(--u) * 5); color: #5A6172; margin-top: calc(var(--u) * 1.5); line-height: 1.35; }
-.mv-eti { font-family: var(--font-mono); font-size: calc(var(--u) * 4.6); letter-spacing: .16em; text-transform: uppercase; color: #5A6172; }
+.mv-eti { font-family: var(--font-texto); font-weight: 600; font-size: calc(var(--u) * 5.4); letter-spacing: 0; color: #5A6172; }
 .mv-preg { margin-top: calc(var(--u) * 18); font-family: var(--font-display); font-weight: 600; font-size: calc(var(--u) * 8); line-height: 1.15; letter-spacing: -.02em; }
 .mv-est { margin-top: calc(var(--u) * 7); }
 .mv-est .estrellas { gap: calc(var(--u) * 2) !important; }

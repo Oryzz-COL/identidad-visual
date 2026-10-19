@@ -1,6 +1,6 @@
 # 07 · Documentos Oryzz
 
-> **Regla vigente desde el 14 de octubre de 2026:** nada de etiquetas en MAYÚSCULAS espaciadas ni numeraciones de sección («01 · CONTEXTO», «PASO 02»). Ver `BRAND_SPEC.md`, sección 4. Las plantillas Word y los PDF de ejemplo de esta carpeta todavía usan el estilo antiguo y están pendientes de migrar: no lo copies en piezas nuevas. El CSS de `_fuente/css/oryzz-docs.css` ya aplica la regla.
+> **Regla vigente desde el 14 de octubre de 2026:** nada de etiquetas en MAYÚSCULAS espaciadas ni numeraciones de sección o de pasos («01 · CONTEXTO», «PASO 02», folios «02 / 07»). Ver `BRAND_SPEC.md`, sección 4. Desde el 18 de octubre de 2026 todas las plantillas Word y los PDF de ejemplo de esta carpeta la cumplen: etiquetas en tipo frase (Manrope 600), pasos y preguntas con nodo en lugar de número, cláusulas del contrato con ordinal jurídico («Primera. Objeto») y folio sin ceros («2 / 7»).
 
 Plantillas editables de Word y versiones PDF de ejemplo (A4) del sistema editorial Oryzz v2.0.
 Fuente de verdad: `00_Fuente_Maestra/BRAND_SPEC.md` y `tokens.json`.
@@ -12,7 +12,7 @@ Fuente de verdad: `00_Fuente_Maestra/BRAND_SPEC.md` y `tokens.json`.
 | 01_Propuesta_Comercial | Portada, contexto, diagnóstico, estrategia, plan 30-60-90, inversión, próximos pasos, condiciones | `_EJEMPLO.pdf` (7 págs., Clínica Dental Arenal, ficticia) |
 | 02_Informe_Diagnostico | Resumen con semáforo, hallazgos por canal (Meta, Google, SEO local, reseñas, web, GEO), prioridades | `_EJEMPLO.pdf` (6 págs., Forja Training Club, ficticio) |
 | 03_Informe_Mensual | KPIs, gráficos, resultados por canal, qué funcionó / qué cambiamos, siguiente mes | `_EJEMPLO.pdf` (4 págs., Centro Estético Lumen, datos de ejemplo) |
-| 04_Caso_de_Estudio | 2 páginas, etiqueta «EJEMPLO» | `_EJEMPLO.pdf` |
+| 04_Caso_de_Estudio | 2 páginas, etiqueta «Ejemplo» | `_EJEMPLO.pdf` |
 | 05_Presupuesto_y_Factura | Presupuesto y factura con datos fiscales en `{{campos}}`, IVA 21 % e IRPF opcional | `Presupuesto_EJEMPLO.pdf`, `Factura_EJEMPLO.pdf` |
 | 06_Carta_y_Membrete | Carta con membrete + documento en blanco con membrete | `Carta_EJEMPLO.pdf`, `Documento-en-blanco.pdf` |
 | 07_Brief_Onboarding | Cuestionario de arranque con líneas de respuesta y casillas | `Brief-Onboarding.pdf` (imprimible) |
@@ -39,20 +39,21 @@ Los clientes, cifras y testimonios de los PDF son **ficticios** y van marcados c
 | **Cuerpo** (y Normal) | Texto corrido | Manrope 9,5 pt, interlineado 1,35, 6 pt después |
 | **Entradilla** | Primer párrafo de sección | Manrope 12 pt, Grafito 600 |
 | **Cita** (Quote) | Testimonios y frases | Space Grotesk Medium 14 pt, filete izquierdo Azul IA |
-| **Eyebrow** | Etiqueta sobre titulares (`Contexto`) | Manrope 600 9,5 pt, tipo frase, sin tracking (las plantillas aún tienen el estilo antiguo: pendiente de migrar) |
+| **Eyebrow** | Etiqueta sobre titulares (`Contexto`) | Manrope SemiBold (600) 9,5 pt, Grafito 500, tipo frase, sin tracking ni número |
 | **Nota** | Fuentes, letra pequeña | Manrope 9 pt, Grafito 500 |
 | **Dato** | Cifra grande en tarjetas | Space Grotesk Medium 26 pt |
-| **Aviso legal** | «Texto a revisar por asesor legal» | JetBrains Mono 9 pt sobre ámbar claro |
+| **Aviso legal** | «Texto a revisar por asesor legal» | Manrope SemiBold 9 pt, tipo frase, sobre ámbar claro |
 | **Línea de respuesta** | Huecos para rellenar (brief) | Filete inferior Grafito 200 |
-| **Lista Oryzz** / **Lista numerada Oryzz** | Viñetas y pasos | Manrope 9,5 pt |
+| **Lista Oryzz** | Viñetas y pasos (los pasos no se numeran) | Manrope 9,5 pt |
+| **Cabecera de tabla** / **Pie Oryzz** | Cabeceras de columna; encabezado y pie de página | Manrope SemiBold 9 pt / Manrope 9 pt, Grafito 500, tipo frase |
 | **Campo** (carácter) | `{{dato editable}}` | Azul IA |
 | **Acento** (carácter) | La palabra resaltada del titular | Azul IA #3B72FF |
 | **Tabla Oryzz** (tabla) | Todas las tablas de datos | Ver «Tablas» |
 | **Maqueta Oryzz (sin bordes)** (tabla) | Columnas y bloques de maquetación | Sin bordes |
 
 - **Tema de Office «Oryzz»**: colores del tema (Grafito, Azul IA, Cyan, Lima…) y fuentes del tema (Space Grotesk / Manrope). En Diseño › Colores aparecen como primera paleta.
-- **Fuentes incrustadas**: cada `.docx` lleva incrustadas Space Grotesk (Regular, Medium, Bold), Manrope (Regular, Bold) y JetBrains Mono (Regular), licencia OFL. Se ven bien aunque el ordenador no las tenga instaladas. La tabla de fuentes declara **Arial** como alternativa (Consolas para la mono) si alguien abre el archivo con un programa que ignora las fuentes incrustadas (Google Docs, Pages). Para editar con comodidad, instala las TTF de `04_Tipografia/TTF_estaticas`.
-- Encabezado: logo horizontal + etiqueta del documento. Pie: texto del documento + folio `02 / 07` (campos PAGE y NUMPAGES, se actualizan solos).
+- **Fuentes incrustadas**: cada `.docx` lleva incrustadas Space Grotesk (Regular, Medium, Bold), Manrope (Regular, SemiBold, Bold) y JetBrains Mono (Regular, solo para dato técnico), licencia OFL. Se ven bien aunque el ordenador no las tenga instaladas. La tabla de fuentes declara **Arial** como alternativa (Consolas para la mono) si alguien abre el archivo con un programa que ignora las fuentes incrustadas (Google Docs, Pages). Para editar con comodidad, instala las TTF de `04_Tipografia/TTF_estaticas`.
+- Encabezado: logo horizontal + etiqueta del documento. Pie: texto del documento + folio `2 / 7` sin ceros (campos PAGE y NUMPAGES, se actualizan solos).
 - Portadas: la imagen de fondo está anclada detrás del texto (Formato de imagen › Detrás del texto). La ficha inferior es una tabla flotante anclada a la página.
 - Verificadas abriéndolas en Microsoft Word 365 y exportando a PDF.
 
@@ -64,7 +65,7 @@ Los clientes, cifras y testimonios de los PDF son **ficticios** y van marcados c
 - Composición asimétrica: texto en 3–4 columnas y datos o tablas al lado. Nada de tres tarjetas idénticas como único recurso.
 
 **Jerarquía (siempre en este orden)**
-1. Etiqueta de sección en tipo frase, Azul 600, sin número (`Contexto`).
+1. Etiqueta de sección en tipo frase, Manrope 600, Grafito 500, sin número (`Contexto`).
 2. Titular (Título 1): una frase, máximo 2–3 líneas, un único fragmento en Azul IA (estilo Acento).
 3. Entradilla (12 pt) con la idea de la página.
 4. Cuerpo 9,5 pt. **Nunca por debajo de 9 pt** impreso (incluye pies, tablas y notas).
@@ -77,7 +78,7 @@ Los clientes, cifras y testimonios de los PDF son **ficticios** y van marcados c
 - Una idea por columna; detalles en gris debajo del concepto, no en columnas nuevas.
 
 **Color en documentos**
-- Fondo blanco, texto Grafito 950, secundarios Grafito 600 / 500. Azul IA solo en el acento del titular, números de sección y datos de gráfico. Lima solo como **nodo** (un punto), nunca como texto sobre blanco.
+- Fondo blanco, texto Grafito 950, secundarios Grafito 600 / 500. Azul IA solo en el acento del titular, los nodos de pasos y los datos de gráfico. Lima solo como **nodo** (un punto), nunca como texto sobre blanco.
 - Semáforo sobrio: solo el punto `●` lleva color (Crítico #E5484D, Mejorable #F2A33A, Correcto #1F9D55) y siempre con su palabra al lado.
 - Gráficos: un tono (Azul IA) y el resto en Grafito 200; un solo eje Y; etiqueta solo el primer y el último valor; fuente debajo.
 

@@ -11,7 +11,7 @@
   html,body{margin:0;background:var(--grafito-950);color:#fff;font-family:var(--font-texto);-webkit-font-smoothing:antialiased}
   .wrap{max-width:1200px;margin:0 auto;padding:72px 32px 120px}
   header{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end;padding-bottom:48px;border-bottom:1px solid var(--grafito-700)}
-  .eyebrow{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--grafito-400)}
+  .eyebrow{font-family:var(--font-texto);font-size:14px;font-weight:600;letter-spacing:0;color:var(--grafito-400)}
   h1{font-family:var(--font-display);font-weight:700;font-size:56px;line-height:1.05;letter-spacing:-.035em;margin:16px 0 0}
   h1 em{font-style:normal;color:var(--azul-400)}
   header p{color:var(--grafito-200);font-size:16px;line-height:1.6;margin:0;max-width:44ch}
@@ -22,7 +22,7 @@
   .stage{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .panel{border-radius:20px;border:1px solid var(--grafito-700);background:var(--grafito-950);min-height:260px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .panel.claro{background:var(--grafito-50);border-color:var(--grafito-200)}
-  .panel .tag{position:absolute;left:18px;bottom:14px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--grafito-400)}
+  .panel .tag{position:absolute;left:18px;bottom:14px;font-family:var(--font-mono);font-size:13px;color:var(--grafito-400)}
   .panel.claro .tag{color:var(--grafito-500)}
   .panel img.lock{width:78%;max-width:440px;display:block}
   .panel img.load{width:96px;height:96px;display:block}
@@ -31,7 +31,7 @@
   button:focus-visible{outline:2px solid var(--azul-300);outline-offset:3px}
   table{border-collapse:collapse;width:100%;font-family:var(--font-mono);font-size:13px}
   td,th{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--grafito-800);vertical-align:top}
-  th{color:var(--grafito-400);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+  th{color:var(--grafito-400);font-family:var(--font-texto);font-weight:600;letter-spacing:0;font-size:14px}
   td{color:var(--grafito-200)}
   td b{color:#fff;font-weight:500}
   pre{margin:0;background:var(--grafito-850);border:1px solid var(--grafito-700);border-radius:14px;padding:20px;overflow:auto;font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--grafito-200)}
@@ -43,7 +43,7 @@
 <div class="wrap">
   <header>
     <div>
-      <div class="eyebrow">02 Logos · 08 Animado · v2.0</div>
+      <div class="eyebrow">Logo animado de Oryzz · v2.0</div>
       <h1>La órbita gira.<br>El <em>nodo</em> respira.</h1>
     </div>
     <p>Movimiento oficial del logo: la órbita gira a 4,4 s por vuelta (lineal), el nodo respira y las «zz» saltan con resorte y 0,17 s de desfase. Solo en intros, loaders y cierres; nunca en bucle dentro de una interfaz.</p>
@@ -52,7 +52,7 @@
   <section>
     <div class="row">
       <div class="side">
-        <div class="eyebrow">01 · Intro</div>
+        <div class="eyebrow">Intro</div>
         <h2>Entrada única</h2>
         <p>Se reproduce una vez (3 s) y termina en el logo maestro, en reposo. Úsalo al abrir la web, al inicio de un vídeo o de una presentación.</p>
         <p><button type="button" id="replay">Repetir intro</button></p>
@@ -67,7 +67,7 @@
   <section>
     <div class="row">
       <div class="side">
-        <div class="eyebrow">02 · Bucle</div>
+        <div class="eyebrow">Bucle</div>
         <h2>Logo animado</h2>
         <p>Versión en bucle para pantallas de espera, cierres de vídeo y stands. Respeta <span style="font-family:var(--font-mono)">prefers-reduced-motion</span>: si el usuario lo pide, se queda quieto.</p>
       </div>
@@ -81,7 +81,7 @@
   <section>
     <div class="row">
       <div class="side">
-        <div class="eyebrow">03 · Loader</div>
+        <div class="eyebrow">Loader</div>
         <h2>Solo isotipo</h2>
         <p>Para estados de carga. Tamaño recomendado: 32–96 px. Nunca con el wordmark al lado.</p>
       </div>
@@ -95,7 +95,7 @@
   <section>
     <div class="row">
       <div class="side">
-        <div class="eyebrow">04 · GIF</div>
+        <div class="eyebrow">GIF</div>
         <h2>Para donde no hay SVG</h2>
         <p>Email, WhatsApp, Notion, presentaciones. Fondo sólido incluido (el GIF no admite transparencia suave).</p>
       </div>
@@ -110,7 +110,7 @@
   <section>
     <div class="row">
       <div class="side">
-        <div class="eyebrow">05 · Especificación</div>
+        <div class="eyebrow">Especificación</div>
         <h2>Tiempos</h2>
         <p>Curvas de <span style="font-family:var(--font-mono)">tokens.json → motion</span>.</p>
       </div>
@@ -129,7 +129,7 @@
   <section style="border-bottom:0">
     <div class="row">
       <div class="side">
-        <div class="eyebrow">06 · Código</div>
+        <div class="eyebrow">Código</div>
         <h2>Cómo insertarlo</h2>
         <p><span class="dot"></span>Como imagen: la animación CSS funciona dentro de &lt;img&gt;. Para repetir la intro, vuelve a asignar el src.</p>
       </div>

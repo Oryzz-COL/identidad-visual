@@ -9,7 +9,7 @@
 .reloj svg { width: 100%; height: 100%; }
 .reloj .rl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .reloj .rl b { font-family: var(--font-display); font-weight: 500; font-size: {{ 104 if not story else 140 }}px; letter-spacing: -.05em; line-height: 1; color: var(--tx); }
-.reloj .rl span { font-family: var(--font-mono); font-size: 20px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); margin-top: 14px; }
+.reloj .rl span { font-family: var(--font-texto); font-weight: 600; font-size: {{ 26 if not story else 30 }}px; letter-spacing: 0; color: var(--tx3); margin-top: 14px; }
 .accion { display: flex; flex-direction: column; gap: 22px; margin-top: 52px; align-items: flex-start; }
 {% endblock %}
 {% set alinear = 'abajo' %}

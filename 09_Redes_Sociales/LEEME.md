@@ -81,7 +81,7 @@ Los espacios antes de `%`, `€`, `×`, `min`, `mm`, `COP` y los rangos (`3–7 
 | `tap_promo` | Promoción con precio | `aviso_precio`, `precio`, `moneda`, `precio_antes`, `incluye`, `boton`, `url` |
 | `li_banner` | Banners LinkedIn | `tipo` (empresa, personal), `servicios`, `pie` |
 | `li_documento` | Portada PDF LinkedIn | `etiqueta` [..], `autores` [{iniciales, nombre, rol, foto}] |
-| `yt_miniatura`, `reel_portada`, `horizontal`, `avatar` | YouTube, Reels/TikTok, OG y GBP, WhatsApp | `foto`, `episodio`, `producto`, `servicios`, `url` |
+| `yt_miniatura`, `reel_portada`, `horizontal`, `avatar` | YouTube, Reels/TikTok, OG y GBP, WhatsApp | `foto`, `episodio` (texto opcional junto al nodo, sin números con ceros: p. ej. «Serie captación»), `producto`, `servicios`, `url` |
 
 Iconos disponibles (`graficos.ICONOS`): check, cruz, flecha, flecha-abajo, chat, calendario, estrella, nfc, qr, movil, sobre, equipo, capas, casos, pregunta, geo, tap, reloj, enlace, buscar, ubicacion, mas, perfil, pantalla. Retícula 24 px, trazo 1,75 px, monocromo.
 
@@ -92,6 +92,7 @@ Iconos disponibles (`graficos.ICONOS`): check, cruz, flecha, flecha-abajo, chat,
 ## 3. Cómo cambiar el diseño
 
 - Colores, tipografías y componentes: `_plantillas/social.css` (solo tokens de `tokens.json`).
+- Etiquetas, chips, rótulos, pies y contadores: tipo frase en Manrope 600 (notas y pies en 500), sin mayúsculas espaciadas ni tracking (BRAND_SPEC §4). Los pasos llevan nodos, no números. JetBrains Mono solo en URL y códigos.
 - Maqueta de cada tipo: `_plantillas/<plantilla>.html`. Base común (cabecera, pie, ajuste automático): `_base.html` y `_macros.html`.
 - Órbitas, rutas, iconos y QR: `_generador/graficos.py`.
 - Formatos nuevos: diccionario `FORMATOS` de `generar.py`.

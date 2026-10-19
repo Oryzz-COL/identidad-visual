@@ -3,7 +3,7 @@ Texto vectorizado (trazados) con las fuentes de marca, para SVG portables
 (se ven igual en Figma, Illustrator, <img> y navegadores sin las fuentes instaladas).
 
     from svg_text import text
-    text('ÁREA DE RESPETO', 'mono-medium', 14, x, y, fill='#8A90A0', tracking=0.16)
+    text('Área de respeto', 'texto-semibold', 14, x, y, fill='#8A90A0')
     text('Tamaños mínimos', 'display-bold', 44, x, y, fill='#fff', tracking=-0.03, anchor='start')
 
 Aplica el kerning GPOS (PairPos formato 1 y 2) de la fuente. Devuelve '<path …/>' o '' si vacío.

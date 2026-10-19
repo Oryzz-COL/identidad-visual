@@ -136,7 +136,7 @@ def panorama_carrusel(n, w=1080, h=1350, estaciones=None, y_base=1130, salto=64)
     d = ruta_d(pts, 30)
     ns = ''.join(nodo_svg(x, y, t) for x, y, t in nodos)
     txt = ''.join(
-        f'<text x="{x + 26}" y="{y - 24}" class="svg-mono{" svg-mono-on" if fin else ""}">{et}</text>'
+        f'<text x="{x + 26}" y="{y - 24}" class="svg-etq{" svg-etq-on" if fin else ""}">{et}</text>'
         for x, y, et, fin in etiquetas)
     # órbita final alrededor del nodo de llegada (el cliente)
     fx, fy = pts[-1]

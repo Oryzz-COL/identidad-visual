@@ -1,5 +1,5 @@
 """
-oryzz_componentes.py · Componentes de dato Oryzz v2.0 (tarjetas KPI, gráficos, chips, eyebrows, botones).
+oryzz_componentes.py · Componentes de dato Oryzz v2.0 (tarjetas KPI, gráficos, chips, etiquetas, botones).
 
 Todos los datos son de EJEMPLO (se marcan con el chip «Ejemplo»). Cambia las cifras en DATA y regenera.
 Salida en 05_Elementos_Graficos/05_Componentes_Dato:
@@ -41,8 +41,8 @@ def icon(name, x, y, size, col, acc=None):
 def chip(x, y, label, tema, k, kind='neutro', h=32, anchor='start'):
     """Chip/etiqueta. kind: neutro | ejemplo | marcha | canal. Devuelve (svg, ancho)."""
     p = pal(tema); t = p['t']
-    size = 14; tr = 0.08
-    tw = text_width(label.upper(), 'mono', 500, size, tr)
+    size = 15
+    tw = text_width(label, 'texto', 600, size)
     dot = kind == 'marcha'
     pad = 14
     w = tw + pad * 2 + (18 if dot else 0)
@@ -61,7 +61,7 @@ def chip(x, y, label, tema, k, kind='neutro', h=32, anchor='start'):
     if dot:
         s += f'<circle cx="{x + pad + 4:.1f}" cy="{y + h / 2:.1f}" r="4" fill="{t["nodo"]}"/>'
         tx += 18
-    s += T(tx, y + h / 2 + 5, label.upper(), 'mono', 500, size, col, tracking=tr, contornos=k)
+    s += T(tx, y + h / 2 + 5, label, 'texto', 600, size, col, contornos=k)
     return s, w
 
 
@@ -70,9 +70,9 @@ def kpi(slug, tema, k):
     p = pal(tema); t = p['t']
     _, lab, val, delta, cap, ic = next(x for x in KPIS if x[0] == slug)
     W, H = 400, 232
-    s = f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="{p["card"]}" stroke="{p["borde"]}"/>'
+    s = f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="{p["card"]}" stroke="{p["borde"]}"/>'
     s += icon(ic, 28, 28, 22, t['texto3'])
-    s += T(62, 45, lab.upper(), 'mono', 500, 14, t['texto3'], tracking=0.12, contornos=k)
+    s += T(62, 45, lab, 'texto', 600, 16, t['texto2'], contornos=k)
     c, _ = chip(W - 24, 24, 'Ejemplo', tema, k, 'ejemplo', 28, anchor='end'); s += c
     # cifra
     if slug == 'resenas':
@@ -88,17 +88,17 @@ def kpi(slug, tema, k):
     dw = text_width(delta, 'mono', 700, 16)
     s += T(48 + dw + 10, 208, cap, 'texto', 500, 15, t['texto3'], contornos=k)
     return doc(W, H, s, f'Oryzz · tarjeta KPI · {lab} · {tema} · Ejemplo',
-               desc='Datos de ejemplo. Superficie Grafito 850, borde 1 px, radio 20, eyebrow mono, cifra Space Grotesk 500, delta con nodo lima.')
+               desc='Datos de ejemplo. Superficie Grafito 850, borde 1 px, radio 14, etiqueta Manrope 600 en tipo frase, cifra Space Grotesk 500, delta con nodo lima.')
 
 
 # ------------------------------------------------------------------ gráficos
 def grafico(tipo, tema, k):
     p = pal(tema); t = p['t']
     W, H = 640, 340
-    s = f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="{p["card"]}" stroke="{p["borde"]}"/>'
+    s = f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="{p["card"]}" stroke="{p["borde"]}"/>'
     datos = LEADS if tipo == 'linea' else CITAS
     tit = 'Leads por semana' if tipo == 'linea' else 'Citas por semana'
-    s += T(28, 46, tit.upper(), 'mono', 500, 14, t['texto3'], tracking=0.12, contornos=k)
+    s += T(28, 46, tit, 'texto', 600, 16, t['texto2'], contornos=k)
     c, _ = chip(W - 24, 24, 'Ejemplo', tema, k, 'ejemplo', 28, anchor='end'); s += c
     last = datos[-1]
     s += T(28, 104, str(last), 'display', 500, 44, t['texto'], tracking=-0.03, contornos=k)
@@ -149,26 +149,29 @@ def chip_svg(slug, tema, k):
     return doc(math.ceil(w + 2), 34, s, f'Oryzz · chip · {lab} · {tema}')
 
 
-EYEBROWS = [('linea', 'Método Oryzz'), ('nodo', 'En marcha'), ('numero', 'Captación')]
+# Etiquetas en tipo frase, Manrope 600, sin tracking ni números (BRAND_SPEC §4).
+#   linea   · etiqueta con guion de contexto
+#   nodo    · etiqueta de estado con nodo (el nodo cuenta como el acento lima de la pieza)
+#   seccion · etiqueta de sección en azul (Azul 600 sobre claro, Azul 400 sobre oscuro)
+EYEBROWS = [('linea', 'Método Oryzz'), ('nodo', 'En marcha'), ('seccion', 'Captación')]
 
 
-def eyebrow_svg(slug, tema, k, num='01'):
+def eyebrow_svg(slug, tema, k):
     t = THEME[tema]
-    lab = dict(EYEBROWS)[slug].upper()
-    size, tr = 14, 0.16
-    tw = text_width(lab, 'mono', 500, size, tr)
+    lab = dict(EYEBROWS)[slug]
+    size = 16
+    tw = text_width(lab, 'texto', 600, size)
     if slug == 'linea':
-        s = f'<path d="M0 12H28" stroke="{t["texto3"]}" stroke-width="1.5"/>' + T(40, 17, lab, 'mono', 500, size, t['texto3'], tracking=tr, contornos=k)
-        w = 40 + tw
+        s = f'<path d="M0 12H24" stroke="{t["texto3"]}" stroke-width="1.5"/>' + T(34, 17.5, lab, 'texto', 600, size, t['texto3'], contornos=k)
+        w = 34 + tw
     elif slug == 'nodo':
-        s = f'<circle cx="5" cy="12" r="5" fill="{t["nodo"]}"/>' + T(20, 17, lab, 'mono', 500, size, t['texto2'], tracking=tr, contornos=k)
-        w = 20 + tw
+        s = f'<circle cx="5" cy="12" r="5" fill="{t["nodo"]}"/>' + T(18, 17.5, lab, 'texto', 600, size, t['texto2'], contornos=k)
+        w = 18 + tw
     else:
-        nw = text_width(num + ' / ', 'mono', 500, size, tr)
-        s = (T(0, 17, num + ' / ', 'mono', 500, size, t['texto'], tracking=tr, contornos=k)
-             + T(nw, 17, lab, 'mono', 500, size, t['texto3'], tracking=tr, contornos=k))
-        w = nw + tw
-    return doc(math.ceil(w + 2), 24, s, f'Oryzz · eyebrow · {lab.lower()} · {tema}')
+        col = C['azul-400'] if tema == 'oscuro' else C['azul-600']
+        s = T(0, 17.5, lab, 'texto', 600, size, col, contornos=k)
+        w = tw
+    return doc(math.ceil(w + 2), 24, s, f'Oryzz · etiqueta · {lab.lower()} · {tema}')
 
 
 # ------------------------------------------------------------------ botones
@@ -245,20 +248,20 @@ def lamina():
         halves += (f'<section class="{tema}"><p class="t-eyebrow">Sobre {tema}</p>'
                    f'<div class="row kpi">{kp}</div><div class="row gr">{gr}<div class="col"><p class="t-eyebrow">Botones</p>'
                    f'<div class="bt">{bt}</div><p class="t-eyebrow">Chips</p><div class="ch">{ch}</div>'
-                   f'<p class="t-eyebrow">Eyebrows</p><div class="ch ey">{ey}</div></div></div></section>')
+                   f'<p class="t-eyebrow">Etiquetas</p><div class="ch ey">{ey}</div></div></div></section>')
     page = f'''<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Componentes de dato Oryzz</title>
 <link rel="stylesheet" href="../../00_Fuente_Maestra/brand.css"><style>
 @page{{size:1920px 2250px;margin:0}} *{{box-sizing:border-box}} html,body{{margin:0}}
 body{{width:1920px;height:2250px;font-family:var(--font-texto);background:var(--grafito-950)}}
 header{{padding:104px 120px 48px;color:#fff}} header h1{{font-family:var(--font-display);font-size:72px;letter-spacing:-.04em;margin:18px 0 12px;line-height:1}}
 header p{{color:var(--grafito-200);font-size:20px;margin:0;max-width:1000px}}
-.t-eyebrow{{color:var(--grafito-400);margin:0 0 16px}}
+.t-eyebrow{{font-size:24px;color:var(--grafito-400);margin:0 0 16px}}
 section{{padding:48px 120px 56px}} section.claro{{background:#fff}} section.claro .t-eyebrow{{color:var(--grafito-500)}}
 .row{{display:flex;gap:32px;align-items:flex-start}} .kpi{{margin-bottom:32px}} .gr .col{{display:flex;flex-direction:column;gap:0;margin-left:8px}}
 .bt{{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:28px;max-width:500px}} .ch{{display:flex;flex-wrap:wrap;gap:10px;max-width:460px;margin-bottom:28px}} .ey{{gap:28px}}
 img{{display:block}}
-</style></head><body><header><p class="t-eyebrow">Oryzz · 05 · Elementos gráficos · 05 Componentes de dato</p>
-<h1>Componentes de dato</h1><p>Tarjetas KPI, gráficos, chips, eyebrows y botones. Todas las cifras son de ejemplo y lo dicen. Un acento por componente: el nodo lima.</p></header>
+</style></head><body><header><p class="t-eyebrow">Elementos gráficos de Oryzz</p>
+<h1>Componentes de dato</h1><p>Tarjetas KPI, gráficos, chips, etiquetas y botones. Todas las cifras son de ejemplo y lo dicen. Un acento por componente: el nodo lima.</p></header>
 {halves}</body></html>'''
     hp = os.path.join(OUT, 'componentes-lamina.html'); write(hp, page)
     html_to_png(hp, os.path.join(OUT, 'componentes-lamina.png'), 1920, 2250)

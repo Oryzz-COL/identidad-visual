@@ -3,7 +3,6 @@
 (function () {
   var LOGO_CLARO = '../../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-claro.svg';
   var LOGO_OSCURO = '../../../02_Logos/01_Horizontal/SVG/oryzz-logo-horizontal_color-sobre-oscuro.svg';
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
   function run() {
     var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
     var total = pages.length;
@@ -17,7 +16,7 @@
       h.innerHTML = '<img src="' + (dark ? LOGO_OSCURO : LOGO_CLARO) + '" alt="oryzz"><span>' + doc + '</span>';
       var f = document.createElement('div');
       f.className = 'run-foot';
-      f.innerHTML = '<span>' + pie + '</span><span class="folio">' + pad(i + 1) + ' / ' + pad(total) + '</span>';
+      f.innerHTML = '<span>' + pie + '</span><span class="folio">' + (i + 1) + ' / ' + total + '</span>';
       p.insertBefore(h, p.firstChild);
       p.appendChild(f);
     });

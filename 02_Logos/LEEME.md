@@ -5,7 +5,7 @@ Para ver todas las versiones de un vistazo, abre `Oryzz_Logos_Hoja_de_Contacto.p
 
 ---
 
-## 1. ¿Qué archivo uso?
+## ¿Qué archivo uso?
 
 | Caso | Archivo recomendado | Notas |
 |---|---|---|
@@ -18,7 +18,7 @@ Para ver todas las versiones de un vistazo, abre `Oryzz_Logos_Hoja_de_Contacto.p
 | Marca de agua en posts, stories y vídeo | `04_Isotipo/PNG/oryzz-isotipo_mono-blanco_512.png` o `01_Horizontal/PNG/…_mono-blanco_1600.png` | Sobre foto, siempre con velo Grafito 950 al 55–70 %. |
 | Firma de email | `01_Horizontal/PNG/oryzz-logo-horizontal_solido-sobre-claro_800.png` | Muéstralo a 160–200 px de ancho. Los clientes de correo no leen SVG. |
 | Word, Google Docs, PowerPoint | PNG `_1600` en `color-sobre-claro` (fondo blanco) o `color-sobre-oscuro` (diapositiva oscura) | |
-| Imprenta (papelería, flyers, lonas) | `…/PDF/…_color-sobre-claro.pdf` o `_color-sobre-oscuro.pdf` | PDF vectorial en RGB: la imprenta lo convierte con los CMYK de `03_Color` y entrega prueba de color (ver §2). |
+| Imprenta (papelería, flyers, lonas) | `…/PDF/…_color-sobre-claro.pdf` o `_color-sobre-oscuro.pdf` | PDF vectorial en RGB: la imprenta lo convierte con los CMYK de `03_Color` y entrega prueba de color (ver «Estructura de carpetas»). |
 | Impresión a una tinta / barata | `…/PDF/…_mono-negro.pdf` o `_mono-grafito.pdf` | |
 | **Bordado** (polos, gorras) | `…/SVG/…_solido-sobre-oscuro.svg` / `_solido-sobre-claro.svg` o `mono-blanco` / `mono-grafito` | Sin gradiente. El corte del nodo (2,5 u) está pensado para que no se empaste. |
 | **Vinilo de corte** (escaparate, coche) | `…/SVG/…_mono-blanco.svg` o `_mono-grafito.svg` | El vinilo de corte no admite gradientes. `solido` si se monta en varias capas. |
@@ -34,7 +34,7 @@ Para ver todas las versiones de un vistazo, abre `Oryzz_Logos_Hoja_de_Contacto.p
 | Estado de carga | `08_Animado/oryzz-loader.svg` | 32–96 px. |
 | Guía de marca | `09_Construccion_y_Uso/` | Láminas en SVG (texto vectorizado) y PNG a 2×, en tema oscuro y claro. |
 
-## 2. Estructura de carpetas
+## Estructura de carpetas
 
 ```
 02_Logos/
@@ -62,7 +62,7 @@ Para ver todas las versiones de un vistazo, abre `Oryzz_Logos_Hoja_de_Contacto.p
 - **PNG**: fondo transparente, con el mismo encuadre que el SVG maestro. Los lockups llevan un margen uniforme de 32 u en los cuatro lados (nada toca el borde); isotipo y avatares mantienen su caja cuadrada.
 - **PDF**: vectorial (sin imágenes incrustadas, sin fuentes: todo son trazados), página del tamaño del logo. **Van en RGB a propósito.** Instrucción para la imprenta: convertir a CMYK usando los valores CMYK de `03_Color` (no una conversión automática de perfil) y entregar **prueba de color** antes de tirar la producción.
 
-## 3. Reglas rápidas
+## Reglas rápidas
 
 1. **Área de respeto**: como mínimo **x** (la altura de la «z» del wordmark) en los cuatro lados. Isotipo solo: 25 % de su ancho.
 2. **Tamaño mínimo**: horizontal 88 px / 22 mm; isotipo 16 px / 5 mm. Por debajo de 120 px, `solido`; por debajo de 24 px, `isotipo-small`.
@@ -72,7 +72,7 @@ Para ver todas las versiones de un vistazo, abre `Oryzz_Logos_Hoja_de_Contacto.p
 6. El movimiento del logo solo en intros, loaders y cierres; nunca en bucle dentro de una interfaz.
 7. Los `id` de los gradientes son únicos por familia y colorway (`oryzz-h-color-sobre-oscuro-r`…): puedes incrustar varios SVG en línea en la misma página. Solo evita repetir en línea el mismo archivo dos veces (usa `<img>`).
 
-## 4. Regenerar
+## Regenerar
 
 Todo sale de los scripts de `00_Fuente_Maestra/build/` (Python 3 + Chrome):
 

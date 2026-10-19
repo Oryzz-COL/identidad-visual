@@ -5,14 +5,14 @@
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 54px; }
 .col { background: var(--sup); border: 1px solid var(--borde); border-radius: 24px; padding: 34px 28px 30px; display: flex; flex-direction: column; }
 .col.on { border-color: var(--acento); box-shadow: 0 0 0 1px var(--acento); }
-.col .mono { font-size: 18px; letter-spacing: .16em; text-transform: uppercase; color: var(--tx3); display: flex; align-items: center; gap: 12px; }
+.col .etq { font-size: 24px; color: var(--tx3); display: flex; align-items: center; gap: 12px; }
 .col h3 { font-family: var(--font-display); font-weight: 700; font-size: 44px; letter-spacing: -.03em; line-height: 1.04; margin-top: 14px; }
 .col .d { font-size: 24px; line-height: 1.4; color: var(--tx2); margin-top: 12px; min-height: 62px; }
 .col svg.diag { margin: 18px 0 4px; display: block; }
 .col ul { list-style: none; margin-top: 14px; }
 .col li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; font-size: 23px; line-height: 1.32; color: var(--tx); padding: 14px 0; border-top: 1px solid var(--borde); font-weight: 500; }
 .col li svg { margin-top: 2px; color: var(--tx3); }
-.svg-et { font-family: var(--font-mono); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; fill: var(--tx2); }
+.svg-et { font-family: var(--font-texto); font-weight: 600; font-size: 21px; letter-spacing: 0; fill: var(--tx2); }
 {% endblock %}
 {% set alinear = 'arriba' %}
 {% block cuerpo %}
@@ -22,7 +22,7 @@
   <div class="cols">
     {% for c in columnas %}
     <div class="col{% if c.on %} on{% endif %}">
-      <span class="mono">{% if c.on %}<span class="nodo-dot" style="width:12px;height:12px"></span>{% endif %}{{ c.linea }}</span>
+      <span class="etq">{% if c.on %}<span class="nodo-dot" style="width:12px;height:12px"></span>{% endif %}{{ c.linea }}</span>
       <h3>{{ c.titulo|t }}</h3>
       <p class="d">{{ c.texto|t }}</p>
       {% set n = c.destinos|length %}

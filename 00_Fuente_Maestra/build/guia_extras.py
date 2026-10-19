@@ -51,26 +51,27 @@ def resumen():
 @page { size: 297mm 210mm; margin: 0; }
 .r { width: 297mm; height: 210mm; position: relative; overflow: hidden; background: #0B0D12; color: #fff; }
 .r .in { inset: 13mm 14mm 12mm 14mm; }
-.r .eyebrow { font-size: 9.5px; }
-.r p, .r li { font-size: 11.5px; line-height: 1.5; }
+.r .eyebrow { font-size: 12px; }
+.r p, .r li { font-size: 12px; line-height: 1.45; }
 .r h4 { font-size: 14px; }
 .r .card { padding: 4mm 4.5mm; border-radius: 8px; }
-.r .kick { font-size: 9px; margin-bottom: 2.2mm; }
+.r .kick { font-size: 12px; margin-bottom: 2.2mm; }
 .r .g { column-gap: 5mm; row-gap: 5mm; }
 .r code { font-size: 10px; }
 .r .yes, .r .nope { font-size: 11px; padding: 1.6mm 0; gap: 2mm; }
 .r .mk { width: 13px; height: 13px; }
-.r ol.n li::before { font-size: 9px; top: 2px; }
+.r ol.n li::before { top: 5px; left: 1px; width: 7px; height: 7px; border-width: 1.5px; }
 """
     sw = ''
     for hexc, nm, uso in [(G['950'], 'Grafito 950', '60 % · fondo'), ('#FFFFFF', 'Blanco', '25 % · superficie'), (C['azul']['500'], 'Azul IA', '10 % · marca'),
                           (C['azul']['600'], 'Azul 600', 'botón en claro'), (C['cyan']['500'], 'Cyan', 'gradiente, datos'), (C['lima']['500'], 'Lima', '≤ 5 % · acento')]:
         tx = '#FFFFFF' if contraste(hexc, '#FFFFFF') >= contraste(hexc, G['950']) else G['950']
         sw += (f'<div style="background:{hexc};color:{tx};border:1px solid var(--borde);border-radius:7px;height:26mm;padding:2.5mm;display:flex;flex-direction:column;justify-content:flex-end">'
-               f'<div style="font-weight:700;font-size:11.5px">{nm}</div><div class="mono" style="font-size:9px;opacity:.85">{hexc}</div><div class="mono" style="font-size:8.5px;opacity:.75">{uso}</div></div>')
+               f'<div style="font-weight:700;font-size:11.5px">{nm}</div><div class="mono" style="font-size:10px;opacity:.85">{hexc}</div><div style="font-size:10.5px;font-weight:500;opacity:.8">{uso}</div></div>')
     reglas = ['Un solo acento lima por pieza; lima nunca como texto sobre claro.', 'Un fragmento en azul por titular; nunca la frase entera en gradiente.',
               'Un único CTA, verbo + resultado, con contraste AA.', 'Cifras reales con unidad; si no lo son, «Ejemplo» o {{dato}}.',
-              'Nada de violeta, neón, emojis, robots, cerebros ni halos difusos.']
+              'Nada de violeta, neón, emojis, robots, cerebros ni halos difusos.',
+              'Etiquetas en tipo frase (Manrope 600): sin mayúsculas espaciadas ni numeraciones.']
     L = '02_Logos/'
     cuerpo = f"""<section class="r page oscuro"><div class="in">
       <div style="display:flex;align-items:center;gap:6mm">
@@ -98,14 +99,14 @@ def resumen():
             <div style="flex:1;height:8mm;border-radius:6px;background:var(--grad-ia-claro);display:flex;align-items:center;padding:0 3mm;color:#fff;font-size:10px;font-weight:700">Gradiente IA claro · 135° #3B72FF → #17A9C2</div>
           </div>
           <div class="card" style="margin-top:4mm;display:flex;align-items:flex-end;gap:7mm">
-            <div><div class="kick">Tipografía</div><div style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.035em;line-height:1">Space Grotesk</div><div class="mono" style="font-size:9px;color:var(--tx3);margin-top:1mm">TITULARES · CIFRAS</div></div>
-            <div><div style="font-size:19px;color:var(--tx2)">Manrope</div><div class="mono" style="font-size:9px;color:var(--tx3);margin-top:1mm">TEXTO · INTERFAZ</div></div>
-            <div><div class="mono" style="font-size:16px;color:var(--tx2)">JetBrains Mono</div><div class="mono" style="font-size:9px;color:var(--tx3);margin-top:1mm">EYEBROWS · DATOS</div></div>
+            <div><div class="kick">Tipografía</div><div style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-.035em;line-height:1">Space Grotesk</div><div style="font-size:11px;font-weight:600;color:var(--tx3);margin-top:1mm">Titulares y cifras</div></div>
+            <div><div style="font-size:19px;color:var(--tx2)">Manrope</div><div style="font-size:11px;font-weight:600;color:var(--tx3);margin-top:1mm">Texto, interfaz y etiquetas</div></div>
+            <div><div class="mono" style="font-size:16px;color:var(--tx2)">JetBrains Mono</div><div style="font-size:11px;font-weight:600;color:var(--tx3);margin-top:1mm">Solo dato técnico</div></div>
           </div>
         </div>
       </div>
       <div class="g" style="margin-top:5mm">
-        <div class="s5 card"><div class="kick">Cinco reglas de oro</div><ol class="n">{''.join(f'<li style="margin-top:1.2mm;padding-left:8mm;font-size:11px">{r}</li>' for r in reglas)}</ol></div>
+        <div class="s5 card"><div class="kick">Seis reglas de oro</div><ol class="n">{''.join(f'<li style="margin-top:1.2mm;padding-left:5mm;font-size:11.5px">{r}</li>' for r in reglas)}</ol></div>
         <div class="s4 card"><div class="kick">Voz</div>
           <div class="yes">{SI}<span>«Validamos con datos si tu negocio puede captar antes de que gastes de más.»</span></div>
           <div class="yes">{SI}<span>«Si no encajamos, te lo decimos.»</span></div>
@@ -117,7 +118,7 @@ def resumen():
             <span style="background:#2C5BD0;color:#fff;font-weight:700;font-size:11px;padding:2.2mm 4mm;border-radius:7px">Elegir el mío →</span></div>
           <p style="margin-top:2.5mm;font-size:10.5px">Oscuro: gradiente + texto grafito. Claro: Azul 600 + blanco. Sin sombras.</p></div>
       </div>
-      <div class="mono" style="margin-top:auto;font-size:9px;letter-spacing:.08em;color:var(--tx3);display:flex;justify-content:space-between">
+      <div style="margin-top:auto;font-size:11px;font-weight:500;color:var(--tx3);display:flex;justify-content:space-between">
         <span>Manual completo: 01_Guia_de_Marca/Oryzz_Guia_de_Marca_v2.pdf · Fuente de verdad: 00_Fuente_Maestra/BRAND_SPEC.md</span><span>oryzz.com</span></div>
     </div></section>"""
     escribir_pdf(documento(cuerpo, f'Oryzz · Guía de marca {gm.VERSION} · Resumen', css), 'resumen.html', RESUMEN, f'Oryzz · Guía de marca {gm.VERSION} · Resumen de una página')
@@ -141,10 +142,10 @@ def especimen():
 
     pesos = ''.join(f'<div style="display:flex;align-items:baseline;gap:28px;border-bottom:1px solid var(--borde);padding:10px 0"><span class="mono" style="width:150px;font-size:17px;color:var(--tx3)">{n} {w}</span>'
                     f'<span style="font-family:var(--font-display);font-weight:{w};font-size:58px;letter-spacing:-.035em;line-height:1.05">Más clientes. No más likes.</span></div>'
-                    for w, n in [(300, 'Light'), (400, 'Regular'), (500, 'Medium'), (600, 'SemiBold'), (700, 'Bold')])
+                    for w, n in [(500, 'Medium'), (600, 'SemiBold'), (700, 'Bold')])
     body = f"""<div class="g grow"><div class="s4" style="display:flex;flex-direction:column"><div class="eyebrow">Display · titulares y cifras</div>
       <div style="font-family:var(--font-display);font-weight:700;font-size:300px;line-height:.85;letter-spacing:-.06em;margin-top:30px">Ag</div>
-      <h3 class="mt3">Space Grotesk</h3><p class="mt1" style="font-size:22px">Florian Karsten · OFL. En la marca: 500, 600 y 700. 300 y 400 solo en cifras muy grandes.</p></div>
+      <h3 class="mt3">Space Grotesk</h3><p class="mt1" style="font-size:22px">Florian Karsten · OFL. En la marca: 500, 600 y 700 (BRAND_SPEC §4). Light y Regular no se usan.</p></div>
       <div class="s8">{pesos}<div class="mt3" style="font-family:var(--font-display);font-weight:500;font-size:30px;line-height:1.45;color:var(--tx2)">{juego}</div></div></div>"""
     pg(body, 'oscuro')
 
@@ -159,10 +160,10 @@ def especimen():
 
     pesos = ''.join(f'<div style="display:flex;align-items:baseline;gap:28px;border-bottom:1px solid var(--borde);padding:9px 0"><span class="mono" style="width:150px;font-size:17px;color:var(--tx3)">{n} {w}</span>'
                     f'<span style="font-family:var(--font-texto);font-weight:{w};font-size:40px;letter-spacing:-.01em">Te traemos clientes, no likes.</span></div>'
-                    for w, n in [(400, 'Regular'), (500, 'Medium'), (600, 'SemiBold'), (700, 'Bold'), (800, 'ExtraBold')])
+                    for w, n in [(400, 'Regular'), (500, 'Medium'), (600, 'SemiBold'), (700, 'Bold')])
     body = f"""<div class="g grow"><div class="s4" style="display:flex;flex-direction:column"><div class="eyebrow">Texto · párrafos e interfaz</div>
       <div style="font-family:var(--font-texto);font-weight:600;font-size:300px;line-height:.85;letter-spacing:-.04em;margin-top:30px">Ag</div>
-      <h3 class="mt3" style="font-family:var(--font-texto)">Manrope</h3><p class="mt1" style="font-size:22px">Mikhail Sharanda · OFL. Cuerpo en 400; destacados en 600–700; 800 solo en botones grandes.</p></div>
+      <h3 class="mt3" style="font-family:var(--font-texto)">Manrope</h3><p class="mt1" style="font-size:22px">Mikhail Sharanda · OFL. Cuerpo en 400; etiquetas en 600, tipo frase; destacados y subtítulos de vídeo en 700.</p></div>
       <div class="s8">{pesos}
         <div class="g mt3">
           <div class="s4"><div class="kick g3">16 px · web</div><p style="font-size:16px;line-height:1.6">Tu negocio ya recibe visitas, mensajes y llamadas. Lo que falla es lo que pasa después: mensajes que se responden tarde y llamadas que nadie devuelve.</p></div>
@@ -173,13 +174,12 @@ def especimen():
 
     cifras = ''.join(f'<tr><td class="m" style="font-weight:400">{a}</td><td class="m" style="text-align:right;color:var(--tx)">{b}</td><td class="m" style="text-align:right">{c}</td></tr>'
                      for a, b, c in [('Citas agendadas', '61', '+18'), ('Coste por lead', '11,40 €', '−1,90 €'), ('CTR anuncios', '2,8 %', '+0,6 pp'), ('Reseñas nuevas', '31', '+12')])
-    body = f"""<div class="g grow"><div class="s4" style="display:flex;flex-direction:column"><div class="eyebrow">Datos · eyebrows, métricas, código</div>
+    body = f"""<div class="g grow"><div class="s4" style="display:flex;flex-direction:column"><div class="eyebrow">Datos · métricas, código y URL</div>
       <div style="font-family:var(--font-mono);font-weight:500;font-size:240px;line-height:.9;margin-top:30px">Ag</div>
       <h3 class="mt3" style="font-family:var(--font-mono);letter-spacing:0">JetBrains Mono</h3><p class="mt1" style="font-size:22px">JetBrains · OFL. 400 y 500; 700 solo para resaltar un dato en una tabla.</p></div>
       <div class="s8">
-        <div class="kick g3">Eyebrow · 12 px web / 20 px slides · MAYÚSCULAS · +0,16 em</div>
-        <div style="font-family:var(--font-mono);font-weight:500;font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);margin-top:8px">01 · Diagnóstico — 30 min</div>
-        <div style="font-family:var(--font-mono);font-weight:500;font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--az);margin-top:8px">Sistema Oryzz · en marcha</div>
+        <div class="kick g3">Nunca para etiquetas</div>
+        <p style="font-size:24px">Las etiquetas van en Manrope 600, en tipo frase y sin tracking: <span style="font-family:var(--font-texto);font-weight:600;color:var(--tx)">Sistema Oryzz en marcha</span>. La mono queda para el dato técnico.</p>
         <div class="kick g3 mt3">Cifras tabulares · Ejemplo</div>
         <table class="t"><tr><th>Métrica</th><th style="text-align:right">Septiembre</th><th style="text-align:right">vs. agosto</th></tr>{cifras}</table>
         <div class="kick g3 mt3">Código y URLs</div>
@@ -200,7 +200,7 @@ def especimen():
       </div>
       <div class="s5" style="display:flex;flex-direction:column;gap:32px">
         <div class="card" style="background:#fff;border-color:{G['200']};color:{G['950']}">
-          <div class="eyebrow" style="color:{G['500']}">02 · Contexto</div>
+          <div class="eyebrow" style="color:{G['500']}">Contexto</div>
           <div style="font-family:var(--font-display);font-weight:700;font-size:40px;letter-spacing:-.03em;line-height:1.1;margin-top:12px">Dónde se pierden hoy tus clientes</div>
           <p style="color:{G['600']};font-size:22px;margin-top:12px">Antes de invertir un euro más en anuncios, miramos qué pasa con los que ya te escriben.</p></div>
         <div class="card"><div class="eyebrow">Citas este mes · Ejemplo</div>
@@ -215,8 +215,8 @@ def especimen():
         filas += (f'<tr><td class="m" style="color:var(--az);font-weight:500">{k}</td><td>{fam}</td><td class="m">{v["weight"]}</td><td class="m">{v["size"]} px</td>'
                   f'<td class="m">{str(v["line"]).replace(".", ",")}</td><td class="m">{v["tracking"]}</td></tr>')
     body = head('Escala y tokens', 'Una escala <span class="az">para todos los soportes</span>')
-    body += f'<table class="t compact mt3"><tr><th>Token</th><th>Familia</th><th>Peso</th><th>Web</th><th>Interl.</th><th>Tracking</th></tr>{filas}</table>'
-    body += '<div class="g mt3"><div class="s4 rule"><div class="kick g3">Web</div><p style="font-size:22px">La escala de arriba, tal cual (<code>tokens.json</code> → <code>type-scale-px</code>). Mínimo 14 px.</p></div><div class="s4 rule"><div class="kick g3">Slides 1920×1080</div><p style="font-size:22px">Titulares 64–120 px · lectura ≥ 36 px · eyebrows y notas ≥ 24 px.</p></div><div class="s4 rule"><div class="kick g3">A4</div><p style="font-size:22px">Titular 22 pt · cuerpo 9,5 pt · mínimo 9 pt. Ya definidos en las plantillas Word.</p></div></div>'
+    body += f'<table class="t compact mt2"><tr><th>Token</th><th>Familia</th><th>Peso</th><th>Web</th><th>Interl.</th><th>Tracking</th></tr>{filas}</table>'
+    body += '<div class="g mt3"><div class="s4 rule"><div class="kick g3">Web</div><p style="font-size:22px">La escala de arriba, tal cual (<code>tokens.json</code> → <code>type-scale-px</code>). Mínimo 14 px.</p></div><div class="s4 rule"><div class="kick g3">Slides 1920×1080</div><p style="font-size:22px">Titulares 64–120 px · lectura ≥ 36 px · etiquetas y notas ≥ 24 px.</p></div><div class="s4 rule"><div class="kick g3">A4</div><p style="font-size:22px">Titular 22 pt · cuerpo 9,5 pt · mínimo 9 pt. Ya definidos en las plantillas Word.</p></div></div>'
     pg(body, 'claro')
 
     body = head('Instalación y licencia', 'Instalar, usar <span class="az">y compartir</span>')

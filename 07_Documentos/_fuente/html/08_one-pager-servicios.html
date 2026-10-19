@@ -8,15 +8,14 @@
   .op { padding: 0; }
   .op .orb { position: absolute; right: -58mm; top: -92mm; width: 210mm; height: 297mm; opacity: .9; }
   .op .logo { position: absolute; left: 20mm; top: 18mm; width: 32mm; }
-  .op .web { position: absolute; right: 20mm; top: 20mm; font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-400); letter-spacing: .04em; }
+  .op .web { position: absolute; right: 20mm; top: 20mm; font-family: var(--font-texto); font-weight: 600; font-size: 9pt; color: var(--grafito-400); letter-spacing: 0; }
   .op .hero { position: absolute; left: 20mm; right: 20mm; top: 52mm; }
   .op h1 { font-size: 46pt; line-height: .98; letter-spacing: -.045em; margin-bottom: 7mm; }
   .op .lead { max-width: 118mm; font-size: 12pt; }
   .op .servicios { position: absolute; left: 20mm; right: 20mm; top: 130mm; }
   .srv { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; padding: 3mm 0; border-top: 0.25mm solid var(--grafito-700); align-items: baseline; }
   .srv:last-child { border-bottom: 0.25mm solid var(--grafito-700); }
-  .srv .n { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-400); grid-column: span 1; }
-  .srv h3 { grid-column: span 2; margin: 0; font-size: 12pt; color: #fff; }
+  .srv h3 { grid-column: span 3; margin: 0; font-size: 12pt; color: #fff; }
   .srv p { grid-column: span 3; margin: 0; color: var(--grafito-200); font-size: 9.5pt; line-height: 1.45; }
   .op .como { position: absolute; left: 20mm; right: 20mm; top: 208mm; }
   .pasos { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 5mm; }
@@ -28,7 +27,7 @@
   .op .cta { position: absolute; left: 20mm; right: 20mm; bottom: 16mm; display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 5mm; align-items: end; }
   .op .cta .frase { grid-column: span 3; font-family: var(--font-display); font-weight: 600; font-size: 15pt; letter-spacing: -.02em; line-height: 1.2; margin: 0; }
   .op .cta .boton { grid-column: span 2; background: var(--grad-ia-oscuro); color: var(--grafito-950); border-radius: 99mm; padding: 3.2mm 5mm; font-weight: 700; font-size: 10pt; text-align: center; }
-  .op .cta .datos { grid-column: span 1; font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-400); line-height: 1.5; text-align: right; }
+  .op .cta .datos { grid-column: span 1; font-family: var(--font-texto); font-weight: 500; font-size: 9pt; color: var(--grafito-400); line-height: 1.5; text-align: right; }
 </style>
 </head>
 <body>
@@ -45,10 +44,10 @@
 
   <div class="servicios">
     <p class="eyebrow">Qué hacemos</p>
-    <div class="srv"><span class="n">01</span><h3>Meta, Google y TikTok Ads</h3><p>Campañas optimizadas a mensajes, llamadas y formularios. Creatividades con tu negocio real.</p></div>
-    <div class="srv"><span class="n">02</span><h3>Automatización con IA</h3><p>Asistente de WhatsApp e Instagram que responde en minutos, filtra y agenda. Recordatorios y seguimiento.</p></div>
-    <div class="srv"><span class="n">03</span><h3>SEO local y reseñas</h3><p>Google Business Profile completo y un sistema que pide reseñas en el momento justo.</p></div>
-    <div class="srv"><span class="n">04</span><h3>GEO</h3><p>Posicionamiento en ChatGPT, Gemini y Perplexity para cuando tu cliente pregunta a una IA.</p></div>
+    <div class="srv"><h3>Meta, Google y TikTok Ads</h3><p>Campañas optimizadas a mensajes, llamadas y formularios. Creatividades con tu negocio real.</p></div>
+    <div class="srv"><h3>Automatización con IA</h3><p>Asistente de WhatsApp e Instagram que responde en minutos, filtra y agenda. Recordatorios y seguimiento.</p></div>
+    <div class="srv"><h3>SEO local y reseñas</h3><p>Google Business Profile completo y un sistema que pide reseñas en el momento justo.</p></div>
+    <div class="srv"><h3>GEO</h3><p>Posicionamiento en ChatGPT, Gemini y Perplexity para cuando tu cliente pregunta a una IA.</p></div>
   </div>
 
   <div class="como">

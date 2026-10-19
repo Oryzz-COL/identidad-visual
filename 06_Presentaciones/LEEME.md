@@ -1,4 +1,4 @@
-# 06 · Presentaciones — Oryzz y Oryzz Tap
+# Presentaciones · Oryzz y Oryzz Tap
 
 Plantillas de presentación 16:9 (1920 × 1080 px / 33,867 × 19,05 cm) del sistema de marca Oryzz v2.0.
 Todo sale de un único modelo en código (`00_Fuente_Maestra/build/pres_*.py`), así que el .pptx, la previsualización HTML/PDF y las miniaturas coinciden.
@@ -18,8 +18,10 @@ Todo sale de un único modelo en código (`00_Fuente_Maestra/build/pres_*.py`), 
 
 ## Diseños incluidos (patrón de diapositivas)
 
-01 Portada · Órbita · 02 Portada · Tipográfica · 03 Agenda · 04 Separador de sección · 05 Título + texto · 06 Dos columnas · 07 Cita / manifiesto · 08 Cifra gigante · 09 Tres KPIs · 10 Gráfico · 11 Tabla · 12 Proceso en pasos · 13 Canales → sistema → cliente · 14 Antes / después · 15 Caso de estudio · 16 Plan 30-60-90 · 17 Equipo · 18 Precios / planes · 19 Imagen a sangre · 20 Imagen + texto · 21 Comparativa · 22 Preguntas frecuentes · 23 Lista de seis · 24 Llamada a la acción · 25 Cierre · 26 Título y contenido · 27 Solo título · 28 En blanco.
-Oryzz Tap añade: T1 Portada de producto · T2 Dos columnas con imagen.
+Portada · Órbita, Portada · Tipográfica, Agenda, Separador de sección, Título + texto, Dos columnas, Cita / manifiesto, Cifra gigante, Tres KPIs, Gráfico, Tabla, Proceso en pasos, Canales → sistema → cliente, Antes / después, Caso de estudio, Plan 30-60-90, Equipo, Precios / planes, Imagen a sangre, Imagen + texto, Comparativa, Preguntas frecuentes, Lista de seis, Llamada a la acción, Cierre, Título y contenido, Solo título y En blanco.
+Oryzz Tap añade: Tap · Portada producto y Tap · Dos columnas con imagen.
+
+Los diseños no llevan número en el nombre, y los pasos, agendas y listas se distinguen por su título y por un nodo, nunca por «01», «Paso 02» o «02 / 07» (BRAND_SPEC §4).
 
 Cada diseño tiene marcadores reales (título, textos, imagen, gráfico, tabla), pie y número de diapositiva. Las notas del orador de varias diapositivas explican cómo usarlas.
 
@@ -50,7 +52,7 @@ Cada diseño tiene marcadores reales (título, textos, imagen, gráfico, tabla),
 En `04_Tipografia/TTF_estaticas/` (licencia OFL, gratuitas y redistribuibles):
 - **Space Grotesk** — Bold (titulares), Medium (cifras), SemiBold.
 - **Manrope** — Regular (texto), Medium, SemiBold, Bold.
-- **JetBrains Mono** — Regular (etiquetas, pies, datos).
+- **JetBrains Mono** — Regular, solo para dato técnico: ejes de gráficos, cifras tabulares y códigos.
 
 Windows: selecciona los .ttf > clic derecho > **Instalar para todos los usuarios**. Mac: doble clic > Instalar. Si una fuente falta y el archivo no la trae incrustada, Office la sustituye por Arial.
 
@@ -58,8 +60,8 @@ Windows: selecciona los .ttf > clic derecho > **Instalar para todos los usuarios
 
 - **Retícula:** 12 columnas en 1920 × 1080, **márgenes de 120 px** en los cuatro lados, medianil de 32 px (columna = 110,67 px). Todo el texto y los bloques arrancan en una columna. El pie y la numeración viven en el margen inferior (y = 1004 px).
 - **Una idea por diapositiva.** Si necesitas dos mensajes, son dos diapositivas. El titular dice la conclusión, no el tema («Lo que cambia cuando hay un sistema», no «Antes y después»).
-- **Tamaños mínimos:** texto de lectura **18 pt** como mínimo (cuerpo 20 pt, entradilla 24 pt, titulares 44 pt, portadas 80–96 pt). Las únicas excepciones son elementos de sistema que no se leen como contenido: etiquetas en mono (14 pt), pie, numeración, fuentes de datos y ejes de gráfico (10–14 pt).
-- **Jerarquía tipográfica:** Space Grotesk Bold con tracking negativo para titulares (máx. 2–3 líneas), Manrope para el texto, JetBrains Mono en mayúsculas para etiquetas y datos. Resalta **un solo fragmento** del titular en azul.
+- **Tamaños mínimos:** texto de lectura **18 pt** como mínimo (cuerpo 20 pt, entradilla 24 pt, titulares 44 pt, portadas 80–96 pt). Las únicas excepciones son elementos de sistema que no se leen como contenido: etiquetas (14 pt), pie, número de diapositiva, fuentes de datos y ejes de gráfico (12–14 pt; nunca menos de 24 px en 1920 × 1080).
+- **Jerarquía tipográfica:** Space Grotesk Bold con tracking negativo para titulares (máx. 2–3 líneas), Manrope para el texto y para las etiquetas (Manrope SemiBold, **tipo frase, sin mayúsculas ni tracking**: «Cómo trabajamos», no «CÓMO TRABAJAMOS»). JetBrains Mono solo para dato técnico (ejes, cifras tabulares). Resalta **un solo fragmento** del titular en azul.
 - **Un acento por diapositiva:** el lima es el nodo (un dato, un punto, un resultado). Si la diapositiva lleva una cifra con gradiente IA, no lleva lima. Nunca fondos grandes de lima, ni violeta, ni gradientes de tres colores.
 - **Composición asimétrica y aire:** no centres todo ni pongas tres tarjetas idénticas en fila. Deja vacío al menos un tercio de la diapositiva.
 - **Datos honestos:** toda cifra lleva unidad y fuente. Si no es real, se marca como «Ejemplo» o como `{{dato}}`.

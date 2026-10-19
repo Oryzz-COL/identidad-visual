@@ -8,7 +8,6 @@
       "formato": "youtube",
       "eyebrow": "GEO para negocios locales",
       "titular": "¿Te recomienda **ChatGPT**?",
-      "episodio": "Episodio 01",
       "foto": null
     },
     {
@@ -16,8 +15,7 @@
       "plantilla": "reel_portada",
       "formato": "story",
       "eyebrow": "Captación · en 60 segundos",
-      "titular": "3 errores que te cuestan **clientes** cada semana.",
-      "episodio": "Episodio 01"
+      "titular": "3 errores que te cuestan **clientes** cada semana."
     },
     {
       "id": "reel_tiktok_portada_GUIA_zonas_seguras", "carpeta": "_guias",
@@ -25,8 +23,7 @@
       "formato": "story",
       "guia": true,
       "eyebrow": "Captación · en 60 segundos",
-      "titular": "3 errores que te cuestan **clientes** cada semana.",
-      "episodio": "Episodio 01"
+      "titular": "3 errores que te cuestan **clientes** cada semana."
     },
     {
       "id": "og_oryzz_1200x630",

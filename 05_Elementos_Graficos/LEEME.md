@@ -1,4 +1,4 @@
-# 05 · Elementos gráficos · «Órbita y nodo»
+# Elementos gráficos · «Órbita y nodo»
 
 Lenguaje visual de Oryzz v2.0: **órbitas, rutas, nodos y datos**. Todo sale de la O del logo (órbita abierta = el sistema en marcha) y de su nodo lima (el resultado medible: el lead, la cita, el cliente).
 
@@ -91,7 +91,7 @@ Fuente obligatoria: `00_Fuente_Maestra/BRAND_SPEC.md` y `tokens.json`. Todo lo d
 - `SVG/`: texto vivo, **editable** (necesita instaladas Space Grotesk, Manrope y JetBrains Mono de `04_Tipografia`).
 - `SVG_contornos/`: texto convertido a trazados. **Usa este en web, email, `<img>` y documentos**: se ve igual en cualquier equipo.
 - `PNG/`: 1920 × 1080 y `@2x` 3840 × 2160. En slides, a sangre en una diapositiva 16:9.
-- Estilo: líneas finas, nodos huecos, etiquetas en JetBrains Mono y **un solo acento lima** (el resultado). Sin gradiente ni azul de acento dentro del diagrama.
+- Estilo: líneas finas, nodos huecos, etiquetas en Manrope 600 en tipo frase (sin mayúsculas, sin tracking y sin números de paso: cada etapa se distingue por su nombre y su nodo) y **un solo acento lima** (el resultado). Sin gradiente ni azul de acento dentro del diagrama. JetBrains Mono solo para datos técnicos, como la URL de agenda.
 
 ## 05_Componentes_Dato
 
@@ -100,11 +100,12 @@ Fuente obligatoria: `00_Fuente_Maestra/BRAND_SPEC.md` y `tokens.json`. Todo lo d
 | `kpi/` | Tarjetas KPI 400 × 232: `coste-por-lead`, `citas`, `ctr`, `resenas` (oscuro y claro) |
 | `graficos/` | Mini gráfico de `linea` y de `barras` 640 × 340 (oscuro y claro) |
 | `chips/` | `en-marcha`, `ejemplo`, `meta-ads`, `google-ads`, `tiktok-ads`, `geo`, `nuevo-lead`, `pausado` |
-| `eyebrows/` | `linea` (— MÉTODO ORYZZ), `nodo` (● EN MARCHA), `numero` (01 / CAPTACIÓN) |
+| `eyebrows/` | Etiquetas en tipo frase, Manrope 600: `linea` (— Método Oryzz), `nodo` (● En marcha, el nodo es el acento lima) y `seccion` (Captación, en Azul 400 sobre oscuro y Azul 600 sobre claro). Sin números: la antigua variante `numero` («01 / Captación») se retiró el 2026-10-18 |
 | `botones/` | `primario-oscuro` (gradiente IA + texto Grafito 950), `primario-claro` (Azul 600 + blanco), `secundario-oscuro/claro` (contorno), tallas M (48) y L (60) |
 
 - Cada uno en `SVG/` (texto vivo), `SVG_contornos/` y `PNG/@2x`. Lámina: `componentes-lamina.png/pdf`.
-- Tarjeta dato: superficie Grafito 850, borde 1 px Grafito 700, radio 20, eyebrow mono, cifra Space Grotesk 500, delta con nodo lima.
+- Tarjeta dato: superficie Grafito 850, borde 1 px Grafito 700, radio 14 (`radius m`, BRAND_SPEC §5.4), etiqueta Manrope 600 en tipo frase, cifra Space Grotesk 500, delta (cifra tabular en JetBrains Mono) con nodo lima.
+- Chips: Manrope 600 en tipo frase («En marcha», «Ejemplo», «Meta Ads»), nunca en mayúsculas.
 - **Sobre claro el delta va en Grafito 950 con nodo Lima 600** (el texto en lima 600 sobre blanco no llega a contraste).
 - Las cifras son de ejemplo. Para cambiarlas: edita `KPIS`, `LEADS` y `CITAS` en `oryzz_componentes.py` y regenera. El chip «Ejemplo» solo se quita con datos reales y fuente.
 - En web, reproduce los componentes en HTML/CSS con `brand.css`; los SVG son referencia exacta y material para slides/documentos.

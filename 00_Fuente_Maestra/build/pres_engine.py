@@ -407,7 +407,7 @@ def ph_xml(ph, ids, lang):
         geom += _fill(st.get('fill'))
     prompt = f'<a:p><a:r><a:rPr lang="{lang}" dirty="0"/><a:t>{esc(ph.prompt)}</a:t></a:r></a:p>' if ph.prompt else f'<a:p><a:endParaRPr lang="{lang}"/></a:p>'
     if ph.kind == 'pic':
-        pst = merged({'size': 12, 'font': 'mono', 'color': st.get('prompt_color', '#8A90A0'), 'align': 'c', 'lh': 1.3, 'caps': True, 'spc': 0.12})
+        pst = merged({'size': 12, 'font': 'text_med', 'color': st.get('prompt_color', '#8A90A0'), 'align': 'c', 'lh': 1.3})
         lvl = ppr(pst, lvl_tag='a:lvl1pPr', def_rpr=rpr(pst, lang, tag='a:defRPr'))
     return (f'<p:sp><p:nvSpPr><p:cNvPr id="{ids()}" name="{esc(ph.name)}"/><p:cNvSpPr><a:spLocks noGrp="1"/></p:cNvSpPr>'
             f'<p:nvPr>{phtag}</p:nvPr></p:nvSpPr><p:spPr>{_xfrm(ph.x, ph.y, ph.w, ph.h)}{geom}</p:spPr>'

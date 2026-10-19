@@ -37,28 +37,28 @@
         },
         {
           "tipo": "desarrollo",
-          "eyebrow": "Razón 1 de 4",
+          "eyebrow": "Datos que no cuadran",
           "titular": "Tu información está **dispersa** y no coincide.",
           "texto": "Un horario en Google, otro en la web y otro en Instagram. Tratamientos sin explicar. Si los datos no cuadran, la IA no se fía de ellos.",
           "accion": "Unifica nombre, dirección, horario y tratamientos en Google, web, redes y directorios."
         },
         {
           "tipo": "desarrollo",
-          "eyebrow": "Razón 2 de 4",
+          "eyebrow": "Reseñas sin contexto",
           "titular": "Tus reseñas no cuentan **lo que haces**.",
           "texto": "«Muy amables» no ayuda. «Me pusieron un implante sin dolor en dos citas» sí. Los modelos leen reseñas para decidir a quién recomendar y para qué.",
           "accion": "Pide reseñas que mencionen el tratamiento y la ciudad. Y responde a todas."
         },
         {
           "tipo": "desarrollo",
-          "eyebrow": "Razón 3 de 4",
+          "eyebrow": "Una web que no responde",
           "titular": "Tu web no responde a **preguntas** reales.",
           "texto": "Páginas llenas de palabras clave, sin preguntas frecuentes ni precios orientativos. La IA cita contenido que responde claro, con datos y sin rodeos.",
           "accion": "Crea una página por tratamiento, con precio orientativo y preguntas frecuentes."
         },
         {
           "tipo": "desarrollo",
-          "eyebrow": "Razón 4 de 4",
+          "eyebrow": "Nadie te menciona",
           "titular": "Nadie habla de ti **fuera** de tu web.",
           "texto": "Directorios, prensa local, colegios profesionales, blogs del sector. Cuantas más fuentes fiables te mencionan, más fácil es que te recomienden.",
           "accion": "Consigue menciones en directorios de salud, prensa local y tu colegio profesional."

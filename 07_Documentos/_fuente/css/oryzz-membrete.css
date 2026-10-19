@@ -2,16 +2,16 @@
 .membrete { padding: 52mm 20mm 34mm 20mm; }
 .membrete .m-logo { position: absolute; left: 20mm; top: 18mm; width: 34mm; }
 .membrete .m-dir { position: absolute; right: 20mm; top: 18mm; text-align: right; }
-.membrete .m-dir p { margin: 0; font-family: var(--font-mono); font-size: 9pt; line-height: 1.55; color: var(--grafito-500); letter-spacing: .02em; }
+.membrete .m-dir p { margin: 0; font-family: var(--font-texto); font-weight: 500; font-size: 9pt; line-height: 1.55; color: var(--grafito-500); letter-spacing: 0; }
 .membrete .m-dir p.w { color: var(--grafito-950); }
 .membrete .m-orb { position: absolute; right: 0; bottom: 0; width: 70mm; height: 70mm; }
 .membrete .m-pie { position: absolute; left: 20mm; right: 20mm; bottom: 12mm; border-top: 0.25mm solid var(--grafito-100); padding-top: 3mm; display: flex; gap: 6mm; }
-.membrete .m-pie span { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); letter-spacing: .02em; }
+.membrete .m-pie span { font-family: var(--font-texto); font-weight: 500; font-size: 9pt; color: var(--grafito-500); letter-spacing: 0; }
 .membrete .m-pie span.w { color: var(--grafito-950); }
 .carta { font-size: 10pt; line-height: 1.6; }
 .carta .dest { margin-bottom: 14mm; }
 .carta .dest p { margin: 0; }
-.carta .fecha { font-family: var(--font-mono); font-size: 9pt; color: var(--grafito-500); letter-spacing: .02em; margin-bottom: 8mm; }
+.carta .fecha { font-family: var(--font-texto); font-weight: 500; font-size: 9pt; color: var(--grafito-500); letter-spacing: 0; margin-bottom: 8mm; }
 .carta .asunto { font-family: var(--font-display); font-weight: 600; font-size: 13pt; letter-spacing: -.01em; margin-bottom: 7mm; }
 .carta p { margin-bottom: 4mm; max-width: 150mm; }
 .carta .firma { margin-top: 12mm; }
